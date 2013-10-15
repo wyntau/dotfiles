@@ -1,5 +1,6 @@
-NOW=`pwd`
-DEFAULTNAME=`whoami`
+NOW = `pwd`
+DEFAULTNAME = `whoami`
+SUBLIMEPATH ?= $$HOME/Library/Application Support/Sublime Text 2
 
 all: submodule vimrc gitconfig astylerc wgetrc zsh
 
@@ -83,7 +84,19 @@ zsh: submodule
 	@/usr/bin/env zsh
 	@source ~/.zshrc
 
-.PHONY: submodule vimrc gitconfig astylerc wgetrc zsh
+sublime:
+	@echo "\033[0;33m==> Installing sublime Preference and Monokai-custom theme......\033[0m"
+
+	@rm -rf "$(SUBLIMEPATH)/Packages/User/Preferences.sublime-settings"
+	@echo "\033[0;36mlinking $(NOW)/sublime/Preferences.sublime-settings to $(SUBLIMEPATH)/Packages/User/Preferences.sublime-settings\033[0m"
+	@ln -s $(NOW)/sublime/Preferences.sublime-settings "$(SUBLIMEPATH)/Packages/User/Preferences.sublime-settings"
+
+	@rm -rf "$(SUBLIMEPATH)/Packages/User/monokai-custom"
+	@echo "\033[0;36mlinking $(NOW)/sublime/monokai-custom $(SUBLIMEPATH)/Packages/User/monokai-custom\033[0m"
+	@ln -s $(NOW)/sublime/monokai-custom "$(SUBLIMEPATH)/Packages/User/monokai-custom"
+	@echo "\033[0;32m==> Install sublime Preference and Monokai-custom theme completed.\033[0m"
+
+.PHONY: submodule vimrc gitconfig astylerc wgetrc zsh sublime
 
 #none         = "\033[0m"
 #black        = "\033[0;30m"
