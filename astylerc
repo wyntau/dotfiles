@@ -1,0 +1,27 @@
+# my astyle options file
+
+--style=attach
+--indent=spaces=2
+--indent-classes
+--indent-switches
+--indent-cases
+--indent-namespaces
+--indent-labels
+--indent-preprocessor
+--indent-col1-comments
+--min-conditional-indent=2
+--break-blocks
+#--break-blocks=all
+--pad-oper
+--pad-header
+#--pad-paren-out
+--delete-empty-lines
+--align-pointer=type
+--align-reference=type
+#--add-brackets
+--convert-tabs
+--max-code-length=80
+--break-after-logical
+--mode=c
+--suffix=none
+--lineend=linux

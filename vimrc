@@ -1,0 +1,930 @@
+"==========================================
+" Author:  Jeremial
+" Version: 1
+" Email: Jeremial90@gmail.com
+" Last_modify: 2013-09-30
+" Description: 适合自己使用的vimrc文件.
+" Sections:
+"     ->General 基础设置
+"     ->Show 展示/排版等界面格式设置
+"     ->file encode, 文件编码,格式
+"     ->indent 缩进等选项
+"     ->others 其它基础配置
+"     ->普通自定义快捷键键绑定
+"     ->mapleader 快捷键绑定
+"     ->自定义函数定义
+"     ->插件管理
+"     ->colortheme 主题,及一些展示上颜色的修改
+"     ->插件配置
+"==========================================
+
+"==========================================
+" General 基础设置
+"==========================================
+
+" 不要使用vi的键盘模式，而是vim自己的
+set nocompatible
+"行内替换
+"set gdefault
+" 共享外部剪贴板
+set clipboard+=unnamed
+" 启动的时候不显示那个援助索马里儿童的提示
+"set shortmess=atI
+" 在被分割的窗口间显示空白，便于阅读
+set fillchars=vert:\ ,stl:\ ,stlnc:\
+
+set diffopt+=vertical,context:3,foldcolumn:0
+
+" allow backspacing over everything in insert mode
+" 不设定在插入状态无法用退格键和 Delete 键删除回车符
+" 插入模式下，“←"如何删除光标前的字符：行首空白、换行符、插入点之前的字符
+set backspace=indent,eol,start
+" 带有如下符号的单词不要被换行分割
+set iskeyword+=_,$,@,%,#,-
+"忽略这些文件扩展名
+set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png,*.swp,*.class
+"保存全局变量
+set viminfo+=!
+
+" 备份,到另一个位置. 防止误删, 目前是取消备份
+"set backup
+"set backupext=.bak
+"set backupdir=~/bak/vimbk/
+
+" 覆盖文件时不备份
+set nobackup
+set noswapfile
+" 设置备份时的行为为覆盖
+set backupcopy=yes
+
+"{{{不要生成swap文件，当buffer被丢弃的时候隐藏它
+setlocal noswapfile
+set bufhidden=hide
+"}}}        
+
+"设置 退出vim后，内容显示在终端屏幕, 可以用于查看和复制
+"好处：误删什么的，如果以前屏幕打开，可以找回
+" set t_ti= t_te=
+
+"设置当文件被外部改变的时候自动读入文件
+if exists("&autoread")
+set autoread
+endif
+
+" 光标移动到buffer的顶部和底部时保持3行距离
+set scrolloff=7
+" 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存
+set hidden  "隐藏buff非关闭它
+set wildmode=list:longest
+set ttyfast
+" 在处理未保存或只读文件的时候，弹出确认
+set confirm
+" 自动切换当前目录为当前文件所在的目录
+set autochdir
+" no BOM
+set nobomb
+
+" 历史记录数
+set history=100
+
+" 输入搜索内容时就显示搜索结果
+set incsearch   " do incremental searching
+" 高亮被搜索的句子（phrases）
+set hlsearch
+" 搜索时忽略大小写
+set ignorecase
+" 有一个或以上大写字母时仍大小写敏感
+set smartcase 
+" 禁止在搜索到文件两端时重新搜索
+set nowrapscan
+
+" change the terminal's title
+set title
+" 关闭错误信息响铃
+set noerrorbells
+" 关闭使用可视响铃代替呼叫
+set novisualbell
+" 置空错误铃声的终端代码
+set t_vb=
+
+"==========================================
+" Show 展示/排班等界面格式设置
+"==========================================
+
+" 突出显示当前行等 不喜欢这种定位可注解
+set cursorcolumn
+" 突出显示当前行
+set cursorline
+"autocmd InsertLeave * se nocul  " 用浅色高亮当前行  
+"autocmd InsertEnter * se cul    " 用浅色高亮当前行
+
+"高亮显示某一列,一般用于显示80列
+set colorcolumn=81
+
+"防止光标闪烁
+set gcr=a:block-blinkon0
+" 加速光标闪烁。
+" @see http://c9s.blogspot.com/2007/12/gvim.html
+"set guicursor+=n-v-c:block-cursor-blinkwait300-blinkon90-blinkoff90
+"set guicursor+=i:block-cursor-blinkwait200-blinkon110-blinkoff110
+"set guicursor+=v:ver90-cursor-blinkwait200-blinkon150-blinkoff150
+
+" 竖直split时,在右边开启
+" set splitright
+" 水平split时,在下边开启
+set splitbelow
+
+" 开启高亮语法显示
+syntax on
+"显示行号
+set relativenumber
+" 插入模式下用绝对行号, 普通模式下用相对
+au FocusLost * :set number
+au FocusGained * :set relativenumber
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+" 在编辑过程中，在右下角显示光标位置的状态行
+set ruler   " show the cursor position all the time
+"分割窗口时保持相等的宽/高
+set equalalways
+
+" 增强模式中的命令行自动完成操作,在输入命令时列出匹配项目，也就是截图底部的效果
+set wildmenu
+set showcmd   " display incomplete commands
+" Show current mode
+set showmode
+" 设定命令行的行数为 1
+set cmdheight=1
+
+" 通过使用: commands命令，告诉我们文件的哪一行被改变过
+set report=0
+" 显示状态栏 (默认值为 1, 无法显示状态栏)
+" 命令行（在状态行下）的高度，默认为1，这里是2
+set laststatus=2
+" 设置在状态行显示的信息（包括文件类型和解码）
+" buffer编号 | 文件路径及文件名 | modified状态 | 只读状态 | help | preview | 文件编码 | BOM | EOL | type | demical:hexadecimal | 列:行/总行 | 文件百分比 | 时 间
+set statusline=[%n]\ %F%m%r%h%w\ [%{&ff}]\ [%{(&fenc==\"\"?&enc:&fenc).(&bomb?\",BOM\":\"\")}]%{&eol?'':'\ [noeol]'}\ [TYPE=%Y]\ [\%03.3b:0x\%02.2B]\ [POS=%c:%l/%L][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
+
+" 显示Tab符 "输入:set list命令是应该显示些啥？
+set listchars=tab:>-,nbsp:~,trail:.,extends:>,precedes:<,eol:$
+
+"行号栏的宽度
+set numberwidth=4
+
+" 光标移动到无效位置
+"set virtualedit=all
+"匹配括号的规则，增加针对html的<>
+set matchpairs=(:),{:},[:],<:>
+" 当光标到达行尾或者行首时，继续移动转至下一行或者上一行 允许backspace和光标键跨越行边界
+set whichwrap=h,l,b,s,<,>,~,[,]
+" ']' Insert and Replace
+" '[' Insert and Replace
+" '~' Normal
+" '>' <Right> Normal and Visual
+" '<' <Left> Normal and Visual
+" 'l' Normal and Visual (no recommended)
+" 'h' Normal and visual (no recommended)
+" 's' <Space> Normal and Visual
+" 'b' <BS> Normal and Visual
+
+" 显示括号配对情况
+set magic
+" 插入括号时，短暂地跳转到匹配的对应括号,设置匹配模式，类似当输入一个左括号时会匹配相应的那个右括号
+set showmatch
+" 短暂跳转到匹配括号的时间
+set matchtime=2
+
+"==========================================
+" file encode, 文件编码,格式
+"==========================================
+
+set encoding=utf-8
+set fileencodings=utf-8,gb2312,gbk,gb18030,ucs-bom,cp936,big5,euc-jp,euc-kr,latin1
+" 下面这句只影响普通模式 (非图形界面) 下的 Vim。
+set termencoding=utf-8
+set fileformats=unix,dos,mac
+language messages zh_CN.UTF-8
+set langmenu=zh_CN.UTF-8
+set helplang=cn
+
+"==========================================
+" autoindent 缩进等选项
+"==========================================
+
+" Tab键的宽度
+set tabstop=2
+" 在行和段开始处使用制表符
+set smarttab
+" 使得按退格键时可以一次删掉 2 个空格
+set softtabstop=2
+"用<>调整缩进时的长度
+set shiftwidth=2 " 缩进2格
+set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
+"复制之前缩进
+set copyindent
+" 自动缩进" always set autoindenting on
+set autoindent
+" 开启新行时使用智能自动缩进 "为C程序提供自动缩进
+set smartindent
+set smartindent shiftwidth=2
+" 自动缩进
+set cindent
+"用空格代替制表符, 将Tab自动转化成空格, [需要输入真正的Tab键时，使用 Ctrl+V + Tab]
+set expandtab
+
+" 为C/C++设置详细的信息缩进
+" set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s
+set cinoptions=>s,e0,n0,f0,{0,}0,^0,:s,=s,l0,gs,hs,ps,ts,+s,c3,C0,(2s,us,U0,w0,m0,j0,)20,*30
+
+" 自动格式化
+set formatoptions=tcrqn
+
+
+" 如遇Unicode值大于255的文本，不必等到空格再折行。
+set formatoptions+=m
+" 合并两行中文时，不在中间加空格：
+" set formatoptions+=B
+
+"==========================================
+" others 其它配置
+"==========================================
+
+
+" Only do this part when compiled with support for autocommands.
+if has("autocmd")
+  " Enable file type detection.
+  " Use the default filetype settings, so that mail gets 'tw' set to 72,
+  " 'cindent' is on in C files, etc.
+  " Also load indent files, to automatically do language-dependent indenting.
+  
+  " Put these in an autocmd group, so that we can delete them easily.
+  augroup vimrcEx
+  au!
+
+  " For all text files set 'textwidth' to 78 characters.
+  "autocmd FileType text setlocal textwidth=78
+
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it when the position is invalid or when inside an event handler
+  " (happens when dropping a file on gvim).
+  " Also don't do it when the mark is in the first line, that is the default
+  " position when opening a file.
+  autocmd BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
+
+  augroup END
+
+else
+
+endif " has("autocmd")
+
+
+" In many terminal emulators the mouse works just fine, thus enable it.
+" 使用鼠标
+" {{{可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）
+if has('mouse')
+  set mouse=a
+  set selection=exclusive
+  set selectmode=mouse,key
+endif
+"}}}
+
+" Convenient command to see the difference between the current buffer and the
+" file it was loaded from, thus the changes you made.
+" Only define it when not defined already.
+if !exists(":DiffOrig")
+  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+      \ | wincmd p | diffthis
+endif
+
+if has("gui_running")
+    set guifont=Monaco:h12 "Consolas
+    set guioptions-=m " 隐藏菜单栏
+    set guioptions-=T " 隐藏工具栏
+    set guioptions-=L " 隐藏左侧滚动条
+    set guioptions-=r " 隐藏右侧滚动条
+    set guioptions-=b " 隐藏底部滚动条
+    "set showtabline=0 " 隐藏Tab栏
+    set t_Co=256
+    "每行内插入两空行(方便阅读文本)
+    set linespace=1
+endif
+
+
+" 代码折叠
+" set foldenable
+" 折叠方法
+" manual    手工折叠
+" indent    使用缩进表示折叠
+" expr      使用表达式定义折叠
+" syntax    使用语法定义折叠
+" diff      对没有更改的文本进行折叠
+" marker    使用标记进行折叠, 默认标记是 {{{ 和 }}}
+"set foldmethod=syntax       " 设置语法折叠
+"set foldcolumn=0            " 设置折叠区域的宽度
+"setlocal foldlevel=1        " 设置折叠层数为1
+"set foldclose=all           " 设置为自动关闭折叠
+"set foldexpr=1
+"{{{ 用空格键来开关折叠
+set foldenable
+set foldmethod=indent
+set foldlevel=99
+set foldlevelstart=99
+nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+"}}}
+
+" 自动补全配置
+"让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
+set completeopt+=longest
+
+"离开插入模式后自动关闭预览窗口
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+
+"==========================================
+" 普通自定义快捷键绑定
+"==========================================
+
+"强迫自己用 hjkl
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
+
+" 插入模式下左右移动光标
+if has("gui_macvim")
+  set macmeta " enable bind `meta` key 
+  " 插入模式下左右移动光标
+  imap <M-l> <esc>la
+  imap <M-h> <esc>ha
+  imap <M-j> <esc>ja
+  imap <M-k> <esc>ka
+  imap <M-a> <esc>^i
+  imap <M-e> <esc>g_a
+  " better command line editing
+  cnoremap <M-a> <Home>
+  cnoremap <M-e> <End>
+  cnoremap <M-b> <Left>
+  cnoremap <M-f> <Right>
+  cnoremap <M-k> <C-U>
+  "窗口分割时,进行切换的按键热键需要连接两次,比如从下方窗口移动
+  "光标到上方窗口,需要<c-w><c-w>k,非常麻烦,现在重映射为<c-k>,切换的
+  "时候会变得非常方便.
+  nmap <M-h> <C-w>h
+  nmap <M-j> <C-w>j
+  nmap <M-k> <C-w>k
+  nmap <M-l> <C-w>l
+  " Speed up scrolling of the viewport slightly
+  nnoremap <M-e> 2<C-e>
+  nnoremap <M-y> 2<C-y>
+else
+  " 插入模式下左右移动光标
+  imap <c-l> <esc>la
+  imap <c-h> <esc>ha
+  imap <c-j> <esc>ja
+  imap <c-k> <esc>ka
+  imap <c-a> <esc>^i
+  imap <c-e> <esc>g_a
+  " better command line editing
+  cnoremap <C-a> <Home>
+  cnoremap <C-e> <End>
+  cnoremap <C-b> <Left>
+  cnoremap <C-f> <Right>
+  cnoremap <C-k> <C-U>
+  "窗口分割时,进行切换的按键热键需要连接两次,比如从下方窗口移动
+  "光标到上方窗口,需要<c-w><c-w>k,非常麻烦,现在重映射为<c-k>,切换的
+  "时候会变得非常方便.
+  nmap <C-h> <C-w>h
+  nmap <C-j> <C-w>j
+  nmap <C-k> <C-w>k
+  nmap <C-l> <C-w>l
+  " Speed up scrolling of the viewport slightly
+  nnoremap <C-e> 2<C-e>
+  nnoremap <C-y> 2<C-y>
+endif
+
+" Normal Mode, Visual Mode, and Select Mode,
+" use <Tab> and <Shift-Tab> to indent
+" @see http://c9s.blogspot.com/2007/10/vim-tips.html
+" 普通模式，可视模式和选择模式下使用 <Tab> 和 <Shift-Tab> 键来缩进文本。 在可视模式和选择模式下，可以自动恢复选中的文本。
+"nmap <tab> v>
+"nmap <s-tab> v<
+vmap <tab> >gv
+vmap <s-tab> <gv
+
+" Switch windows
+nmap <Tab> <C-w>w
+
+
+"Treat long lines as break lines (useful when moving around in them)
+"se swap之后，同物理行上线直接跳
+map j gj
+map k gk
+
+" Go to home and end using capitalized directions
+" noremap H 0
+" noremap L $
+
+nnoremap ; :
+
+
+" remap U to <C-r> for easier redo
+nnoremap U <C-r>
+
+" Remap VIM 0 to first non-blank character
+" map 0 ^
+
+map Y y$
+
+"设置 jj快速进入normal模式
+"inoremap jj <ESC>
+"vnoremap jj <ESC>
+inoremap kj <Esc>
+
+"Keep search pattern at the center of the screen."
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
+
+"Use arrow key to change buffer"
+noremap <left> :bp<CR>
+noremap <right> :bn<CR>
+
+" 在前后行各插入新行,不进入插入模式
+nmap t o<ESC>k
+nmap T O<ESC>j
+
+" @see http://blog.chinaunix.net/u/8681/showart_1226043.html
+" @usage 50g| jump to 50% of the lines columns.
+nnoremap <expr>g<Bar> '<Esc>'.float2nr(round((col('$')-1)*min([100,v:count])/100.0)).'<Bar>'
+
+"Use sane regexes"
+nnoremap / /\v
+vnoremap / /\v
+
+" Don't use Ex mode, use Q for formatting
+map Q ggvGgqgg
+
+nnoremap <F3> :set list! list?<CR>
+nnoremap <F4> :set wrap! wrap?<CR>
+set pastetoggle=<F5>
+" when in insert mode, press <F5> to go to paste mode, where you can paste mass data that won't be autoindented
+" disbale paste mode when leaving insert mode
+au InsertLeave * set nopaste
+
+nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
+
+
+imap bk <br /><cr>
+imap email Jeremial90@gmail.com
+
+"==========================================
+" mapleader快捷键绑定
+"==========================================
+
+" 设置leader为,
+let mapleader=","
+let g:mapleader=","
+
+"选择到段落末尾
+"nnoremap <leader>v V`}
+
+map <leader>tn :tabnew<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove<cr>
+map <leader>tb :tabprevious<cr>
+map <leader>tf :tabnext<cr>
+map <leader>t0 :tabfirst<cr>
+map <leader>t$ :tablast<cr>
+
+" Opens a new tab with the current buffer's path
+" Super useful when editing files in the same directory
+map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+
+" Use ,d (or ,dd or ,dj or 20,dd) to delete a line without adding it to the
+" yanked stack (also, in visual mode)
+nnoremap <silent> <leader>d "_d
+vnoremap <silent> <leader>d "_d
+
+" {{{全文搜索选中的文字
+vnoremap  *  y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
+vnoremap  #  y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
+" }}}
+
+" ,16                 十六进制格式查看
+nmap <leader>16 <ESC>:%!xxd<ESC>
+
+" ,r16                返回普通格式
+nmap <leader>r16 <ESC>:%!xxd -r<ESC>
+
+" vimrc文件修改之后自动加载。 linux。
+autocmd! bufwritepost .vimrc source % 
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" Quickly close the current window
+" nnoremap <leader>q :q<CR>
+
+" select all
+map <Leader>sa ggVG "全部内容全选
+map <Leader>sl ^vg_ " 选择本行非空部分
+
+" Undolist
+map <leader>u :undolist<cr>
+
+"Fast saving
+nmap <silent> <leader>ww :w<cr>
+nmap <silent> <leader>wf :w!<cr>
+
+"Fast quiting
+nmap <silent> <leader>qw :wq<cr>
+nmap <silent> <leader>qf :q!<cr>
+nmap <silent> <leader>qq :q<cr>
+nmap <silent> <leader>qa :qa<cr>
+
+"Fast remove highlight search
+nmap <silent> <leader><cr> :noh<cr>
+
+"Fast redraw
+nmap <silent> <leader>rr :redraw!<cr>
+
+" ,c                  复制至公共剪贴板
+vmap <leader>c "+y
+
+" ,v                  从公共剪贴板粘贴
+imap <leader>v <ESC>"+p
+nmap <leader>v "+p
+vmap <leader>v "+p 
+
+"剪切到公共剪切板
+vmap <leader>x "+d
+nmap <leader>x "+d
+
+" Swap implementations of ` and ' jump to markers
+" By default, ' jumps to the marked line, ` jumps to the marked line and
+" column, so swap them
+"nnoremap ' `
+"nnoremap ` '
+
+
+"==========================================
+" 自定义函数定义
+"==========================================
+
+" {{{能够漂亮地显示.NFO文件
+function! SetFileEncodings(encodings)
+    let b:myfileencodingsbak=&fileencodings
+    let &fileencodings=a:encodings
+endfunction
+function! RestoreFileEncodings()
+    let &fileencodings=b:myfileencodingsbak
+    unlet b:myfileencodingsbak
+endfunction
+
+au BufReadPre *.nfo call SetFileEncodings('cp437')|set ambiwidth=single
+au BufReadPost *.nfo call RestoreFileEncodings()
+"}}}
+
+" Change Assignment(=) Expression.
+" @see http://c9s.blogspot.com/2007/09/vim-tip.html
+nmap c=r $F=lcf;
+nmap c=l $F=c^
+
+"为方便复制，用<F2>开启/关闭行号显示:
+nnoremap <silent> <F2> :call Toggle_number()<CR>
+function! Toggle_number()
+  if &nu && &rnu
+    set nonu nornu
+  elseif &nu && !&rnu
+    set rnu
+  else
+    set nu
+  endif
+endfunction
+
+" 返回当前日期的中文表示{{{
+function! Zh_date(type)
+  if a:type == 'zh'
+    let d = strftime("%Y年%m月%d日 %H:%M:%S")
+    let d = substitute(d, '[年月]\@<=0', '', 'g')
+  elseif a:type == 'en'
+    let d = strftime("20%y-%m-%d %H:%M:%S")
+  endif
+  return d
+endfunction
+""}}}
+
+imap ztime <c-r>=Zh_date('zh')<cr>
+imap etime <c-r>=Zh_date('en')<cr>
+
+" {{{自动补全成对的括号和引号
+inoremap ( <c-r>=OpenPair('(')<CR>
+inoremap ) <c-r>=ClosePair(')')<CR>
+inoremap { <c-r>=OpenPair('{')<CR>
+inoremap } <c-r>=ClosePair('}')<CR>
+inoremap [ <c-r>=OpenPair('[')<CR>
+inoremap ] <c-r>=ClosePair(']')<CR>
+" just for xml document, but need not for now.
+"inoremap < <c-r>=OpenPair('<')<CR>
+"inoremap > <c-r>=ClosePair('>')<CR>
+function! OpenPair(char)
+    let PAIRs = {
+                \ '{' : '}',
+                \ '[' : ']',
+                \ '(' : ')',
+                \ '<' : '>'
+                \}
+    if line('$')>2000
+        let line = getline('.')
+
+        let txt = strpart(line, col('.')-1)
+    else
+        let lines = getline(1,line('$'))
+        let line=""
+        for str in lines
+            let line = line . str . "\n"
+        endfor
+
+        let blines = getline(line('.')-1, line("$"))
+        let txt = strpart(getline("."), col('.')-1)
+        for str in blines
+            let txt = txt . str . "\n"
+        endfor
+    endif
+    let oL = len(split(line, a:char, 1))-1
+    let cL = len(split(line, PAIRs[a:char], 1))-1
+
+    let ol = len(split(txt, a:char, 1))-1
+    let cl = len(split(txt, PAIRs[a:char], 1))-1
+
+    if oL>=cL || (oL<cL && ol>=cl)
+        return a:char . PAIRs[a:char] . "\<Left>"
+    else
+        return a:char
+    endif
+endfunction
+function! ClosePair(char)
+    if getline('.')[col('.')-1] == a:char
+        return "\<Right>"
+    else
+        return a:char
+    endif
+endf
+
+inoremap ' <c-r>=CompleteQuote("'")<CR>
+inoremap " <c-r>=CompleteQuote('"')<CR>
+function! CompleteQuote(quote)
+    let ql = len(split(getline('.'), a:quote, 1))-1
+    let slen = len(split(strpart(getline("."), 0, col(".")-1), a:quote, 1))-1
+    let elen = len(split(strpart(getline("."), col(".")-1), a:quote, 1))-1
+    let isBefreQuote = getline('.')[col('.') - 1] == a:quote
+
+    if '"'==a:quote && "vim"==&ft && 0==match(strpart(getline('.'), 0, col('.')-1), "^[\t ]*$")
+        " for vim comment.
+        return a:quote
+    elseif "'"==a:quote && 0==match(getline('.')[col('.')-2], "[a-zA-Z0-9]")
+        " for Name's Blog.
+        return a:quote
+    elseif (ql%2)==1
+        " a:quote length is odd.
+        return a:quote
+    elseif ((slen%2)==1 && (elen%2)==1 && !isBefreQuote) || ((slen%2)==0 && (elen%2)==0)
+        return a:quote . a:quote . "\<Left>"
+    elseif isBefreQuote
+        return "\<Right>"
+    else
+        return a:quote . a:quote . "\<Left>"
+    endif
+endfunction
+" }}}自动补全成对的括号和引号
+
+
+"代码格式优化化
+autocmd BufNewFile,BufRead *.{c,cpp} set formatprg=astyle
+
+"设置 <F7> 和 <F8> 分别跳转到上一个不同、下一个不同处，如果不是 diff 模式， 则分别设置为 QucikFix 的上一条、下一条信息行
+function! Jump2DiffText(dir)
+    if a:dir=="prev"
+        exec "normal [c"
+    elseif a:dir=="next"
+        exec "normal ]c"
+    endif
+    if synIDattr(diff_hlID(".", col(".")), "name")=="DiffChange"
+        let line=line(".")
+        let cols=col("$")-1
+        let idx=1
+        while idx<=cols
+            if synIDattr(diff_hlID(line, idx), "name")=="DiffText"
+                call setpos(".", [0,line,idx])
+                echo line.",".idx.",".cols
+                break
+            else
+                let idx = idx+1
+            endif
+        endwhile
+    endif
+endfunction
+
+" @see http://vim.wikia.com/wiki/Selecting_changes_in_diff_mode
+if &diff
+    nmap <buffer> <F7> :call Jump2DiffText("prev")<cr>
+    nmap <buffer> <F8> :call Jump2DiffText("next")<cr>
+else
+    map <buffer> <F7> :cp<cr>
+    map <buffer> <F8> :cn<cr>
+endif
+
+
+
+"map <F7> :call CompileRunGcc()<CR>
+func! CompileRunGcc()
+  exec "w"
+  if &filetype == 'c'
+    exec "!g++ % -o %<"
+    exec "!time ./%<"
+  elseif &filetype == 'cpp'
+    exec "!g++ % -o %<"
+    exec "!time ./%<"
+  elseif &filetype == 'java' 
+    exec "!javac %" 
+    exec "!time java %<"
+  elseif &filetype == 'sh'
+    :!time bash %
+  elseif &filetype == 'python'
+    exec "!time python2.7 %"
+    elseif &filetype == 'html'
+        exec "!firefox % &"
+    elseif &filetype == 'go'
+"        exec "!go build %<"
+        exec "!time go run %"
+    elseif &filetype == 'mkd'
+        exec "!~/.vim/markdown.pl % > %.html &"
+        exec "!firefox %.html &"
+  endif
+endfunc
+"C,C++的调试
+
+"map <F8> :call Rungdb()<CR>
+func! Rungdb()
+  exec "w"
+  exec "!g++ % -g -o %<"
+  exec "!gdb ./%<"
+endfunc
+
+
+" F5编译和运行C程序，F6编译和运行C++程序
+" 请注意，下述代码在windows下使用会报错
+" 需要去掉./这两个字符
+" C的编译和运行
+"map <F5> :call CompileRunGcc()<CR>
+"func! CompileRunGcc()
+"exec "w"
+"exec "!gcc % -o %<"
+"exec "! ./%<"
+"endfunc
+
+" C++的编译和运行
+"map <F6> :call CompileRunGpp()<CR>
+"func! CompileRunGpp()
+"exec "w"
+"exec "!g++ % -o %<"
+"exec "! ./%<"
+"endfunc
+
+"==========================================
+" bundle 插件管理
+"==========================================
+  filetype off " off is required by vundle   "检测文件的类型
+  set rtp+=~/.vim/bundle/vundle/
+  call vundle#rc()
+
+  Bundle 'gmarik/vundle'
+  Bundle 'tomasr/molokai'
+  Bundle 'scrooloose/nerdtree'
+  Bundle 'jistr/vim-nerdtree-tabs'
+  Bundle 'maksimr/vim-jsbeautify'
+  Bundle 'einars/js-beautify'
+  Bundle 'scrooloose/nerdcommenter'
+  Bundle 'plasticboy/vim-markdown'
+  Bundle 'kchmck/vim-coffee-script'
+  Bundle 'groenewege/vim-less'
+  Bundle 'mattn/emmet-vim'
+  Bundle 'drmingdrmer/xptemplate'
+  " Bundle 'mattn/calendar-vim'
+  Bundle 'terryma/vim-multiple-cursors'
+
+  filetype plugin indent on
+  filetype plugin on  "载入文件类型插件
+  filetype indent on  "为特定文件类型载入相关缩进文件
+
+
+"==========================================
+" colortheme 主题,及一些展示上颜色的修改
+"==========================================
+
+"{{{ molokai主题配置
+set t_Co=256
+"let g:molokai_original = 1  "If you prefer the scheme to match the original monokai background color
+set background=dark
+silent! colorscheme molokai
+"}}}
+
+
+"==========================================
+" bundle 插件配置
+"==========================================
+
+" NERDTree插件的快捷键{{{
+" o.......Open files, directories and bookmarks....................
+" go......Open selected file, but leave cursor in the NERDTree.....
+" t.......Open selected node/bookmark in a new tab.................
+" T.......Same as 't' but keep the focus on the current tab........
+" i.......Open selected file in a split window.....................
+" gi......Same as i, but leave the cursor on the NERDTree..........
+" s.......Open selected file in a new vsplit.......................
+" gs......Same as s, but leave the cursor on the NERDTree..........
+" O.......Recursively open the selected directory..................
+" x.......Close the current nodes parent...........................
+" X.......Recursively close all children of the current node.......
+" e.......Edit the current dir.....................................
+" <CR>...............same as |NERDTree-o|.
+" double-click.......same as the |NERDTree-o| map.
+" middle-click.......same as |NERDTree-i| for files, same a |NERDTree-e| for dirs.
+" D.......Delete the current bookmark .............................
+" P.......Jump to the root node....................................
+" p.......Jump to current nodes parent.............................
+" K.......Jump up inside directories at the current tree depth.....
+" J.......Jump down inside directories at the current tree depth...
+" <C-J>...Jump down to the next sibling of the current directory...
+" <C-K>...Jump up to the previous sibling of the current directory.
+" C.......Change the tree root to the selected dir.................
+" u.......Move the tree root up one directory......................
+" U.......Same as 'u' except the old root node is left open........
+" r.......Recursively refresh the current directory................
+" R.......Recursively refresh the current root.....................
+" m.......Display the NERD tree menu...............................
+" cd......Change the CWD to the dir of the selected node...........
+" CD......Change tree root to the CWD..............................
+" I.......Toggle whether hidden files displayed....................
+" f.......Toggle whether the file filters are used.................
+" F.......Toggle whether files are displayed.......................
+" B.......Toggle whether the bookmark table is displayed...........
+" q.......Close the NERDTree window................................
+" A.......Zoom (maximize/minimize) the NERDTree window.............
+" ?.......Toggle the display of the quick help.....................
+"nmap <leader>nt :NERDTreeToggle<CR>
+let NERDTreeWinSize=20
+"}}}NERDTree插件的快捷键
+
+" NERDTreeTabsToggle {{{
+let g:nerdtree_tabs_smart_startup_focus=2 "始终焦点位于文件窗口内
+let g:nerdtree_tabs_open_on_gui_startup=0 "默认不显示NERDTree窗口
+nmap <leader>nt :NERDTreeTabsToggle<CR>
+" }}}
+
+"map <c-f> :call JsBeautify()<cr>
+" or
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+
+" plugin – NERD_commenter.vim   注释代码用的，{{{
+"[count]<leader>cc 注释当前行或光标以下count行逐行添加注释(7,cc)
+"[count]<leader>cn 注释当前行或光标以下count行逐行添加注释(7,cn)
+"[count]<leader>c<space> 切换单行或选中的行的注释状态
+"[count]<leader>cu 光标以下count行逐行取消注释(7,cu)
+"[count]<leader>cm 光标以下count行尝试添加块注释(7,cm)
+"[count]<leader>ci 切换选中行的注释状态
+"<leader>ca 在可选的注释方式之间切换，比如C/C++ 的块注释/* */和行注释//
+"<leader>cs 以"性感"的方式注释
+"<leader>cA 在当前行尾添加注释符，并进入Insert模式 在行尾插入 /* */,并且进入插入模式。 这个命令方便写注释。
+"[count]<leader>cy 先复制选中部分或单行,然后再注释
+"注：count参数可选，无则默认为选中行或当前行
+let NERDSpaceDelims=1       " 让注释符与语句之间留一个空格
+let NERDCompactSexyComs=1  " 多行注释时样子更好看
+"}}}plugin – NERD_commenter.vim   注释代码用的
+
+" vim-markdown {{{
+let g:vim_markdown_folding_disabled=1
+" }}}
+
+"emmet-vim{{{
+if has('gui_macvim')
+  let g:user_emmet_leader_key = '<M-e>'
+else 
+  let g:user_emmet_leader_key = '<C-e>'
+endif
+let g:user_emmet_mode='inv'
+"}}}
+
+"xtemplate {{{
+let g:xptemplate_key = '<Tab>'
+"}}}

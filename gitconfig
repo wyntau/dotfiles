@@ -1,0 +1,57 @@
+[core]
+	editor = vim
+[user]
+	name = username
+	email = username@example.com
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+	tool = Kaleidoscope
+[difftool]
+	prompt = false
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[mergetool]
+	prompt = false
+[merge]
+	tool = Kaleidoscope
+[alias]
+	br = branch
+	bra = branch -a
+	brd = branch -d
+	ci = commit
+	ca = commit -a
+	caa = commit --amend
+	co = checkout  # branchName here
+	cb = checkout -b  # new branchName here
+	ct = checkout -t  # remote branchName here
+	df = diff
+	dft = difftool
+	dfs = diff --stat
+	dfc = diff --cached
+	dfl = diff --name-only
+	dfh = diff HEAD
+	fh = fetch
+	fhv = fetch -v
+	last = log -1 -p HEAD
+	lg = log --color --graph --pretty=format:'%C(yellow)%h%Creset -%Cred%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --date=local --abbrev-commit
+	ll = log --color --graph --pretty=format:'%n%C(yellow)%s%d%n%C(bold white)<%an> %Cblue%ar %C(red)(%ad)%n%Creset%Cgreen%H'  --stat --topo-order  --decorate --date=local
+	lp = log --color --graph --pretty=format:'%n%C(yellow)%s%d%n%C(bold white)<%an> %Cblue%ar %C(red)(%ad)%n%Creset%Cgreen%H'  --stat --topo-order  --decorate -p --date=local
+	mg = merge   # branchName here
+	ps = push
+	pl = pull
+	plv = pull -v
+	rb = rebase
+	st = status -sb
+	unstage = reset HEAD --   # fileName here
+	untohead = reset --hard HEAD    # !!caution!! all changes that not commited will be **lost**!!
+	unto = reset --hard      # commitId here !!caution!! all changes *after* the commitId will be lost!!
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	ui = auto
+[http]
+	postBuffer = 524288000
+#	proxy = http://127.0.0.1:8087
