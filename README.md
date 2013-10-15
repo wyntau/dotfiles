@@ -4,6 +4,9 @@
     ├── editorconfig
     ├── gitconfig
     ├── oh-my-zsh
+    ├── sublime
+    |   ├── monokai-custom
+    |   └── Preference.sublime-settings
     ├── vim
     |   └── bundle
     │       └── vundle
@@ -17,6 +20,7 @@
 - editorconfig - the config for vim bundle **js-beautify**
 - gitconfig - the config for **git**
 - oh-my-zsh - git submodule, the directory `.oh-my-zsh` for **zsh**
+- sublime - git submodule, the Preference and Monokai-custom for _Sublime Text 2_
 - vim - the directory `.vim` for **vim**
 - vimrc - the config for **vim**
 - wgetrc - the `http_proxy` config for **wget**
@@ -40,7 +44,7 @@
     Bundle 'terryma/vim-multiple-cursors'
 
 ## Tasks & Requirement
-If you want to do all tasks below, just run
+If you want to do all tasks(except `sublime`) below, just run
 
     make
 
@@ -88,6 +92,20 @@ or do a specific task by run
     2. Setup:
 
             make zsh
+
+- ### Task `sublime`
+    If you use Sublime Text 2, this task will add user Preference for it, and also add a [`Monokai-custom`](https://github.com/Jeremial/sublime-monokai-custom) theme which supports Markdown file highlight.
+
+    1. Requirement: `git`, `Sublime Text 2`
+    2. Setup: **bakup your preference file first!**
+
+        If you are using OS X, just run
+
+            make sublime
+
+        If you are using Linux, set `SUBLIMEPATH` first. e.g
+
+            SUBLIMEPATH=~/sublimetext2 make sublime
 
 ## What are required optionally
 *Note*: __These softwares or scripts are not necessary, but recommended.__

@@ -84,7 +84,7 @@ zsh: submodule
 	@/usr/bin/env zsh
 	@source ~/.zshrc
 
-sublime:
+sublime: submodule
 	@echo "\033[0;33m==> Installing sublime Preference and Monokai-custom theme......\033[0m"
 
 	@rm -rf "$(SUBLIMEPATH)/Packages/User/Preferences.sublime-settings"
