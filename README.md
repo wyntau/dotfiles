@@ -95,7 +95,6 @@ or do a specific task by run
 
 - ### Task `sublime`
     If you use Sublime Text 2, this task will add user Preference for it, and also add a [`Monokai-custom`](https://github.com/Jeremial/sublime-monokai-custom) theme which supports Markdown file highlight.
-
     1. Requirement: `git`, `Sublime Text 2`
     2. Setup: **bakup your preference file first!**
 
