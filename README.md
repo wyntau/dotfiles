@@ -6,7 +6,8 @@
     ├── oh-my-zsh
     ├── sublime
     |   ├── monokai-custom
-    |   └── Preference.sublime-settings
+    |   ├── Preference.sublime-settings
+    |   └── SublimePackages.md
     ├── vim
     |   └── bundle
     │       └── vundle
@@ -105,6 +106,7 @@ or do a specific task by run
         If you are using Linux, set `SUBLIMEPATH` first. e.g
 
             SUBLIMEPATH=~/sublimetext2 make sublime
+    3. Install sublime packages(optional). You can see what sublime packages I used in [SublimePackages.md](sublime/SublimePackages.md).
 
 ## What are required optionally
 *Note*: __These softwares or scripts are not necessary, but recommended.__
