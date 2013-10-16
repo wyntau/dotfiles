@@ -2,7 +2,7 @@
 " Author:  Jeremial
 " Version: 1
 " Email: Jeremial90@gmail.com
-" Last_modify: 2013-09-30
+" Last_modify: 2013-10-16
 " Description: 适合自己使用的vimrc文件.
 " Sections:
 "     ->General 基础设置
@@ -60,7 +60,7 @@ set backupcopy=yes
 "{{{不要生成swap文件，当buffer被丢弃的时候隐藏它
 setlocal noswapfile
 set bufhidden=hide
-"}}}        
+"}}}
 
 "设置 退出vim后，内容显示在终端屏幕, 可以用于查看和复制
 "好处：误删什么的，如果以前屏幕打开，可以找回
@@ -94,7 +94,7 @@ set hlsearch
 " 搜索时忽略大小写
 set ignorecase
 " 有一个或以上大写字母时仍大小写敏感
-set smartcase 
+set smartcase
 " 禁止在搜索到文件两端时重新搜索
 set nowrapscan
 
@@ -115,7 +115,7 @@ set t_vb=
 set cursorcolumn
 " 突出显示当前行
 set cursorline
-"autocmd InsertLeave * se nocul  " 用浅色高亮当前行  
+"autocmd InsertLeave * se nocul  " 用浅色高亮当前行
 "autocmd InsertEnter * se cul    " 用浅色高亮当前行
 
 "高亮显示某一列,一般用于显示80列
@@ -212,13 +212,13 @@ set helplang=cn
 "==========================================
 
 " Tab键的宽度
-set tabstop=2
+set tabstop=4
 " 在行和段开始处使用制表符
 set smarttab
-" 使得按退格键时可以一次删掉 2 个空格
-set softtabstop=2
+" 使得按退格键时可以一次删掉 4 个空格
+set softtabstop=4
 "用<>调整缩进时的长度
-set shiftwidth=2 " 缩进2格
+set shiftwidth=4 " 缩进4格
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
 "复制之前缩进
 set copyindent
@@ -226,7 +226,7 @@ set copyindent
 set autoindent
 " 开启新行时使用智能自动缩进 "为C程序提供自动缩进
 set smartindent
-set smartindent shiftwidth=2
+set smartindent shiftwidth=4
 " 自动缩进
 set cindent
 "用空格代替制表符, 将Tab自动转化成空格, [需要输入真正的Tab键时，使用 Ctrl+V + Tab]
@@ -256,7 +256,7 @@ if has("autocmd")
   " Use the default filetype settings, so that mail gets 'tw' set to 72,
   " 'cindent' is on in C files, etc.
   " Also load indent files, to automatically do language-dependent indenting.
-  
+
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
   au!
@@ -751,8 +751,8 @@ func! CompileRunGcc()
   elseif &filetype == 'cpp'
     exec "!g++ % -o %<"
     exec "!time ./%<"
-  elseif &filetype == 'java' 
-    exec "!javac %" 
+  elseif &filetype == 'java'
+    exec "!javac %"
     exec "!time java %<"
   elseif &filetype == 'sh'
     :!time bash %

@@ -1,7 +1,7 @@
 # my astyle options file
 
 --style=attach
---indent=spaces=2
+--indent=spaces=4
 --indent-classes
 --indent-switches
 --indent-cases
