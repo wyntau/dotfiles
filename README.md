@@ -103,9 +103,11 @@ or do a specific task by run
 
             make sublime
 
-        If you are using Linux, set `SUBLIMEPATH` first. e.g
+        If you are using Linux, set `SUBLIMEPATH` before make, e.g.
 
             SUBLIMEPATH=~/sublimetext2 make sublime
+
+        After installing the preference, maybe you want to reset `font_face` and `font_size` to what you prefer in `Preference.sublime-settings`.
     3. Install sublime packages(optional). You can see what sublime packages I used in [SublimePackages.md](sublime/SublimePackages.md).
 
 ## What are required optionally
