@@ -1,8 +1,6 @@
 {
 	"bold_folder_labels": true,
 	"color_scheme": "Packages/User/monokai-custom/Monokai-custom.tmTheme",
-	"font_face": "monaco",
-	"font_size": 13,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"hot_exit": false,
