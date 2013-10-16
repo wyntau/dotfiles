@@ -19,6 +19,7 @@ The Sublime Packages I used are listed below:
 - Emmet Css Snippets
 - GBK Encoding Support
 - GitGutter
+- HTML-CSS-JS Prettify
 - JsFormat
 - JSHint Gutter
 - LESS
@@ -31,4 +32,5 @@ The Sublime Packages I used are listed below:
 - SublimeCodeIntel
 - SublimeLinter
 - SublimeREPL
+- Tag
 - TrailingSpaces
