@@ -11,6 +11,7 @@ The Sublime Packages I used are listed below:
 - Autoprefixer
 - BracketHighlighter
 - CoffeeScript
+- Color Highlighter
 - ColorPicker
 - CSScomb
 - DocBlockr
