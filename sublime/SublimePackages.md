@@ -12,18 +12,22 @@ The Sublime Packages I used are listed below:
 - BracketHighlighter
 - CoffeeScript
 - ColorPicker
-- DashDoc
+- CSScomb
 - DocBlockr
 - Emmet
+- Emmet Css Snippets
 - GBK Encoding Support
 - GitGutter
 - JsFormat
 - JSHint Gutter
 - LESS
-- Line Endings
+- LineEndings
 - Package Control
-- pyV8
-- Siderbar Enhancements
+- Pretty JSON
+- PyV8
+- SiderbarEnhancements
 - SublimeAStyleFormatter
 - SublimeCodeIntel
 - SublimeLinter
+- SublimeREPL
+- TrailingSpaces
