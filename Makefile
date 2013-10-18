@@ -69,11 +69,11 @@ zsh: submodule
 	@rm -rf ~/.oh-my-zsh;
 	@rm -rf ~/.zshrc;
 
-	@echo "\033[0;36mlinking $(NOW)/oh-my-zsh to ~/.oh-my-zsh\033[0m"
-	@ln -s $(NOW)/oh-my-zsh ~/.oh-my-zsh
+	@echo "\033[0;36mlinking $(NOW)/zsh/oh-my-zsh to ~/.oh-my-zsh\033[0m"
+	@ln -s $(NOW)/zsh/oh-my-zsh ~/.oh-my-zsh
 
-	@echo "\033[0;36mlinking $(NOW)/zshrc to ~/.zshrc\033[0m";
-	@ln -s $(NOW)/zshrc ~/.zshrc;
+	@echo "\033[0;36mlinking $(NOW)/zsh/zshrc to ~/.zshrc\033[0m";
+	@ln -s $(NOW)/zsh/zshrc ~/.zshrc;
 
 	@echo "\033[0;36mTime to change your default shell to zsh!\033[0m"
 	@if [ -f /usr/local/bin/zsh ] && grep -Fxq '/usr/local/bin/zsh' /etc/shells; then \
