@@ -12,10 +12,15 @@ submodule:
 
 vimrc: submodule
 	@echo "\033[0;33m==> Installing vimrc and bundle configs......\033[0m"
-	@for FILE in vim vimrc editorconfig; do \
+
+	@rm -rf ~/.vim
+	@echo "\033[0;36mlinking $(NOW)/vim to ~/.vim\033[0m"
+	@ln -s $(NOW)/vim ~/.vim
+
+	@for FILE in vimrc editorconfig; do \
 		rm -rf ~/.$$FILE; \
-		echo "\033[0;36mlinking $(NOW)/$$FILE to ~/.$$FILE\033[0m"; \
-		ln -s $(NOW)/$$FILE ~/.$$FILE; \
+		echo "\033[0;36mlinking $(NOW)/vim/$$FILE to ~/.$$FILE\033[0m"; \
+		ln -s $(NOW)/vim/$$FILE ~/.$$FILE; \
 	done;
 
 	@echo "\033[0;33m==> Installing vim bundles......\033[0m"
