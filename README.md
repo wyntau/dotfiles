@@ -81,7 +81,7 @@ or do a specific task by run
     1. Requirement: `astyle`. If you have installed `astyle` and press `Q` in vim, astyle will be used to format the file.
     2. Setup:
 
-            make astyle
+            make astylerc
 
 - ### Task `wgetrc`
     1. Requirement: `wget`
