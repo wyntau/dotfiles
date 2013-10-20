@@ -78,7 +78,7 @@ or do a specific task by run
             make gitconfig
 
 - ### Task `astylerc`
-    1. Requirement: `astyle`. If you have installed `astyle` and press `Q` in vim, astyle will be used to format the file.
+    1. Requirement: `astyle`. If you have installed `astyle` and press `Q` in vim, astyle will be used to format the *C*, *C++*, *C#*, *Java* file.
     2. Setup:
 
             make astylerc
