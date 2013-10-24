@@ -47,5 +47,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 # export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin
-export PATH=/usr/local/opt/ruby/bin:$PATH # for new ruby installed by homebrew. (required by jekyll)
-export PATH=/usr/local/bin:$PATH # for new vim and zsh(installed by homebrew) to override system PATH
+
+# uncomment this if you installed new ruby via homebrew
+#export PATH=/usr/local/opt/ruby/bin:$PATH # for new ruby installed by homebrew. (required by jekyll)
+
+# uncomment this if you installed new vim or zsh via homebrew
+#export PATH=/usr/local/bin:$PATH # for new vim and zsh(installed by homebrew) to override system PATH
