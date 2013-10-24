@@ -27,7 +27,7 @@ The Sublime Packages I used are listed below:
 - Package Control (required by all others)
 - Pretty JSON
 - PyV8 (auto installed by emmet)
-- SiderbarEnhancements
+- SidebarEnhancements
 - SublimeAStyleFormatter
 - SublimeCodeIntel
 - SublimeLinter

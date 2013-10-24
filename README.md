@@ -71,6 +71,8 @@ or do a specific task by run
 
         brew install macvim --override-system-vim
 
+    Then, uncomment the new vim `PATH` in zsh/zshrc.
+
 - ### Task `gitconfig`
     1. Requirement: `git`
     2. Setup:
@@ -90,7 +92,7 @@ or do a specific task by run
             make wgetrc
 
 - ### Task `zsh`
-    If you have installed new zsh(installed in `/usr/local/bin/zsh`) by `homebrew`, and want to use it as **login shell** instead of the **old** system zsh(`/bin/zsh`), add `/usr/local/bin/zsh` to your `/etc/shells` to make it to be **standard shell**. Otherwise, the setup will use system zsh.
+    If you have installed new zsh(installed in `/usr/local/bin/zsh`) by `homebrew`, and want to use it as **login shell** instead of the **old** system zsh(`/bin/zsh`), add `/usr/local/bin/zsh` to your `/etc/shells` to make it to be **standard shell** and uncomment the new zsh `PATH` in zsh/zshrc. Otherwise, the setup will use system zsh.
 
         sudo su
         echo "/usr/local/bin/zsh" >> /etc/shells
