@@ -67,11 +67,10 @@ or do a specific task by run
 
             make vimrc
 
-    After above, you can override the system vim with the one installed by `homebrew`.(OS X only. This is optional, but recommended, because system vim can't use system clipbord via register `+`)
+    *After* **or** *Before* above, you can override the system vim with the new one installed by `homebrew`.(OS X only. This is optional, but recommended, because system vim can't use system clipbord via register `+`)
 
         brew install macvim --override-system-vim
-
-    Then, uncomment the new vim `PATH` in zsh/zshrc.
+    And then uncomment the new vim `PATH` in `zsh/zshrc`.
 
 - ### Task `gitconfig`
     1. Requirement: `git`
@@ -92,11 +91,15 @@ or do a specific task by run
             make wgetrc
 
 - ### Task `zsh`
-    If you have installed new zsh(installed in `/usr/local/bin/zsh`) by `homebrew`, and want to use it as **login shell** instead of the **old** system zsh(`/bin/zsh`), add `/usr/local/bin/zsh` to your `/etc/shells` to make it to be **standard shell** and uncomment the new zsh `PATH` in zsh/zshrc. Otherwise, the setup will use system zsh.
+    If you have installed new zsh(located at `/usr/local/bin/zsh`) by `homebrew`, and want to use it as **login shell** instead of the **old** system zsh(`/bin/zsh`), you have to add `/usr/local/bin/zsh` to your `/etc/shells` to make it to be **standard shell**.
 
         sudo su
         echo "/usr/local/bin/zsh" >> /etc/shells
         exit
+    And then **uncomment** the new zsh `PATH` in `zsh/zshrc`.
+
+    Otherwise, the setup will use system zsh.
+
     1. Requirements: `git`, `zsh`
     2. Setup:
 
