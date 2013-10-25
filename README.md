@@ -120,17 +120,17 @@ or do a specific task by run
 
     If you use `VIM Mode` in Sublime Text 2 on OS X 10.8+, when you hold `j`, `l`, `i`, `k`, the cursor will not move `left` `right` `up` `down` continually like real VIM, the solution is below.
 
-    > \# Mac OS X Lion introduced a new, iOS-like context menu when you press and hold a key
-    > \# that enables you to choose a character from a menu of options. If you are on Lion
-    > \# try it by pressing and holding down 'e' in any app that uses the default NSTextField
+    > \# Mac OS X Lion introduced a new, iOS-like context menu when you press and hold a key  
+    > \# that enables you to choose a character from a menu of options. If you are on Lion  
+    > \# try it by pressing and holding down 'e' in any app that uses the default NSTextField  
     > \# for input.
-    > \#
-    > \# It's a nice feature and continues the blending of Mac OS X and iOS features. However,
-    > \# it's a nightmare to deal with in Sublime Text 2 if you're running Vintage (Vim) mode,
-    > \# as it means you cannot press and hold h/j/k/l to move through your file. You have
+
+    > \# It's a nice feature and continues the blending of Mac OS X and iOS features. However,  
+    > \# it's a nightmare to deal with in Sublime Text 2 if you're running Vintage (Vim) mode,  
+    > \# as it means you cannot press and hold h/j/k/l to move through your file. You have  
     > \# to repeatedly press the keys to navigate.
 
-    > \# You can disable this feature for just Sublime Text 2 by issuing the following command
+    > \# You can disable this feature for just Sublime Text 2 by issuing the following command  
     > \# in your terminal:
 
     >       defaults write com.sublimetext.2 ApplePressAndHoldEnabled -bool false
