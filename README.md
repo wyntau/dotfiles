@@ -99,7 +99,6 @@ or do a specific task by run
     And then **uncomment** the new zsh `PATH` in `zsh/zshrc`.
 
     Otherwise, the setup will use system zsh.
-
     1. Requirements: `git`, `zsh`
     2. Setup:
 
