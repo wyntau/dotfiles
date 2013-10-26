@@ -51,6 +51,7 @@
     Bundle 'terryma/vim-multiple-cursors'
     Bundle 'airblade/vim-gitgutter'
     #Bundle 'vim-scripts/Align'
+    Bundle 'kien/ctrlp.vim'
 
 ## Tasks & Requirement
 If you want to do all tasks(except `sublime`) below, just run
