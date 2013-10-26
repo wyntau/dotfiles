@@ -74,7 +74,6 @@ endif
 set scrolloff=5
 " 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存
 set hidden  "隐藏buff非关闭它
-set wildmode=list:longest
 set ttyfast
 " 在处理未保存或只读文件的时候，弹出确认
 set confirm
@@ -129,7 +128,7 @@ set gcr=a:block-blinkon0
 " 竖直split时,在右边开启
 " set splitright
 " 水平split时,在下边开启
-" set splitbelow
+set splitbelow
 
 " 开启高亮语法显示
 syntax on
@@ -147,6 +146,7 @@ set equalalways
 
 " 增强模式中的命令行自动完成操作,在输入命令时列出匹配项目，也就是截图底部的效果
 set wildmenu
+set wildmode=list:longest
 set showcmd   " display incomplete commands
 " Show current mode
 set showmode
@@ -234,7 +234,6 @@ set cinoptions=>s,e0,n0,f0,{0,}0,^0,:s,=s,l0,gs,hs,ps,ts,+s,c3,C0,(2s,us,U0,w0,m
 
 " 自动格式化
 set formatoptions=tcrqn
-
 
 " 如遇Unicode值大于255的文本，不必等到空格再折行。
 set formatoptions+=m
@@ -468,9 +467,6 @@ au InsertLeave * set nopaste
 
 nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
 
-
-imap bk <br /><cr>
-
 "==========================================
 " mapleader快捷键绑定
 "==========================================
@@ -518,7 +514,7 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " Quickly close the current window
-" nnoremap <leader>q :q<CR>
+nnoremap <leader>q :q<CR>
 
 " select all
 map <Leader>sa ggVG "全部内容全选
@@ -548,13 +544,6 @@ vmap <leader>v "+p
 "剪切到公共剪切板
 vmap <leader>x "+d
 nmap <leader>x "+d
-
-" Swap implementations of ` and ' jump to markers
-" By default, ' jumps to the marked line, ` jumps to the marked line and
-" column, so swap them
-"nnoremap ' `
-"nnoremap ` '
-
 
 "==========================================
 " 自定义函数定义
