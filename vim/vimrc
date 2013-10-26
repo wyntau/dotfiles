@@ -579,18 +579,6 @@ au BufReadPost *.nfo call RestoreFileEncodings()
 nmap c=r $F=lcf;
 nmap c=l $F=c^
 
-"为方便复制，用<F2>开启/关闭行号显示:
-nnoremap <silent> <F2> :call Toggle_number()<CR>
-function! Toggle_number()
-  if &nu && &rnu
-    set nonu nornu
-  elseif &nu && !&rnu
-    set rnu
-  else
-    set nu
-  endif
-endfunction
-
 " 返回当前日期的中文表示{{{
 function! NowDate(type)
   if a:type == 'zh'
