@@ -818,6 +818,8 @@ endfunc
   Bundle 'drmingdrmer/xptemplate'
   " Bundle 'mattn/calendar-vim'
   Bundle 'terryma/vim-multiple-cursors'
+  Bundle 'airblade/vim-gitgutter'
+  " Bundle 'vim-scripts/Align'
 
   filetype plugin indent on
   filetype plugin on  "载入文件类型插件
