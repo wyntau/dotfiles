@@ -859,6 +859,9 @@ else
   let g:user_emmet_leader_key = '<C-e>'
 endif
 let g:user_emmet_mode='inv'
+" Enable just for html/css
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
 "}}}
 
 Bundle 'drmingdrmer/xptemplate'
