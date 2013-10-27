@@ -10,7 +10,9 @@ ZSH_THEME="robbyrussell"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias goagent="$HOME/v4/proxy.py"
+
+# put you own alias in ~/.zsh.alias
+[ -f $HOME/.zsh.alias ] && source $HOME/.zsh.alias
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
