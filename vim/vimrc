@@ -504,8 +504,8 @@ map <leader>t. :tabedit <c-r>=expand("%:p:h")<cr>
 
 " Use ,d (or ,dd or ,dj or 20,dd) to delete a line without adding it to the
 " yanked stack (also, in visual mode)
-nnoremap <silent> <leader>d "_d
-vnoremap <silent> <leader>d "_d
+nnoremap <silent> <leader>d "_d<cr>
+vnoremap <silent> <leader>d "_d<cr>
 
 " {{{全文搜索选中的文字
 vnoremap  *  y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
@@ -519,7 +519,7 @@ nmap <leader>16 <ESC>:%!xxd<ESC>
 nmap <leader>r16 <ESC>:%!xxd -r<ESC>
 
 " vimrc文件修改之后自动加载。 linux。
-autocmd! bufwritepost .vimrc source % 
+autocmd! bufwritepost .vimrc source %
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
@@ -546,7 +546,7 @@ vmap <leader>c "+y
 " ,v                  从公共剪贴板粘贴
 imap <leader>v <ESC>"+p
 nmap <leader>v "+p
-vmap <leader>v "+p 
+vmap <leader>v "+p
 
 "剪切到公共剪切板
 vmap <leader>x "+d
@@ -867,7 +867,7 @@ Bundle 'mattn/emmet-vim'
 "emmet-vim{{{
 if has('gui_macvim')
   let g:user_emmet_leader_key = '<M-e>'
-else 
+else
   let g:user_emmet_leader_key = '<C-e>'
 endif
 let g:user_emmet_mode='inv'
