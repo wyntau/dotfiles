@@ -96,14 +96,6 @@ or do a specific task by run
             make wgetrc
 
 - ### Task `zsh`
-    If you have installed new zsh(located at `/usr/local/bin/zsh`) by `homebrew`, and want to use it as **login shell** instead of the **old** system zsh(`/bin/zsh`), you have to add `/usr/local/bin/zsh` to your `/etc/shells` to make it to be **standard shell**.
-
-        sudo su
-        echo "/usr/local/bin/zsh" >> /etc/shells
-        exit
-    And then **uncomment** the new zsh `PATH` in `zsh/zshrc`.
-
-    Otherwise, the setup will use system zsh.
     1. Requirements: `git`, `zsh`
     2. Setup:
 

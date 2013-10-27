@@ -1,6 +1,7 @@
-NOW = `pwd`
 DEFAULTNAME = `whoami`
+NOW = `pwd`
 SUBLIMEPATH ?= $$HOME/Library/Application Support/Sublime Text 2
+ZSHPATH = `which zsh`
 
 all: submodule vimrc gitconfig astylerc wgetrc zsh
 
@@ -76,10 +77,8 @@ zsh: submodule
 	@ln -s $(NOW)/zsh/zshrc ~/.zshrc;
 
 	@echo "\033[0;36mTime to change your default shell to zsh!\033[0m"
-	@if [ -f /usr/local/bin/zsh ] && grep -Fxq '/usr/local/bin/zsh' /etc/shells; then \
-		chsh -s /usr/local/bin/zsh; \
-	elif [ -f /bin/zsh ]; then \
-		chsh -s /bin/zsh; \
+	@if [ "$(ZSHPATH)" != "" ]; then \
+		chsh -s $(ZSHPATH); \
 	else \
 		echo "\033[0;31mNo Zsh found! Please install zsh first\033[0m"; \
 		exit 1; \

@@ -50,5 +50,5 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 # export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin
 
-# Uncomment following line to override system PATH if you installed new vim or zsh via homebrew
+# Uncomment following line to override system PATH if you installed new vim via homebrew
 # export PATH=/usr/local/bin:$PATH
