@@ -891,7 +891,10 @@ Bundle 'airblade/vim-gitgutter'
 
 Bundle 'kien/ctrlp.vim'
 
+Bundle 'vim-scripts/CountJump'
 Bundle 'vim-scripts/ShowTrailingWhitespace'
+Bundle 'vim-scripts/JumpToTrailingWhitespace'
+Bundle 'vim-scripts/DeleteTrailingWhitespace'
 
 filetype plugin indent on
 "载入文件类型插件

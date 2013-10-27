@@ -50,7 +50,10 @@
     Bundle 'terryma/vim-multiple-cursors'
     Bundle 'airblade/vim-gitgutter'
     Bundle 'kien/ctrlp.vim'
+    Bundle 'vim-scripts/CountJump'
     Bundle 'vim-scripts/ShowTrailingWhitespace'
+    Bundle 'vim-scripts/JumpToTrailingWhitespace'
+    Bundle 'vim-scripts/DeleteTrailingWhitespace'
 
 ## Tasks & Requirement
 If you want to do all tasks(except `sublime`) below, just run
