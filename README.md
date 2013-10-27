@@ -47,11 +47,10 @@
     Bundle 'groenewege/vim-less'
     Bundle 'mattn/emmet-vim'
     Bundle 'drmingdrmer/xptemplate'
-    #Bundle 'mattn/calendar-vim'
     Bundle 'terryma/vim-multiple-cursors'
     Bundle 'airblade/vim-gitgutter'
-    #Bundle 'vim-scripts/Align'
     Bundle 'kien/ctrlp.vim'
+    Bundle 'vim-scripts/ShowTrailingWhitespace'
 
 ## Tasks & Requirement
 If you want to do all tasks(except `sublime`) below, just run
