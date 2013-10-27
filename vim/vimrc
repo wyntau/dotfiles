@@ -247,18 +247,15 @@ set formatoptions+=m
 " others 其它配置
 "==========================================
 
-
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
   " Enable file type detection.
   " Use the default filetype settings, so that mail gets 'tw' set to 72,
   " 'cindent' is on in C files, etc.
   " Also load indent files, to automatically do language-dependent indenting.
-
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
   au!
-
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
   " (happens when dropping a file on gvim).
@@ -268,14 +265,11 @@ if has("autocmd")
     \ if line("'\"") > 1 && line("'\"") <= line("$") |
     \   exe "normal! g`\"" |
     \ endif
-
   augroup END
-
 else
 
 endif
 " end has("autocmd")
-
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 " 使用鼠标
@@ -313,7 +307,6 @@ if has("gui_running")
     "每行内插入两空行(方便阅读文本)
     set linespace=1
 endif
-
 
 " 代码折叠
 " set foldenable
@@ -404,30 +397,15 @@ else
   nnoremap <C-y> 2<C-y>
 endif
 
-" Normal Mode, Visual Mode, and Select Mode,
-" use <Tab> and <Shift-Tab> to indent
-" @see http://c9s.blogspot.com/2007/10/vim-tips.html
-" 普通模式，可视模式和选择模式下使用 <Tab> 和 <Shift-Tab> 键来缩进文本。 在可视模式和选择模式下，可以自动恢复选中的文本。
-"nmap <tab> v>
-"nmap <s-tab> v<
-vmap <tab> >gv
-vmap <s-tab> <gv
-
 " Switch splits
 nmap <Tab> <C-w>w
-
 
 "Treat long lines as break lines (useful when moving around in them)
 "se swap之后，同物理行上线直接跳
 map j gj
 map k gk
 
-" Go to home and end using capitalized directions
-" noremap H 0
-" noremap L $
-
 nnoremap ; :
-
 
 " remap U to <C-r> for easier redo
 nnoremap U <C-r>
@@ -598,8 +576,8 @@ inoremap } <c-r>=ClosePair('}')<CR>
 inoremap [ <c-r>=OpenPair('[')<CR>
 inoremap ] <c-r>=ClosePair(']')<CR>
 " just for xml document, but need not for now.
-"inoremap < <c-r>=OpenPair('<')<CR>
-"inoremap > <c-r>=ClosePair('>')<CR>
+inoremap < <c-r>=OpenPair('<')<CR>
+inoremap > <c-r>=ClosePair('>')<CR>
 function! OpenPair(char)
     let PAIRs = {
                 \ '{' : '}',
@@ -670,7 +648,6 @@ function! CompleteQuote(quote)
     endif
 endfunction
 " }}}自动补全成对的括号和引号
-
 
 "代码格式优化化
 autocmd BufNewFile,BufRead *.{c,cpp} set formatprg=astyle
@@ -901,7 +878,6 @@ filetype plugin indent on
 filetype plugin on
 "为特定文件类型载入相关缩进文件
 filetype indent on
-
 
 "==========================================
 " colortheme 主题,及一些展示上颜色的修改
