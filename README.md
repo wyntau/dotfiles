@@ -108,6 +108,7 @@ or do a specific task by run
     2. Setup:
 
             make zsh
+
     If you have your own aliases, put theme in `~/.zsh.alias`, zsh will load theme automatically.
 
 - ### Task `sublime`
