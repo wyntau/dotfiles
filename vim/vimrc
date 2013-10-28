@@ -750,8 +750,8 @@ Bundle 'gmarik/vundle'
 
 Bundle 'tomasr/molokai'
 
-Bundle 'scrooloose/nerdtree'
 " NERDTree插件的快捷键{{{
+Bundle 'scrooloose/nerdtree'
 " o.......Open files, directories and bookmarks....................
 " go......Open selected file, but leave cursor in the NERDTree.....
 " t.......Open selected node/bookmark in a new tab.................
@@ -793,8 +793,8 @@ Bundle 'scrooloose/nerdtree'
 let NERDTreeWinSize=20
 "}}}NERDTree插件的快捷键
 
-Bundle 'jistr/vim-nerdtree-tabs'
 " NERDTreeTabsToggle {{{
+Bundle 'jistr/vim-nerdtree-tabs'
 "始终焦点位于文件窗口内
 let g:nerdtree_tabs_smart_startup_focus=2
 "默认不显示NERDTree窗口
@@ -805,15 +805,12 @@ nmap <leader>nt :NERDTreeTabsToggle<CR>
 Bundle 'maksimr/vim-jsbeautify'
 Bundle 'einars/js-beautify'
 "map <c-f> :call JsBeautify()<cr>
-" or
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-" for html
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-" for css or scss
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
-Bundle 'scrooloose/nerdcommenter'
 " plugin – NERD_commenter.vim   注释代码用的，{{{
+Bundle 'scrooloose/nerdcommenter'
 "[count]<leader>cc 注释当前行或光标以下count行逐行添加注释(7,cc)
 "[count]<leader>cn 注释当前行或光标以下count行逐行添加注释(7,cn)
 "[count]<leader>c<space> 切换单行或选中的行的注释状态
@@ -831,8 +828,8 @@ let NERDSpaceDelims=1
 let NERDCompactSexyComs=1
 "}}}plugin – NERD_commenter.vim   注释代码用的
 
-Bundle 'plasticboy/vim-markdown'
 " vim-markdown {{{
+Bundle 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
 " }}}
 
@@ -840,8 +837,8 @@ Bundle 'kchmck/vim-coffee-script'
 
 Bundle 'groenewege/vim-less'
 
-Bundle 'mattn/emmet-vim'
 "emmet-vim{{{
+Bundle 'mattn/emmet-vim'
 if has('gui_macvim')
   let g:user_emmet_leader_key = '<M-e>'
 else
@@ -853,8 +850,8 @@ let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 "}}}
 
-Bundle 'drmingdrmer/xptemplate'
 "xtemplate {{{
+Bundle 'drmingdrmer/xptemplate'
 let g:xptemplate_key = '<Tab>'
 "}}}
 
