@@ -52,6 +52,8 @@
 	status = auto
 	branch = auto
 	ui = auto
+[push]
+	default = simple
 [http]
 	postBuffer = 524288000
 #	proxy = http://127.0.0.1:8087
