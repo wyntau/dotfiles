@@ -48,6 +48,7 @@
     Bundle 'mattn/emmet-vim'
     Bundle 'drmingdrmer/xptemplate'
     Bundle 'terryma/vim-multiple-cursors'
+    Bundle 'ap/vim-css-color'
     Bundle 'airblade/vim-gitgutter'
     Bundle 'kien/ctrlp.vim'
     Bundle 'vim-scripts/CountJump'
@@ -167,7 +168,7 @@ or do a specific task by run
 
 The MIT License (MIT)
 
-Copyright (c) 2013 Jeremial
+Copyright (c) 2013 Jeremial jeremial90@gmail.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -859,6 +859,8 @@ let g:xptemplate_key = '<Tab>'
 
 Bundle 'terryma/vim-multiple-cursors'
 
+Bundle 'ap/vim-css-color'
+
 Bundle 'airblade/vim-gitgutter'
 
 " Bundle 'vim-scripts/Align'
