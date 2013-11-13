@@ -3,15 +3,26 @@ NOW = `pwd`
 SUBLIMEPATH ?= $$HOME/Library/Application Support/Sublime Text 2
 ZSHPATH = `which zsh`
 
-all: submodule vimrc gitconfig astylerc wgetrc zsh
+list:
+	@echo "\033[0;32mAvailable tasks:\033[0m"
+	@echo "\033[0;32m    1) vimrc\033[0m"
+	@echo "\033[0;32m    2) gitconfig\033[0m"
+	@echo "\033[0;32m    3) astylerc\033[0m"
+	@echo "\033[0;32m    4) wgetrc\033[0m"
+	@echo "\033[0;32m    5) zsh\033[0m"
+	@echo "\033[0;32m    6) sublime\033[0m"
 
-submodule:
-	@echo "\033[0;33m==> submodule init and update......\033[0m"
-	@git submodule init
-	@git submodule update
-	@echo "\033[0;32m==> submodule updated.\033[0m"
+all: vimrc gitconfig astylerc wgetrc zsh sublime
 
-vimrc: submodule
+vimrc:
+	@if [ -d vim/bundle/vundle ]; then \
+		echo "\033[0;33mupdate git submodule...\033[0m"; \
+		cd vim/bundle/vundle && git pull origin master && cd $(NOW); \
+	else \
+		echo "\033[0;33minit and update sublime...\033[0m"; \
+		git clone https://github.com/gmarik/vundle.git vim/bundle/vundle; \
+	fi;
+
 	@echo "\033[0;33m==> Installing vimrc and bundle configs......\033[0m"
 
 	@rm -rf ~/.vim
@@ -36,6 +47,7 @@ gitconfig:
 	@ln -s $(NOW)/gitconfig ~/.gitconfig;
 
 	@echo "\033[0;33m==> Now config your name and email for git.\033[0m"
+
 	@echo "\033[0;35mWhat's your git username? ($(DEFAULTNAME)) \033[0m\c";
 	@read USERNAME; \
 	if [ "$$USERNAME" = "" ]; then \
@@ -49,6 +61,7 @@ gitconfig:
 		EMAIL=$(DEFAULTNAME)@example.com; \
 	fi; \
 	git config --global user.email $$EMAIL;
+
 	@echo "\033[0;32m==> Install gitconfig completed.\033[0m"
 
 astylerc:
@@ -65,7 +78,15 @@ wgetrc:
 	@ln -s $(NOW)/wgetrc ~/.wgetrc;
 	@echo "\033[0;32m==> Install wgetrc completed.\033[0m"
 
-zsh: submodule
+zsh:
+	@if [ -d zsh/oh-my-zsh ]; then \
+		echo "\033[0;33mupdate git submodule...\033[0m"; \
+		cd zsh/oh-my-zsh && git pull origin master && cd $(NOW); \
+	else \
+		echo "\033[0;33minit and update sublime...\033[0m"; \
+		git clone https://github.com/robbyrussell/oh-my-zsh.git zsh/oh-my-zsh; \
+	fi;
+
 	@echo "\033[0;33m==> Installing zsh and oh-my-zsh......\033[0m"
 	@rm -rf ~/.oh-my-zsh;
 	@rm -rf ~/.zshrc;
@@ -88,7 +109,15 @@ zsh: submodule
 	@/usr/bin/env zsh
 	@source ~/.zshrc
 
-sublime: submodule
+sublime:
+	@if [ -d sublime/monokai-custom ]; then \
+		echo "\033[0;33mupdate git submodule...\033[0m"; \
+		cd sublime/monokai-custom && git pull origin master && cd $(NOW); \
+	else \
+		echo "\033[0;33minit and update sublime...\033[0m"; \
+		git clone https://github.com/Jeremial/sublime-monokai-custom.git sublime/monokai-custom; \
+	fi;
+
 	@echo "\033[0;33m==> Installing sublime Preference and Monokai-custom theme......\033[0m"
 
 	@rm -rf "$(SUBLIMEPATH)/Packages/User/monokai-custom"
@@ -100,7 +129,7 @@ sublime: submodule
 	@ln -s $(NOW)/sublime/Preferences.sublime-settings "$(SUBLIMEPATH)/Packages/User/Preferences.sublime-settings"
 
 	@echo "\033[0;32m==> Install sublime Preference and Monokai-custom theme completed.\033[0m"
-.PHONY: submodule vimrc gitconfig astylerc wgetrc zsh sublime
+.PHONY: all vimrc gitconfig astylerc wgetrc zsh sublime
 
 #none         = "\033[0m"
 #black        = "\033[0;30m"

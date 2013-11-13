@@ -62,15 +62,22 @@
     Bundle 'vim-scripts/DeleteTrailingWhitespace'
 
 ## Tasks & Requirement
-If you want to do all tasks(except `sublime`) below, just run
+If you want to do all tasks, just run
 
-    make
+    make all
 
 or do a specific task by run
 
     make <taskname1>[ <taskname2> <tasknameN> ...]
 
-![screenshot](./screenshot.jpg)
+Available tasks:
+
+- [vimrc](#task-vimrc)
+- [gitconfig](#task-gitconfig)
+- [astylerc](#task-astylerc)
+- [wgetrc](#task-wgetrc)
+- [zsh](#task-zsh)
+- [sublime](#task-sublime)
 
 - ### Task `vimrc`
     1. Requirements: `git`, `vim`
