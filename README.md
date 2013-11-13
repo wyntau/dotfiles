@@ -108,14 +108,6 @@ or do a specific task by run
 
             make wgetrc
 
-- ### Task `zsh`
-    1. Requirements: `git`, `zsh`
-    2. Setup:
-
-            make zsh
-
-    If you have your own aliases, put them in `~/.zsh.alias`, zsh will load them automatically.
-
 - ### Task `sublime`
     If you use `Sublime Text 2`, this task will add user Preference for it, and also add a [`Monokai-custom`](https://github.com/Jeremial/sublime-monokai-custom) colorscheme which supports Markdown file highlight.
     1. Requirement: `git`, `Sublime Text 2`
@@ -156,6 +148,14 @@ or do a specific task by run
     > In either case you'll need to restart your computer for the change to take place.
 
     > Happy coding!
+
+- ### Task `zsh`
+    1. Requirements: `git`, `zsh`
+    2. Setup:
+
+            make zsh
+
+    If you have your own aliases, put them in `~/.zsh.alias`, zsh will load them automatically.
 
 ## What are required optionally
 *Note*: __These softwares or scripts are not necessary, but recommended.__
