@@ -9,10 +9,10 @@ list:
 	@echo "\033[0;32m    2) gitconfig\033[0m"
 	@echo "\033[0;32m    3) astylerc\033[0m"
 	@echo "\033[0;32m    4) wgetrc\033[0m"
-	@echo "\033[0;32m    5) zsh\033[0m"
-	@echo "\033[0;32m    6) sublime\033[0m"
+	@echo "\033[0;32m    5) sublime\033[0m"
+	@echo "\033[0;32m    6) zsh\033[0m"
 
-all: vimrc gitconfig astylerc wgetrc zsh sublime
+all: vimrc gitconfig astylerc wgetrc sublime zsh
 
 vimrc:
 	@if [ -d vim/bundle/vundle ]; then \
@@ -78,6 +78,27 @@ wgetrc:
 	@ln -s $(NOW)/wgetrc ~/.wgetrc;
 	@echo "\033[0;32m==> Install wgetrc completed.\033[0m"
 
+sublime:
+	@if [ -d sublime/monokai-custom ]; then \
+		echo "\033[0;33mupdate git submodule...\033[0m"; \
+		cd sublime/monokai-custom && git pull origin master && cd $(NOW); \
+	else \
+		echo "\033[0;33minit and update sublime...\033[0m"; \
+		git clone https://github.com/Jeremial/sublime-monokai-custom.git sublime/monokai-custom; \
+	fi;
+
+	@echo "\033[0;33m==> Installing sublime Preference and Monokai-custom theme......\033[0m"
+
+	@rm -rf "$(SUBLIMEPATH)/Packages/User/monokai-custom"
+	@echo "\033[0;36mlinking $(NOW)/sublime/monokai-custom $(SUBLIMEPATH)/Packages/User/monokai-custom\033[0m"
+	@ln -s $(NOW)/sublime/monokai-custom "$(SUBLIMEPATH)/Packages/User/monokai-custom"
+
+	@rm -rf "$(SUBLIMEPATH)/Packages/User/Preferences.sublime-settings"
+	@echo "\033[0;36mlinking $(NOW)/sublime/Preferences.sublime-settings to $(SUBLIMEPATH)/Packages/User/Preferences.sublime-settings\033[0m"
+	@ln -s $(NOW)/sublime/Preferences.sublime-settings "$(SUBLIMEPATH)/Packages/User/Preferences.sublime-settings"
+
+	@echo "\033[0;32m==> Install sublime Preference and Monokai-custom theme completed.\033[0m"
+
 zsh:
 	@if [ -d zsh/oh-my-zsh ]; then \
 		echo "\033[0;33mupdate git submodule...\033[0m"; \
@@ -108,27 +129,6 @@ zsh:
 	@echo "\033[0;32m==> Install zsh and oh-my-zsh completed.\033[0m"
 	@/usr/bin/env zsh
 	@source ~/.zshrc
-
-sublime:
-	@if [ -d sublime/monokai-custom ]; then \
-		echo "\033[0;33mupdate git submodule...\033[0m"; \
-		cd sublime/monokai-custom && git pull origin master && cd $(NOW); \
-	else \
-		echo "\033[0;33minit and update sublime...\033[0m"; \
-		git clone https://github.com/Jeremial/sublime-monokai-custom.git sublime/monokai-custom; \
-	fi;
-
-	@echo "\033[0;33m==> Installing sublime Preference and Monokai-custom theme......\033[0m"
-
-	@rm -rf "$(SUBLIMEPATH)/Packages/User/monokai-custom"
-	@echo "\033[0;36mlinking $(NOW)/sublime/monokai-custom $(SUBLIMEPATH)/Packages/User/monokai-custom\033[0m"
-	@ln -s $(NOW)/sublime/monokai-custom "$(SUBLIMEPATH)/Packages/User/monokai-custom"
-
-	@rm -rf "$(SUBLIMEPATH)/Packages/User/Preferences.sublime-settings"
-	@echo "\033[0;36mlinking $(NOW)/sublime/Preferences.sublime-settings to $(SUBLIMEPATH)/Packages/User/Preferences.sublime-settings\033[0m"
-	@ln -s $(NOW)/sublime/Preferences.sublime-settings "$(SUBLIMEPATH)/Packages/User/Preferences.sublime-settings"
-
-	@echo "\033[0;32m==> Install sublime Preference and Monokai-custom theme completed.\033[0m"
 .PHONY: all vimrc gitconfig astylerc wgetrc zsh sublime
 
 #none         = "\033[0m"

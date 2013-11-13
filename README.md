@@ -68,8 +68,8 @@ Available tasks:
 - [gitconfig](#task-gitconfig)
 - [astylerc](#task-astylerc)
 - [wgetrc](#task-wgetrc)
-- [zsh](#task-zsh)
 - [sublime](#task-sublime)
+- [zsh](#task-zsh)
 
 If you want to do all tasks, just run
 
