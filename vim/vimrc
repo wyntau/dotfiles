@@ -1,8 +1,7 @@
 "==========================================
 " Author:  Jeremial
-" Version: 1
+" Version: 2013-11-14
 " Email: Jeremial90@gmail.com
-" Last_modify: 2013-10-26
 " Description: 适合自己使用的vimrc文件.
 " Sections:
 "     ->General 基础设置
@@ -748,6 +747,7 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
+" molokai colorscheme
 Bundle 'tomasr/molokai'
 
 " NERDTree插件的快捷键{{{
@@ -802,12 +802,14 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 nmap <leader>nt :NERDTreeTabsToggle<CR>
 " }}}
 
+" {{{
 Bundle 'maksimr/vim-jsbeautify'
 Bundle 'einars/js-beautify'
 "map <c-f> :call JsBeautify()<cr>
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+" }}}
 
 " plugin – NERD_commenter.vim   注释代码用的，{{{
 Bundle 'scrooloose/nerdcommenter'
@@ -864,6 +866,8 @@ Bundle 'ap/vim-css-color'
 Bundle 'airblade/vim-gitgutter'
 
 " Bundle 'vim-scripts/Align'
+
+" Bundle 'osyo-manga/vim-over'
 
 Bundle 'kien/ctrlp.vim'
 
