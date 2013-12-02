@@ -1,22 +1,20 @@
 {
-	"bold_folder_labels": true,
-	"color_scheme": "Packages/User/monokai-custom/Monokai-custom.tmTheme",
-	"font_size":13,
-	"font_face":"monaco",
-	"highlight_line": true,
-	"highlight_modified_tabs": true,
-	"hot_exit": false,
-	"ignored_packages":
-	[
-		"vintage"
-	],
-	"remember_open_files": false,
-	"rulers":
-	[
-		80
-	],
-	"scroll_past_end": true,
-	"translate_tabs_to_spaces": true,
-	"use_tab_stops": true,
-	"word_wrap": true
+    "bold_folder_labels": true,
+    "color_scheme": "Packages/User/monokai-custom/Monokai-custom.tmTheme",
+    "font_size": 13,
+    "font_face": "monaco",
+    "highlight_line": true,
+    "highlight_modified_tabs": true,
+    "hot_exit": false,
+    "ignored_packages": [
+        "vintage"
+    ],
+    "remember_open_files": false,
+    "rulers": [
+        80
+    ],
+    "scroll_past_end": true,
+    "translate_tabs_to_spaces": true,
+    "use_tab_stops": true,
+    "word_wrap": true
 }
