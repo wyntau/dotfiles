@@ -38,7 +38,7 @@
 	lg = log --color --graph --pretty=format:'%C(yellow)%h%Creset -%Cred%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --date=local --abbrev-commit
 	ll = log --color --graph --pretty=format:'%n%C(yellow)%s%d%n%C(bold white)<%an> %Cblue%ar %C(red)(%ad)%n%Creset%Cgreen%H'  --stat --topo-order  --decorate --date=local
 	lp = log --color --graph --pretty=format:'%n%C(yellow)%s%d%n%C(bold white)<%an> %Cblue%ar %C(red)(%ad)%n%Creset%Cgreen%H'  --stat --topo-order  --decorate -p --date=local
-	mg = merge   # branchName here
+	mg = merge --no-ff   # branchName here
 	ps = push
 	pl = pull
 	plv = pull -v
