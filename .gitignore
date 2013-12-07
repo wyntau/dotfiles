@@ -1,3 +1,4 @@
 .DS_Store
-vim/bundle/*
-!vim/bundle/vundle
+vim/bundle
+sublime/monokai-custom
+zsh/oh-my-zsh
