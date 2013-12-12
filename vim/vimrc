@@ -404,7 +404,7 @@ nmap <Tab> <C-w>w
 map j gj
 map k gk
 
-nnoremap ; :
+" nnoremap ; :
 
 " remap U to <C-r> for easier redo
 nnoremap U <C-r>
