@@ -122,7 +122,7 @@ or do a specific task by run
             SUBLIMEPATH=~/sublimetext2 make sublime
 
         After installing the preference, maybe you want to reset `font_face` and `font_size` to what you prefer in `Preference.sublime-settings`.
-    3. Install sublime packages(optional). You can see what sublime packages I used in [SublimePackages.md](sublime/SublimePackages.md).
+    3. Install sublime packages(optional). You can see what sublime packages I used in [SublimePackages](sublime/README.md).
 
     If you use `VIM Mode` in Sublime Text 2 on OS X 10.8+, when you hold `h`, `l`, `j`, `k`, the cursor will not move `left` `right` `down` `up` continually like real VIM, the solution is below.
 
