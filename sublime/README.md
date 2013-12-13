@@ -14,6 +14,7 @@ The Sublime Packages I used are listed below:
 - Color Highlighter
 - ColorPicker
 - CSScomb
+- DashDoc
 - DocBlockr
 - Emmet
 - Emmet Css Snippets
