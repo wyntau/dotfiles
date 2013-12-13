@@ -60,6 +60,8 @@
     Bundle 'vim-scripts/ShowTrailingWhitespace'
     Bundle 'vim-scripts/JumpToTrailingWhitespace'
     Bundle 'vim-scripts/DeleteTrailingWhitespace'
+    Bundle 'rizzatti/funcoo.vim'
+    Bundle 'rizzatti/dash.vim'
 
 ## Tasks & Requirement
 Available tasks:
