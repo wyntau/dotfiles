@@ -400,7 +400,7 @@ endif
 nmap <Tab> <C-w>w
 
 "Treat long lines as break lines (useful when moving around in them)
-"se swap之后，同物理行上线直接跳
+"set wrap之后，将自动换行的长行当做多行处理, 方便在长行之间跳转.
 map j gj
 map k gk
 
@@ -463,8 +463,6 @@ nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
 let mapleader=","
 let g:mapleader=","
 
-"选择到段落末尾
-"nnoremap <leader>v V`}
 
 map <leader>te :tabnew<cr>
 map <leader>to :tabonly<cr>
@@ -524,6 +522,9 @@ vmap <leader>c "+y
 imap <leader>v <ESC>"+p
 nmap <leader>v "+p
 vmap <leader>v "+p
+
+"选择到段落末尾
+"nnoremap <leader>v V`}
 
 "剪切到公共剪切板
 vmap <leader>x "+d
