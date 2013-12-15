@@ -5,7 +5,7 @@
     ├── sublime
     |   ├── monokai-custom
     |   ├── Preference.sublime-settings
-    |   └── SublimePackages.md
+    |   └── README.md
     ├── vim
     |   ├── bundle
     │   │   └── vundle
@@ -27,7 +27,7 @@
 - sublime - all things about _Sublime Text 2_
     - monokai-custom - git submodule, Monokai-custom colorscheme
     - Preference.sublime-settings - the Preference file
-    - SublimePackages.md - the list of sublime packages I use
+    - README.md - the list of sublime packages I use
 - vim - all things about _VIM_
     - bundle/vundle - the *vim bundle manager*
     - editorconfig - the config for vim bundle **js-beautify**
@@ -90,7 +90,7 @@ or do a specific task by run
     *After* **or** *Before* above, you can override the system vim with the new one installed by `homebrew`.(OS X only. This is optional, but recommended, because system vim can't use system clipbord via register `+`)
 
         brew install macvim --override-system-vim
-    And then uncomment the new vim `PATH` in `zsh/zshrc`.
+    And then uncomment the new vim __PATH__ in `zsh/zshrc` if you will do the `zsh` task, otherwise add the new vim __PATH__ in you `.bashrc` or some other config file.
 
 - ### Task `gitconfig`
     1. Requirement: `git`
