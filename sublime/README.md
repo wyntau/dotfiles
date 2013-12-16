@@ -22,6 +22,7 @@ The Sublime Packages I used are listed below:
 - GitGutter
 - HTML-CSS-JS Prettify
 - JsFormat
+- JSHint
 - JSHint Gutter
 - LESS
 - LineEndings
