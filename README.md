@@ -98,11 +98,31 @@ or do a specific task by run
 
             make gitconfig
 
+    __What others maybe you should install?__
+
+    - Kaleidoscope( _OS X only_ ) - an excellent difftool when input `git difftool`
+    - git-extras - some useful tools for git, install from <https://github.com/visionmedia/git-extras>( _Linux, OS X_ ) or
+
+            # OS X only
+            brew install git-extras
+
+    - git-flow - a post about git-flow: [a-successful-git-branching-model](http://nvie.com/posts/a-successful-git-branching-model/), install from <https://github.com/nvie/gitflow>( _Linux, OS X_ ) or
+
+            # OS X only
+            brew install git-flow
+
 - ### Task `astylerc`
     1. Requirement: `astyle`. If you have installed `astyle` and press `Q` in vim, astyle will be used to format the *C*, *C++*, *C#*, *Java* file.
     2. Setup:
 
             make astylerc
+
+    __What others maybe you should install?__
+
+    astyle
+
+        # OS X only
+        brew install astyle
 
 - ### Task `wgetrc`
     1. Requirement: `wget`
@@ -159,24 +179,23 @@ or do a specific task by run
 
     If you have your own aliases, put them in `~/.zsh.alias`, zsh will load them automatically.
 
-## What are required optionally
-*Note*: __These softwares or scripts are not necessary, but recommended.__
+    __What zsh plugins are used default?__
 
-- astyle - required by **astylerc**
+    - git
+    - git-extras
+    - git-flow
+    - brew
+    - bower
+    - cake
+    - coffee
+    - node
+    - npm
+    - osx
+    - ruby
+    - sublime
+    - autojump
 
-        # OS X only
-        brew install astyle
-
-- Kaleidoscope( _OS X only_ ) - an excellent difftool when input `git difftool`
-- git-extras - some useful tools for git, install from <https://github.com/visionmedia/git-extras>( _Linux, OS X_ ) or
-
-        # OS X only
-        brew install git-extras
-
-- git-flow - a post about git-flow: [a-successful-git-branching-model](http://nvie.com/posts/a-successful-git-branching-model/), install from <https://github.com/nvie/gitflow>( _Linux, OS X_ ) or
-
-        # OS X only
-        brew install git-flow
+    So, maybe you should install some of them to make full use of zsh.
 
 ## LICENSE
 
