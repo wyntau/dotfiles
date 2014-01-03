@@ -8,11 +8,10 @@ list:
 	@echo "\033[0;32m    1) vimrc\033[0m"
 	@echo "\033[0;32m    2) gitconfig\033[0m"
 	@echo "\033[0;32m    3) astylerc\033[0m"
-	@echo "\033[0;32m    4) wgetrc\033[0m"
-	@echo "\033[0;32m    5) sublime\033[0m"
-	@echo "\033[0;32m    6) zsh\033[0m"
+	@echo "\033[0;32m    4) sublime\033[0m"
+	@echo "\033[0;32m    5) zsh\033[0m"
 
-all: vimrc gitconfig astylerc wgetrc sublime zsh
+all: vimrc gitconfig astylerc sublime zsh
 
 vimrc:
 	@if [ -d vim/bundle/vundle ]; then \
@@ -71,13 +70,6 @@ astylerc:
 	@ln -s $(NOW)/astylerc ~/.astylerc;
 	@echo "\033[0;32m==> Install astylerc completed.\033[0m"
 
-wgetrc:
-	@echo "\033[0;33m==> Installing wgetrc......\033[0m"
-	@rm -rf ~/.wgetrc
-	@echo "\033[0;36mlinking $(NOW)/wgetrc to ~/.wgetrc\033[0m";
-	@ln -s $(NOW)/wgetrc ~/.wgetrc;
-	@echo "\033[0;32m==> Install wgetrc completed.\033[0m"
-
 sublime:
 	@if [ -d sublime/monokai-custom ]; then \
 		echo "\033[0;33mupdate git submodule...\033[0m"; \
@@ -129,7 +121,7 @@ zsh:
 	@echo "\033[0;32m==> Install zsh and oh-my-zsh completed.\033[0m"
 	@/usr/bin/env zsh
 	@source ~/.zshrc
-.PHONY: all vimrc gitconfig astylerc wgetrc zsh sublime
+.PHONY: all vimrc gitconfig astylerc zsh sublime
 
 #none         = "\033[0m"
 #black        = "\033[0;30m"
