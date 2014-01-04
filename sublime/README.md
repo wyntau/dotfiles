@@ -19,6 +19,7 @@ The Sublime Packages I used are listed below:
 - Emmet
 - Emmet Css Snippets
 - GBK Encoding Support
+- Gist
 - GitGutter
 - HTML-CSS-JS Prettify
 - JsFormat
