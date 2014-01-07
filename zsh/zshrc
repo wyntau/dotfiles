@@ -47,8 +47,8 @@ plugins=(git git-extras git-flow brew bower cake coffee node npm osx ruby sublim
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-# export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin
-
 # Uncomment following line if you use homebrew
 export PATH=/usr/local/bin:$PATH
+
+# Customize to your needs...
+# export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin
