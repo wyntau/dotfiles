@@ -22,7 +22,7 @@
 	brd = branch -d
 	ci = commit
 	ca = commit -a
-	caa = commit --amend
+	cia = commit --amend
 	co = checkout  # branchName here
 	cb = checkout -b  # new branchName here
 	ct = checkout -t  # remote branchName here
