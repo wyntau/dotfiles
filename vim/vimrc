@@ -1,6 +1,6 @@
 "==========================================
 " Author:  Jeremial
-" Version: 2013-11-14
+" Version: 2014-01-18
 " Email: Jeremial90@gmail.com
 " Description: 适合自己使用的vimrc文件.
 " Sections:
@@ -343,59 +343,6 @@ map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
 
-" 插入模式下左右移动光标
-if has("gui_macvim")
-  " enable bind `meta` key
-  set macmeta
-  " 插入模式下左右移动光标
-  imap <M-l> <esc>la
-  imap <M-h> <esc>ha
-  imap <M-j> <esc>ja
-  imap <M-k> <esc>ka
-  imap <M-a> <esc>^i
-  imap <M-e> <esc>g_a
-  " better command line editing
-  cnoremap <M-a> <Home>
-  cnoremap <M-e> <End>
-  cnoremap <M-b> <Left>
-  cnoremap <M-f> <Right>
-  cnoremap <M-k> <C-U>
-  "窗口分割时,进行切换的按键热键需要连接两次,比如从下方窗口移动
-  "光标到上方窗口,需要<c-w><c-w>k,非常麻烦,现在重映射为<c-k>,切换的
-  "时候会变得非常方便.
-  nmap <M-h> <C-w>h
-  nmap <M-j> <C-w>j
-  nmap <M-k> <C-w>k
-  nmap <M-l> <C-w>l
-  " Speed up scrolling of the viewport slightly
-  nnoremap <M-e> 2<C-e>
-  nnoremap <M-y> 2<C-y>
-else
-  " 插入模式下左右移动光标
-  imap <c-l> <esc>la
-  imap <c-h> <esc>ha
-  imap <c-j> <esc>ja
-  imap <c-k> <esc>ka
-  imap <c-a> <esc>^i
-  imap <c-e> <esc>g_a
-  " better command line editing
-  cnoremap <C-a> <Home>
-  cnoremap <C-e> <End>
-  cnoremap <C-b> <Left>
-  cnoremap <C-f> <Right>
-  cnoremap <C-k> <C-U>
-  "窗口分割时,进行切换的按键热键需要连接两次,比如从下方窗口移动
-  "光标到上方窗口,需要<c-w><c-w>k,非常麻烦,现在重映射为<c-k>,切换的
-  "时候会变得非常方便.
-  nmap <C-h> <C-w>h
-  nmap <C-j> <C-w>j
-  nmap <C-k> <C-w>k
-  nmap <C-l> <C-w>l
-  " Speed up scrolling of the viewport slightly
-  nnoremap <C-e> 2<C-e>
-  nnoremap <C-y> 2<C-y>
-endif
-
 " Switch splits
 nmap <Tab> <C-w>w
 
@@ -411,8 +358,6 @@ nnoremap U <C-r>
 
 " Remap VIM 0 to first non-blank character
 " map 0 ^
-
-map Y y$
 
 "设置 jj快速进入normal模式
 "inoremap jj <ESC>
@@ -442,6 +387,8 @@ nnoremap <expr>g<Bar> '<Esc>'.float2nr(round((col('$')-1)*min([100,v:count])/100
 nnoremap / /\v
 vnoremap / /\v
 
+"代码格式优化化
+autocmd BufNewFile,BufRead *.{c,cpp} set formatprg=astyle
 " Don't use Ex mode, use Q for formatting
 map Q ggvGgqgg
 
@@ -493,35 +440,11 @@ nmap <leader>16 <ESC>:%!xxd<ESC>
 " ,r16                返回普通格式
 nmap <leader>r16 <ESC>:%!xxd -r<ESC>
 
-" vimrc文件修改之后自动加载。 linux。
-autocmd! bufwritepost .vimrc source %
-" Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
-
-" Quickly close the current window
-nnoremap <leader>q :q<CR>
-
-" select all
-map <Leader>sa ggVG "全部内容全选
-map <Leader>sl ^vg_ " 选择本行非空部分
-
 " Undolist
 map <leader>u :undolist<cr>
 
 "Fast remove highlight search
 nmap <silent> <leader><cr> :nohlsearch<cr>
-
-"Fast redraw
-nmap <silent> <leader>rr :redraw!<cr>
-
-" ,c                  复制至公共剪贴板
-vmap <leader>c "+y
-
-" ,v                  从公共剪贴板粘贴
-imap <leader>v <ESC>"+p
-nmap <leader>v "+p
-vmap <leader>v "+p
 
 "选择到段落末尾
 "nnoremap <leader>v V`}
@@ -547,11 +470,6 @@ endfunction
 au BufReadPre *.nfo call SetFileEncodings('cp437')|set ambiwidth=single
 au BufReadPost *.nfo call RestoreFileEncodings()
 "}}}
-
-" Change Assignment(=) Expression.
-" @see http://c9s.blogspot.com/2007/09/vim-tip.html
-nmap c=r $F=lcf;
-nmap c=l $F=c^
 
 " 返回当前日期的中文表示{{{
 function! NowDate(type)
@@ -649,8 +567,6 @@ function! CompleteQuote(quote)
 endfunction
 " }}}自动补全成对的括号和引号
 
-"代码格式优化化
-autocmd BufNewFile,BufRead *.{c,cpp} set formatprg=astyle
 
 "设置 <F7> 和 <F8> 分别跳转到上一个不同、下一个不同处，如果不是 diff 模式， 则分别设置为 QucikFix 的上一条、下一条信息行
 function! Jump2DiffText(dir)
@@ -843,7 +759,7 @@ Bundle 'groenewege/vim-less'
 "emmet-vim{{{
 Bundle 'mattn/emmet-vim'
 if has('gui_macvim')
-  let g:user_emmet_leader_key = '<M-e>'
+  let g:user_emmet_leader_key = '<D-e>'
 else
   let g:user_emmet_leader_key = '<C-e>'
 endif
@@ -854,8 +770,8 @@ autocmd FileType html,css EmmetInstall
 "}}}
 
 "xtemplate {{{
-Bundle 'drmingdrmer/xptemplate'
-let g:xptemplate_key = '<Tab>'
+" Bundle 'drmingdrmer/xptemplate'
+" let g:xptemplate_key = '<Tab>'
 "}}}
 
 " Bundle 'mattn/calendar-vim'
