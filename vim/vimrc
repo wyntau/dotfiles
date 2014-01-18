@@ -351,17 +351,10 @@ nmap <Tab> <C-w>w
 map j gj
 map k gk
 
-" nnoremap ; :
-
 " remap U to <C-r> for easier redo
 nnoremap U <C-r>
 
-" Remap VIM 0 to first non-blank character
-" map 0 ^
-
 "设置 jj快速进入normal模式
-"inoremap jj <ESC>
-"vnoremap jj <ESC>
 inoremap kj <Esc>
 
 "Keep search pattern at the center of the screen."
@@ -429,6 +422,10 @@ map <leader>t. :tabedit <c-r>=expand("%:p:h")<cr>
 nnoremap <silent> <leader>d "_d<cr>
 vnoremap <silent> <leader>d "_d<cr>
 
+"剪切到公共剪切板
+vmap <leader>x "+d
+nmap <leader>x "+d
+
 " {{{全文搜索选中的文字
 vnoremap  *  y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 vnoremap  #  y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
@@ -440,18 +437,8 @@ nmap <leader>16 <ESC>:%!xxd<ESC>
 " ,r16                返回普通格式
 nmap <leader>r16 <ESC>:%!xxd -r<ESC>
 
-" Undolist
-map <leader>u :undolist<cr>
-
 "Fast remove highlight search
 nmap <silent> <leader><cr> :nohlsearch<cr>
-
-"选择到段落末尾
-"nnoremap <leader>v V`}
-
-"剪切到公共剪切板
-vmap <leader>x "+d
-nmap <leader>x "+d
 
 "==========================================
 " 自定义函数定义
