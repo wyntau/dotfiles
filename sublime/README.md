@@ -38,3 +38,4 @@ The Sublime Packages I used are listed below:
 - SublimeREPL
 - Tag
 - TrailingSpaces
+- VintageEX
