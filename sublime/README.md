@@ -24,7 +24,7 @@ The Sublime Packages I used are listed below:
 - HTML-CSS-JS Prettify
 - JsFormat
 - JSHint
-- JSHint Gutter
+- <del>JSHint Gutter</del>
 - LESS
 - LineEndings
 - Markdown Preview
