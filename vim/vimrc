@@ -721,6 +721,15 @@ Bundle 'vim-scripts/ShowTrailingWhitespace'
 Bundle 'vim-scripts/JumpToTrailingWhitespace'
 Bundle 'vim-scripts/DeleteTrailingWhitespace'
 
+" {{{
+Bundle 'suan/vim-instant-markdown'
+let g:instant_markdown_slow = 1
+let g:instant_markdown_autostart = 0
+" [sudo] gem install pygments.rb
+" [sudo] gem install redcarpet
+" [sudo] npm -g install instant-markdown-d
+" }}}
+
 " ========== for Dash ==========
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'

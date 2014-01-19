@@ -62,6 +62,7 @@
     Bundle 'vim-scripts/ShowTrailingWhitespace'
     Bundle 'vim-scripts/JumpToTrailingWhitespace'
     Bundle 'vim-scripts/DeleteTrailingWhitespace'
+    Bundle 'suan/vim-instant-markdown'
     Bundle 'rizzatti/funcoo.vim'
     Bundle 'rizzatti/dash.vim'
 
