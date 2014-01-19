@@ -8,6 +8,7 @@ The Sublime Packages I used are listed below:
 
 - AdvancedNewFile
 - Alignment
+- AlignTab
 - Autoprefixer
 - BracketHighlighter
 - CoffeeScript

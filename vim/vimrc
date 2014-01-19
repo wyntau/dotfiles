@@ -587,60 +587,6 @@ else
     map <buffer> <F8> :cn<cr>
 endif
 
-"map <F7> :call CompileRunGcc()<CR>
-func! CompileRunGcc()
-  exec "w"
-  if &filetype == 'c'
-    exec "!g++ % -o %<"
-    exec "!time ./%<"
-  elseif &filetype == 'cpp'
-    exec "!g++ % -o %<"
-    exec "!time ./%<"
-  elseif &filetype == 'java'
-    exec "!javac %"
-    exec "!time java %<"
-  elseif &filetype == 'sh'
-    :!time bash %
-  elseif &filetype == 'python'
-    exec "!time python2.7 %"
-    elseif &filetype == 'html'
-        exec "!firefox % &"
-    elseif &filetype == 'go'
-"        exec "!go build %<"
-        exec "!time go run %"
-    elseif &filetype == 'mkd'
-        exec "!~/.vim/Markdown/Markdown.pl % > %.html &"
-        exec "!firefox %.html &"
-  endif
-endfunc
-"C,C++的调试
-
-"map <F8> :call Rungdb()<CR>
-func! Rungdb()
-  exec "w"
-  exec "!g++ % -g -o %<"
-  exec "!gdb ./%<"
-endfunc
-
-" F5编译和运行C程序，F6编译和运行C++程序
-" 请注意，下述代码在windows下使用会报错
-" 需要去掉./这两个字符
-" C的编译和运行
-"map <F5> :call CompileRunGcc()<CR>
-"func! CompileRunGcc()
-"exec "w"
-"exec "!gcc % -o %<"
-"exec "! ./%<"
-"endfunc
-
-" C++的编译和运行
-"map <F6> :call CompileRunGpp()<CR>
-"func! CompileRunGpp()
-"exec "w"
-"exec "!g++ % -o %<"
-"exec "! ./%<"
-"endfunc
-
 "==========================================
 " bundle 插件管理及配置
 "==========================================
@@ -745,23 +691,12 @@ Bundle 'groenewege/vim-less'
 
 "emmet-vim{{{
 Bundle 'mattn/emmet-vim'
-if has('gui_macvim')
-  let g:user_emmet_leader_key = '<D-e>'
-else
-  let g:user_emmet_leader_key = '<C-e>'
-endif
+let g:user_emmet_leader_key = '<C-e>'
 let g:user_emmet_mode='inv'
 " Enable just for html/css
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 "}}}
-
-"xtemplate {{{
-" Bundle 'drmingdrmer/xptemplate'
-" let g:xptemplate_key = '<Tab>'
-"}}}
-
-" Bundle 'mattn/calendar-vim'
 
 Bundle 'terryma/vim-multiple-cursors'
 
@@ -769,11 +704,13 @@ Bundle 'ap/vim-css-color'
 
 Bundle 'airblade/vim-gitgutter'
 
-" Bundle 'vim-scripts/Align'
-
-" Bundle 'osyo-manga/vim-over'
+Bundle 'osyo-manga/vim-over'
 
 Bundle 'kien/ctrlp.vim'
+
+Bundle 'Lokaltog/vim-easymotion'
+
+Bundle 'godlygeek/tabular'
 
 Bundle 'vim-scripts/CountJump'
 Bundle 'vim-scripts/ShowTrailingWhitespace'
