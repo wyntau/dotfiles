@@ -154,13 +154,6 @@ set showmode
 " 设定命令行的行数为 1
 set cmdheight=1
 
-" 显示状态栏 (默认值为 1, 无法显示状态栏)
-" 命令行（在状态行下）的高度，默认为1，这里是2
-set laststatus=2
-" 设置在状态行显示的信息（包括文件类型和解码）
-" buffer编号 | 文件路径及文件名 | modified状态 | 只读状态 | help | preview | 文件编码 | BOM | EOL | type | demical:hexadecimal | 列:行/总行 | 文件百分比 | 时 间
-set statusline=[%n]\ %F%m%r%h%w\ [%{&ff}]\ [%{(&fenc==\"\"?&enc:&fenc).(&bomb?\",BOM\":\"\")}]%{&eol?'':'\ [noeol]'}\ [TYPE=%Y]\ [\%03.3b:0x\%02.2B]\ [POS=%c:%l/%L][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
-
 " 显示Tab符 "输入:set list命令是应该显示些啥？
 set listchars=tab:>-,nbsp:~,trail:.,extends:>,precedes:<,eol:$
 
@@ -709,6 +702,17 @@ Bundle 'osyo-manga/vim-over'
 Bundle 'kien/ctrlp.vim'
 
 Bundle 'Lokaltog/vim-easymotion'
+
+Bundle 'tpope/vim-fugitive'
+
+Bundle 'bling/vim-airline'
+" 显示状态栏 (默认值为 1, 无法显示状态栏)
+" 命令行（在状态行下）的高度，默认为1，这里是2
+set laststatus=2
+" 设置在状态行显示的信息（包括文件类型和解码）
+" buffer编号 | 文件路径及文件名 | modified状态 | 只读状态 | help | preview | 文件编码 | BOM | EOL | type | demical:hexadecimal | 列:行/总行 | 文件百分比 | 时 间
+" set statusline=[%n]\ %F%m%r%h%w\ [%{&ff}]\ [%{(&fenc==\"\"?&enc:&fenc).(&bomb?\",BOM\":\"\")}]%{&eol?'':'\ [noeol]'}\ [TYPE=%Y]\ [\%03.3b:0x\%02.2B]\ [POS=%c:%l/%L][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
+
 
 Bundle 'godlygeek/tabular'
 

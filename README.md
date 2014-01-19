@@ -55,6 +55,8 @@
     Bundle 'osyo-manga/vim-over'
     Bundle 'kien/ctrlp.vim'
     Bundle 'Lokaltog/vim-easymotion'
+    Bundle 'tpope/vim-fugitive'
+    Bundle 'bling/vim-airline'
     Bundle 'godlygeek/tabular'
     Bundle 'vim-scripts/CountJump'
     Bundle 'vim-scripts/ShowTrailingWhitespace'
