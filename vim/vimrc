@@ -437,20 +437,6 @@ nmap <silent> <leader><cr> :nohlsearch<cr>
 " 自定义函数定义
 "==========================================
 
-" {{{能够漂亮地显示.NFO文件
-function! SetFileEncodings(encodings)
-    let b:myfileencodingsbak=&fileencodings
-    let &fileencodings=a:encodings
-endfunction
-function! RestoreFileEncodings()
-    let &fileencodings=b:myfileencodingsbak
-    unlet b:myfileencodingsbak
-endfunction
-
-au BufReadPre *.nfo call SetFileEncodings('cp437')|set ambiwidth=single
-au BufReadPost *.nfo call RestoreFileEncodings()
-"}}}
-
 " 返回当前日期的中文表示{{{
 function! NowDate(type)
   if a:type == 'zh'
@@ -617,6 +603,8 @@ let g:instant_markdown_autostart = 0
 " }}}
 
 Bundle 'Raimondi/delimitMate'
+
+Bundle 'smilekzs/vim-nfo'
 
 " ========== for Dash ==========
 Bundle 'rizzatti/funcoo.vim'

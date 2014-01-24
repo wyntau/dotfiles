@@ -54,6 +54,7 @@
     Bundle 'vim-scripts/DeleteTrailingWhitespace'
     Bundle 'suan/vim-instant-markdown'
     Bundle 'Raimondi/delimitMate'
+    Bundle 'smilekzs/vim-nfo'
     Bundle 'rizzatti/funcoo.vim'
     Bundle 'rizzatti/dash.vim'
 
