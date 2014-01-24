@@ -466,39 +466,6 @@ endfunction
 imap ztime <c-r>=NowDate('zh')<cr>
 imap etime <c-r>=NowDate('en')<cr>
 
-
-"设置 <F7> 和 <F8> 分别跳转到上一个不同、下一个不同处，如果不是 diff 模式， 则分别设置为 QucikFix 的上一条、下一条信息行
-function! Jump2DiffText(dir)
-    if a:dir=="prev"
-        exec "normal [c"
-    elseif a:dir=="next"
-        exec "normal ]c"
-    endif
-    if synIDattr(diff_hlID(".", col(".")), "name")=="DiffChange"
-        let line=line(".")
-        let cols=col("$")-1
-        let idx=1
-        while idx<=cols
-            if synIDattr(diff_hlID(line, idx), "name")=="DiffText"
-                call setpos(".", [0,line,idx])
-                echo line.",".idx.",".cols
-                break
-            else
-                let idx = idx+1
-            endif
-        endwhile
-    endif
-endfunction
-
-" @see http://vim.wikia.com/wiki/Selecting_changes_in_diff_mode
-if &diff
-    nmap <buffer> <F7> :call Jump2DiffText("prev")<cr>
-    nmap <buffer> <F8> :call Jump2DiffText("next")<cr>
-else
-    map <buffer> <F7> :cp<cr>
-    map <buffer> <F8> :cn<cr>
-endif
-
 "==========================================
 " bundle 插件管理及配置
 "==========================================
