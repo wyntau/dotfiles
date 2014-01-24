@@ -34,7 +34,7 @@ The Sublime Packages I used are listed below:
 - PyV8 (auto installed by emmet)
 - SidebarEnhancements
 - SublimeAStyleFormatter
-- SublimeCodeIntel
+- <del>SublimeCodeIntel</del>
 - SublimeLinter
 - SublimeREPL
 - Tag
