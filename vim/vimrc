@@ -345,7 +345,7 @@ map j gj
 map k gk
 
 " remap U to <C-r> for easier redo
-nnoremap U <C-r>
+" nnoremap U <C-r>
 
 "设置 jj快速进入normal模式
 inoremap kj <Esc>
