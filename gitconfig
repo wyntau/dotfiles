@@ -18,32 +18,30 @@
 	tool = Kaleidoscope
 [alias]
 	br = branch
-	bra = branch -a
-	brd = branch -d
+	bra = branch --all
+	brd = branch --delete
 	ci = commit
-	ca = commit -a
-	cia = commit --amend
+	ca = commit --all
+	cam = commit --amend
 	co = checkout  # branchName here
 	cb = checkout -b  # new branchName here
-	ct = checkout -t  # remote branchName here
+	ct = checkout --track  # remote branchName here
 	df = diff
 	dft = difftool
 	dfs = diff --stat
 	dfc = diff --cached
 	dfl = diff --name-only
-	dfh = diff HEAD
 	fh = fetch
-	fhv = fetch -v
-	last = log -1 -p HEAD
+	fhv = fetch --verbose
 	lg = log --color --graph --pretty=format:'%C(yellow)%h%Creset -%Cred%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --date=local --abbrev-commit
 	ll = log --color --graph --pretty=format:'%n%C(yellow)%s%d%n%C(bold white)<%an> %Cblue%ar %C(red)(%ad)%n%Creset%Cgreen%H'  --stat --topo-order  --decorate --date=local
 	lp = log --color --graph --pretty=format:'%n%C(yellow)%s%d%n%C(bold white)<%an> %Cblue%ar %C(red)(%ad)%n%Creset%Cgreen%H'  --stat --topo-order  --decorate -p --date=local
 	mg = merge --no-ff   # branchName here
 	ps = push
 	pl = pull
-	plv = pull -v
-	rb = rebase
-	st = status -sb
+	plb = pull --rebase
+	plv = pull --verbose
+	st = status --short --branch
 	unstage = reset HEAD --   # fileName here
 	untohead = reset --hard HEAD    # !!caution!! all changes that not commited will be **lost**!!
 	unto = reset --hard      # commitId here !!caution!! all changes *after* the commitId will be lost!!
