@@ -1,3 +1,4 @@
+# use sublime text to view these files
 alias -s html=st
 alias -s js=st
 alias -s coffee=st
@@ -12,7 +13,8 @@ alias -s h=st
 alias -s hpp=st
 alias -s php=st
 
+# use less to view log files
 alias -s log=less
 
-# alias -g PR=http_proxy=http://127.0.0.1:8087
+alias -g PR=http_proxy=http://127.0.0.1:8087
 # PR curl https://twitter.com # 相当于 http_proxy=http://127.0.0.1:8087 curl https://twitter.com
