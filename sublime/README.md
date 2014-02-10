@@ -11,6 +11,7 @@ The Sublime Packages I used are listed below:
 - AlignTab
 - Autoprefixer
 - BracketHighlighter
+- Can I Use
 - CoffeeScript
 - Color Highlighter
 - ColorPicker
@@ -21,6 +22,7 @@ The Sublime Packages I used are listed below:
 - Emmet Css Snippets
 - GBK Encoding Support
 - Gist
+- Git
 - GitGutter
 - HTML-CSS-JS Prettify
 - JsFormat
@@ -38,5 +40,7 @@ The Sublime Packages I used are listed below:
 - SublimeLinter
 - SublimeREPL
 - Tag
+- Terminal
 - TrailingSpaces
+- Trimmer
 - VintageEX
