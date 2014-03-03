@@ -164,7 +164,8 @@ set numberwidth=4
 "匹配括号的规则，增加针对html的<>
 set matchpairs=(:),{:},[:],<:>
 " 当光标到达行尾或者行首时，继续移动转至下一行或者上一行 允许backspace和光标键跨越行边界
-set whichwrap=h,l,b,s,<,>,~,[,]
+" set whichwrap=h,l,b,s,<,>,~,[,]
+set whichwrap=b,s,<,>,~,[,]
 " ']' Insert and Replace
 " '[' Insert and Replace
 " '~' Normal
