@@ -20,6 +20,7 @@
 	br = branch
 	bra = branch --all
 	brd = branch --delete
+	brD = branch -D
 	ci = commit
 	ca = commit --all
 	cam = commit --amend
