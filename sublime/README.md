@@ -40,7 +40,7 @@ The Sublime Packages I used are listed below:
 - SublimeLinter
 - SublimeREPL
 - Tag
-- Terminal
+- <del>Terminal</del>
 - TrailingSpaces
 - Trimmer
 - VintageEX
