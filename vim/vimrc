@@ -547,7 +547,9 @@ autocmd FileType html,css EmmetInstall
 
 Bundle 'terryma/vim-multiple-cursors'
 
-Bundle 'ap/vim-css-color'
+" Bundle 'ap/vim-css-color'
+" vim-css-color # 不支持Vim74， 使用vim-colorsque 替代
+Bundle 'Marslo/vim-coloresque'
 
 Bundle 'airblade/vim-gitgutter'
 
@@ -576,9 +578,9 @@ Bundle 'vim-scripts/JumpToTrailingWhitespace'
 Bundle 'vim-scripts/DeleteTrailingWhitespace'
 
 " {{{
-Bundle 'suan/vim-instant-markdown'
-let g:instant_markdown_slow = 1
-let g:instant_markdown_autostart = 0
+" Bundle 'suan/vim-instant-markdown'
+" let g:instant_markdown_slow = 1
+" let g:instant_markdown_autostart = 0
 " [sudo] gem install pygments.rb
 " [sudo] gem install redcarpet
 " [sudo] npm -g install instant-markdown-d
