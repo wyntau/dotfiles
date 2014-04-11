@@ -40,7 +40,7 @@
     Bundle 'groenewege/vim-less'
     Bundle 'mattn/emmet-vim'
     Bundle 'terryma/vim-multiple-cursors'
-    Bundle 'ap/vim-css-color'
+    Bundle 'Marslo/vim-coloresque'
     Bundle 'airblade/vim-gitgutter'
     Bundle 'osyo-manga/vim-over'
     Bundle 'kien/ctrlp.vim'
