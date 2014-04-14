@@ -14,6 +14,9 @@ ZSH_THEME="robbyrussell"
 # put you own alias in ~/.zsh.alias
 [ -f $HOME/.zsh.alias ] && source $HOME/.zsh.alias
 
+# source the z jump plugin
+[ -f $HOME/.zjump/z.sh ] && source $HOME/.zjump/z.sh
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 

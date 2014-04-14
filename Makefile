@@ -93,10 +93,10 @@ sublime:
 
 zsh:
 	@if [ -d zsh/oh-my-zsh ]; then \
-		echo "\033[0;33mupdate git submodule...\033[0m"; \
+		echo "\033[0;33mupdate oh-my-zsh...\033[0m"; \
 		cd zsh/oh-my-zsh && git pull origin master && cd $(NOW); \
 	else \
-		echo "\033[0;33minit and update sublime...\033[0m"; \
+		echo "\033[0;33minit and update oh-my-zsh...\033[0m"; \
 		git clone https://github.com/robbyrussell/oh-my-zsh.git zsh/oh-my-zsh; \
 	fi;
 
@@ -109,6 +109,20 @@ zsh:
 
 	@echo "\033[0;36mlinking $(NOW)/zsh/zshrc to ~/.zshrc\033[0m";
 	@ln -s $(NOW)/zsh/zshrc ~/.zshrc;
+
+	@if [ -d zsh/z ]; then \
+		echo "\033[0;33mupdate zjump...\033[0m"; \
+		cd zsh/zjump && git pull origin master && cd $(NOW); \
+	else \
+		echo "\033[0;33minit and update zjump...\033[0m"; \
+		git clone https://github.com/rupa/z zsh/z; \
+	fi;
+
+	@echo "\033[0;33m==> Installing zjump......\033[0m"
+	@rm -rf ~/.zjump;
+
+	@echo "\033[0;36mlinking $(NOW)/zsh/z to ~/.zjump\033[0m"
+	@ln -s $(NOW)/zsh/z ~/.zjump;
 
 	@echo "\033[0;36mTime to change your default shell to zsh!\033[0m"
 	@if [ "$(ZSHPATH)" != "" ]; then \
