@@ -32,7 +32,7 @@ The Sublime Packages I used are listed below:
 - LineEndings
 - Markdown Preview
 - Package Control (required by all others)
-- Pretty JSON
+- <del>Pretty JSON</del>
 - PyV8 (auto installed by emmet)
 - SidebarEnhancements
 - SublimeAStyleFormatter
@@ -42,5 +42,5 @@ The Sublime Packages I used are listed below:
 - Tag
 - <del>Terminal</del>
 - TrailingSpaces
-- Trimmer
+- <del>Trimmer</del>
 - VintageEX
