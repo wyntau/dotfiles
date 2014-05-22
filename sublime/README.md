@@ -34,12 +34,12 @@ The Sublime Packages I used are listed below:
 - Package Control (required by all others)
 - <del>Pretty JSON</del>
 - PyV8 (auto installed by emmet)
-- SidebarEnhancements
+- <del>SidebarEnhancements</del>
 - <del>SublimeAStyleFormatter</del>
 - <del>SublimeCodeIntel</del>
 - SublimeLinter
 - <del>SublimeREPL</del>
-- Tag
+- <del>Tag</del>
 - <del>Terminal</del>
 - TrailingSpaces
 - <del>Trimmer</del>
