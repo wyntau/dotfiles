@@ -14,9 +14,6 @@ ZSH_THEME="robbyrussell"
 # put you own alias in ~/.zsh.alias
 [ -f $HOME/.zsh.alias ] && source $HOME/.zsh.alias
 
-# source the z jump plugin
-[ -f $HOME/.zjump/z.sh ] && source $HOME/.zjump/z.sh
-
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -46,7 +43,7 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-extras git-flow brew bower cake coffee node npm osx ruby sublime autojump)
+plugins=(git git-extras git-flow brew bower cake coffee node npm osx ruby sublime z autojump)
 
 source $ZSH/oh-my-zsh.sh
 
