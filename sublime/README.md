@@ -9,20 +9,20 @@ The Sublime Packages I used are listed below:
 - AdvancedNewFile
 - Alignment
 - AlignTab
-- Autoprefixer
+- <del>Autoprefixer</del>
 - BracketHighlighter
-- Can I Use
+- <del>Can I Use</del>
 - CoffeeScript
 - Color Highlighter
-- ColorPicker
+- <del>ColorPicker</del>
 - CSScomb
-- DashDoc
+- <del>DashDoc</del>
 - DocBlockr
 - Emmet
 - Emmet Css Snippets
 - GBK Encoding Support
-- Gist
-- Git
+- <del>Gist</del>
+- <del>Git</del>
 - GitGutter
 - HTML-CSS-JS Prettify
 - JsFormat
@@ -35,10 +35,10 @@ The Sublime Packages I used are listed below:
 - <del>Pretty JSON</del>
 - PyV8 (auto installed by emmet)
 - SidebarEnhancements
-- SublimeAStyleFormatter
+- <del>SublimeAStyleFormatter</del>
 - <del>SublimeCodeIntel</del>
 - SublimeLinter
-- SublimeREPL
+- <del>SublimeREPL</del>
 - Tag
 - <del>Terminal</del>
 - TrailingSpaces
