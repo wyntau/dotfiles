@@ -15,7 +15,7 @@ The Sublime Packages I used are listed below:
 - CoffeeScript
 - Color Highlighter
 - <del>ColorPicker</del>
-- CSScomb
+- <del>CSScomb</del>
 - <del>DashDoc</del>
 - DocBlockr
 - Emmet
@@ -29,7 +29,7 @@ The Sublime Packages I used are listed below:
 - JSHint
 - <del>JSHint Gutter</del>
 - LESS
-- LineEndings
+- <del>LineEndings</del>
 - Markdown Preview
 - Package Control (required by all others)
 - <del>Pretty JSON</del>
