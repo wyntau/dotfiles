@@ -34,6 +34,7 @@ The Sublime Packages I used are listed below:
 - Package Control (required by all others)
 - <del>Pretty JSON</del>
 - PyV8 (auto installed by emmet)
+- SCSS
 - <del>SidebarEnhancements</del>
 - <del>SublimeAStyleFormatter</del>
 - <del>SublimeCodeIntel</del>
