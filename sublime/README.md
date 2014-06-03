@@ -43,4 +43,5 @@ The Sublime Packages I used are listed below:
 - <del>Terminal</del>
 - TrailingSpaces
 - <del>Trimmer</del>
+- View In Browser
 - VintageEX
