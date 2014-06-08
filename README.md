@@ -181,7 +181,7 @@ or do a specific task by run
     - osx
     - ruby
     - sublime
-    - autojump
+    - z
 
     So, maybe you should install some of them to make full use of zsh.
 
