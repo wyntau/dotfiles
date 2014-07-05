@@ -24,6 +24,7 @@ The Sublime Packages I used are listed below:
 - <del>Gist</del>
 - <del>Git</del>
 - GitGutter
+- GoSublime
 - HTML-CSS-JS Prettify
 - JsFormat
 - JSHint
