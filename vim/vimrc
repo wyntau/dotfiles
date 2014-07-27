@@ -1,6 +1,6 @@
 "==========================================
 " Author:  Jeremial
-" Version: 2014-01-24
+" Version: 2014-07-27
 " Email: Jeremial90@gmail.com
 " Description: 适合自己使用的vimrc文件.
 " Sections:
@@ -206,14 +206,14 @@ set helplang=cn
 "==========================================
 
 " Tab键的宽度
-set tabstop=4
+set tabstop=2
 " 在行和段开始处使用制表符
 set smarttab
-" 使得按退格键时可以一次删掉 4 个空格
-set softtabstop=4
+" 使得按退格键时可以一次删掉 2 个空格
+set softtabstop=2
 "用<>调整缩进时的长度
-" 缩进4格
-set shiftwidth=4
+" 缩进2格
+set shiftwidth=2
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
 "复制之前缩进
 set copyindent
@@ -221,7 +221,7 @@ set copyindent
 set autoindent
 " 开启新行时使用智能自动缩进 "为C程序提供自动缩进
 set smartindent
-set smartindent shiftwidth=4
+set smartindent shiftwidth=2
 " 自动缩进
 set cindent
 "用空格代替制表符, 将Tab自动转化成空格, [需要输入真正的Tab键时，使用 Ctrl+V + Tab]
