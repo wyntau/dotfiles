@@ -206,8 +206,7 @@ function install_zsh(){
 if [ $# = 0 ]; then
   usage
 else
-  for arg in $@
-  do
+  for arg in $@; do
     case $arg in
       all)
         install_vimrc
