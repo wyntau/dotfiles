@@ -121,11 +121,11 @@ function install_sublime(){
 
   step "Installing sublime Preference and Monokai-custom theme......"
 
-  rm -rf ${SUBLIMEPATH}/Packages/User/monokai-custom
+  rm -rf "${SUBLIMEPATH}/Packages/User/monokai-custom"
   info "linking ${ROOT}/sublime/monokai-custom ${SUBLIMEPATH}/Packages/User/monokai-custom"
   ln -s ${ROOT}/sublime/monokai-custom "${SUBLIMEPATH}/Packages/User/monokai-custom"
 
-  rm -rf ${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings
+  rm -rf "${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
   info "linking ${ROOT}/sublime/Preferences.sublime-settings to ${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
   ln -s ${ROOT}/sublime/Preferences.sublime-settings "${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
 
