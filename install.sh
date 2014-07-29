@@ -81,17 +81,18 @@ function usage(){
 }
 
 function install_vimrc(){
+  step "Installing vimrc..."
   if ( is_dir_exists vim/bundle/vundle ); then
-    step "update git submodule..."
+    info "update vundle submodule"
     cd vim/bundle/vundle
     git pull origin master
     go_root
   else
-    step "init and update sublime..."
+    info "init and update vundle submodule"
     git clone https://github.com/gmarik/vundle.git vim/bundle/vundle
   fi;
 
-  step "Installing vimrc and bundle configs......"
+  info "Installing vimrc and bundle configs"
 
   rm -rf ~/.vim
   info "linking ${ROOT}/vim to ~/.vim"
@@ -103,23 +104,24 @@ function install_vimrc(){
     ln -s ${ROOT}/vim/${FILE} ~/.${FILE}
   done;
 
-  step "Installing vim bundles......"
+  info "Installing vim bundles......"
   vim +BundleInstall +qall
   success "Install vimrc and bundles completed."
 }
 
 function install_sublime(){
+  step "Installing sublime"
   if ( is_dir_exists sublime/monokai-custom ); then
-    step "update git submodule..."
+    info "update monokai-custom submodule..."
     cd sublime/monokai-custom
     git pull origin master
     go_root
   else
-    step "init and update sublime..."
+    info "init and update monokai-custom submodule..."
     git clone https://github.com/Jeremial/sublime-monokai-custom.git sublime/monokai-custom
   fi;
 
-  step "Installing sublime Preference and Monokai-custom theme......"
+  info "Installing sublime Preference and Monokai-custom theme......"
 
   rm -rf "${SUBLIMEPATH}/Packages/User/monokai-custom"
   info "linking ${ROOT}/sublime/monokai-custom ${SUBLIMEPATH}/Packages/User/monokai-custom"
@@ -139,7 +141,7 @@ function install_gitconfig(){
   info "linking ${ROOT}/gitconfig to ~/.gitconfig"
   ln -s ${ROOT}/gitconfig ~/.gitconfig
 
-  step "Now config your name and email for git."
+  info "Now config your name and email for git."
   prompt "What's your git username? (${USER}) "
   read USERNAME
 
@@ -170,17 +172,18 @@ function install_astylerc(){
 }
 
 function install_zsh(){
+  step "Installing zsh..."
   if ( is_dir_exists zsh/oh-my-zsh ); then
-    step "update oh-my-zsh..."
+    info "update oh-my-zsh..."
     cd zsh/oh-my-zsh
     git pull origin master
     go_root
   else
-    step "init and update oh-my-zsh..."
+    info "init and update oh-my-zsh..."
     git clone https://github.com/robbyrussell/oh-my-zsh.git zsh/oh-my-zsh
   fi;
 
-  step "Installing zsh and oh-my-zsh......"
+  info "Installing zsh and oh-my-zsh......"
   rm -rf ~/.oh-my-zsh
   rm -rf ~/.zshrc
 
