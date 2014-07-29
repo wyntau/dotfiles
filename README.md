@@ -69,17 +69,14 @@ Available tasks:
 
 If you want to do all tasks, just run
 
-    make all
+    install.sh all
 
 or do a specific task by run
 
-    make <taskname1>[ <taskname2> <tasknameN> ...]
+    install.sh <taskname1>[ <taskname2> <tasknameN> ...]
 
 - ### Task `vimrc`
-    1. Requirements: `git`, `vim`
-    2. Setup:
-
-            make vimrc
+    Requirements: `git`, `vim`
 
     *After* **or** *Before* above, you can override the system vim with the new one installed by `homebrew`.(OS X only. This is optional, but recommended, because system vim can't use system clipbord via register `+`)
 
@@ -87,10 +84,7 @@ or do a specific task by run
     And then uncomment the new vim __PATH__ in `zsh/zshrc` if you will do the `zsh` task, otherwise add the new vim __PATH__ in you `.bashrc` or some other config file.
 
 - ### Task `gitconfig`
-    1. Requirement: `git`
-    2. Setup:
-
-            make gitconfig
+    Requirement: `git`
 
     __What others maybe you should install?__
 
@@ -106,10 +100,7 @@ or do a specific task by run
             brew install git-flow
 
 - ### Task `astylerc`
-    1. Requirement: `astyle`. If you have installed `astyle` and press `Q` in vim, astyle will be used to format the *C*, *C++*, *C#*, *Java* file.
-    2. Setup:
-
-            make astylerc
+    Requirement: `astyle`. If you have installed `astyle` and press `Q` in vim, astyle will be used to format the *C*, *C++*, *C#*, *Java* file.
 
     __What others maybe you should install?__
 
@@ -125,11 +116,11 @@ or do a specific task by run
 
         If you are using OS X, just run
 
-            make sublime
+            install.sh sublime
 
         If you are using Linux, set `SUBLIMEPATH` before make, e.g.
 
-            SUBLIMEPATH=~/sublimetext2 make sublime
+            SUBLIMEPATH=~/sublimetext2 install.sh sublime
 
         After installing the preference, maybe you want to reset `font_face` and `font_size` to what you prefer in `Preference.sublime-settings`.
     3. Install sublime packages(optional). You can see what sublime packages I used in [SublimePackages](sublime/README.md).
@@ -160,10 +151,7 @@ or do a specific task by run
     > Happy coding!
 
 - ### Task `zsh`
-    1. Requirements: `git`, `zsh`
-    2. Setup:
-
-            make zsh
+    Requirements: `git`, `zsh`
 
     If you have your own aliases, put them in `~/.zsh.alias`, zsh will load them automatically.
 
