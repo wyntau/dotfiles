@@ -3,7 +3,7 @@
 USER=`whoami`
 ROOT=`pwd`
 ZSHPATH=`which zsh`
-SUBLIMEPATH=${SUBLIMEPATH:="$HOME/Library/Application\ Support/Sublime\ Text\ 2"}
+SUBLIMEPATH=${SUBLIMEPATH:="$HOME/Library/Application Support/Sublime Text 2"}
 
 #none         = "\033[0m"
 #black        = "\033[0;30m"
@@ -123,11 +123,11 @@ function install_sublime(){
 
   rm -rf ${SUBLIMEPATH}/Packages/User/monokai-custom
   info "linking ${ROOT}/sublime/monokai-custom ${SUBLIMEPATH}/Packages/User/monokai-custom"
-  ln -s ${ROOT}/sublime/monokai-custom ${SUBLIMEPATH}/Packages/User/monokai-custom
+  ln -s ${ROOT}/sublime/monokai-custom "${SUBLIMEPATH}/Packages/User/monokai-custom"
 
   rm -rf ${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings
   info "linking ${ROOT}/sublime/Preferences.sublime-settings to ${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
-  ln -s ${ROOT}/sublime/Preferences.sublime-settings ${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings
+  ln -s ${ROOT}/sublime/Preferences.sublime-settings "${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
 
   success "Install sublime Preference and Monokai-custom theme completed."
 }
