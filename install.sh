@@ -3,7 +3,7 @@
 USER=`whoami`
 ROOT=`pwd`
 ZSHPATH=`which zsh`
-SUBLIMEPATH=${SUBLIMEPATH:="$HOME/Library/Application Support/Sublime Text 2"}
+SUBLIMEPATH=${SUBLIMEPATH:="$HOME/Library/Application\ Support/Sublime\ Text\ 2"}
 
 #none         = "\033[0m"
 #black        = "\033[0;30m"
@@ -161,7 +161,7 @@ function install_gitconfig(){
   success "Install gitconfig completed."
 }
 
-function install_astyle(){
+function install_astylerc(){
   step "Installing astylerc......"
   rm -rf ~/.astylerc
   info "linking ${ROOT}/astylerc to ~/.astylerc"
