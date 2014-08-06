@@ -236,6 +236,6 @@ else
       *)
         err "Invalid params ${arg}"
         ;;
-    esac
-  done
+    esac;
+  done;
 fi;
