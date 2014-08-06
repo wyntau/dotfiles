@@ -31,17 +31,17 @@ PROMPT_PREFIX='\033[0;35m'
 ALL_SUFFIX='\033[0m'
 
 function go_root(){
-  cd $ROOT
+  cd ${ROOT}
 }
 
 function is_file_exists(){
   local f="$1"
-  [[ -f "$f" ]] && return 0 || return 1
+  [[ -f "${f}" ]] && return 0 || return 1
 }
 
 function is_dir_exists(){
   local d="$1"
-  [[ -d "$d" ]] && return 0 || return 1
+  [[ -d "${d}" ]] && return 0 || return 1
 }
 
 function step(){
@@ -69,14 +69,14 @@ function usage(){
   echo 'Usage: install.sh [tasks]'
   echo
   echo 'Tasks:'
-  printf $SUCCESS_PREFIX
+  printf ${SUCCESS_PREFIX}
   echo '    0) all  ==> do all things below'
   echo '    1) vimrc'
   echo '    2) gitconfig'
   echo '    3) astylerc'
   echo '    4) sublime'
   echo '    5) zsh'
-  printf $ALL_SUFFIX
+  printf ${ALL_SUFFIX}
   echo
 }
 
@@ -145,20 +145,20 @@ function install_gitconfig(){
   prompt "What's your git username? (${USER}) "
   read USERNAME
 
-  if [ "$USERNAME" = "" ]; then
-    USERNAME=$USER
+  if [ "${USERNAME}" = "" ]; then
+    USERNAME=${USER}
   fi;
 
-  git config --global user.name $USER
+  git config --global user.name ${USER}
 
   prompt "What's your git email? (${USER}@example.com) "
   read EMAIL
 
   if [ "$EMAIL" = "" ]; then
-    EMAIL=$USER@example.com
+    EMAIL=${USER}@example.com
   fi;
 
-  git config --global user.email $EMAIL
+  git config --global user.email ${EMAIL}
 
   success "Install gitconfig completed."
 }
