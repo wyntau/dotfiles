@@ -146,12 +146,12 @@ function install_gitconfig(){
   read USERNAME
 
   if [ "${USERNAME}" = "" ]; then
-    USERNAME=${USER}
+    USERNAME = ${USER}
   fi;
 
-  git config --global user.name ${USER}
+  git config --global user.name ${USERNAME}
 
-  prompt "What's your git email? (${USER}@example.com) "
+  prompt "What's your git email? (${USERNAME}@example.com) "
   read EMAIL
 
   if [ "$EMAIL" = "" ]; then
