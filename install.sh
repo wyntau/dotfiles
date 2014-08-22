@@ -146,7 +146,7 @@ function install_gitconfig(){
   read USERNAME
 
   if [ "${USERNAME}" = "" ]; then
-    USERNAME = ${USER}
+    USERNAME=${USER}
   fi;
 
   git config --global user.name ${USERNAME}
