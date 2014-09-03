@@ -69,11 +69,11 @@ Available tasks:
 
 If you want to do all tasks, just run
 
-    install.sh all
+    ./install.sh all
 
 or do a specific task by run
 
-    install.sh <taskname1>[ <taskname2> <tasknameN> ...]
+    ./install.sh <taskname1>[ <taskname2> <tasknameN> ...]
 
 - ### Task `vimrc`
     Requirements: `git`, `vim`
@@ -116,11 +116,11 @@ or do a specific task by run
 
         If you are using OS X, just run
 
-            install.sh sublime
+            ./install.sh sublime
 
         If you are using Linux, set `SUBLIMEPATH` before make, e.g.
 
-            SUBLIMEPATH=~/sublimetext2 install.sh sublime
+            SUBLIMEPATH=~/sublimetext2 ./install.sh sublime
 
         After installing the preference, maybe you want to reset `font_face` and `font_size` to what you prefer in `Preference.sublime-settings`.
     3. Install sublime packages(optional). You can see what sublime packages I used in [SublimePackages](sublime/README.md).
