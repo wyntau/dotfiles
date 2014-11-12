@@ -95,12 +95,12 @@ function install_vimrc(){
   info "Installing vimrc and bundle configs"
 
   rm -rf ~/.vim
-  info "linking ${ROOT}/vim to ~/.vim"
+  info "Linking ${ROOT}/vim to ~/.vim"
   ln -s ${ROOT}/vim ~/.vim
 
   for FILE in vimrc editorconfig; do
     rm -rf ~/.${FILE}
-      info "linking ${ROOT}/vim/${FILE} to ~/.${FILE}"
+      info "Linking ${ROOT}/vim/${FILE} to ~/.${FILE}"
     ln -s ${ROOT}/vim/${FILE} ~/.${FILE}
   done;
 
@@ -124,11 +124,11 @@ function install_sublime(){
   info "Installing sublime Preference and Monokai-custom theme......"
 
   rm -rf "${SUBLIMEPATH}/Packages/User/monokai-custom"
-  info "linking ${ROOT}/sublime/monokai-custom ${SUBLIMEPATH}/Packages/User/monokai-custom"
+  info "Linking ${ROOT}/sublime/monokai-custom ${SUBLIMEPATH}/Packages/User/monokai-custom"
   ln -s ${ROOT}/sublime/monokai-custom "${SUBLIMEPATH}/Packages/User/monokai-custom"
 
   rm -rf "${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
-  info "linking ${ROOT}/sublime/Preferences.sublime-settings to ${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
+  info "Linking ${ROOT}/sublime/Preferences.sublime-settings to ${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
   ln -s ${ROOT}/sublime/Preferences.sublime-settings "${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
 
   success "Install sublime Preference and Monokai-custom theme completed."
@@ -138,7 +138,7 @@ function install_gitconfig(){
   step "Installing gitconfig......"
   rm -rf ~/.gitconfig
 
-  info "linking ${ROOT}/gitconfig to ~/.gitconfig"
+  info "Linking ${ROOT}/gitconfig to ~/.gitconfig"
   ln -s ${ROOT}/gitconfig ~/.gitconfig
 
   info "Now config your name and email for git."
@@ -166,7 +166,7 @@ function install_gitconfig(){
 function install_astylerc(){
   step "Installing astylerc......"
   rm -rf ~/.astylerc
-  info "linking ${ROOT}/astylerc to ~/.astylerc"
+  info "Linking ${ROOT}/astylerc to ~/.astylerc"
   ln -s ${ROOT}/astylerc ~/.astylerc
   success "Install astylerc completed."
 }
@@ -187,10 +187,10 @@ function install_zsh(){
   rm -rf ~/.oh-my-zsh
   rm -rf ~/.zshrc
 
-  info "linking ${ROOT}/zsh/oh-my-zsh to ~/.oh-my-zsh"
+  info "Linking ${ROOT}/zsh/oh-my-zsh to ~/.oh-my-zsh"
   ln -s ${ROOT}/zsh/oh-my-zsh ~/.oh-my-zsh
 
-  info "linking ${ROOT}/zsh/zshrc to ~/.zshrc";
+  info "Linking ${ROOT}/zsh/zshrc to ~/.zshrc";
   ln -s ${ROOT}/zsh/zshrc ~/.zshrc
 
   info "Time to change your default shell to zsh!"
@@ -204,6 +204,25 @@ function install_zsh(){
   success "Install zsh and oh-my-zsh completed."
   /usr/bin/env zsh
   source ~/.zshrc
+}
+
+function install_zshcfg(){
+  step "Installing zsh configs..."
+
+  rm -rf ~/.zsh.alias
+  rm -rf ~/.zsh.paths
+  rm -rf ~/.zsh.sources
+
+  info "Linking zsh configs";
+  ln -s ${ROOT}/zsh/zsh.alias ~/.zsh.alias
+  ln -s ${ROOT}/zsh/zsh.paths ~/.zsh.paths
+  ln -s ${ROOT}/zsh/zsh.sources ~/.zsh.sources
+
+  source ~/.zsh.alias
+  source ~/.zsh.paths
+  source ~/.zsh.sources
+
+  success "Install zsh configs success";
 }
 
 if [ $# = 0 ]; then
@@ -232,6 +251,9 @@ else
         ;;
       zsh)
         install_zsh
+        ;;
+      zshcfg)
+        install_zshcfg
         ;;
       *)
         err "Invalid params ${arg}"
