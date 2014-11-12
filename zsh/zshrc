@@ -56,4 +56,7 @@ export PATH=/usr/local/bin:$PATH
 # put you own paths in ~/.zsh.paths
 [ -f $HOME/.zsh.paths ] && source $HOME/.zsh.paths
 
+# put you own sources in ~/.zsh.sources
+[ -f $HOME/.zsh.sources ] && source $HOME/.zsh.sources
+
 # history | awk '{CMD[$2]++;count++;}END { for (a in CMD) print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10

@@ -1,0 +1,2 @@
+# for Node Version Manager
+source $(brew --prefix nvm)/nvm.sh
