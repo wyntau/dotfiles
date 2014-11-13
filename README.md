@@ -110,7 +110,7 @@ or do a specific task by run
         brew install astyle
 
 - ### Task `sublime`
-    If you use `Sublime Text 2`, this task will add user Preference for it, and also add a [`Monokai-custom`](https://github.com/Jeremial/sublime-monokai-custom) colorscheme which supports Markdown file highlight.
+    If you use `Sublime Text 2`, this task will add user Preference for it, and also add a [`Monokai-custom`](https://github.com/Treri/sublime-monokai-custom) colorscheme which supports Markdown file highlight.
     1. Requirement: `git`, `Sublime Text 2`
     2. Setup: **bakup your preference file first!**
 

@@ -118,7 +118,7 @@ function install_sublime(){
     go_root
   else
     info "init and update monokai-custom submodule..."
-    git clone https://github.com/Jeremial/sublime-monokai-custom.git sublime/monokai-custom
+    git clone https://github.com/Treri/sublime-monokai-custom.git sublime/monokai-custom
   fi;
 
   info "Installing sublime Preference and Monokai-custom theme......"
