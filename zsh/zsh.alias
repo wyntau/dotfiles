@@ -1,12 +1,15 @@
 # use sublime text to view these files
-alias -s html=st
-alias -s js=st
-alias -s coffee=st
-alias -s md=st
-alias -s css=st
+
+## comment below because these can excute via command
+# alias -s js=st
+# alias -s coffee=st
 # alias -s py=st
 # alias -s rb=st
 # alias -s sh=st
+
+alias -s html=st
+alias -s md=st
+alias -s css=st
 alias -s c=st
 alias -s cpp=st
 alias -s h=st
