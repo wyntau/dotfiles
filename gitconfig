@@ -34,9 +34,10 @@
 	dfl = diff --name-only
 	fh = fetch
 	fhv = fetch --verbose
-	lg = log --color --graph --pretty=format:'%C(yellow)%h%Creset -%Cred%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --date=local --abbrev-commit
-	ll = log --color --graph --pretty=format:'%n%C(yellow)%s%d%n%C(bold white)<%an> %Cblue%ar %C(red)(%ad)%n%Creset%Cgreen%H'  --stat --topo-order  --decorate --date=local
-	lp = log --color --graph --pretty=format:'%n%C(yellow)%s%d%n%C(bold white)<%an> %Cblue%ar %C(red)(%ad)%n%Creset%Cgreen%H'  --stat --topo-order  --decorate -p --date=local
+	lg = log --color --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %C(green)(%cr) %C(bold blue)<%an>%Creset' --date=local --abbrev-commit
+# lg = log --all --graph --pretty=format:'%C(red)%h%Creset -%C(yellow)%d%Creset %s %C(green)(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	ll = log --color --graph --pretty=format:'%n%C(yellow)%s%d%n%C(bold white)<%an> %C(blue)%ar %C(red)(%ad)%n%Creset%C(green)%H'  --stat --topo-order  --decorate --date=local
+	lp = log --color --graph --pretty=format:'%n%C(yellow)%s%d%n%C(bold white)<%an> %C(blue)%ar %C(red)(%ad)%n%Creset%C(green)%H'  --stat --topo-order  --decorate -p --date=local
 	mg = merge --no-ff   # branchName here
 	ps = push
 	pl = pull
