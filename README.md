@@ -161,15 +161,11 @@ or do a specific task by run
     - git-extras
     - git-flow
     - brew
-    - bower
-    - cake
-    - coffee
-    - node
-    - npm
     - osx
-    - ruby
     - sublime
     - z
+    - colored-man
+    - sudo
 
     So, maybe you should install some of them to make full use of zsh.
 
