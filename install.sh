@@ -160,6 +160,10 @@ function install_gitconfig(){
 
   git config --global user.email ${EMAIL}
 
+  if [ `uname` = "Darwin" ]; then
+    git config --global credential.helper osxkeychain
+  fi;
+
   success "Install gitconfig completed."
 }
 
