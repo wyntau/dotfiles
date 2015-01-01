@@ -595,11 +595,6 @@ Bundle 'Raimondi/delimitMate'
 
 Bundle 'smilekzs/vim-nfo'
 
-" ========== for Dash ==========
-Bundle 'rizzatti/funcoo.vim'
-Bundle 'rizzatti/dash.vim'
-" ==============================
-
 filetype plugin indent on
 "载入文件类型插件
 filetype plugin on
