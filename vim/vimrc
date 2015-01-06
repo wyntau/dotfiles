@@ -595,6 +595,13 @@ Bundle 'Raimondi/delimitMate'
 
 Bundle 'smilekzs/vim-nfo'
 
+" Bundle "scrooloose/syntastic"
+" Bundle "Valloric/YouCompleteMe"
+" Bundle "Shougo/unite.vim"
+" Bundle 'Lokaltog/vim-powerline'
+" Bundle 'tpope/vim-fugitive'
+" Bundle "othree/eregex.vim"
+
 filetype plugin indent on
 "载入文件类型插件
 filetype plugin on
