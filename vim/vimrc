@@ -1,13 +1,12 @@
 "==========================================
 " Author:  Treri
-" Version: 2014-07-27
+" Version: 2015-01-14
 " Email: treri.liu@gmail.com
 " Description: 适合自己使用的vimrc文件.
 " Sections:
 "     ->General 基础设置
-"     ->Show 展示/排版等界面格式设置
 "     ->file encode, 文件编码,格式
-"     ->indent 缩进等选项
+"     ->Show & indent 展示/缩进/排版等界面格式设置
 "     ->others 其它基础配置
 "     ->普通自定义快捷键键绑定
 "     ->mapleader 快捷键绑定
@@ -106,7 +105,20 @@ set novisualbell
 set t_vb=
 
 "==========================================
-" Show 展示/排班等界面格式设置
+" file encode, 文件编码,格式
+"==========================================
+
+set encoding=utf-8
+set fileencodings=utf-8,gb2312,gbk,gb18030,ucs-bom,cp936,big5,euc-jp,euc-kr,latin1
+" 下面这句只影响普通模式 (非图形界面) 下的 Vim。
+set termencoding=utf-8
+set fileformats=unix,dos,mac
+language messages zh_CN.UTF-8
+set langmenu=zh_CN.UTF-8
+set helplang=cn
+
+"==========================================
+" Show & indent 展示/缩进/排版等界面格式设置
 "==========================================
 
 " 突出显示当前行等 不喜欢这种定位可注解
@@ -116,6 +128,11 @@ set cursorline
 
 "高亮显示某一列,一般用于显示80列
 set colorcolumn=81
+
+" For all text files set 'textwidth' to 78 characters.
+" 这样的话, 会自动插入回车断行, 不希望自动换行
+autocmd FileType text setlocal textwidth=78
+autocmd FileType gitcommit setlocal textwidth=80
 
 "防止光标闪烁
 set gcr=a:block-blinkon0
@@ -188,23 +205,6 @@ set showmatch
 " 短暂跳转到匹配括号的时间
 set matchtime=2
 
-"==========================================
-" file encode, 文件编码,格式
-"==========================================
-
-set encoding=utf-8
-set fileencodings=utf-8,gb2312,gbk,gb18030,ucs-bom,cp936,big5,euc-jp,euc-kr,latin1
-" 下面这句只影响普通模式 (非图形界面) 下的 Vim。
-set termencoding=utf-8
-set fileformats=unix,dos,mac
-language messages zh_CN.UTF-8
-set langmenu=zh_CN.UTF-8
-set helplang=cn
-
-"==========================================
-" autoindent 缩进等选项
-"==========================================
-
 " Tab键的宽度
 set tabstop=2
 " 在行和段开始处使用制表符
@@ -226,9 +226,6 @@ set smartindent shiftwidth=2
 set cindent
 "用空格代替制表符, 将Tab自动转化成空格, [需要输入真正的Tab键时，使用 Ctrl+V + Tab]
 set expandtab
-
-" For all text files set 'textwidth' to 78 characters.
-autocmd FileType text setlocal textwidth=78
 
 " 为C/C++设置详细的信息缩进
 " set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s
