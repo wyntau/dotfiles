@@ -129,10 +129,9 @@ set cursorline
 "高亮显示某一列,一般用于显示80列
 set colorcolumn=81
 
-" For all text files set 'textwidth' to 78 characters.
-" 这样的话, 会自动插入回车断行, 不希望自动换行
+" For all text files set 'textwidth' to 78 characters, if longer than 78, auto
+" add new line
 autocmd FileType text setlocal textwidth=78
-autocmd FileType gitcommit setlocal textwidth=80
 
 "防止光标闪烁
 set gcr=a:block-blinkon0
