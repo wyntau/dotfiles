@@ -161,11 +161,6 @@ set ruler
 "分割窗口时保持相等的宽/高
 set equalalways
 
-" command line模式始终使用英文模式, 好像不起作用
-" set noimdisable
-" autocmd! InsertLeave * set imdisable|set iminsert=0
-" autocmd! InsertEnter * set noimdisable|set iminsert=0
-
 " 增强模式中的命令行自动完成操作,在输入命令时列出匹配项目，也就是截图底部的效果
 set wildmenu
 set wildmode=list:longest
@@ -261,8 +256,6 @@ if has("autocmd")
     \   exe "normal! g`\"" |
     \ endif
   augroup END
-else
-
 endif
 " end has("autocmd")
 
