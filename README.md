@@ -109,16 +109,7 @@ or do a specific task by run
 - ### Task `sublime`
     If you use `Sublime Text 2`, this task will add user Preference for it, and also add a [`Monokai-custom`](https://github.com/Treri/sublime-monokai-custom) colorscheme which supports Markdown file highlight.
     1. Requirement: `git`, `Sublime Text 2`
-    2. Setup: **bakup your preference file first!**
-
-        If you are using OS X, just run
-
-            ./install.sh sublime
-
-        If you are using Linux, set `SUBLIMEPATH` before make, e.g.
-
-            SUBLIMEPATH=~/sublimetext2 ./install.sh sublime
-
+    2. Setup: **bakup your preference file first!**  
         After installing the preference, maybe you want to reset `font_face` and `font_size` to what you prefer in `Preference.sublime-settings`.
     3. Install sublime packages(optional). You can see what sublime packages I used in [SublimePackages](sublime/README.md).
 

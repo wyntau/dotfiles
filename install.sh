@@ -3,7 +3,12 @@
 USER=`whoami`
 ROOT=`pwd`
 ZSHPATH=`which zsh`
-SUBLIMEPATH=${SUBLIMEPATH:="$HOME/Library/Application Support/Sublime Text 2"}
+
+if [ `uname` = "Linux" ]; then
+  SUBLIMEPATH="$HOME/.config/sublime-text-2"
+else
+  SUBLIMEPATH="$HOME/Library/Application Support/Sublime Text 2"
+fi;
 
 #none         = "\033[0m"
 #black        = "\033[0;30m"
