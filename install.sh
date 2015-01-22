@@ -1,53 +1,18 @@
 #!/bin/bash
 
-USER=`whoami`
+# go root
 ROOT=`pwd`
-ZSHPATH=`which zsh`
+function go_root(){
+  cd ${ROOT}
+}
 
-if [ `uname` = "Linux" ]; then
-  SUBLIMEPATH="$HOME/.config/sublime-text-2"
-else
-  SUBLIMEPATH="$HOME/Library/Application Support/Sublime Text 2"
-fi;
-
-#none         = "\033[0m"
-#black        = "\033[0;30m"
-#dark_gray    = "\033[1;30m"
-#red          = "\033[0;31m"
-#light_red    = "\033[1;31m"
-#green        = "\033[0;32m"
-#light_green -= "\033[1;32m"
-#brown        = "\033[0;33m"
-#yellow       = "\033[1;33m"
-#blue         = "\033[0;34m"
-#light_blue   = "\033[1;34m"
-#purple       = "\033[0;35m"
-#light_purple = "\033[1;35m"
-#cyan         = "\033[0;36m"
-#light_cyan   = "\033[1;36m"
-#light_gray   = "\033[0;37m"
-#white        = "\033[1;37m"
-
+##### print info #####
 STEP_PREFIX='\033[0;33m'
 INFO_PREFIX='\033[0;36m'
 SUCCESS_PREFIX='\033[0;32m'
 ERR_PREFIX='\033[1;31m'
 PROMPT_PREFIX='\033[0;35m'
 ALL_SUFFIX='\033[0m'
-
-function go_root(){
-  cd ${ROOT}
-}
-
-function is_file_exists(){
-  local f="$1"
-  [[ -f "${f}" ]] && return 0 || return 1
-}
-
-function is_dir_exists(){
-  local d="$1"
-  [[ -d "${d}" ]] && return 0 || return 1
-}
 
 function step(){
   echo -e "${STEP_PREFIX}==> $1${ALL_SUFFIX}"
@@ -68,6 +33,43 @@ function err(){
 function prompt(){
   printf "${PROMPT_PREFIX}$1${ALL_SUFFIX}"
 }
+
+##### file and directory detect ######
+function is_file_exists(){
+  local f="$1"
+  [[ -f "${f}" ]] && return 0 || return 1
+}
+
+function is_dir_exists(){
+  local d="$1"
+  [[ -d "${d}" ]] && return 0 || return 1
+}
+
+##### platform detect #####
+PLATFORM=`uname`
+function is_platform(){
+  local p="$1"
+  [[ $PLATFORM = "${p}" ]] && return 0 || return 1
+}
+
+function is_linux(){
+  ( is_platform Linux ) && return 0 || return 1
+}
+
+function is_mac(){
+  ( is_platform Darwin ) && return 0 || return 1
+}
+
+##### variable #####
+USER=`whoami`
+ZSHPATH=`which zsh`
+if ( is_linux ); then
+  SUBLIMEPATH="$HOME/.config/sublime-text-2"
+elif ( is_mac ); then
+  SUBLIMEPATH="$HOME/Library/Application Support/Sublime Text 2"
+else
+  err "Can't detect your platform. This support 'Linux' and 'Darwin' only"
+fi;
 
 function usage(){
   echo
@@ -165,7 +167,7 @@ function install_gitconfig(){
 
   git config --global user.email ${EMAIL}
 
-  if [ `uname` = "Darwin" ]; then
+  if ( is_mac ); then
     git config --global credential.helper osxkeychain
   fi;
 
@@ -272,3 +274,22 @@ else
     esac;
   done;
 fi;
+
+
+#none         = "\033[0m"
+#black        = "\033[0;30m"
+#dark_gray    = "\033[1;30m"
+#red          = "\033[0;31m"
+#light_red    = "\033[1;31m"
+#green        = "\033[0;32m"
+#light_green -= "\033[1;32m"
+#brown        = "\033[0;33m"
+#yellow       = "\033[1;33m"
+#blue         = "\033[0;34m"
+#light_blue   = "\033[1;34m"
+#purple       = "\033[0;35m"
+#light_purple = "\033[1;35m"
+#cyan         = "\033[0;36m"
+#light_cyan   = "\033[1;36m"
+#light_gray   = "\033[0;37m"
+#white        = "\033[1;37m"
