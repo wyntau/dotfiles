@@ -269,7 +269,9 @@ else
         install_zshcfg
         ;;
       *)
+        echo
         err "Invalid params ${arg}"
+        usage
         ;;
     esac;
   done;
