@@ -86,7 +86,7 @@ or do a specific task by run
     __What others maybe you should install?__
 
     - Kaleidoscope( _OS X only_ ) - an excellent difftool when input `git difftool`
-    - git-extras - some useful tools for git, install from <https://github.com/visionmedia/git-extras>( _Linux, OS X_ ) or
+    - git-extras - some useful tools for git, install from <https://github.com/tj/git-extras>( _Linux, OS X_ ) or
 
             # OS X only
             brew install git-extras
