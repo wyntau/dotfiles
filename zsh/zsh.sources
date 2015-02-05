@@ -1,2 +1,4 @@
 # for Node Version Manager
 source $(brew --prefix nvm)/nvm.sh
+# If you are in various user mode, use this PS1
+# export PS1="%{$fg_bold[red]%}($(whoami)) %{$fg_bold[red]%}${ret_status}%{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}"
