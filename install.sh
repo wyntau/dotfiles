@@ -45,6 +45,15 @@ function is_dir_exists(){
   [[ -d "${d}" ]] && return 0 || return 1
 }
 
+function is_prog_exists(){
+  local p="$1"
+  if hash "${p}" 2>/dev/null; then
+    return 0
+  else
+    return 1
+  fi;
+}
+
 ##### platform detect #####
 PLATFORM=`uname`
 function is_platform(){
@@ -60,9 +69,6 @@ function is_mac(){
   ( is_platform Darwin ) && return 0 || return 1
 }
 
-##### variable #####
-USER=`whoami`
-ZSHPATH=`which zsh`
 if ( is_linux ); then
   SUBLIMEPATH="$HOME/.config/sublime-text-2"
 elif ( is_mac ); then
@@ -141,6 +147,7 @@ function install_sublime(){
   success "Install sublime Preference and Monokai-custom theme completed."
 }
 
+USER=`whoami`
 function install_gitconfig(){
   step "Installing gitconfig......"
   rm -rf ~/.gitconfig
@@ -183,7 +190,15 @@ function install_astylerc(){
 }
 
 function install_zsh(){
-  step "Installing zsh..."
+  if ( is_prog_exists zsh ); then
+    step "Installing zsh..."
+  else
+    err "No Zsh found! Please install zsh first"
+    exit 1
+  fi;
+
+  ZSHPATH=`which zsh`
+
   if ( is_dir_exists zsh/oh-my-zsh ); then
     info "update oh-my-zsh..."
     cd zsh/oh-my-zsh
@@ -205,12 +220,7 @@ function install_zsh(){
   ln -s ${ROOT}/zsh/zshrc ~/.zshrc
 
   info "Time to change your default shell to zsh!"
-  if [ "${ZSHPATH}" != "" ]; then
-    chsh -s ${ZSHPATH}
-  else
-    err "No Zsh found! Please install zsh first";
-    exit 1
-  fi;
+  chsh -s ${ZSHPATH}
 
   success "Install zsh and oh-my-zsh completed."
   /usr/bin/env zsh
@@ -234,7 +244,6 @@ function install_zshcfg(){
   # source ~/.zsh.sources
 
   success "Install zsh configs success";
-
   success "Please open new termial to load configs";
 }
 
