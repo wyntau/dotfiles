@@ -94,12 +94,15 @@ function usage(){
 }
 
 function install_vimrc(){
+
   step "Installing vimrc..."
+
+  go_root
+
   if ( is_dir_exists vim/bundle/vundle ); then
     info "update vundle submodule"
     cd vim/bundle/vundle
     git pull origin master
-    go_root
   else
     info "init and update vundle submodule"
     git clone https://github.com/gmarik/vundle.git vim/bundle/vundle
@@ -113,22 +116,26 @@ function install_vimrc(){
 
   for FILE in vimrc editorconfig; do
     rm -rf ~/.${FILE}
-      info "Linking ${ROOT}/vim/${FILE} to ~/.${FILE}"
+    info "Linking ${ROOT}/vim/${FILE} to ~/.${FILE}"
     ln -s ${ROOT}/vim/${FILE} ~/.${FILE}
   done;
 
   info "Installing vim bundles......"
   vim +BundleInstall +qall
+
   success "Install vimrc and bundles completed."
 }
 
 function install_sublime(){
+
   step "Installing sublime"
+
+  go_root
+
   if ( is_dir_exists sublime/monokai-custom ); then
     info "update monokai-custom submodule..."
     cd sublime/monokai-custom
     git pull origin master
-    go_root
   else
     info "init and update monokai-custom submodule..."
     git clone https://github.com/Treri/sublime-monokai-custom.git sublime/monokai-custom
@@ -149,29 +156,29 @@ function install_sublime(){
 
 USER=`whoami`
 function install_gitconfig(){
-  step "Installing gitconfig......"
-  rm -rf ~/.gitconfig
 
+  step "Installing gitconfig......"
+
+  go_root
+
+  rm -rf ~/.gitconfig
   info "Linking ${ROOT}/gitconfig to ~/.gitconfig"
   ln -s ${ROOT}/gitconfig ~/.gitconfig
 
   info "Now config your name and email for git."
+
   prompt "What's your git username? (${USER}) "
   read USERNAME
-
   if [ "${USERNAME}" = "" ]; then
     USERNAME=${USER}
   fi;
-
   git config --global user.name ${USERNAME}
 
   prompt "What's your git email? (${USERNAME}@example.com) "
   read EMAIL
-
   if [ "$EMAIL" = "" ]; then
     EMAIL=${USER}@example.com
   fi;
-
   git config --global user.email ${EMAIL}
 
   if ( is_mac ); then
@@ -182,14 +189,20 @@ function install_gitconfig(){
 }
 
 function install_astylerc(){
+
   step "Installing astylerc......"
+
+  go_root
+
   rm -rf ~/.astylerc
   info "Linking ${ROOT}/astylerc to ~/.astylerc"
   ln -s ${ROOT}/astylerc ~/.astylerc
+
   success "Install astylerc completed."
 }
 
 function install_zsh(){
+
   if ( is_prog_exists zsh ); then
     step "Installing zsh..."
   else
@@ -197,13 +210,14 @@ function install_zsh(){
     exit 1
   fi;
 
+  go_root
+
   ZSHPATH=`which zsh`
 
   if ( is_dir_exists zsh/oh-my-zsh ); then
     info "update oh-my-zsh..."
     cd zsh/oh-my-zsh
     git pull origin master
-    go_root
   else
     info "init and update oh-my-zsh..."
     git clone https://github.com/robbyrussell/oh-my-zsh.git zsh/oh-my-zsh
@@ -228,7 +242,10 @@ function install_zsh(){
 }
 
 function install_zshcfg(){
+
   step "Installing zsh configs..."
+
+  go_root
 
   rm -rf ~/.zsh.alias
   rm -rf ~/.zsh.paths
