@@ -5,6 +5,7 @@
 	"font_size": 13.0,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
+	"drag_text": false,
 	"hot_exit": false,
 	"tab_size": 2,
 	"ignored_packages":
