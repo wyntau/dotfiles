@@ -3,5 +3,5 @@ if hash brew 2>/dev/null; then
   source $(brew --prefix nvm)/nvm.sh
 fi;
 
-# If you are in various user mode, use this PS1
-export PROMPT='%{$fg_bold[red]%}($(whoami)) ${ret_status}%{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
+# If you are in various user mode, use this PROMPT show current user name
+export PROMPT="%{$fg_bold[red]%}($(whoami)) ${PROMPT}"
