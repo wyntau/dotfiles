@@ -1,6 +1,6 @@
 # for Node Version Manager
 if hash brew 2>/dev/null; then
-  source $(brew --prefix nvm)/nvm.sh
+  [ -f $(brew --prefix nvm)/nvm.sh ] && source $(brew --prefix nvm)/nvm.sh
 fi;
 
 # If you are in various user mode, use this PROMPT show current user name
