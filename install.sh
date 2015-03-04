@@ -223,6 +223,18 @@ function install_zsh(){
     git clone https://github.com/robbyrussell/oh-my-zsh.git zsh/oh-my-zsh
   fi;
 
+  go_root
+  if ( is_dir_exists zsh/oh-my-zsh/custom/plugins ); then
+    if ( is_dir_exists zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting ); then
+      info "update zsh-syntax-highlighting plugin..."
+      cd zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+      git pull origin master
+    else
+      info "init and update zsh-syntax-highlighting plugin..."
+      git clone https://github.com/zsh-users/zsh-syntax-highlighting.git zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    fi;
+  fi;
+
   info "Installing zsh and oh-my-zsh......"
   rm -rf ~/.oh-my-zsh
   rm -rf ~/.zshrc
