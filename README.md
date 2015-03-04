@@ -156,6 +156,7 @@ or do a specific task by run
     - z
     - colored-man
     - sudo
+    - zsh-syntax-highlighting
 
     So, maybe you should install some of them to make full use of zsh.
 
