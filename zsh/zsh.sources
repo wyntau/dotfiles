@@ -4,4 +4,8 @@ if hash brew 2>/dev/null; then
 fi;
 
 # If you are in various user mode, use this PROMPT show current user name
-export PROMPT="%{$fg_bold[red]%}($(whoami)) ${PROMPT}"
+if [ `uname` = "Darwin" ]; then
+  export PROMPT="%{$fg_bold[red]%}($(whoami)) ${PROMPT}"
+else
+  export PROMPT="%{$fg_bold[red]%}($(whoami)@$(hostname)) ${PROMPT}"
+fi;
