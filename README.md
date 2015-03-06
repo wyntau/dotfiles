@@ -7,7 +7,6 @@
     |   ├── Preference.sublime-settings
     |   └── README.md
     ├── vim
-    │   ├── editorconfig
     │   └── vimrc
     └── zsh
         └── zshrc
