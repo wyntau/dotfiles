@@ -114,11 +114,9 @@ function install_vimrc(){
   info "Linking ${ROOT}/vim to ~/.vim"
   ln -s ${ROOT}/vim ~/.vim
 
-  for FILE in vimrc editorconfig; do
-    rm -rf ~/.${FILE}
-    info "Linking ${ROOT}/vim/${FILE} to ~/.${FILE}"
-    ln -s ${ROOT}/vim/${FILE} ~/.${FILE}
-  done;
+  rm -rf ~/.vimrc
+  info "Linking ${ROOT}/vim/vimrc to ~/.vimrc"
+  ln -s ${ROOT}/vim/vimrc ~/.vimrc
 
   info "Installing vim bundles......"
   vim +BundleInstall +qall
