@@ -45,7 +45,12 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-extras git-flow brew osx sublime z colored-man sudo zsh-syntax-highlighting)
+
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  plugins=(git git-extras git-flow sublime z colored-man sudo zsh-syntax-highlighting)
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  plugins=(git git-extras git-flow sublime z colored-man sudo zsh-syntax-highlighting brew osx)
+fi;
 
 # User configuration
 
