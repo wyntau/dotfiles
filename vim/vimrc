@@ -85,7 +85,6 @@ set history=100
 
 " 输入搜索内容时就显示搜索结果
 set incsearch
-" do incremental searching
 " 高亮被搜索的句子（phrases）
 set hlsearch
 " 搜索或者补全时忽略大小写
@@ -550,15 +549,6 @@ Bundle 'vim-scripts/CountJump'
 Bundle 'vim-scripts/ShowTrailingWhitespace'
 Bundle 'vim-scripts/JumpToTrailingWhitespace'
 Bundle 'vim-scripts/DeleteTrailingWhitespace'
-
-" {{{
-" Bundle 'suan/vim-instant-markdown'
-" let g:instant_markdown_slow = 1
-" let g:instant_markdown_autostart = 0
-" [sudo] gem install pygments.rb
-" [sudo] gem install redcarpet
-" [sudo] npm -g install instant-markdown-d
-" }}}
 
 Bundle 'Raimondi/delimitMate'
 
