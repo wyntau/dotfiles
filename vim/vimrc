@@ -554,6 +554,8 @@ Bundle 'Raimondi/delimitMate'
 
 Bundle 'smilekzs/vim-nfo'
 
+Bundle 'Yggdroot/indentLine'
+
 " Bundle "scrooloose/syntastic"
 " Bundle "Valloric/YouCompleteMe"
 
