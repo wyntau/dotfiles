@@ -120,7 +120,7 @@ set helplang=cn
 " Show & indent 展示/缩进/排版等界面格式设置
 "==========================================
 
-" 突出显示当前行等 不喜欢这种定位可注解
+" 突出显示当前列
 set cursorcolumn
 " 突出显示当前行
 set cursorline
