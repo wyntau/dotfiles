@@ -36,6 +36,7 @@
     Bundle 'bling/vim-airline'
     Bundle 'godlygeek/tabular'
     Bundle 'plasticboy/vim-markdown'
+    Bundle 'leafgarland/typescript-vim'
     Bundle 'kchmck/vim-coffee-script'
     Bundle 'groenewege/vim-less'
     Bundle 'smilekzs/vim-nfo'

@@ -487,6 +487,7 @@ Bundle 'godlygeek/tabular'
 Bundle 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
 " }}}
+Bundle 'leafgarland/typescript-vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'groenewege/vim-less'
 Bundle 'smilekzs/vim-nfo'
