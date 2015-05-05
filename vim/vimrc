@@ -466,6 +466,7 @@ Bundle 'tomasr/molokai'
 
 " --> shows
 Bundle 'Yggdroot/indentLine'
+let g:indentLine_char = '┊'
 Bundle 'vim-scripts/CountJump'
 Bundle 'vim-scripts/ShowTrailingWhitespace'
 Bundle 'vim-scripts/JumpToTrailingWhitespace'
