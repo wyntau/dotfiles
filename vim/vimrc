@@ -1,6 +1,6 @@
 "==========================================
 " Author:  Treri
-" Version: 2015-01-14
+" Version: 2015-05-05
 " Email: treri.liu@gmail.com
 " Description: 适合自己使用的vimrc文件.
 " Sections:
@@ -455,12 +455,50 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+" --> Vundle plugin
 Bundle 'gmarik/vundle'
 
+
+" --> Themes and views
 " molokai colorscheme
 Bundle 'tomasr/molokai'
 
-" NERDTree插件的快捷键{{{
+
+" --> shows
+Bundle 'Yggdroot/indentLine'
+Bundle 'vim-scripts/CountJump'
+Bundle 'vim-scripts/ShowTrailingWhitespace'
+Bundle 'vim-scripts/JumpToTrailingWhitespace'
+Bundle 'vim-scripts/DeleteTrailingWhitespace'
+Bundle 'bling/vim-airline'
+" 显示状态栏 (默认值为 1, 无法显示状态栏)
+" 命令行（在状态行下）的高度，默认为1，这里是2
+set laststatus=2
+" 设置在状态行显示的信息（包括文件类型和解码）
+" buffer编号 | 文件路径及文件名 | modified状态 | 只读状态 | help | preview | 文件编码 | BOM | EOL | type | demical:hexadecimal | 列:行/总行 | 文件百分比 | 时 间
+" set statusline=[%n]\ %F%m%r%h%w\ [%{&ff}]\ [%{(&fenc==\"\"?&enc:&fenc).(&bomb?\",BOM\":\"\")}]%{&eol?'':'\ [noeol]'}\ [TYPE=%Y]\ [\%03.3b:0x\%02.2B]\ [POS=%c:%l/%L][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
+
+
+" --> Langulage support
+" vim-markdown {{{
+" 自动对齐
+Bundle 'godlygeek/tabular'
+Bundle 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled=1
+" }}}
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'groenewege/vim-less'
+Bundle 'smilekzs/vim-nfo'
+" ap/vim-css-color # 不支持Vim74， 使用vim-colorsque 替代
+Bundle 'Marslo/vim-coloresque'
+
+
+" --> Git support
+Bundle 'airblade/vim-gitgutter'
+Bundle 'tpope/vim-fugitive'
+
+
+" {{{ NERDTree插件的快捷键
 Bundle 'scrooloose/nerdtree'
 " o.......打开文件目录或书签
 " t.......在新的tab页中打开文件或书签
@@ -481,9 +519,8 @@ Bundle 'scrooloose/nerdtree'
 " B.......切换书签隐藏显示
 "nmap <leader>nt :NERDTreeToggle<CR>
 let NERDTreeWinSize=20
-"}}}NERDTree插件的快捷键
-
-" NERDTreeTabsToggle {{{
+" }}}
+" {{{ NERDTreeTabsToggle
 Bundle 'jistr/vim-nerdtree-tabs'
 "始终焦点位于文件窗口内
 let g:nerdtree_tabs_smart_startup_focus=2
@@ -492,7 +529,8 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 nmap <leader>nt :NERDTreeTabsToggle<CR>
 " }}}
 
-" plugin – NERD_commenter.vim   注释代码用的，{{{
+
+" {{{ plugin – NERD_commenter.vim   注释代码用的
 Bundle 'scrooloose/nerdcommenter'
 "[count]<leader>cc 注释当前行或光标以下count行逐行添加注释(7,cc)
 "[count]<leader>cn 注释当前行或光标以下count行逐行添加注释(7,cn)
@@ -509,53 +547,19 @@ Bundle 'scrooloose/nerdcommenter'
 let NERDSpaceDelims=1
 " 多行注释时样子更好看
 let NERDCompactSexyComs=1
-"}}}plugin – NERD_commenter.vim   注释代码用的
+"}}}
 
-" vim-markdown {{{
-Bundle 'godlygeek/tabular'
-Bundle 'plasticboy/vim-markdown'
-let g:vim_markdown_folding_disabled=1
-" }}}
 
-Bundle 'kchmck/vim-coffee-script'
-
-Bundle 'groenewege/vim-less'
-
+" 鼠标多重选择
 Bundle 'terryma/vim-multiple-cursors'
-
-" Bundle 'ap/vim-css-color'
-" vim-css-color # 不支持Vim74， 使用vim-colorsque 替代
-Bundle 'Marslo/vim-coloresque'
-
-Bundle 'airblade/vim-gitgutter'
-
+" 搜索替换快速预览
 Bundle 'osyo-manga/vim-over'
-
+" 快速文件搜索, 类似于sublime中的command + p
 Bundle 'kien/ctrlp.vim'
-
+" 快速搜索
 Bundle 'Lokaltog/vim-easymotion'
-
-" Bundle 'tpope/vim-fugitive'
-
-Bundle 'bling/vim-airline'
-" 显示状态栏 (默认值为 1, 无法显示状态栏)
-" 命令行（在状态行下）的高度，默认为1，这里是2
-set laststatus=2
-" 设置在状态行显示的信息（包括文件类型和解码）
-" buffer编号 | 文件路径及文件名 | modified状态 | 只读状态 | help | preview | 文件编码 | BOM | EOL | type | demical:hexadecimal | 列:行/总行 | 文件百分比 | 时 间
-" set statusline=[%n]\ %F%m%r%h%w\ [%{&ff}]\ [%{(&fenc==\"\"?&enc:&fenc).(&bomb?\",BOM\":\"\")}]%{&eol?'':'\ [noeol]'}\ [TYPE=%Y]\ [\%03.3b:0x\%02.2B]\ [POS=%c:%l/%L][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
-
-Bundle 'vim-scripts/CountJump'
-Bundle 'vim-scripts/ShowTrailingWhitespace'
-Bundle 'vim-scripts/JumpToTrailingWhitespace'
-Bundle 'vim-scripts/DeleteTrailingWhitespace'
-
+" 自动补全引号, 括号等
 Bundle 'Raimondi/delimitMate'
-
-Bundle 'smilekzs/vim-nfo'
-
-Bundle 'Yggdroot/indentLine'
-
 " Bundle "scrooloose/syntastic"
 " Bundle "Valloric/YouCompleteMe"
 
