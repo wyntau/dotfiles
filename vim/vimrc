@@ -525,7 +525,7 @@ Bundle 'terryma/vim-multiple-cursors'
 
 " Bundle 'ap/vim-css-color'
 " vim-css-color # 不支持Vim74， 使用vim-colorsque 替代
-Bundle 'gorodinskiy/vim-coloresque'
+Bundle 'Marslo/vim-coloresque'
 
 Bundle 'airblade/vim-gitgutter'
 
