@@ -22,13 +22,13 @@
 " 不要使用vi的键盘模式，而是vim自己的
 set nocompatible
 "行内替换
-"set gdefault
+" set gdefault
 " 共享外部剪贴板
 set clipboard+=unnamed
 " 启动的时候不显示那个援助索马里儿童的提示
-"set shortmess=atI
+" set shortmess=atI
 " 在被分割的窗口间显示空白，便于阅读
-set fillchars=vert:\ ,stl:\ ,stlnc:\
+set fillchars=vert:\ ,stl:\ ,stlnc:\ "注释
 
 set diffopt+=vertical,context:3,foldcolumn:0
 
@@ -44,9 +44,9 @@ set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png,*.swp,*.class
 set viminfo+=!
 
 " 备份,到另一个位置. 防止误删, 目前是取消备份
-"set backup
-"set backupext=.bak
-"set backupdir=~/bak/vimbk/
+" set backup
+" set backupext=.bak
+" set backupdir=~/bak/vimbk/
 
 " 覆盖文件时不备份
 set nobackup
@@ -136,9 +136,9 @@ autocmd FileType text setlocal textwidth=78
 set gcr=a:block-blinkon0
 " 加速光标闪烁。
 " @see http://c9s.blogspot.com/2007/12/gvim.html
-"set guicursor+=n-v-c:block-cursor-blinkwait300-blinkon90-blinkoff90
-"set guicursor+=i:block-cursor-blinkwait200-blinkon110-blinkoff110
-"set guicursor+=v:ver90-cursor-blinkwait200-blinkon150-blinkoff150
+" set guicursor+=n-v-c:block-cursor-blinkwait300-blinkon90-blinkoff90
+" set guicursor+=i:block-cursor-blinkwait200-blinkon110-blinkoff110
+" set guicursor+=v:ver90-cursor-blinkwait200-blinkon150-blinkoff150
 
 " 竖直split时,在右边开启
 set splitright
@@ -289,7 +289,7 @@ if has("gui_running")
     " 隐藏底部滚动条
     set guioptions-=b
     " 隐藏Tab栏
-    "set showtabline=0
+    " set showtabline=0
     set t_Co=256
     "每行内插入两空行(方便阅读文本)
     set linespace=1
@@ -304,11 +304,11 @@ endif
 " syntax    使用语法定义折叠
 " diff      对没有更改的文本进行折叠
 " marker    使用标记进行折叠, 默认标记是 {{{ 和 }}}
-"set foldmethod=syntax       " 设置语法折叠
-"set foldcolumn=0            " 设置折叠区域的宽度
-"setlocal foldlevel=1        " 设置折叠层数为1
-"set foldclose=all           " 设置为自动关闭折叠
-"set foldexpr=1
+" set foldmethod=syntax       " 设置语法折叠
+" set foldcolumn=0            " 设置折叠区域的宽度
+" setlocal foldlevel=1        " 设置折叠层数为1
+" set foldclose=all           " 设置为自动关闭折叠
+" set foldexpr=1
 "{{{ 用空格键来开关折叠
 set foldenable
 set foldmethod=indent
@@ -335,7 +335,7 @@ map <Down> <Nop>
 nmap <Tab> <C-w>w
 
 "Treat long lines as break lines (useful when moving around in them)
-"set wrap之后，将自动换行的长行当做多行处理, 方便在长行之间跳转.
+" set wrap之后，将自动换行的长行当做多行处理, 方便在长行之间跳转.
 map j gj
 map k gk
 
