@@ -581,5 +581,5 @@ set t_Co=256
 set background=dark
 silent! colorscheme molokai
 " 设置背景透明
-hi Normal guibg=NONE ctermbg=NONE
+hi Normal guibg=black ctermbg=NONE
 "}}}
