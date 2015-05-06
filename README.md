@@ -41,6 +41,7 @@
     Bundle 'groenewege/vim-less'
     Bundle 'smilekzs/vim-nfo'
     Bundle 'Marslo/vim-coloresque'
+    Bundle 'mattn/emmet-vim'
     Bundle 'airblade/vim-gitgutter'
     Bundle 'tpope/vim-fugitive'
     Bundle 'scrooloose/nerdtree'

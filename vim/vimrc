@@ -501,6 +501,17 @@ Bundle 'groenewege/vim-less'
 Bundle 'smilekzs/vim-nfo'
 " ap/vim-css-color # 不支持Vim74， 使用vim-colorsque 替代
 Bundle 'Marslo/vim-coloresque'
+" {{{{ emmet
+Bundle 'mattn/emmet-vim'
+let g:user_emmet_mode='i'  "enable all functions
+" Enable just for html/css
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+" remap the default <C-Y> leader
+" Note that the trailing , still needs to be entered
+" so the new keymap would be `<C-Y>,`
+let g:user_emmet_leader_key='<C-Y>'
+" }}}
 
 
 " --> Git support
