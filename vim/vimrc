@@ -405,14 +405,22 @@ map <leader>t$ :tablast<cr>
 " Super useful when editing files in the same directory
 map <leader>t. :tabedit <c-r>=expand("%:p:h")<cr>
 
+" 删除, 但是不放到公共剪切板
 " Use ,d (or ,dd or ,dj or 20,dd) to delete a line without adding it to the
 " yanked stack (also, in visual mode)
-nnoremap <silent> <leader>d "_d<cr>
-vnoremap <silent> <leader>d "_d<cr>
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+
+" 复制到公共剪切板
+vnoremap <leader>y "+y
+nnoremap <leader>y "+y
 
 "剪切到公共剪切板
-vmap <leader>x "+d
-nmap <leader>x "+d
+vnoremap <leader>x "+d
+nnoremap <leader>x "+d
+
+" 粘贴时设置nopaste
+nnoremap <leader>p :set paste<cr> "+p :set nopaste<cr>
 
 " {{{全文搜索选中的文字
 vnoremap  *  y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
