@@ -28,6 +28,7 @@
 
     Bundle 'gmarik/vundle'
     Bundle 'tomasr/molokai'
+    Bundle 'jiangmiao/auto-pairs'
     Bundle 'Yggdroot/indentLine'
     Bundle 'vim-scripts/CountJump'
     Bundle 'vim-scripts/ShowTrailingWhitespace'
@@ -52,7 +53,6 @@
     Bundle 'osyo-manga/vim-over'
     Bundle 'kien/ctrlp.vim'
     Bundle 'Lokaltog/vim-easymotion'
-    Bundle 'Raimondi/delimitMate'
 
 ## Tasks & Requirement
 Available tasks:

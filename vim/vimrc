@@ -595,7 +595,7 @@ Bundle 'Lokaltog/vim-easymotion'
 " nnoremap / /\v
 " vnoremap / /\v
 map / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
+" omap / <Plug>(easymotion-tn)
 map n <Plug>(easymotion-next)
 map N <Plug>(easymotion-prev)
 " 语法分析插件
