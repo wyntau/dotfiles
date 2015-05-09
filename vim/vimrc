@@ -76,7 +76,7 @@ set ttyfast
 " 在处理未保存或只读文件的时候，弹出确认
 set confirm
 " 自动切换当前目录为当前文件所在的目录
-set autochdir
+" set autochdir
 " no BOM
 set nobomb
 
