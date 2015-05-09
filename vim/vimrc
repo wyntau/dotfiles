@@ -473,7 +473,7 @@ Bundle 'tomasr/molokai'
 Bundle 'jiangmiao/auto-pairs'
 let g:AutoPairsFlyMode = 1
 Bundle 'Yggdroot/indentLine'
-let g:indentLine_char = '┊'
+let g:indentLine_char = '¦'
 " A Vim plugin for visually displaying indent levels in code
 " Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'vim-scripts/CountJump'
