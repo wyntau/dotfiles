@@ -624,6 +624,9 @@ let g:EasyMotion_smartcase = 1
 " 更强大的补全插件
 " Bundle "Valloric/YouCompleteMe"
 
+Bundle 'tmux-plugins/vim-tmux'
+Bundle 'tmux-plugins/vim-tmux-focus-events'
+
 filetype plugin indent on
 "载入文件类型插件
 filetype plugin on

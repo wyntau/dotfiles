@@ -274,6 +274,37 @@ function install_zshcfg(){
   success "Please open new termial to load configs";
 }
 
+function install_tmux(){
+
+  if ( is_prog_exists tmux ); then
+    step "Installing tmux configs..."
+  else
+    err "No tmux found! Please install tmux first"
+    exit 1
+  fi;
+
+  go_root
+
+  if ( is_dir_exists tmux/plugins/tpm ); then
+    info "update tpm..."
+    cd tmux/plugins/tpm
+    git pull origin master
+  else
+    info "init and update tpm..."
+    git clone https://github.com/tmux-plugins/tpm tmux/plugins/tpm
+  fi;
+
+  info "Installing tmux configs..."
+  rm -rf ~/.tmux
+  rm -rf ~/.tmux.conf
+
+  info "Linking ${ROOT}/tmux to ~/.tmux"
+  ln -s ${ROOT}/tmux ~/.tmux
+
+  info "Linking ${ROOT}/tmux/tmux.conf to ~/.tmux.conf";
+  ln -s ${ROOT}/tmux/tmux.conf ~/.tmux.conf
+}
+
 if [ $# = 0 ]; then
   usage
 else
@@ -303,6 +334,9 @@ else
         ;;
       zshcfg)
         install_zshcfg
+        ;;
+      tmux)
+        install_tmux
         ;;
       *)
         echo

@@ -54,6 +54,8 @@
     Bundle 'osyo-manga/vim-over'
     Bundle 'kien/ctrlp.vim'
     Bundle 'Lokaltog/vim-easymotion'
+    Bundle 'tmux-plugins/vim-tmux'
+    Bundle 'tmux-plugins/vim-tmux-focus-events'
 
 ## Tasks & Requirement
 Available tasks:
@@ -63,6 +65,7 @@ Available tasks:
 - [astylerc](#task-astylerc)
 - [sublime](#task-sublime)
 - [zsh](#task-zsh)
+- [tmux](#task-tmux)
 
 If you want to do all tasks, just run
 
@@ -159,6 +162,13 @@ or do a specific task by run
     - zsh-syntax-highlighting
 
     So, maybe you should install some of them to make full use of zsh.
+
+- ### Task `tmux`
+    Requirements: `git`, `tmux`
+
+    tmux plugins
+    - tpm
+    - tmux-sensible
 
 ## LICENSE
 
