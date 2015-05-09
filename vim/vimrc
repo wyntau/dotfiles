@@ -473,8 +473,15 @@ Bundle 'tomasr/molokai'
 
 
 " --> shows
+" 自动补全引号, 括号等
+" Bundle 'Raimondi/delimitMate'
+" 另一个补全括号插件
+Bundle 'jiangmiao/auto-pairs'
+let g:AutoPairsFlyMode = 1
 Bundle 'Yggdroot/indentLine'
 let g:indentLine_char = '┊'
+" A Vim plugin for visually displaying indent levels in code
+" Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'vim-scripts/CountJump'
 Bundle 'vim-scripts/ShowTrailingWhitespace'
 Bundle 'vim-scripts/JumpToTrailingWhitespace'
@@ -506,11 +513,11 @@ Bundle 'mattn/emmet-vim'
 let g:user_emmet_mode='i'  "enable all functions
 " Enable just for html/css
 let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
 " remap the default <C-Y> leader
 " Note that the trailing , still needs to be entered
 " so the new keymap would be `<C-Y>,`
 let g:user_emmet_leader_key='<C-Y>'
+autocmd FileType html,css EmmetInstall
 " }}}
 " {{{ 简单的基于上下文的补全插件
 Bundle 'ervandew/supertab'
@@ -586,11 +593,11 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'osyo-manga/vim-over'
 " 快速文件搜索, 类似于sublime中的command + p
 Bundle 'kien/ctrlp.vim'
-" 快速搜索
+" 快速到达指定位置插件
 Bundle 'Lokaltog/vim-easymotion'
-" 自动补全引号, 括号等
-Bundle 'Raimondi/delimitMate'
+" 语法分析插件
 " Bundle "scrooloose/syntastic"
+" 更强大的补全插件
 " Bundle "Valloric/YouCompleteMe"
 
 filetype plugin indent on
