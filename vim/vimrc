@@ -377,8 +377,6 @@ set pastetoggle=<F5>
 " disbale paste mode when leaving insert mode
 au InsertLeave * set nopaste
 
-nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
-
 "==========================================
 " mapleader快捷键绑定
 "==========================================
