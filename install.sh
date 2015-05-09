@@ -89,6 +89,7 @@ function usage(){
   echo '    3) astylerc'
   echo '    4) sublime'
   echo '    5) zsh'
+  echo '    6) tmux'
   printf ${ALL_SUFFIX}
   echo
 }
