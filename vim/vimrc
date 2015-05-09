@@ -557,7 +557,6 @@ Bundle 'scrooloose/nerdtree'
 " I.......切换隐藏文件是否显示
 " B.......切换书签隐藏显示
 "nmap <leader>nt :NERDTreeToggle<CR>
-let NERDTreeWinSize=20
 " }}}
 " {{{ NERDTreeTabsToggle
 Bundle 'jistr/vim-nerdtree-tabs'
