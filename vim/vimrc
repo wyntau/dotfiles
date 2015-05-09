@@ -512,11 +512,18 @@ autocmd FileType html,css EmmetInstall
 " so the new keymap would be `<C-Y>,`
 let g:user_emmet_leader_key='<C-Y>'
 " }}}
+" {{{ 简单的基于上下文的补全插件
+Bundle 'ervandew/supertab'
+" }}}
 
 
 " --> Git support
 Bundle 'airblade/vim-gitgutter'
 Bundle 'tpope/vim-fugitive'
+
+
+" --> 快速搜索插件
+Bundle 'mileszs/ack.vim'
 
 
 " {{{ NERDTree插件的快捷键
