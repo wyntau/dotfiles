@@ -21,3 +21,6 @@ alias -s log=less
 
 alias -g PR=http_proxy=http://127.0.0.1:8087
 # PR curl https://twitter.com # 相当于 http_proxy=http://127.0.0.1:8087 curl https://twitter.com
+
+alias tt="tmux a -t"
+alias ttt="tmux a -t 0"
