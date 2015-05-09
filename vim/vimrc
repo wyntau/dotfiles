@@ -86,7 +86,7 @@ set history=100
 " 输入搜索内容时就显示搜索结果
 set incsearch
 " 高亮被搜索的句子（phrases）
-set hlsearch
+" set hlsearch
 " 搜索或者补全时忽略大小写
 set ignorecase
 " 有一个或以上大写字母时仍大小写敏感
@@ -364,10 +364,6 @@ nmap T O<ESC>
 " @usage 50g| jump to 50% of the lines columns.
 nnoremap <expr>g<Bar> '<Esc>'.float2nr(round((col('$')-1)*min([100,v:count])/100.0)).'<Bar>'
 
-"Use sane regexes"
-nnoremap / /\v
-vnoremap / /\v
-
 "代码格式优化化
 autocmd BufNewFile,BufRead *.{c,cpp} set formatprg=astyle
 " Don't use Ex mode, use Q for formatting
@@ -595,6 +591,13 @@ Bundle 'osyo-manga/vim-over'
 Bundle 'kien/ctrlp.vim'
 " 快速到达指定位置插件
 Bundle 'Lokaltog/vim-easymotion'
+"Use sane regexes"
+" nnoremap / /\v
+" vnoremap / /\v
+map / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map n <Plug>(easymotion-next)
+map N <Plug>(easymotion-prev)
 " 语法分析插件
 " Bundle "scrooloose/syntastic"
 " 更强大的补全插件
