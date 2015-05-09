@@ -626,6 +626,7 @@ let g:EasyMotion_smartcase = 1
 
 Bundle 'tmux-plugins/vim-tmux'
 Bundle 'tmux-plugins/vim-tmux-focus-events'
+Bundle 'tpope/vim-obsession'
 
 filetype plugin indent on
 "载入文件类型插件

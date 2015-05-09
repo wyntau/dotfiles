@@ -86,6 +86,7 @@ or do a specific task by run
         Bundle 'Lokaltog/vim-easymotion'
         Bundle 'tmux-plugins/vim-tmux'
         Bundle 'tmux-plugins/vim-tmux-focus-events'
+        Bundle 'tpope/vim-obsession'
 
 - ### Task `gitconfig`
     Requirement: `git`
