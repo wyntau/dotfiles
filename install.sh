@@ -205,7 +205,7 @@ function install_zsh(){
     step "Installing zsh..."
   else
     err "No Zsh found! Please install zsh first"
-    exit 1
+    return
   fi;
 
   go_root
@@ -280,7 +280,7 @@ function install_tmux(){
     step "Installing tmux configs..."
   else
     err "No tmux found! Please install tmux first"
-    exit 1
+    return
   fi;
 
   go_root
