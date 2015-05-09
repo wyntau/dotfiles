@@ -316,6 +316,7 @@ else
         install_astylerc
         install_sublime
         install_zsh
+        install_tmux
         ;;
       vimrc)
         install_vimrc
