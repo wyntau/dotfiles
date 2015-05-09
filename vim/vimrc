@@ -326,13 +326,17 @@ set completeopt+=longest
 "==========================================
 
 "强迫自己用 hjkl
-map <Left> <Nop>
-map <Right> <Nop>
-map <Up> <Nop>
-map <Down> <Nop>
+" map <Left> <Nop>
+" map <Right> <Nop>
+" map <Up> <Nop>
+" map <Down> <Nop>
 
 " Switch splits
 nmap <Tab> <C-w>w
+nmap <C-l> <C-w><C-l>
+nmap <C-h> <C-w><C-h>
+nmap <C-j> <C-w><C-j>
+nmap <C-k> <C-w><C-k>
 
 "Treat long lines as break lines (useful when moving around in them)
 " set wrap之后，将自动换行的长行当做多行处理, 方便在长行之间跳转.
@@ -340,10 +344,12 @@ map j gj
 map k gk
 
 " remap U to <C-r> for easier redo
-" nnoremap U <C-r>
+nnoremap U <C-r>
 
 "设置 jj快速进入normal模式
 inoremap kj <Esc>
+" 插入模式, 使用ctrl-l跳出右括号
+inoremap <C-l> <ESC>la
 
 "Keep search pattern at the center of the screen."
 nnoremap <silent> n nzz
@@ -359,6 +365,7 @@ noremap <right> :bn<CR>
 " 在前后行各插入新行,不进入插入模式
 nmap t o<ESC>
 nmap T O<ESC>
+nmap Y y$
 
 " @see http://blog.chinaunix.net/u/8681/showart_1226043.html
 " @usage 50g| jump to 50% of the lines columns.
