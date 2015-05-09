@@ -6,6 +6,8 @@
     |   ├── monokai-custom
     |   ├── Preference.sublime-settings
     |   └── README.md
+    ├── tmux
+    │   └── tmux.conf
     ├── vim
     │   └── vimrc
     └── zsh
@@ -19,6 +21,8 @@
     - monokai-custom - git submodule, Monokai-custom colorscheme
     - Preference.sublime-settings - the Preference file
     - README.md - the list of sublime packages I use
+- tmux - all things about _tmux_
+    - tmux.conf - tmux config
 - vim - all things about _VIM_
     - vimrc - the config for **vim**
 - zsh - all things about *zsh*
