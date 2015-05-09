@@ -523,7 +523,9 @@ Bundle 'tpope/vim-fugitive'
 
 
 " --> 快速搜索插件
-Bundle 'mileszs/ack.vim'
+" Bundle 'mileszs/ack.vim'
+" Bundle 'rking/ag.vim' " install `ag` a.k.a `the_silver_searcher`
+" Bundle 'dyng/ctrlsf.vim' "An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
 
 
 " {{{ NERDTree插件的快捷键

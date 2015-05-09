@@ -45,7 +45,6 @@
     Bundle 'ervandew/supertab'
     Bundle 'airblade/vim-gitgutter'
     Bundle 'tpope/vim-fugitive'
-    Bundle 'mileszs/ack.vim'
     Bundle 'scrooloose/nerdtree'
     Bundle 'jistr/vim-nerdtree-tabs'
     Bundle 'scrooloose/nerdcommenter'
