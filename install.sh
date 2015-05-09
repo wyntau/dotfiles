@@ -295,6 +295,17 @@ function install_tmux(){
     git clone https://github.com/tmux-plugins/tpm tmux/plugins/tpm
   fi;
 
+  # tmux中的vim无法使用系统的粘贴板, 安装reattach-to-user-namespace修复
+  if ( is_mac ); then
+    if( ! is_prog_exists reattach-to-user-namespace ); then
+      if ( is_prog_exists brew ); then
+        brew install reattach-to-user-namespace
+      else
+        err "Maybe you should install reattach-to-user-namespace for vim in tmux"
+      fi;
+    fi;
+  fi;
+
   info "Installing tmux configs..."
   rm -rf ~/.tmux
   rm -rf ~/.tmux.conf
