@@ -47,6 +47,23 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
+
+  # bugfix for vim in tmux not using 256 color.
+  if [ $TMUX ]; then
+    if [ -e /usr/share/terminfo/s/screen-256color ]; then
+      export TERM='screen-256color'
+    else
+      export TERM='screen'
+    fi
+  else
+    # may be xterm-256color or xterm+256color depending on your distro
+    if [ -e /usr/share/terminfo/x/xterm-256color ] || [ -e /usr/share/terminfo/x/xterm+256color ]; then
+      export TERM='xterm-256color'
+    else
+      export TERM='xterm'
+    fi
+  fi
+
   plugins=(git git-extras git-flow sublime z colored-man sudo zsh-syntax-highlighting)
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   plugins=(git git-extras git-flow sublime z colored-man sudo zsh-syntax-highlighting brew osx)
@@ -69,20 +86,6 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
-
-if [ $TMUX ]; then
-  if [ -e /usr/share/terminfo/s/screen-256color ]; then
-    export TERM='screen-256color'
-  else
-    export TERM='screen'
-  fi
-else
-  if [ -e /usr/share/terminfo/x/xterm-256color ] || [ -e /usr/share/terminfo/x/xterm+256color ]; then # may be xterm-256 depending on your distro
-    export TERM='xterm-256color'
-  else
-    export TERM='xterm'
-  fi
-fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
