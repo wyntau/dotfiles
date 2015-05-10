@@ -3,3 +3,5 @@ vim/bundle
 sublime/monokai-custom
 zsh/oh-my-zsh
 tmux/plugins
+tmux/resurrect
+
