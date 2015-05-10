@@ -70,6 +70,20 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
+if [ $TMUX ]; then
+  if [ -e /usr/share/terminfo/s/screen-256color ]; then
+    export TERM='screen-256color'
+  else
+    export TERM='screen'
+  fi
+else
+  if [ -e /usr/share/terminfo/x/xterm-256color ] || [ -e /usr/share/terminfo/x/xterm+256color ]; then # may be xterm-256 depending on your distro
+    export TERM='xterm-256color'
+  else
+    export TERM='xterm'
+  fi
+fi
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
