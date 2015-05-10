@@ -155,16 +155,17 @@ or do a specific task by run
 
     __What zsh plugins are used default?__
 
+    - colored-man
     - git
     - git-extras
     - git-flow
-    - brew
-    - osx
     - sublime
-    - z
-    - colored-man
     - sudo
+    - tmux
+    - z
     - zsh-syntax-highlighting
+    - brew (OS X only)
+    - osx (OS X only)
 
     So, maybe you should install some of them to make full use of zsh.
 

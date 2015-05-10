@@ -64,9 +64,14 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     fi
   fi
 
-  plugins=(git git-extras git-flow sublime z colored-man sudo zsh-syntax-highlighting)
+  # set zsh plugins
+  plugins=(colored-man git git-extras git-flow sublime sudo tmux z zsh-syntax-highlighting)
+
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-  plugins=(git git-extras git-flow sublime z colored-man sudo zsh-syntax-highlighting brew osx)
+
+  # set zsh plugins
+  plugins=(colored-man git git-extras git-flow sublime sudo tmux z zsh-syntax-highlighting brew osx)
+
 fi;
 
 # User configuration
