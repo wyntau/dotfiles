@@ -394,8 +394,9 @@ au InsertLeave * set nopaste
 let mapleader=","
 let g:mapleader=","
 
-
-map <leader>te :tabnew<cr>
+" 后面跟着要用新tab打开的文件名, 所以没有<cr>
+map <leader>te :tabnew 
+" 下面的命令后面直接跟<cr>执行
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove<cr>
