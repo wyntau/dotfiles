@@ -173,8 +173,9 @@ or do a specific task by run
     Requirements: `git`, `tmux`
 
     tmux plugins
-    - tpm
-    - tmux-sensible
+    - tmux-plugins/tpm
+    - tmux-plugins/tmux-sensible
+    - tmux-plugins/tmux-resurrect
 
 ## LICENSE
 
