@@ -241,7 +241,7 @@ function install_zsh(){
   info "Linking ${ROOT}/zsh/oh-my-zsh to ~/.oh-my-zsh"
   ln -s ${ROOT}/zsh/oh-my-zsh ~/.oh-my-zsh
 
-  info "Linking ${ROOT}/zsh/zshrc to ~/.zshrc";
+  info "Linking ${ROOT}/zsh/zshrc to ~/.zshrc"
   ln -s ${ROOT}/zsh/zshrc ~/.zshrc
 
   info "Time to change your default shell to zsh!"
@@ -262,7 +262,7 @@ function install_zshcfg(){
   rm -rf ~/.zsh.paths
   rm -rf ~/.zsh.sources
 
-  info "Linking zsh configs";
+  info "Linking zsh configs"
   ln -s ${ROOT}/zsh/zsh.alias ~/.zsh.alias
   ln -s ${ROOT}/zsh/zsh.paths ~/.zsh.paths
   ln -s ${ROOT}/zsh/zsh.sources ~/.zsh.sources
@@ -271,7 +271,7 @@ function install_zshcfg(){
   source ~/.zsh.paths
   source ~/.zsh.sources
 
-  success "Install zsh configs success";
+  success "Install zsh configs success"
 }
 
 function install_tmux(){
@@ -312,8 +312,10 @@ function install_tmux(){
   info "Linking ${ROOT}/tmux to ~/.tmux"
   ln -s ${ROOT}/tmux ~/.tmux
 
-  info "Linking ${ROOT}/tmux/tmux.conf to ~/.tmux.conf";
+  info "Linking ${ROOT}/tmux/tmux.conf to ~/.tmux.conf"
   ln -s ${ROOT}/tmux/tmux.conf ~/.tmux.conf
+
+  info "Run tmux and use `prefix I` to install tmux plugins."
 }
 
 if [ $# = 0 ]; then
