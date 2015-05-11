@@ -267,12 +267,11 @@ function install_zshcfg(){
   ln -s ${ROOT}/zsh/zsh.paths ~/.zsh.paths
   ln -s ${ROOT}/zsh/zsh.sources ~/.zsh.sources
 
-  # source ~/.zsh.alias
-  # source ~/.zsh.paths
-  # source ~/.zsh.sources
+  source ~/.zsh.alias
+  source ~/.zsh.paths
+  source ~/.zsh.sources
 
   success "Install zsh configs success";
-  success "Please open new termial to load configs";
 }
 
 function install_tmux(){
