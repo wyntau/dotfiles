@@ -315,7 +315,7 @@ function install_tmux(){
   info "Linking ${ROOT}/tmux/tmux.conf to ~/.tmux.conf"
   ln -s ${ROOT}/tmux/tmux.conf ~/.tmux.conf
 
-  info "Run tmux and use `prefix I` to install tmux plugins."
+  info "Run tmux and use prefix-I to install tmux plugins."
 }
 
 if [ $# = 0 ]; then
