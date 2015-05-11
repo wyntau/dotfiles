@@ -24,9 +24,7 @@ set nocompatible
 "行内替换
 " set gdefault
 " 共享外部剪贴板
-if $TMUX == ''
-  set clipboard+=unnamed
-endif
+set clipboard+=unnamed
 " 启动的时候不显示那个援助索马里儿童的提示
 " set shortmess=atI
 " 在被分割的窗口间显示空白，便于阅读
