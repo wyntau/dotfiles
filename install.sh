@@ -120,7 +120,7 @@ function install_vimrc(){
   ln -s ${ROOT}/vim/vimrc ~/.vimrc
 
   info "Installing vim bundles......"
-  vim +BundleInstall +qall
+  vim +PluginInstall +qall
 
   success "Install vimrc and bundles completed."
 }
