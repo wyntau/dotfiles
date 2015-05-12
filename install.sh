@@ -102,7 +102,7 @@ function install_vimrc(){
 
   if ( is_dir_exists vim/bundle/Vundle.vim ); then
     info "update vundle submodule"
-    cd vim/bundle/vundle
+    cd vim/bundle/Vundle.vim
     git pull origin master
   else
     info "init and update vundle submodule"
