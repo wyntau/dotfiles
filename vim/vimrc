@@ -462,33 +462,33 @@ imap etime <c-r>=NowDate('en')<cr>
 "==========================================
 " off is required by vundle   "检测文件的类型
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " --> Vundle plugin
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
 
 " --> Themes and views
 " molokai colorscheme
-Bundle 'tomasr/molokai'
+Plugin 'tomasr/molokai'
 
 
 " --> shows
 " 自动补全引号, 括号等
-" Bundle 'Raimondi/delimitMate'
+" Plugin 'Raimondi/delimitMate'
 " 另一个补全括号插件
-Bundle 'jiangmiao/auto-pairs'
+Plugin 'jiangmiao/auto-pairs'
 let g:AutoPairsFlyMode = 1
-Bundle 'Yggdroot/indentLine'
+Plugin 'Yggdroot/indentLine'
 let g:indentLine_char = '¦'
 " A Vim plugin for visually displaying indent levels in code
-" Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'vim-scripts/CountJump'
-Bundle 'vim-scripts/ShowTrailingWhitespace'
-Bundle 'vim-scripts/JumpToTrailingWhitespace'
-Bundle 'vim-scripts/DeleteTrailingWhitespace'
-Bundle 'bling/vim-airline'
+" Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'vim-scripts/CountJump'
+Plugin 'vim-scripts/ShowTrailingWhitespace'
+Plugin 'vim-scripts/JumpToTrailingWhitespace'
+Plugin 'vim-scripts/DeleteTrailingWhitespace'
+Plugin 'bling/vim-airline'
 " 显示状态栏 (默认值为 1, 无法显示状态栏)
 " 命令行（在状态行下）的高度，默认为1，这里是2
 set laststatus=2
@@ -500,18 +500,18 @@ set laststatus=2
 " --> Langulage support
 " vim-markdown {{{
 " 自动对齐
-Bundle 'godlygeek/tabular'
-Bundle 'plasticboy/vim-markdown'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
 " }}}
-Bundle 'leafgarland/typescript-vim'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'groenewege/vim-less'
-Bundle 'smilekzs/vim-nfo'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'groenewege/vim-less'
+Plugin 'smilekzs/vim-nfo'
 " ap/vim-css-color # 不支持Vim74， 使用vim-colorsque 替代
-Bundle 'Marslo/vim-coloresque'
+Plugin 'Marslo/vim-coloresque'
 " {{{{ emmet
-Bundle 'mattn/emmet-vim'
+Plugin 'mattn/emmet-vim'
 let g:user_emmet_mode='i'  "enable all functions
 " Enable just for html/css
 let g:user_emmet_install_global = 0
@@ -522,20 +522,20 @@ let g:user_emmet_leader_key='<C-Y>'
 autocmd FileType html,css EmmetInstall
 " }}}
 " {{{ 简单的基于上下文的补全插件
-Bundle 'ervandew/supertab'
+Plugin 'ervandew/supertab'
 " }}}
 
 
 " --> Git support
-Bundle 'airblade/vim-gitgutter'
-Bundle 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
 
 
 " --> 快速搜索插件
-" Bundle 'mileszs/ack.vim'
-" Bundle 'rking/ag.vim' " install `ag` a.k.a `the_silver_searcher`
+" Plugin 'mileszs/ack.vim'
+" Plugin 'rking/ag.vim' " install `ag` a.k.a `the_silver_searcher`
 " An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
-Bundle 'dyng/ctrlsf.vim'
+Plugin 'dyng/ctrlsf.vim'
 let g:ctrlsf_winsize='30%'
 let g:ctrlsf_auto_close=0
 nmap     <C-F>f <Plug>CtrlSFPrompt
@@ -546,7 +546,7 @@ nmap     <C-F>p <Plug>CtrlSFPwordPath
 nnoremap <C-F>o :CtrlSFOpen<CR>
 
 " {{{ NERDTree插件的快捷键
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 " o.......打开文件目录或书签
 " t.......在新的tab页中打开文件或书签
 " i.......在split window中打开选择的文件
@@ -567,7 +567,7 @@ Bundle 'scrooloose/nerdtree'
 "nmap <leader>nt :NERDTreeToggle<CR>
 " }}}
 " {{{ NERDTreeTabsToggle
-Bundle 'jistr/vim-nerdtree-tabs'
+Plugin 'jistr/vim-nerdtree-tabs'
 "始终焦点位于文件窗口内
 let g:nerdtree_tabs_smart_startup_focus=2
 "默认不显示NERDTree窗口
@@ -577,7 +577,7 @@ nmap <leader>nt :NERDTreeTabsToggle<CR>
 
 
 " {{{ plugin – NERD_commenter.vim   注释代码用的
-Bundle 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdcommenter'
 "[count]<leader>cc 注释当前行或光标以下count行逐行添加注释(7,cc)
 "[count]<leader>cn 注释当前行或光标以下count行逐行添加注释(7,cn)
 "[count]<leader>c<space> 切换单行或选中的行的注释状态
@@ -597,13 +597,13 @@ let NERDCompactSexyComs=1
 
 
 " 鼠标多重选择
-Bundle 'terryma/vim-multiple-cursors'
+Plugin 'terryma/vim-multiple-cursors'
 " 搜索替换快速预览
-Bundle 'osyo-manga/vim-over'
+Plugin 'osyo-manga/vim-over'
 " 快速文件搜索, 类似于sublime中的command + p
-Bundle 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 " 快速到达指定位置插件
-Bundle 'Lokaltog/vim-easymotion'
+Plugin 'Lokaltog/vim-easymotion'
 "Use ? to sane regexes"
 nnoremap ? /\v
 vnoremap ? /\v
@@ -621,15 +621,17 @@ let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 let g:EasyMotion_smartcase = 1
 
 " 语法分析插件
-" Bundle "scrooloose/syntastic"
+" Plugin "scrooloose/syntastic"
 " 更强大的补全插件
-" Bundle "Valloric/YouCompleteMe"
+" Plugin "Valloric/YouCompleteMe"
 
-Bundle 'tmux-plugins/vim-tmux'
-Bundle 'tmux-plugins/vim-tmux-focus-events'
-Bundle 'tpope/vim-obsession'
+Plugin 'tmux-plugins/vim-tmux'
+Plugin 'tmux-plugins/vim-tmux-focus-events'
+Plugin 'tpope/vim-obsession'
 
+call vundle#end()
 filetype plugin indent on
+""" }}} Vundle.vim 配置结束
 "载入文件类型插件
 filetype plugin on
 "为特定文件类型载入相关缩进文件

@@ -100,13 +100,13 @@ function install_vimrc(){
 
   go_root
 
-  if ( is_dir_exists vim/bundle/vundle ); then
+  if ( is_dir_exists vim/bundle/Vundle.vim ); then
     info "update vundle submodule"
     cd vim/bundle/vundle
     git pull origin master
   else
     info "init and update vundle submodule"
-    git clone https://github.com/gmarik/vundle.git vim/bundle/vundle
+    git clone https://github.com/gmarik/Vundle.vim.git vim/bundle/Vundle.vim
   fi;
 
   info "Installing vimrc and bundle configs"
