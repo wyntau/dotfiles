@@ -1,16 +1,14 @@
 {
 	"bold_folder_labels": true,
 	"color_scheme": "Packages/User/monokai-custom/Monokai-custom.tmTheme",
+	"drag_text": false,
 	"font_face": "monaco",
 	"font_size": 13.0,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
-	"drag_text": false,
 	"hot_exit": false,
-	"tab_size": 2,
 	"ignored_packages":
 	[
-		// "vintage"
 	],
 	"remember_open_files": false,
 	"rulers":
@@ -18,7 +16,9 @@
 		80
 	],
 	"scroll_past_end": true,
+	"tab_size": 2,
 	"translate_tabs_to_spaces": true,
 	"use_tab_stops": true,
+	"vintage_use_clipboard": true,
 	"word_wrap": true
 }
