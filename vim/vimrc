@@ -484,10 +484,16 @@ Plugin 'Yggdroot/indentLine'
 let g:indentLine_char = '¦'
 " A Vim plugin for visually displaying indent levels in code
 " Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'vim-scripts/CountJump'
-Plugin 'vim-scripts/ShowTrailingWhitespace'
-Plugin 'vim-scripts/JumpToTrailingWhitespace'
-Plugin 'vim-scripts/DeleteTrailingWhitespace'
+
+Plugin 'ntpeters/vim-better-whitespace'
+" trailingspace plugins {{{
+" Plugin 'vim-scripts/CountJump'
+" Plugin 'vim-scripts/ShowTrailingWhitespace'
+" Plugin 'vim-scripts/JumpToTrailingWhitespace'
+" Plugin 'vim-scripts/DeleteTrailingWhitespace'
+" }}}
+
+
 Plugin 'bling/vim-airline'
 " 显示状态栏 (默认值为 1, 无法显示状态栏)
 " 命令行（在状态行下）的高度，默认为1，这里是2
