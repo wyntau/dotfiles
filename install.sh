@@ -107,6 +107,19 @@ function install_vimrc(){
     git clone https://github.com/gmarik/Vundle.vim.git "${ROOT}/vim/bundle/Vundle.vim"
   fi;
 
+  info "Fetching powerline-fonts..."
+  if ( is_dir_exists "${ROOT}/vim/powerline-fonts" ); then
+    cd "${ROOT}/vim/powerline-fonts"
+    git pull origin master
+  else
+    git clone https://github.com/powerline/fonts.git "${ROOT}/vim/powerline-fonts"
+  fi;
+
+  info "Installing powerline-fonts..."
+  cd "${ROOT}/vim/powerline-fonts"
+  ./install.sh
+  err "When install completed, please set your terminal to use powerline fonts for *Non-ASCII font*"
+
   info "Installing vimrc and bundle configs"
 
   rm -rf "$HOME/.vim"
