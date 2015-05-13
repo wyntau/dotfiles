@@ -98,26 +98,24 @@ function install_vimrc(){
 
   step "Installing vimrc..."
 
-  go_root
-
-  if ( is_dir_exists vim/bundle/Vundle.vim ); then
+  if ( is_dir_exists "${ROOT}/vim/bundle/Vundle.vim" ); then
     info "update vundle submodule"
-    cd vim/bundle/Vundle.vim
+    cd "${ROOT}/vim/bundle/Vundle.vim"
     git pull origin master
   else
     info "init and update vundle submodule"
-    git clone https://github.com/gmarik/Vundle.vim.git vim/bundle/Vundle.vim
+    git clone https://github.com/gmarik/Vundle.vim.git "${ROOT}/vim/bundle/Vundle.vim"
   fi;
 
   info "Installing vimrc and bundle configs"
 
-  rm -rf ~/.vim
-  info "Linking ${ROOT}/vim to ~/.vim"
-  ln -s ${ROOT}/vim ~/.vim
+  rm -rf "$HOME/.vim"
+  info "Linking ${ROOT}/vim to $HOME/.vim"
+  ln -s "${ROOT}/vim" "$HOME/.vim"
 
-  rm -rf ~/.vimrc
-  info "Linking ${ROOT}/vim/vimrc to ~/.vimrc"
-  ln -s ${ROOT}/vim/vimrc ~/.vimrc
+  rm -rf "$HOME/.vimrc"
+  info "Linking ${ROOT}/vim/vimrc to $HOME/.vimrc"
+  ln -s "${ROOT}/vim/vimrc" "$HOME/.vimrc"
 
   info "Installing vim bundles......"
   vim +PluginInstall +qall
@@ -129,43 +127,39 @@ function install_sublime(){
 
   step "Installing sublime"
 
-  go_root
-
-  if ( is_dir_exists sublime/monokai-custom ); then
+  if ( is_dir_exists "${ROOT}/sublime/monokai-custom" ); then
     info "update monokai-custom submodule..."
-    cd sublime/monokai-custom
+    cd "${ROOT}/sublime/monokai-custom"
     git pull origin master
   else
     info "init and update monokai-custom submodule..."
-    git clone https://github.com/Treri/sublime-monokai-custom.git sublime/monokai-custom
+    git clone https://github.com/Treri/sublime-monokai-custom.git "${ROOT}/sublime/monokai-custom"
   fi;
 
   info "Installing sublime Preference and Monokai-custom theme......"
 
   rm -rf "${SUBLIMEPATH}/Packages/User/monokai-custom"
   info "Linking ${ROOT}/sublime/monokai-custom ${SUBLIMEPATH}/Packages/User/monokai-custom"
-  ln -s ${ROOT}/sublime/monokai-custom "${SUBLIMEPATH}/Packages/User/monokai-custom"
+  ln -s "${ROOT}/sublime/monokai-custom" "${SUBLIMEPATH}/Packages/User/monokai-custom"
 
   rm -rf "${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
   info "Linking ${ROOT}/sublime/Preferences.sublime-settings to ${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
-  ln -s ${ROOT}/sublime/Preferences.sublime-settings "${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
+  ln -s "${ROOT}/sublime/Preferences.sublime-settings" "${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
 
   success "Install sublime Preference and Monokai-custom theme completed."
 }
 
-USER=`whoami`
 function install_gitconfig(){
 
   step "Installing gitconfig......"
 
-  go_root
-
-  rm -rf ~/.gitconfig
-  info "Linking ${ROOT}/gitconfig to ~/.gitconfig"
-  ln -s ${ROOT}/gitconfig ~/.gitconfig
+  rm -rf "$HOME/.gitconfig"
+  info "Linking ${ROOT}/gitconfig to $HOME/.gitconfig"
+  ln -s "${ROOT}/gitconfig" "$HOME/.gitconfig"
 
   info "Now config your name and email for git."
 
+  USER=`whoami`
   prompt "What's your git username? (${USER}) "
   read USERNAME
   if [ "${USERNAME}" = "" ]; then
@@ -191,11 +185,9 @@ function install_astylerc(){
 
   step "Installing astylerc......"
 
-  go_root
-
-  rm -rf ~/.astylerc
-  info "Linking ${ROOT}/astylerc to ~/.astylerc"
-  ln -s ${ROOT}/astylerc ~/.astylerc
+  rm -rf "$HOME/.astylerc"
+  info "Linking ${ROOT}/astylerc to $HOME/.astylerc"
+  ln -s "${ROOT}/astylerc" "$HOME/.astylerc"
 
   success "Install astylerc completed."
 }
@@ -209,67 +201,63 @@ function install_zsh(){
     return
   fi;
 
-  go_root
-
   ZSHPATH=`which zsh`
 
-  if ( is_dir_exists zsh/oh-my-zsh ); then
+  if ( is_dir_exists "${ROOT}/zsh/oh-my-zsh" ); then
     info "update oh-my-zsh..."
-    cd zsh/oh-my-zsh
+    cd "${ROOT}/zsh/oh-my-zsh"
     git pull origin master
   else
     info "init and update oh-my-zsh..."
-    git clone https://github.com/robbyrussell/oh-my-zsh.git zsh/oh-my-zsh
+    git clone https://github.com/robbyrussell/oh-my-zsh.git "${ROOT}/zsh/oh-my-zsh"
   fi;
 
-  go_root
-  if ( is_dir_exists zsh/oh-my-zsh/custom/plugins ); then
-    if ( is_dir_exists zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting ); then
+  if ( is_dir_exists "${ROOT}/zsh/oh-my-zsh/custom/plugins" ); then
+    if ( is_dir_exists "${ROOT}/zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ); then
       info "update zsh-syntax-highlighting plugin..."
-      cd zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+      cd "${ROOT}/zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
       git pull origin master
     else
       info "init and update zsh-syntax-highlighting plugin..."
-      git clone https://github.com/zsh-users/zsh-syntax-highlighting.git zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+      git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ROOT}/zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
     fi;
   fi;
 
   info "Installing zsh and oh-my-zsh......"
-  rm -rf ~/.oh-my-zsh
-  rm -rf ~/.zshrc
+  rm -rf "$HOME/.oh-my-zsh"
+  rm -rf "$HOME/.zshrc"
 
-  info "Linking ${ROOT}/zsh/oh-my-zsh to ~/.oh-my-zsh"
-  ln -s ${ROOT}/zsh/oh-my-zsh ~/.oh-my-zsh
+  info "Linking ${ROOT}/zsh/oh-my-zsh to $HOME/.oh-my-zsh"
+  ln -s "${ROOT}/zsh/oh-my-zsh" "$HOME/.oh-my-zsh"
 
-  info "Linking ${ROOT}/zsh/zshrc to ~/.zshrc"
-  ln -s ${ROOT}/zsh/zshrc ~/.zshrc
+  info "Linking ${ROOT}/zsh/zshrc to $HOME/.zshrc"
+  ln -s "${ROOT}/zsh/zshrc" "$HOME/.zshrc"
 
   info "Time to change your default shell to zsh!"
   chsh -s ${ZSHPATH}
 
   success "Install zsh and oh-my-zsh completed."
+  go_root
   /usr/bin/env zsh
-  source ~/.zshrc
+  source $HOME/.zshrc
 }
 
 function install_zshcfg(){
 
   step "Installing zsh configs..."
 
-  go_root
-
-  rm -rf ~/.zsh.alias
-  rm -rf ~/.zsh.paths
-  rm -rf ~/.zsh.sources
+  rm -rf "$HOME/.zsh.alias"
+  rm -rf "$HOME/.zsh.paths"
+  rm -rf "$HOME/.zsh.sources"
 
   info "Linking zsh configs"
-  ln -s ${ROOT}/zsh/zsh.alias ~/.zsh.alias
-  ln -s ${ROOT}/zsh/zsh.paths ~/.zsh.paths
-  ln -s ${ROOT}/zsh/zsh.sources ~/.zsh.sources
+  ln -s "${ROOT}/zsh/zsh.alias" "$HOME/.zsh.alias"
+  ln -s "${ROOT}/zsh/zsh.paths" "$HOME/.zsh.paths"
+  ln -s "${ROOT}/zsh/zsh.sources" "$HOME/.zsh.sources"
 
-  source ~/.zsh.alias
-  source ~/.zsh.paths
-  source ~/.zsh.sources
+  source "$HOME/.zsh.alias"
+  source "$HOME/.zsh.paths"
+  source "$HOME/.zsh.sources"
 
   success "Install zsh configs success"
 }
@@ -283,15 +271,13 @@ function install_tmux(){
     return
   fi;
 
-  go_root
-
-  if ( is_dir_exists tmux/plugins/tpm ); then
+  if ( is_dir_exists "${ROOT}/tmux/plugins/tpm" ); then
     info "update tpm..."
-    cd tmux/plugins/tpm
+    cd "${ROOT}/tmux/plugins/tpm"
     git pull origin master
   else
     info "init and update tpm..."
-    git clone https://github.com/tmux-plugins/tpm tmux/plugins/tpm
+    git clone https://github.com/tmux-plugins/tpm "${ROOT}/tmux/plugins/tpm"
   fi;
 
   # tmux中的vim无法使用系统的粘贴板, 安装reattach-to-user-namespace修复
@@ -306,14 +292,14 @@ function install_tmux(){
   fi;
 
   info "Installing tmux configs..."
-  rm -rf ~/.tmux
-  rm -rf ~/.tmux.conf
+  rm -rf "$HOME/.tmux"
+  rm -rf "$HOME/.tmux.conf"
 
-  info "Linking ${ROOT}/tmux to ~/.tmux"
-  ln -s ${ROOT}/tmux ~/.tmux
+  info "Linking ${ROOT}/tmux to $HOME/.tmux"
+  ln -s "${ROOT}/tmux" "$HOME/.tmux"
 
-  info "Linking ${ROOT}/tmux/tmux.conf to ~/.tmux.conf"
-  ln -s ${ROOT}/tmux/tmux.conf ~/.tmux.conf
+  info "Linking ${ROOT}/tmux/tmux.conf to $HOME/.tmux.conf"
+  ln -s "${ROOT}/tmux/tmux.conf" "$HOME/.tmux.conf"
 
   success "Please run tmux and use prefix-I to install tmux plugins or reload your tmux.conf"
 }
@@ -328,8 +314,8 @@ else
         install_gitconfig
         install_astylerc
         install_sublime
-        install_zsh
         install_tmux
+        install_zsh
         ;;
       vimrc)
         install_vimrc
