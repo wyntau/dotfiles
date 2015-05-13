@@ -495,6 +495,7 @@ Plugin 'ntpeters/vim-better-whitespace'
 
 
 Plugin 'bling/vim-airline'
+let g:airline_powerline_fonts = 1
 " 显示状态栏 (默认值为 1, 无法显示状态栏)
 " 命令行（在状态行下）的高度，默认为1，这里是2
 set laststatus=2
