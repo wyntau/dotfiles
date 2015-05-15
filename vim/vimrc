@@ -462,7 +462,13 @@ imap etime <c-r>=NowDate('en')<cr>
 "==========================================
 " off is required by vundle   "检测文件的类型
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
+
+if has('nvim')
+  set rtp+=~/.nvim/bundle/Vundle.vim
+else
+  set rtp+=~/.vim/bundle/Vundle.vim
+endif
+
 call vundle#begin()
 
 " --> Vundle plugin
