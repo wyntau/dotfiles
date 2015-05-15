@@ -2,7 +2,7 @@
 	"bold_folder_labels": true,
 	"color_scheme": "Packages/User/monokai-custom/Monokai-custom.tmTheme",
 	"drag_text": false,
-	"font_face": "monaco",
+	"ensure_newline_at_eof_on_save": true,
 	"font_size": 13.0,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,

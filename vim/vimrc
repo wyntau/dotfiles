@@ -132,6 +132,25 @@ set colorcolumn=81
 " add new line
 autocmd FileType text setlocal textwidth=78
 
+set guifont=Source\ Code\ Pro\ for\ Powerline:h13
+if has("gui_running")
+    " 隐藏菜单栏
+    set guioptions-=m
+    " 隐藏工具栏
+    set guioptions-=T
+    " 隐藏左侧滚动条
+    set guioptions-=L
+    " 隐藏右侧滚动条
+    set guioptions-=r
+    " 隐藏底部滚动条
+    set guioptions-=b
+    " 隐藏Tab栏
+    " set showtabline=0
+    set t_Co=256
+    " 每行内插入两空行(方便阅读文本)
+    " set linespace=1
+endif
+
 "防止光标闪烁
 set gcr=a:block-blinkon0
 " 加速光标闪烁。
@@ -274,25 +293,6 @@ endif
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
       \ | wincmd p | diffthis
-endif
-
-if has("gui_running")
-    set guifont=Monaco:h12
-    " 隐藏菜单栏
-    set guioptions-=m
-    " 隐藏工具栏
-    set guioptions-=T
-    " 隐藏左侧滚动条
-    set guioptions-=L
-    " 隐藏右侧滚动条
-    set guioptions-=r
-    " 隐藏底部滚动条
-    set guioptions-=b
-    " 隐藏Tab栏
-    " set showtabline=0
-    set t_Co=256
-    "每行内插入两空行(方便阅读文本)
-    set linespace=1
 endif
 
 " 代码折叠
