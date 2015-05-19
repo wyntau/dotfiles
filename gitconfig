@@ -59,8 +59,8 @@
 	# --date=local 去除时区信息
 
 	lg = log --color --graph --pretty=format:'%C(magenta)%h %Creset-%C(red)%d %Creset%s %C(green)%ar%C(cyan)(%ad)%C(bold blue)<%an>' --date=local
-	ll = log --color --graph --pretty=format:'%C(red)%d %C(yellow)%s%n %C(magenta)%H%n Committer: %C(green)%cr%C(cyan)(%cd)%C(bold blue)<%cn>%n Author: %C(green)%ar%C(cyan)(%ad)%C(bold blue)<%an>%n'  --stat --topo-order --date=local
-	lp = log --color --graph --pretty=format:'%C(red)%d %C(yellow)%s%n %C(magenta)%H%n Committer: %C(green)%cr%C(cyan)(%cd)%C(bold blue)<%cn>%n Author: %C(green)%ar%C(cyan)(%ad)%C(bold blue)<%an>%n'  --stat --topo-order --date=local --patch
+	ll = log --color --graph --pretty=format:'%C(red)%d %C(yellow)%B %C(magenta)%H%n Committer: %C(green)%cr%C(cyan)(%cd)%C(bold blue)<%cn>%n Author: %C(green)%ar%C(cyan)(%ad)%C(bold blue)<%an>%n'  --stat --topo-order --date=local
+	lp = log --color --graph --pretty=format:'%C(red)%d %C(yellow)%B %C(magenta)%H%n Committer: %C(green)%cr%C(cyan)(%cd)%C(bold blue)<%cn>%n Author: %C(green)%ar%C(cyan)(%ad)%C(bold blue)<%an>%n'  --stat --topo-order --date=local --patch
 	mgn = merge --no-ff   # branchName here
 	mgs = merge --squash
 	mgt = mergetool
