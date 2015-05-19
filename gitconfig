@@ -63,6 +63,7 @@
 	lp = log --color --graph --pretty=format:'%C(red)%d %C(yellow)%s%nCommitter: %C(green)%cr%C(cyan)(%cd)%C(bold blue)<%cn>%nAuthor: %C(green)%ar%C(cyan)(%ad)%C(bold blue)<%an>%n%Creset%C(magenta)%H'  --stat --topo-order --date=local --patch
 	mgn = merge --no-ff   # branchName here
 	mgs = merge --squash
+	mgt = mergetool
 	plb = pull --rebase
 	st = status --short --branch
 	unstage = reset HEAD --   # fileName here
