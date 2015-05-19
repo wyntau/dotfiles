@@ -32,10 +32,36 @@
 	dfs = diff --stat
 	dfc = diff --cached
 	dfn = diff --name-only
-	lg = log --color --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %C(green)(%cr) %C(bold blue)<%an>%Creset' --date=local --abbrev-commit
-# lg = log --all --graph --pretty=format:'%C(red)%h%Creset -%C(yellow)%d%Creset %s %C(green)(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	ll = log --color --graph --pretty=format:'%n%C(yellow)%s%d%n%C(bold white)<%an> %C(blue)%ar %C(red)(%ad)%n%Creset%C(green)%H'  --stat --topo-order  --decorate --date=local
-	lp = log --color --graph --pretty=format:'%n%C(yellow)%s%d%n%C(bold white)<%an> %C(blue)%ar %C(red)(%ad)%n%Creset%C(green)%H'  --stat --topo-order  --decorate -p --date=local
+
+	# %h => commit hash => like `--abbrev-commit'
+	# %H => full commit hash
+
+	# %d => ref names, like --decorate option
+
+	# %s => subject
+
+	# %cn => committer name
+	# %cd => committer date. e.g.(Fri May 15 22:57:50 2015 +0800)
+	# %cD => committer date, RFC2822 style. e.g.(Fri, 15 May 2015 22:57:50 +0800)
+	# %cr => committer date, relative => like `--date=relative'. e.g.(4 days ago)
+	# %ct => committer date, UNIX timestamp
+	# %ci => committer date, ISO 8601 format. e.g.(2015-05-15 22:57:50 +0800)
+
+	# %an => author name
+	# %ar => author date, relative
+	# %ad => author date, (format respects --date= option) e.g.(Tue May 19 10:15:48 2015 +0800)
+	# %aD => author date, RFC2822 style. e.g.(Fri, 15 May 2015 22:57:50 +0800)
+	# %at => author date, UNIX timestamp
+	# %ai => author date, ISO 8601 format. e.g.(2015-05-15 22:57:50 +0800)
+	# %n => new line
+
+	# --stat => diff状态
+	# --patch => 生成diff预览
+	# --date=local 去除时区信息
+
+	lg = log --color --graph --pretty=format:'%C(yellow)%h %Creset-%C(red)%d %Creset%s %C(green)%cr%C(cyan)(%cd)%C(bold blue)<%cn>' --date=local
+	ll = log --color --graph --pretty=format:'%C(red)%d %C(yellow)%s%nCommitter: %C(green)%cr%C(cyan)(%cd)%C(bold blue)<%cn>%nAuthor: %C(green)%ar%C(cyan)(%ad)%C(bold blue)<%an>%n%Creset%C(magenta)%H'  --stat --topo-order --date=local
+	lp = log --color --graph --pretty=format:'%C(red)%d %C(yellow)%s%nCommitter: %C(green)%cr%C(cyan)(%cd)%C(bold blue)<%cn>%nAuthor: %C(green)%ar%C(cyan)(%ad)%C(bold blue)<%an>%n%Creset%C(magenta)%H'  --stat --topo-order --date=local --patch
 	mgn = merge --no-ff   # branchName here
 	mgs = merge --squash
 	plb = pull --rebase
