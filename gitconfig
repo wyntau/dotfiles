@@ -27,10 +27,10 @@
 	cb = checkout -b  # new branchName here
 	ct = checkout --track  # remote branchName here
 	df = diff
-	dft = difftool
-	dfs = diff --stat
 	dfc = diff --cached
 	dfn = diff --name-only
+	dfs = diff --stat
+	dft = difftool
 
 	# %h => commit hash => like `--abbrev-commit'
 	# %H => full commit hash
@@ -52,6 +52,7 @@
 	# %aD => author date, RFC2822 style. e.g.(Fri, 15 May 2015 22:57:50 +0800)
 	# %at => author date, UNIX timestamp
 	# %ai => author date, ISO 8601 format. e.g.(2015-05-15 22:57:50 +0800)
+
 	# %n => new line
 
 	# --stat => diff状态
@@ -61,12 +62,13 @@
 	lg = log --color --graph --pretty=format:'%C(magenta)%h %Creset-%C(red)%d %Creset%s %C(green)%ar%C(cyan)(%ad)%C(bold blue)<%an>' --date=local
 	ll = log --color --graph --pretty=format:'%C(red)%d %C(yellow)%B %C(magenta)%H%n Author: %C(green)%ar%C(cyan)(%ad)%C(bold blue)<%an>%n Committer: %C(green)%cr%C(cyan)(%cd)%C(bold blue)<%cn>%n'  --stat --topo-order --date=local
 	lp = log --color --graph --pretty=format:'%C(red)%d %C(yellow)%B %C(magenta)%H%n Author: %C(green)%ar%C(cyan)(%ad)%C(bold blue)<%an>%n Committer: %C(green)%cr%C(cyan)(%cd)%C(bold blue)<%cn>%n'  --stat --topo-order --date=local --patch
+
 	mgn = merge --no-ff   # branchName here
 	mgs = merge --squash
 	mgt = mergetool
 	plb = pull --rebase
 	st = status --short --branch
-	unstage = reset HEAD --   # fileName here
+	unstage = reset --soft HEAD --   # fileName here
 [color]
 	diff = auto
 	status = auto
