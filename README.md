@@ -58,6 +58,7 @@ or do a specific task by run
 
         Plugin 'gmarik/Vundle.vim'
         Plugin 'tomasr/molokai'
+        Plugin 'terryma/vim-smooth-scroll'
         Plugin 'jiangmiao/auto-pairs'
         Plugin 'Yggdroot/indentLine'
         Plugin 'ntpeters/vim-better-whitespace'
