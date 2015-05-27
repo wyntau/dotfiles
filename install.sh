@@ -133,6 +133,17 @@ function install_vimrc(){
   info "Installing vim bundles......"
   vim +PluginInstall +qall
 
+  if ( is_prog_exists nvim ); then
+    info "Install vimrc for neovim..."
+    rm -rf "$HOME/.nvim"
+    info "Linking ${ROOT}/vim to $HOME/.nvim"
+    ln -s "${ROOT}/vim" "$HOME/.nvim"
+
+    rm -rf "$HOME/.nvimrc"
+    info "Linking ${ROOT}/vim/vimrc to $HOME/.nvimrc"
+    ln -s "${ROOT}/vim/vimrc" "$HOME/.nvimrc"
+  fi;
+
   success "Install vimrc and bundles completed."
 }
 
