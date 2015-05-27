@@ -52,7 +52,10 @@ or do a specific task by run
     *After* **or** *Before* above, you can override the system vim with the new one installed by `homebrew`.(OS X only. This is optional, but recommended, because system vim can't use system clipbord via register `+`)
 
         brew install macvim --override-system-vim
+
     And then add the new vim __PATH__ into your `$PATH`.
+
+    Additionally, if you have install `neovim`, this task will also link `vim` directory to `~/.nvim` and link `vim/vimrc` to `~/.nvimrc`.
 
     #### What vim bundles are included in vimrc
 
