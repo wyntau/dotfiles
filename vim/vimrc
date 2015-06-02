@@ -647,8 +647,13 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 24, 4)<cr>
 " 自动补全引号, 括号等
 " Plugin 'Raimondi/delimitMate'
 " 另一个补全括号插件
+
 Plugin 'jiangmiao/auto-pairs'
 let g:AutoPairsFlyMode = 1
+
+" a more conservative version of auto-pairs that only works when you press Enter
+" Plugin 'rstacruz/vim-closer'
+
 Plugin 'Yggdroot/indentLine'
 let g:indentLine_char = '¦'
 " A Vim plugin for visually displaying indent levels in code
@@ -686,6 +691,10 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'groenewege/vim-less'
 Plugin 'smilekzs/vim-nfo'
+
+" Write styles faster. Much faster.
+" Plugin 'rstacruz/vim-hyperstyle'
+
 " ap/vim-css-color # 不支持Vim74， 使用vim-colorsque 替代
 Plugin 'Marslo/vim-coloresque'
 " {{{{ emmet
