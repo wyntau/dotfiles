@@ -563,7 +563,11 @@ vnoremap  *  y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 vnoremap  #  y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 " }}}
 
-set pastetoggle=<F5>
+map <F5> :set paste<CR>
+map <F6> :set nopaste<CR>
+imap <F5> <C-O>:set paste<CR>
+imap <F6> <nop>
+set pastetoggle=<F6>
 " when in insert mode, press <F5> to go to paste mode, where you can paste mass data that won't be autoindented
 " disbale paste mode when leaving insert mode
 au InsertLeave * set nopaste
@@ -789,11 +793,19 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'osyo-manga/vim-over'
 " 快速文件搜索, 类似于sublime中的command + p
 Plugin 'kien/ctrlp.vim'
+" <cr> Open the selected file in the 'current' window if possible.
+" <c-t> Open the selected file in a new 'tab'.
+" <c-v> Open the selected file in a 'vertical' split.
+" <c-x>, <c-cr>, <c-s> Open the selected file in a 'horizontal' split.
+" <c-y> Create a new file and its parent directories.
+
 " 快速到达指定位置插件
 Plugin 'Lokaltog/vim-easymotion'
+
 "Use ? to sane regexes"
 nnoremap ? /\v
 vnoremap ? /\v
+
 " use / map to easymontion's global search
 map / <Plug>(easymotion-sn)
 map n <Plug>(easymotion-next)
