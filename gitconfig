@@ -63,6 +63,7 @@
 	ll = log --color --graph --pretty=format:'%C(red)%d %C(yellow)%B %C(magenta)%H%n Author: %C(green)%ar%C(cyan)(%ad)%C(bold blue)<%an>%n Committer: %C(green)%cr%C(cyan)(%cd)%C(bold blue)<%cn>%n'  --stat --topo-order --date=local
 	lp = log --color --graph --pretty=format:'%C(red)%d %C(yellow)%B %C(magenta)%H%n Author: %C(green)%ar%C(cyan)(%ad)%C(bold blue)<%an>%n Committer: %C(green)%cr%C(cyan)(%cd)%C(bold blue)<%cn>%n'  --stat --topo-order --date=local --patch
 
+	mg = merge
 	mgn = merge --no-ff   # branchName here
 	mgs = merge --squash
 	mgt = mergetool
