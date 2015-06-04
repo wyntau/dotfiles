@@ -109,13 +109,12 @@ set iskeyword+=_,$,@,%,#,-
 
 " 自动格式化
 set formatoptions=tcrqn
-
 " 如遇Unicode值大于255的文本，不必等到空格再折行。
 set formatoptions+=m
 " Delete comment character when joining commented lines
 set formatoptions+=j
 " 合并两行中文时，不在中间加空格：
-" set formatoptions+=B
+set formatoptions+=B
 " Use only 1 space after "." when joining lines instead of 2
 set nojoinspaces
 
