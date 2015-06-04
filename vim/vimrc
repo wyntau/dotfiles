@@ -12,6 +12,7 @@
 " Clear autocmds
 autocmd!
 " 不要使用vi的键盘模式，而是vim自己的
+" this option is default in neovim, and removed
 set nocompatible
 
 " file encode, 文件编码,格式
@@ -84,6 +85,7 @@ set numberwidth=4
 " allow backspacing over everything in insert mode
 " 不设定在插入状态无法用退格键和 Delete 键删除回车符
 " 插入模式下，“←"如何删除光标前的字符：行首空白、换行符、插入点之前的字符
+" this option is default in neovim
 set backspace=indent,eol,start
 
 " 显示Tab符 "输入:set list命令是应该显示些啥？
@@ -252,8 +254,10 @@ cabbrev help <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'vert h' : 'help')<cr>
 "" Wildmode
 ""
 " 增强模式中的命令行自动完成操作,在输入命令时列出匹配项目，也就是截图底部的效果
+" this option is default in neovim
 set wildmenu
-set wildmode=list:longest
+" this option is default in neovim
+set wildmode=list:longest,full
 " Disable output and VCS files
 set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
 
@@ -460,6 +464,7 @@ augroup END
 " =============================================================================
 
 " Optimize for fast terminal connections
+" this option is default in neovim, and removed
 set ttyfast
 
 " Time out on key codes but not mappings
