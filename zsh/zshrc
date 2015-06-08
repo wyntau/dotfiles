@@ -47,7 +47,6 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-
   # bugfix for vim in tmux not using 256 color.
   if [ $TMUX ]; then
     if [ -e /usr/share/terminfo/s/screen-256color ]; then
@@ -63,15 +62,35 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
       export TERM='xterm'
     fi
   fi
+fi;
 
-  # set zsh plugins
-  plugins=(colored-man git git-extras git-flow sublime sudo tmux z zsh-syntax-highlighting)
+# set zsh plugins
+plugins=(
+  colored-man             \
+  git                     \
+  git-extras              \
+  git-flow                \
+  sublime                 \
+  sudo                    \
+  z                       \
+  zsh-syntax-highlighting \
+)
 
-elif [[ "$OSTYPE" == "darwin"* ]]; then
+# if we have tmux installed, add tmux plugin
+if which tmux &> /dev/null; then
+  plugins=(
+    $plugins \
+    tmux     \
+  )
+fi;
 
-  # set zsh plugins
-  plugins=(colored-man git git-extras git-flow sublime sudo tmux z zsh-syntax-highlighting brew osx)
-
+# if we are in osx, add osx only plugins
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  plugins=(
+    $plugins \
+    brew     \
+    osx      \
+  )
 fi;
 
 # User configuration
