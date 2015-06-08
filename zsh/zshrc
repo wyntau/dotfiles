@@ -59,30 +59,30 @@ export TERM="${USER_TERM_PREFIX}${USER_TERM_SUFFIX}"
 
 # set zsh plugins
 plugins=(
-  colored-man             \
-  git                     \
-  git-extras              \
-  git-flow                \
-  sublime                 \
-  sudo                    \
-  z                       \
-  zsh-syntax-highlighting \
+  colored-man
+  git
+  git-extras
+  git-flow
+  sublime
+  sudo
+  z
+  zsh-syntax-highlighting
 )
 
 # if we have tmux installed, add tmux plugin
 if which tmux &> /dev/null; then
   plugins=(
-    $plugins \
-    tmux     \
+    $plugins
+    tmux
   )
 fi;
 
 # if we are in osx, add osx only plugins
 if [[ "$OSTYPE" == "darwin"* ]]; then
   plugins=(
-    $plugins \
-    brew     \
-    osx      \
+    $plugins
+    brew
+    osx
   )
 fi;
 
