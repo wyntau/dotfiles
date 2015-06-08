@@ -701,6 +701,9 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'groenewege/vim-less'
 Plugin 'smilekzs/vim-nfo'
 
+Plugin 'jelera/vim-javascript-syntax'
+autocmd FileType javascript call JavaScriptFold()
+
 " Write styles faster. Much faster.
 " Plugin 'rstacruz/vim-hyperstyle'
 

@@ -72,6 +72,7 @@ or do a specific task by run
         Plugin 'kchmck/vim-coffee-script'
         Plugin 'groenewege/vim-less'
         Plugin 'smilekzs/vim-nfo'
+        Plugin 'jelera/vim-javascript-syntax'
         Plugin 'Marslo/vim-coloresque'
         Plugin 'mattn/emmet-vim'
         Plugin 'ervandew/supertab'
