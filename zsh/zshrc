@@ -46,13 +46,30 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
+# if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  # if [ $TMUX ]; then
+    # if [ -e /usr/share/terminfo/s/screen-256color ]; then
+      # export TERM='screen-256color'
+    # else
+      # export TERM='screen'
+    # fi;
+  # else
+    # if [ -e /usr/share/terminfo/x/xterm-256color ] || [ -e /usr/share/terminfo/x/xterm+256color ]; then
+      # export TERM='xterm-256color'
+    # else
+      # export TERM='xterm'
+    # fi;
+  # fi;
+# fi;
+
 # bugfix for vim in tmux not using 256 color.
 if [ $TMUX ]; then
   USER_TERM_PREFIX='screen'
 else
   USER_TERM_PREFIX='xterm'
 fi;
-if [[ `tput colors` == "256" ]]; then
+# may be xterm-256color or xterm+256color depending on your distro
+if [[ `tput colors` == "256" ]] || [ -e /usr/share/terminfo/s/screen-256color ] || [ -e /usr/share/terminfo/x/xterm-256color ] || [ -e /usr/share/terminfo/x/xterm+256color ]; then
   USER_TERM_SUFFIX='-256color'
 fi;
 export TERM="${USER_TERM_PREFIX}${USER_TERM_SUFFIX}"
