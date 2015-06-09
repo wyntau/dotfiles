@@ -686,9 +686,6 @@ set laststatus=2
 " buffer编号 | 文件路径及文件名 | modified状态 | 只读状态 | help | preview | 文件编码 | BOM | EOL | type | demical:hexadecimal | 列:行/总行 | 文件百分比 | 时 间
 " set statusline=[%n]\ %F%m%r%h%w\ [%{&ff}]\ [%{(&fenc==\"\"?&enc:&fenc).(&bomb?\",BOM\":\"\")}]%{&eol?'':'\ [noeol]'}\ [TYPE=%Y]\ [\%03.3b:0x\%02.2B]\ [POS=%c:%l/%L][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
 
-" set tmux status line looks like vim-airline
-" Plugin 'edkolev/tmuxline.vim'
-
 " --> Langulage support
 " vim-markdown {{{
 " 自动对齐
@@ -835,6 +832,10 @@ let g:EasyMotion_smartcase = 1
 Plugin 'tmux-plugins/vim-tmux'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'tpope/vim-obsession'
+" Easily interact with tmux from vim.
+" Plugin 'benmills/vimux'
+" set tmux status line looks like vim-airline
+" Plugin 'edkolev/tmuxline.vim'
 
 call vundle#end()
 filetype plugin indent on
