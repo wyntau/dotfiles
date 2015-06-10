@@ -131,8 +131,28 @@ function install_vimrc(){
   info "Linking ${ROOT}/vim/vimrc to $HOME/.vimrc"
   ln -s "${ROOT}/vim/vimrc" "$HOME/.vimrc"
 
+  ##### install pip and pynvim for YouCompleteMe
+  if ( ! is_prog_exists pip ); then
+    info "Installing pip for you..."
+    wget https://bootstrap.pypa.io/get-pip.py -O - | sudo python
+  fi;
+  if ( ! is_prog_exists pynvim ); then
+    info "Installing pynvim for YouCompleteMe plugin..."
+    sudo pip install neovim
+  fi;
+  ######################
+
   info "Installing vim bundles......"
   vim +PluginInstall +qall
+
+  ##### compile libs for YouCompleteMe
+  if [ ! -e "${ROOT}/vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so" ] || [ ! -e "${ROOT}/vim/bundle/YouCompleteMe/third_party/ycmd/ycm_client_support.so" ]; then
+    info "Compiling YouCompleteMe libs for you..."
+    cd "${ROOT}/vim/bundle/YouCompleteMe"
+    git submodule update --init --recursive
+    ./install.sh
+  fi;
+  #####################
 
   if ( is_prog_exists nvim ); then
     step "Installing vimrc for neovim..."

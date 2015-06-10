@@ -724,15 +724,24 @@ let g:user_emmet_leader_key='<C-Y>'
 autocmd FileType html,css EmmetInstall
 " }}}
 
-" {{{ 简单的基于上下文的补全插件
+" 语法分析插件
+" Plugin "scrooloose/syntastic"
+" 更强大的补全插件
+" Plugin "Valloric/YouCompleteMe"
+
+" {{{ 简单的基于上下文的补全插件, all features are implemented in YCM complete
 Plugin 'ervandew/supertab'
 " }}}
+
+" Plugin 'eparreno/vim-l9'
+" Plugin 'othree/vim-autocomplpop'
+
 " {{{ vim-snipmate 自动补全
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+" Plugin 'MarcWeber/vim-addon-mw-utils'
+" Plugin 'tomtom/tlib_vim'
+" Plugin 'garbas/vim-snipmate'
 " Optional:
-Plugin 'honza/vim-snippets'
+" Plugin 'honza/vim-snippets'
 " }}}
 
 
@@ -848,11 +857,6 @@ map <Leader>h <Plug>(easymotion-linebackward)
 let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 " With this option set, v will match both v and V, but V will match V only. Default: 0.
 let g:EasyMotion_smartcase = 1
-
-" 语法分析插件
-" Plugin "scrooloose/syntastic"
-" 更强大的补全插件
-" Plugin "Valloric/YouCompleteMe"
 
 Plugin 'tmux-plugins/vim-tmux'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
