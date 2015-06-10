@@ -107,11 +107,12 @@ function install_vimrc(){
     git clone https://github.com/gmarik/Vundle.vim.git "${ROOT}/vim/bundle/Vundle.vim"
   fi;
 
-  info "Fetching powerline-fonts..."
   if ( is_dir_exists "${ROOT}/vim/powerline-fonts" ); then
+    info "Updating powerline-fonts..."
     cd "${ROOT}/vim/powerline-fonts"
     git pull origin master
   else
+    info "Fetching powerline-fonts..."
     git clone https://github.com/powerline/fonts.git "${ROOT}/vim/powerline-fonts"
   fi;
 

@@ -281,7 +281,8 @@ set wildignore+=*.swp,*~,._*
 
 " 自动补全配置
 "让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
-set completeopt+=longest
+set completeopt-=menu
+set completeopt+=longest,menuone
 
 ""
 "" Search
