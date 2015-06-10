@@ -104,7 +104,7 @@ function install_vimrc(){
     git pull origin master
   else
     info "init and update vundle submodule"
-    git clone https://github.com/gmarik/Vundle.vim.git "${ROOT}/vim/bundle/Vundle.vim"
+    git clone --depth 1 https://github.com/gmarik/Vundle.vim.git "${ROOT}/vim/bundle/Vundle.vim"
   fi;
 
   if ( is_dir_exists "${ROOT}/vim/powerline-fonts" ); then
@@ -113,7 +113,7 @@ function install_vimrc(){
     git pull origin master
   else
     info "Fetching powerline-fonts..."
-    git clone https://github.com/powerline/fonts.git "${ROOT}/vim/powerline-fonts"
+    git clone --depth 1 https://github.com/powerline/fonts.git "${ROOT}/vim/powerline-fonts"
   fi;
 
   info "Installing powerline-fonts..."
@@ -159,7 +159,7 @@ function install_sublime(){
     git pull origin master
   else
     info "init and update monokai-custom submodule..."
-    git clone https://github.com/Treri/sublime-monokai-custom.git "${ROOT}/sublime/monokai-custom"
+    git clone --depth 1 https://github.com/Treri/sublime-monokai-custom.git "${ROOT}/sublime/monokai-custom"
   fi;
 
   info "Installing sublime Preference and Monokai-custom theme......"
@@ -235,7 +235,7 @@ function install_zsh(){
     git pull origin master
   else
     info "init and update oh-my-zsh..."
-    git clone https://github.com/robbyrussell/oh-my-zsh.git "${ROOT}/zsh/oh-my-zsh"
+    git clone --depth 1 https://github.com/robbyrussell/oh-my-zsh.git "${ROOT}/zsh/oh-my-zsh"
   fi;
 
   if ( is_dir_exists "${ROOT}/zsh/oh-my-zsh/custom/plugins" ); then
@@ -245,7 +245,7 @@ function install_zsh(){
       git pull origin master
     else
       info "init and update zsh-syntax-highlighting plugin..."
-      git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ROOT}/zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+      git clone --depth 1 https://github.com/zsh-users/zsh-syntax-highlighting.git "${ROOT}/zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
     fi;
   fi;
 
@@ -303,7 +303,7 @@ function install_tmux(){
     git pull origin master
   else
     info "init and update tpm..."
-    git clone https://github.com/tmux-plugins/tpm "${ROOT}/tmux/plugins/tpm"
+    git clone --depth 1 https://github.com/tmux-plugins/tpm "${ROOT}/tmux/plugins/tpm"
   fi;
 
   # tmux中的vim无法使用系统的粘贴板, 安装reattach-to-user-namespace修复
