@@ -721,8 +721,16 @@ let g:user_emmet_install_global = 0
 let g:user_emmet_leader_key='<C-Y>'
 autocmd FileType html,css EmmetInstall
 " }}}
+
 " {{{ 简单的基于上下文的补全插件
 Plugin 'ervandew/supertab'
+" }}}
+" {{{ vim-snipmate 自动补全
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+" Optional:
+Plugin 'honza/vim-snippets'
 " }}}
 
 
@@ -744,6 +752,17 @@ vmap     <C-F>F <Plug>CtrlSFVwordExec
 nmap     <C-F>n <Plug>CtrlSFCwordPath
 nmap     <C-F>p <Plug>CtrlSFPwordPath
 nnoremap <C-F>o :CtrlSFOpen<CR>
+" In CtrlSF window:
+" Enter - Open corresponding file of current line in the window which CtrlSF is launched from.
+" t - Like Enter but open file in a new tab.
+" p - Like Enter but open file in a preview window.
+" O - Like Enter but always leave CtrlSF window opening.
+" T - Lkie t but focus CtrlSF window instead of new opened tab.
+" q - Quit CtrlSF window.
+" <C-J> - Move cursor to next match.
+" <C-K> - Move cursor to previous match.
+" In preview window:
+" q - Close preview window.
 
 " {{{ NERDTree插件的快捷键
 Plugin 'scrooloose/nerdtree'
