@@ -184,8 +184,9 @@ set ruler
 "分割窗口时保持相等的宽/高
 set equalalways
 
-set guifont=Source\ Code\ Pro\ for\ Powerline:h13
 if has("gui_running")
+    " 设置gui字体
+    set guifont=Source\ Code\ Pro\ for\ Powerline:h13
     " 隐藏菜单栏
     set guioptions-=m
     " 隐藏工具栏
@@ -834,7 +835,18 @@ let g:EasyMotion_smartcase = 1
 
 Plugin 'tmux-plugins/vim-tmux'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
-Plugin 'tpope/vim-obsession'
+" Plugin 'tpope/vim-obsession'
+
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-session'
+set sessionoptions-=help
+set sessionoptions-=options
+let g:session_autosave = 'no'
+let g:session_autoload = 'no'
+" let g:session_autosave = 'yes'
+" let g:session_autoload = 'yes'
+" let g:session_default_to_last = 1
+
 " Easily interact with tmux from vim.
 " Plugin 'benmills/vimux'
 " set tmux status line looks like vim-airline

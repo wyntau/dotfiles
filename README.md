@@ -88,7 +88,8 @@ or do a specific task by run
         Plugin 'Lokaltog/vim-easymotion'
         Plugin 'tmux-plugins/vim-tmux'
         Plugin 'tmux-plugins/vim-tmux-focus-events'
-        Plugin 'tpope/vim-obsession'
+        Plugin 'xolox/vim-misc'
+        Plugin 'xolox/vim-session'
 
 - ### Task `gitconfig`
     Requirement: `git`
