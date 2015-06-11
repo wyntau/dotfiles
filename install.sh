@@ -178,7 +178,6 @@ function install_vimrc(){
   ./install.sh
   tip "When install completed, please set your terminal to use powerline fonts for *Non-ASCII font*"
 
-  info "Installing vimrc and bundle configs ..."
   lnif "${APP_PATH}/vim" "$HOME/.vim"
   lnif "${APP_PATH}/vim/vimrc" "$HOME/.vimrc"
 
@@ -189,7 +188,6 @@ function install_vimrc(){
   vim +PluginInstall +qall
 
   if ( is_prog_exists nvim ); then
-    step "Installing vimrc for neovim ..."
     lnif "${APP_PATH}/vim" "$HOME/.nvim"
     lnif "${APP_PATH}/vim/vimrc" "$HOME/.nvimrc"
   fi;
@@ -212,7 +210,6 @@ function install_sublime(){
   sync_repo "https://github.com/Treri/sublime-monokai-custom.git" \
             "${APP_PATH}/sublime/monokai-custom"
 
-  info "Installing sublime Preference and Monokai-custom theme ..."
   lnif "${APP_PATH}/sublime/monokai-custom" "${SUBLIMEPATH}/Packages/User/monokai-custom"
   lnif "${APP_PATH}/sublime/Preferences.sublime-settings" "${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
 
@@ -220,7 +217,9 @@ function install_sublime(){
 }
 
 function install_gitconfig(){
+
   step "Installing gitconfig ..."
+
   lnif "${APP_PATH}/gitconfig" "$HOME/.gitconfig"
 
   info "Now config your name and email for git."
@@ -271,8 +270,6 @@ function install_zsh(){
   sync_repo "https://github.com/zsh-users/zsh-syntax-highlighting.git" \
             "${APP_PATH}/zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
 
-  info "Installing zsh and oh-my-zsh ..."
-
   lnif "${APP_PATH}/zsh/oh-my-zsh" "$HOME/.oh-my-zsh"
   lnif "${APP_PATH}/zsh/zshrc" "$HOME/.zshrc"
 
@@ -304,7 +301,7 @@ function install_tmux(){
     step "Installing tmux configs ..."
   else
     error "No tmux found! Please install tmux first"
-    return
+    exit
   fi;
 
   sync_repo "https://github.com/tmux-plugins/tpm" \
@@ -321,7 +318,6 @@ function install_tmux(){
     fi;
   fi;
 
-  info "Installing tmux configs ..."
   lnif "${APP_PATH}/tmux" "$HOME/.tmux"
   lnif "${APP_PATH}/tmux/tmux.conf" "$HOME/.tmux.conf"
 
