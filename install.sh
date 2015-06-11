@@ -29,19 +29,22 @@ function msg(){
   printf '%b\n' "$1${dot_color_none}" >&2
 }
 function prompt(){
-  printf '%b' "${dot_color_purple} [+] $1${dot_color_none} "
+  printf '%b' "${dot_color_purple}[+] $1${dot_color_none} "
 }
 function step(){
-  msg "${dot_color_yellow} [→] $1"
+  msg "\n${dot_color_yellow}[→] $1"
 }
 function info(){
-  msg "${dot_color_cyan} [>] $1"
+  msg "${dot_color_cyan}[>] $1"
 }
 function success(){
-  msg "${dot_color_green} [✓] $1"
+  msg "${dot_color_green}[✓] $1\n"
 }
 function error(){
-  msg "${dot_color_red_light} [✗] $1"
+  msg "${dot_color_red_light}[✗] $1"
+}
+function tip(){
+  msg "${dot_color_red_light}[!] $1"
 }
 
 function is_file_exists(){
@@ -173,7 +176,7 @@ function install_vimrc(){
   info "Installing powerline-fonts ..."
   cd "${APP_PATH}/vim/powerline-fonts"
   ./install.sh
-  error "When install completed, please set your terminal to use powerline fonts for *Non-ASCII font*"
+  tip "When install completed, please set your terminal to use powerline fonts for *Non-ASCII font*"
 
   info "Installing vimrc and bundle configs ..."
   lnif "${APP_PATH}/vim" "$HOME/.vim"
@@ -313,7 +316,7 @@ function install_tmux(){
       if ( is_prog_exists brew ); then
         brew install reattach-to-user-namespace
       else
-        error "Maybe you should install reattach-to-user-namespace for vim in tmux"
+        tip "Maybe you should install reattach-to-user-namespace for vim in tmux"
       fi;
     fi;
   fi;
