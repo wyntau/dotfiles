@@ -15,19 +15,19 @@ PROMPT_PREFIX='\033[0;35m'
 ALL_SUFFIX='\033[0m'
 
 function step(){
-  echo -e "${STEP_PREFIX}==> $1${ALL_SUFFIX}"
+  echo -e "\n${STEP_PREFIX}==> $1${ALL_SUFFIX}"
 }
 
 function info(){
-  echo -e "${INFO_PREFIX}$1${ALL_SUFFIX}"
+  echo -e "\n${INFO_PREFIX}$1${ALL_SUFFIX}"
 }
 
 function success(){
-  echo -e "${SUCCESS_PREFIX}$1${ALL_SUFFIX}"
+  echo -e "\n${SUCCESS_PREFIX}$1${ALL_SUFFIX}"
 }
 
 function err(){
-  echo -e "${ERR_PREFIX}$1${ALL_SUFFIX}"
+  echo -e "\n${ERR_PREFIX}$1${ALL_SUFFIX}"
 }
 
 function prompt(){
@@ -94,6 +94,37 @@ function usage(){
   echo
 }
 
+function install_vimrc_YouCompleteMe(){
+
+  step "Installing vim YouCompleteMe plugin..."
+  if ( ! is_prog_exists pip ); then
+    info "Installing pip for you..."
+    wget https://bootstrap.pypa.io/get-pip.py -O - | sudo python
+  fi;
+  if ( ! is_prog_exists pynvim ); then
+    info "Installing pynvim for YouCompleteMe plugin..."
+    sudo pip install neovim
+  fi;
+
+  # fetch or update YouCompleteMe
+  if ( is_dir_exists "${ROOT}/vim/bundle/YouCompleteMe" ); then
+    info "Fetching YouCompleteMe ..."
+    cd "${ROOT}/vim/bundle/YouCompleteMe"
+    git pull origin master
+  else
+    info "Updating YouCompleteMe ..."
+    git clone --depth 1 https://github.com/Valloric/YouCompleteMe.git "${ROOT}/vim/bundle/YouCompleteMe"
+  fi;
+
+  # compile libs for YouCompleteMe
+  if [ ! -e "${ROOT}/vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so" ] || [ ! -e "${ROOT}/vim/bundle/YouCompleteMe/third_party/ycmd/ycm_client_support.so" ]; then
+    info "Compiling YouCompleteMe libs for you..."
+    cd "${ROOT}/vim/bundle/YouCompleteMe"
+    git submodule update --init --recursive
+    ./install.sh
+  fi;
+}
+
 function install_vimrc(){
 
   step "Installing vimrc..."
@@ -131,28 +162,11 @@ function install_vimrc(){
   info "Linking ${ROOT}/vim/vimrc to $HOME/.vimrc"
   ln -s "${ROOT}/vim/vimrc" "$HOME/.vimrc"
 
-  ##### install pip and pynvim for YouCompleteMe
-  if ( ! is_prog_exists pip ); then
-    info "Installing pip for you..."
-    wget https://bootstrap.pypa.io/get-pip.py -O - | sudo python
-  fi;
-  if ( ! is_prog_exists pynvim ); then
-    info "Installing pynvim for YouCompleteMe plugin..."
-    sudo pip install neovim
-  fi;
-  ######################
+  # install YouCompleteMe plugin
+  install_vimrc_YouCompleteMe
 
   info "Installing vim bundles......"
   vim +PluginInstall +qall
-
-  ##### compile libs for YouCompleteMe
-  if [ ! -e "${ROOT}/vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so" ] || [ ! -e "${ROOT}/vim/bundle/YouCompleteMe/third_party/ycmd/ycm_client_support.so" ]; then
-    info "Compiling YouCompleteMe libs for you..."
-    cd "${ROOT}/vim/bundle/YouCompleteMe"
-    git submodule update --init --recursive
-    ./install.sh
-  fi;
-  #####################
 
   if ( is_prog_exists nvim ); then
     step "Installing vimrc for neovim..."
