@@ -95,10 +95,21 @@ function usage(){
 function install_vimrc_YouCompleteMe(){
 
   step "Installing vim YouCompleteMe plugin..."
+
+  # install python package manager pip
   if ( ! is_prog_exists pip ); then
+
     info "Installing pip for you..."
-    wget https://bootstrap.pypa.io/get-pip.py -O - | sudo python
+
+    mkdir -p "${ROOT}/.tmp"
+    wget https://bootstrap.pypa.io/get-pip.py -O "${ROOT}/.tmp/get-pip.py"
+    chmod +x "${ROOT}/.tmp/get-pip.py"
+    sudo "${ROOT}/.tmp/get-pip.py"
+    rm -rf "${ROOT}/.tmp"
+
   fi;
+
+  # install pynvim module for neovim
   if ( ! is_prog_exists pynvim ); then
     info "Installing pynvim for YouCompleteMe plugin..."
     sudo pip install neovim
