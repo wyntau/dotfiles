@@ -1,78 +1,111 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# go root
-ROOT=`pwd`
-function go_root(){
-  cd ${ROOT}
+########## Params setup
+
+# APP_PATH
+APP_PATH=`pwd`
+
+# color params
+dot_color_none="\033[0m"
+dot_color_dark="\033[0;30m"
+dot_color_dark_light="\033[1;30m"
+dot_color_red="\033[0;31m"
+dot_color_red_light="\033[1;31m"
+dot_color_green="\033[0;32m"
+dot_color_green_light="\033[1;32m"
+dot_color_yellow="\033[0;33m"
+dot_color_yellow_light="\033[1;33m"
+dot_color_blue="\033[0;34m"
+dot_color_blue_light="\033[1;34m"
+dot_color_purple="\033[0;35m"
+dot_color_purple_light="\033[1;35m"
+dot_color_cyan="\033[0;36m"
+dot_color_cyan_light="\033[1;36m"
+dot_color_gray="\033[0;37m"
+dot_color_gray_light="\033[1;37m"
+
+########## Basic setup
+function msg(){
+  printf '%b\n' "$1${dot_color_none}" >&2
 }
-
-##### print info #####
-STEP_PREFIX='\033[0;33m'
-INFO_PREFIX='\033[0;36m'
-SUCCESS_PREFIX='\033[0;32m'
-ERR_PREFIX='\033[1;31m'
-PROMPT_PREFIX='\033[0;35m'
-ALL_SUFFIX='\033[0m'
-
-function step(){
-  echo -e "\n${STEP_PREFIX}==> $1${ALL_SUFFIX}"
-}
-
-function info(){
-  echo -e "\n${INFO_PREFIX}$1${ALL_SUFFIX}"
-}
-
-function success(){
-  echo -e "\n${SUCCESS_PREFIX}$1${ALL_SUFFIX}"
-}
-
-function err(){
-  echo -e "\n${ERR_PREFIX}$1${ALL_SUFFIX}"
-}
-
 function prompt(){
-  printf "\n${PROMPT_PREFIX}$1${ALL_SUFFIX}"
+  printf '%b' "${dot_color_purple} [+] $1${dot_color_none} "
+}
+function step(){
+  msg "${dot_color_yellow} [→] $1"
+}
+function info(){
+  msg "${dot_color_cyan} [>] $1"
+}
+function success(){
+  msg "${dot_color_green} [✓] $1"
+}
+function error(){
+  msg "${dot_color_red_light} [✗] $1"
 }
 
-##### file and directory detect ######
 function is_file_exists(){
-  local f="$1"
-  [[ -f "${f}" ]] && return 0 || return 1
+  [[ -e "$1" ]] && return 0 || return 1
 }
-
 function is_dir_exists(){
-  local d="$1"
-  [[ -d "${d}" ]] && return 0 || return 1
+  [[ -d "$1" ]] && return 0 || return 1
 }
-
 function is_prog_exists(){
-  local p="$1"
-  if hash "${p}" 2>/dev/null; then
+  if hash "$1" 2>/dev/null; then
     return 0
   else
     return 1
   fi;
 }
 
-##### platform detect #####
-PLATFORM=`uname`
 function is_platform(){
-  local p="$1"
-  [[ $PLATFORM = "${p}" ]] && return 0 || return 1
+  [[ `uname` = "$1" ]] && return 0 || return 1
 }
-
 function is_linux(){
   ( is_platform Linux ) && return 0 || return 1
 }
-
 function is_mac(){
   ( is_platform Darwin ) && return 0 || return 1
 }
 
+function lnif(){
+  if [ -e "$1" ]; then
+    info "Linking $1 to $2"
+    ln -sf "$1" "$2"
+  fi;
+}
+
+function sync_repo(){
+  local repo_uri=$1
+  local repo_path=$2
+  local repo_branch=${3:-master}
+  local repo_name=${1:19} # length of (https://github.com/)
+
+  if ( ! is_dir_exists "$repo_path" ); then
+    info "Cloning $repo_name ..."
+    mkdir -p "$repo_path"
+    git clone --depth 1 --branch "$repo_branch" "$repo_uri" "$repo_path"
+    success "Successfully cloned $repo_name."
+  else
+    info "Updating $repo_name ..."
+    cd "$repo_path" && git pull origin "$repo_branch"
+    success "Successfully updated $repo_name."
+  fi;
+
+  if ( is_file_exists "$repo_path/.gitmodules" ); then
+    info "Updating $repo_name submodules ..."
+    cd "$repo_path"
+    git submodule update --init --recursive
+    success "Successfully updated $repo_name submodules."
+  fi;
+}
+
+########## Setup functions
+
 function usage(){
 
   if ( ! is_mac ) && ( ! is_linux ); then
-    err "Sorry. Only *Linux* and *MAC* are supported"
+    error "Sorry. Only *Linux* and *MAC* are supported"
     exit
   fi;
 
@@ -80,7 +113,7 @@ function usage(){
   echo 'Usage: install.sh [tasks]'
   echo
   echo 'Tasks:'
-  printf ${SUCCESS_PREFIX}
+  printf "${dot_color_green}\n"
   echo '    0) all  ==> do all things below'
   echo '    1) vimrc'
   echo '    2) gitconfig'
@@ -88,152 +121,104 @@ function usage(){
   echo '    4) sublime'
   echo '    5) zsh'
   echo '    6) tmux'
-  printf ${ALL_SUFFIX}
+  printf "${dot_color_none}\n"
   echo
 }
 
-function install_vimrc_YouCompleteMe(){
-
-  step "Installing vim YouCompleteMe plugin..."
+function install_vim_YouCompleteMe(){
+  step "Installing vim YouCompleteMe plugin ..."
 
   # install python package manager pip
   if ( ! is_prog_exists pip ); then
 
     info "Installing pip for you..."
 
-    mkdir -p "${ROOT}/.tmp"
-    wget https://bootstrap.pypa.io/get-pip.py -O "${ROOT}/.tmp/get-pip.py"
-    chmod +x "${ROOT}/.tmp/get-pip.py"
-    sudo "${ROOT}/.tmp/get-pip.py"
-    rm -rf "${ROOT}/.tmp"
+    mkdir -p "${APP_PATH}/.tmp"
+    wget https://bootstrap.pypa.io/get-pip.py -O "${APP_PATH}/.tmp/get-pip.py"
+    chmod +x "${APP_PATH}/.tmp/get-pip.py"
+    sudo "${APP_PATH}/.tmp/get-pip.py"
+    rm -rf "${APP_PATH}/.tmp"
 
+    success "Successfully installed pip."
   fi;
 
   # install pynvim module for neovim
   if ( ! is_prog_exists pynvim ); then
-    info "Installing pynvim for YouCompleteMe plugin..."
+    info "Installing pynvim for YouCompleteMe plugin ..."
     sudo pip install neovim
+    success "Successfully installed pynvim."
   fi;
 
   # fetch or update YouCompleteMe
-  if ( is_dir_exists "${ROOT}/vim/bundle/YouCompleteMe" ); then
-    info "Fetching YouCompleteMe ..."
-    cd "${ROOT}/vim/bundle/YouCompleteMe"
-    git pull origin master
-  else
-    info "Updating YouCompleteMe ..."
-    git clone --depth 1 https://github.com/Valloric/YouCompleteMe.git "${ROOT}/vim/bundle/YouCompleteMe"
-  fi;
+  sync_repo "https://github.com/Valloric/YouCompleteMe.git" \
+            "${APP_PATH}/vim/bundle/YouCompleteMe"
 
   # compile libs for YouCompleteMe
-  if [ ! -e "${ROOT}/vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so" ] || [ ! -e "${ROOT}/vim/bundle/YouCompleteMe/third_party/ycmd/ycm_client_support.so" ]; then
-    info "Compiling YouCompleteMe libs for you..."
-    cd "${ROOT}/vim/bundle/YouCompleteMe"
-    git submodule update --init --recursive
-    ./install.sh
+  if ( ! is_file_exists "${APP_PATH}/vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so" ) || ( ! is_file_exists "${APP_PATH}/vim/bundle/YouCompleteMe/third_party/ycmd/ycm_client_support.so" ); then
+    info "Fetching and compiling YouCompleteMe libs ..."
+    cd "${APP_PATH}/vim/bundle/YouCompleteMe"
+    ./install.sh --clang-completer
   fi;
 }
 
 function install_vimrc(){
 
-  step "Installing vimrc..."
+  step "Installing vimrc ..."
 
-  if ( is_dir_exists "${ROOT}/vim/bundle/Vundle.vim" ); then
-    info "update vundle submodule"
-    cd "${ROOT}/vim/bundle/Vundle.vim"
-    git pull origin master
-  else
-    info "init and update vundle submodule"
-    git clone --depth 1 https://github.com/gmarik/Vundle.vim.git "${ROOT}/vim/bundle/Vundle.vim"
-  fi;
+  sync_repo "https://github.com/gmarik/Vundle.vim.git" \
+            "${APP_PATH}/vim/bundle/Vundle.vim"
 
-  if ( is_dir_exists "${ROOT}/vim/powerline-fonts" ); then
-    info "Updating powerline-fonts..."
-    cd "${ROOT}/vim/powerline-fonts"
-    git pull origin master
-  else
-    info "Fetching powerline-fonts..."
-    git clone --depth 1 https://github.com/powerline/fonts.git "${ROOT}/vim/powerline-fonts"
-  fi;
-
-  info "Installing powerline-fonts..."
-  cd "${ROOT}/vim/powerline-fonts"
+  sync_repo "https://github.com/powerline/fonts.git" \
+            "${APP_PATH}/vim/powerline-fonts"
+  info "Installing powerline-fonts ..."
+  cd "${APP_PATH}/vim/powerline-fonts"
   ./install.sh
-  err "When install completed, please set your terminal to use powerline fonts for *Non-ASCII font*"
+  error "When install completed, please set your terminal to use powerline fonts for *Non-ASCII font*"
 
-  info "Installing vimrc and bundle configs"
-
-  rm -rf "$HOME/.vim"
-  info "Linking ${ROOT}/vim to $HOME/.vim"
-  ln -s "${ROOT}/vim" "$HOME/.vim"
-
-  rm -rf "$HOME/.vimrc"
-  info "Linking ${ROOT}/vim/vimrc to $HOME/.vimrc"
-  ln -s "${ROOT}/vim/vimrc" "$HOME/.vimrc"
+  info "Installing vimrc and bundle configs ..."
+  lnif "${APP_PATH}/vim" "$HOME/.vim"
+  lnif "${APP_PATH}/vim/vimrc" "$HOME/.vimrc"
 
   # install YouCompleteMe plugin
-  install_vimrc_YouCompleteMe
+  install_vim_YouCompleteMe
 
-  info "Installing vim bundles......"
+  info "Installing vim bundles ..."
   vim +PluginInstall +qall
 
   if ( is_prog_exists nvim ); then
-    step "Installing vimrc for neovim..."
-
-    rm -rf "$HOME/.nvim"
-    info "Linking ${ROOT}/vim to $HOME/.nvim"
-    ln -s "${ROOT}/vim" "$HOME/.nvim"
-
-    rm -rf "$HOME/.nvimrc"
-    info "Linking ${ROOT}/vim/vimrc to $HOME/.nvimrc"
-    ln -s "${ROOT}/vim/vimrc" "$HOME/.nvimrc"
+    step "Installing vimrc for neovim ..."
+    lnif "${APP_PATH}/vim" "$HOME/.nvim"
+    lnif "${APP_PATH}/vim/vimrc" "$HOME/.nvimrc"
   fi;
 
-  success "Install vimrc and bundles completed."
+  success "Successfully installed vimrc and bundles."
 }
 
 function install_sublime(){
-
   if ( is_linux ); then
     SUBLIMEPATH="$HOME/.config/sublime-text-2"
   elif ( is_mac ); then
     SUBLIMEPATH="$HOME/Library/Application Support/Sublime Text 2"
   else
-    err "Can't detect your platform. This support 'Linux' and 'Darwin' only"
+    error "Can't detect your platform. This support 'Linux' and 'Darwin' only"
     exit
   fi;
 
-  step "Installing sublime"
+  step "Installing sublime ..."
 
-  if ( is_dir_exists "${ROOT}/sublime/monokai-custom" ); then
-    info "update monokai-custom submodule..."
-    cd "${ROOT}/sublime/monokai-custom"
-    git pull origin master
-  else
-    info "init and update monokai-custom submodule..."
-    git clone --depth 1 https://github.com/Treri/sublime-monokai-custom.git "${ROOT}/sublime/monokai-custom"
-  fi;
+  sync_repo "https://github.com/Treri/sublime-monokai-custom.git" \
+            "${APP_PATH}/sublime/monokai-custom"
 
-  info "Installing sublime Preference and Monokai-custom theme......"
+  info "Installing sublime Preference and Monokai-custom theme ..."
+  lnif "${APP_PATH}/sublime/monokai-custom" "${SUBLIMEPATH}/Packages/User/monokai-custom"
+  lnif "${APP_PATH}/sublime/Preferences.sublime-settings" "${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
 
-  rm -rf "${SUBLIMEPATH}/Packages/User/monokai-custom"
-  info "Linking ${ROOT}/sublime/monokai-custom ${SUBLIMEPATH}/Packages/User/monokai-custom"
-  ln -s "${ROOT}/sublime/monokai-custom" "${SUBLIMEPATH}/Packages/User/monokai-custom"
-
-  rm -rf "${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
-  info "Linking ${ROOT}/sublime/Preferences.sublime-settings to ${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
-  ln -s "${ROOT}/sublime/Preferences.sublime-settings" "${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
-
-  success "Install sublime Preference and Monokai-custom theme completed."
+  success "Successfully installed sublime Preference and Monokai-custom theme"
 }
 
 function install_gitconfig(){
-
-  step "Installing gitconfig......"
-
-  rm -rf "$HOME/.gitconfig"
-  info "Linking ${ROOT}/gitconfig to $HOME/.gitconfig"
-  ln -s "${ROOT}/gitconfig" "$HOME/.gitconfig"
+  step "Installing gitconfig ..."
+  lnif "${APP_PATH}/gitconfig" "$HOME/.gitconfig"
 
   info "Now config your name and email for git."
 
@@ -256,107 +241,71 @@ function install_gitconfig(){
     git config --global credential.helper osxkeychain
   fi;
 
-  success "Install gitconfig completed."
+  success "Successfully installed gitconfig."
 }
 
 function install_astylerc(){
+  step "Installing astylerc ..."
 
-  step "Installing astylerc......"
+  lnif "${APP_PATH}/astylerc" "$HOME/.astylerc"
 
-  rm -rf "$HOME/.astylerc"
-  info "Linking ${ROOT}/astylerc to $HOME/.astylerc"
-  ln -s "${ROOT}/astylerc" "$HOME/.astylerc"
-
-  success "Install astylerc completed."
+  success "Successfully installed astylerc."
 }
 
 function install_zsh(){
-
   if ( is_prog_exists zsh ); then
-    step "Installing zsh..."
+    step "Installing zsh ..."
   else
-    err "No Zsh found! Please install zsh first"
-    return
+    error "No Zsh found! Please install zsh first"
+    exit
   fi;
 
   ZSHPATH=`which zsh`
 
-  if ( is_dir_exists "${ROOT}/zsh/oh-my-zsh" ); then
-    info "update oh-my-zsh..."
-    cd "${ROOT}/zsh/oh-my-zsh"
-    git pull origin master
-  else
-    info "init and update oh-my-zsh..."
-    git clone --depth 1 https://github.com/robbyrussell/oh-my-zsh.git "${ROOT}/zsh/oh-my-zsh"
-  fi;
+  sync_repo "https://github.com/robbyrussell/oh-my-zsh.git" \
+            "${APP_PATH}/zsh/oh-my-zsh"
 
-  if ( is_dir_exists "${ROOT}/zsh/oh-my-zsh/custom/plugins" ); then
-    if ( is_dir_exists "${ROOT}/zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ); then
-      info "update zsh-syntax-highlighting plugin..."
-      cd "${ROOT}/zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
-      git pull origin master
-    else
-      info "init and update zsh-syntax-highlighting plugin..."
-      git clone --depth 1 https://github.com/zsh-users/zsh-syntax-highlighting.git "${ROOT}/zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
-    fi;
-  fi;
+  sync_repo "https://github.com/zsh-users/zsh-syntax-highlighting.git" \
+            "${APP_PATH}/zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
 
-  info "Installing zsh and oh-my-zsh......"
-  rm -rf "$HOME/.oh-my-zsh"
-  rm -rf "$HOME/.zshrc"
+  info "Installing zsh and oh-my-zsh ..."
 
-  info "Linking ${ROOT}/zsh/oh-my-zsh to $HOME/.oh-my-zsh"
-  ln -s "${ROOT}/zsh/oh-my-zsh" "$HOME/.oh-my-zsh"
-
-  info "Linking ${ROOT}/zsh/zshrc to $HOME/.zshrc"
-  ln -s "${ROOT}/zsh/zshrc" "$HOME/.zshrc"
+  lnif "${APP_PATH}/zsh/oh-my-zsh" "$HOME/.oh-my-zsh"
+  lnif "${APP_PATH}/zsh/zshrc" "$HOME/.zshrc"
 
   info "Time to change your default shell to zsh!"
   chsh -s ${ZSHPATH}
 
-  success "Install zsh and oh-my-zsh completed."
-  go_root
+  success "Successfully installed zsh and oh-my-zsh."
+  cd ${APP_PATH}
   /usr/bin/env zsh
   source $HOME/.zshrc
 }
 
 function install_zshcfg(){
+  step "Installing zsh configs ..."
 
-  step "Installing zsh configs..."
-
-  rm -rf "$HOME/.zsh.alias"
-  rm -rf "$HOME/.zsh.paths"
-  rm -rf "$HOME/.zsh.sources"
-
-  info "Linking zsh configs"
-  ln -s "${ROOT}/zsh/zsh.alias" "$HOME/.zsh.alias"
-  ln -s "${ROOT}/zsh/zsh.paths" "$HOME/.zsh.paths"
-  ln -s "${ROOT}/zsh/zsh.sources" "$HOME/.zsh.sources"
+  lnif "${APP_PATH}/zsh/zsh.alias" "$HOME/.zsh.alias"
+  lnif "${APP_PATH}/zsh/zsh.paths" "$HOME/.zsh.paths"
+  lnif "${APP_PATH}/zsh/zsh.sources" "$HOME/.zsh.sources"
 
   source "$HOME/.zsh.alias"
   source "$HOME/.zsh.paths"
   source "$HOME/.zsh.sources"
 
-  success "Install zsh configs success"
+  success "Successfully installed zsh configs"
 }
 
 function install_tmux(){
-
   if ( is_prog_exists tmux ); then
-    step "Installing tmux configs..."
+    step "Installing tmux configs ..."
   else
-    err "No tmux found! Please install tmux first"
+    error "No tmux found! Please install tmux first"
     return
   fi;
 
-  if ( is_dir_exists "${ROOT}/tmux/plugins/tpm" ); then
-    info "update tpm..."
-    cd "${ROOT}/tmux/plugins/tpm"
-    git pull origin master
-  else
-    info "init and update tpm..."
-    git clone --depth 1 https://github.com/tmux-plugins/tpm "${ROOT}/tmux/plugins/tpm"
-  fi;
+  sync_repo "https://github.com/tmux-plugins/tpm" \
+            "${APP_PATH}/tmux/plugins/tpm"
 
   # tmux中的vim无法使用系统的粘贴板, 安装reattach-to-user-namespace修复
   if ( is_mac ); then
@@ -364,20 +313,14 @@ function install_tmux(){
       if ( is_prog_exists brew ); then
         brew install reattach-to-user-namespace
       else
-        err "Maybe you should install reattach-to-user-namespace for vim in tmux"
+        error "Maybe you should install reattach-to-user-namespace for vim in tmux"
       fi;
     fi;
   fi;
 
-  info "Installing tmux configs..."
-  rm -rf "$HOME/.tmux"
-  rm -rf "$HOME/.tmux.conf"
-
-  info "Linking ${ROOT}/tmux to $HOME/.tmux"
-  ln -s "${ROOT}/tmux" "$HOME/.tmux"
-
-  info "Linking ${ROOT}/tmux/tmux.conf to $HOME/.tmux.conf"
-  ln -s "${ROOT}/tmux/tmux.conf" "$HOME/.tmux.conf"
+  info "Installing tmux configs ..."
+  lnif "${APP_PATH}/tmux" "$HOME/.tmux"
+  lnif "${APP_PATH}/tmux/tmux.conf" "$HOME/.tmux.conf"
 
   success "Please run tmux and use prefix-I to install tmux plugins or reload your tmux.conf"
 }
@@ -418,28 +361,9 @@ else
         ;;
       *)
         echo
-        err "Invalid params ${arg}"
+        error "Invalid params ${arg}"
         usage
         ;;
     esac;
   done;
 fi;
-
-
-#none         = "\033[0m"
-#black        = "\033[0;30m"
-#dark_gray    = "\033[1;30m"
-#red          = "\033[0;31m"
-#light_red    = "\033[1;31m"
-#green        = "\033[0;32m"
-#light_green -= "\033[1;32m"
-#brown        = "\033[0;33m"
-#yellow       = "\033[1;33m"
-#blue         = "\033[0;34m"
-#light_blue   = "\033[1;34m"
-#purple       = "\033[0;35m"
-#light_purple = "\033[1;35m"
-#cyan         = "\033[0;36m"
-#light_cyan   = "\033[1;36m"
-#light_gray   = "\033[0;37m"
-#white        = "\033[1;37m"
