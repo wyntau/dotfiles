@@ -74,7 +74,8 @@ function is_mac(){
 function lnif(){
   if [ -e "$1" ]; then
     info "Linking $1 to $2"
-    ln -fhs "$1" "$2"
+    rm -rf "$2"
+    ln -s "$1" "$2"
   fi;
 }
 
