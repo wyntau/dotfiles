@@ -669,8 +669,8 @@ autocmd TabLeave * let g:last_active_tab = tabpagenr()
 nnoremap <C-t>     :tabnew<CR>
 inoremap <C-t>     <Esc>:tabnew<CR>
 
-" ,16                 十六进制格式查看
-nmap <leader>16 <ESC>:%!xxd<ESC>
+" ,x16                 十六进制格式查看
+nmap <leader>x16 <ESC>:%!xxd<ESC>
 
 " ,r16                返回普通格式
 nmap <leader>r16 <ESC>:%!xxd -r<ESC>
