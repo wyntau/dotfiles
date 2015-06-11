@@ -773,6 +773,10 @@ Plugin 'groenewege/vim-less'
 Plugin 'smilekzs/vim-nfo'
 
 Plugin 'kien/rainbow_parentheses.vim'
+autocmd VimEnter * RainbowParenthesesToggle
+autocmd Syntax * RainbowParenthesesLoadRound
+autocmd Syntax * RainbowParenthesesLoadSquare
+autocmd Syntax * RainbowParenthesesLoadBraces
 
 Plugin 'vim-scripts/matchit.zip'
 
