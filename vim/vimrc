@@ -728,7 +728,13 @@ autocmd FileType html,css EmmetInstall
 " Plugin 'scrooloose/syntastic'
 " 更强大的补全插件
 Plugin 'Valloric/YouCompleteMe'
-let g:ycm_key_list_select_completion = ['<Enter>', '<TAB>', '<Down>']
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+let g:ycm_key_list_select_completion=['<C-n>', '<Down>', '<Enter>']
+let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
 " {{{ 简单的基于上下文的补全插件, all features are implemented in YCM complete
 " Plugin 'ervandew/supertab'

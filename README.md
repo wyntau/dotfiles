@@ -76,6 +76,8 @@ or do a specific task by run
         Plugin 'Marslo/vim-coloresque'
         Plugin 'mattn/emmet-vim'
         Plugin 'Valloric/YouCompleteMe'
+        Plugin 'SirVer/ultisnips'
+        Plugin 'honza/vim-snippets'
         Plugin 'airblade/vim-gitgutter'
         Plugin 'tpope/vim-fugitive'
         Plugin 'dyng/ctrlsf.vim'
