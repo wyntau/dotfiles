@@ -71,16 +71,11 @@ set copyindent
 set autoindent
 " 开启新行时使用智能自动缩进 "为C程序提供自动缩进
 set smartindent
-set smartindent shiftwidth=2
 " 自动缩进
 set cindent
 " 为C/C++设置详细的信息缩进
 " set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s
 set cinoptions=>s,e0,n0,f0,{0,}0,^0,:s,=s,l0,gs,hs,ps,ts,+s,c3,C0,(2s,us,U0,w0,m0,j0,)20,*30
-
-
-"行号栏的宽度
-set numberwidth=4
 
 " allow backspacing over everything in insert mode
 " 不设定在插入状态无法用退格键和 Delete 键删除回车符
@@ -172,12 +167,16 @@ set t_vb=
 syntax on
 
 "显示行号
+set number
+"行号栏的宽度
+set numberwidth=4
 set relativenumber
 " 插入模式下用绝对行号, 普通模式下用相对
-autocmd FocusLost * :set number
+autocmd FocusLost * :set norelativenumber number
 autocmd FocusGained * :set relativenumber
-autocmd InsertEnter * :set number
+autocmd InsertEnter * :set norelativenumber number
 autocmd InsertLeave * :set relativenumber
+
 " 在编辑过程中，在右下角显示光标位置的状态行
 " show the cursor position all the time
 set ruler
@@ -239,7 +238,8 @@ cnoremap <c-p> <up>
 cnoremap <c-n> <down>
 
 " <c-a> jumps to beginning of line to match <c-e>
-cnoremap <c-a> <home>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
 
 " Expand %% to current directory
 " http://vimcasts.org/e/14
@@ -300,7 +300,9 @@ set nowrapscan
 "行内替换
 " set gdefault
 "Fast remove highlight search
-nnoremap <silent> <leader><cr> :nohlsearch<cr>
+" 去掉搜索高亮
+nnoremap <silent><leader><cr> :nohlsearch<cr>
+nnoremap <silent><leader>/ :nohlsearch<CR>
 " Re-highlight last search pattern
 nnoremap <leader>hs :set hlsearch<cr>
 
@@ -509,6 +511,18 @@ set foldmethod=indent
 set foldlevel=99
 set foldlevelstart=99
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+" 代码折叠自定义快捷键
+let g:FoldMethod = 0
+map <leader>zz :call ToggleFold()<cr>
+fun! ToggleFold()
+    if g:FoldMethod == 0
+        exe "normal! zM"
+        let g:FoldMethod = 1
+    else
+        exe "normal! zR"
+        let g:FoldMethod = 0
+    endif
+endfun
 "}}}
 
 
@@ -525,8 +539,10 @@ nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
 "Treat long lines as break lines (useful when moving around in them)
 " set wrap之后，将自动换行的长行当做多行处理, 方便在长行之间跳转.
-map j gj
-map k gk
+nnoremap k gk
+nnoremap gk k
+nnoremap j gj
+nnoremap gj j
 
 " remap U to <C-r> for easier redo
 nnoremap U <C-r>
@@ -543,6 +559,16 @@ nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 
+" switch # *
+nnoremap # *
+nnoremap * #
+
+" Swap implementations of ` and ' jump to markers
+" By default, ' jumps to the marked line, ` jumps to the marked line and
+" column, so swap them
+nnoremap ' `
+nnoremap ` '
+
 "Use arrow key to change buffer"
 noremap <left> :bp<CR>
 noremap <right> :bn<CR>
@@ -551,6 +577,14 @@ noremap <right> :bn<CR>
 nmap t o<ESC>
 nmap T O<ESC>
 nmap Y y$
+
+"Reselect visual block after indent/outdent.调整缩进后自动选中，方便再次操作
+vnoremap < <gv
+vnoremap > >gv
+
+" Go to home and end using capitalized directions
+noremap H ^
+noremap L $
 
 " @see http://blog.chinaunix.net/u/8681/showart_1226043.html
 " @usage 50g| jump to 50% of the lines columns.
@@ -561,22 +595,29 @@ autocmd BufNewFile,BufRead *.{c,cpp} set formatprg=astyle
 " Don't use Ex mode, use Q for formatting
 map Q ggvGgqgg
 
-nnoremap <F3> :set list! list?<CR>
-nnoremap <F4> :set wrap! wrap?<CR>
-
 " {{{全文搜索选中的文字
 vnoremap  *  y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 vnoremap  #  y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 " }}}
 
-map <F5> :set paste<CR>
-map <F6> :set nopaste<CR>
-imap <F5> <C-O>:set paste<CR>
-imap <F6> <nop>
-set pastetoggle=<F6>
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber number
+  else
+    set relativenumber
+  endif
+endfunc
+nnoremap <F2> :call NumberToggle()<cr>
+nnoremap <F3> :set list! list?<CR>
+nnoremap <F4> :set wrap! wrap?<CR>
+nnoremap <F5> :set paste! paste?<CR>
+inoremap <F5> <C-O>:set paste! paste?<CR>
+set pastetoggle=<F5>
 " when in insert mode, press <F5> to go to paste mode, where you can paste mass data that won't be autoindented
 " disbale paste mode when leaving insert mode
 au InsertLeave * set nopaste
+
+nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
 
 "==========================================
 " mapleader key map
@@ -586,16 +627,47 @@ au InsertLeave * set nopaste
 map <leader>te :tabnew 
 " 下面的命令后面直接跟<cr>执行
 map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
+map <leader>td :tabclose<cr>
 map <leader>tm :tabmove<cr>
 map <leader>tp :tabprevious<cr>
+map <leader>tk :tabprevious<cr>
 map <leader>tn :tabnext<cr>
+map <leader>tj :tabnext<cr>
 map <leader>t0 :tabfirst<cr>
+map <leader>th :tabfirst<cr>
 map <leader>t$ :tablast<cr>
+map <leader>tl :tablast<cr>
 
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
-map <leader>t. :tabedit <c-r>=expand("%:p:h")<cr>
+map <leader>t. :tabnew <c-r>=expand("%:p:h")<cr>
+
+" normal模式下切换到确切的tab
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tabfirst<cr>
+noremap <leader>$ :tablast<cr>
+
+" Toggles between the active and last active tab "
+" The first tab is always 1 "
+let g:last_active_tab = 1
+" nnoremap <leader>gt :execute 'tabnext ' . g:last_active_tab<cr>
+" nnoremap <silent> <c-o> :execute 'tabnext ' . g:last_active_tab<cr>
+" vnoremap <silent> <c-o> :execute 'tabnext ' . g:last_active_tab<cr>
+nnoremap <silent> <leader>tt :execute 'tabnext ' . g:last_active_tab<cr>
+vnoremap <silent> <leader>tt :execute 'tabnext ' . g:last_active_tab<cr>
+autocmd TabLeave * let g:last_active_tab = tabpagenr()
+
+" 新建tab  Ctrl+t
+nnoremap <C-t>     :tabnew<CR>
+inoremap <C-t>     <Esc>:tabnew<CR>
 
 " ,16                 十六进制格式查看
 nmap <leader>16 <ESC>:%!xxd<ESC>
