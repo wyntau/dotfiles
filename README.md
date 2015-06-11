@@ -35,7 +35,7 @@ Available tasks:
 - [gitconfig](#task-gitconfig)
 - [astylerc](#task-astylerc)
 - [sublime](#task-sublime)
-- [zsh](#task-zsh)
+- [zshrc](#task-zshrc)
 - [tmux](#task-tmux)
 
 If you want to do all tasks, just run
@@ -153,7 +153,7 @@ or do a specific task by run
 
     > Happy coding!
 
-- ### Task `zsh`
+- ### Task `zshrc`
     Requirements: `git`, `zsh`
 
     If you have your own aliases, put them in `~/.zsh.alias`, zsh will load them automatically.

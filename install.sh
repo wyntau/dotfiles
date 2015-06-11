@@ -123,7 +123,7 @@ function usage(){
   echo '    2) gitconfig'
   echo '    3) astylerc'
   echo '    4) sublime'
-  echo '    5) zsh'
+  echo '    5) zshrc'
   echo '    6) tmux'
   printf "${dot_color_none}\n"
   echo
@@ -255,7 +255,7 @@ function install_astylerc(){
   success "Successfully installed astylerc."
 }
 
-function install_zsh(){
+function install_zshrc(){
   if ( is_prog_exists zsh ); then
     step "Installing zsh ..."
   else
@@ -336,7 +336,7 @@ else
         install_astylerc
         install_sublime
         install_tmux
-        install_zsh
+        install_zshrc
         ;;
       vimrc)
         install_vimrc
@@ -351,7 +351,7 @@ else
         install_sublime
         ;;
       zsh)
-        install_zsh
+        install_zshrc
         ;;
       zshcfg)
         install_zshcfg
