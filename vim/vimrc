@@ -725,12 +725,13 @@ autocmd FileType html,css EmmetInstall
 " }}}
 
 " 语法分析插件
-" Plugin "scrooloose/syntastic"
+" Plugin 'scrooloose/syntastic'
 " 更强大的补全插件
-" Plugin "Valloric/YouCompleteMe"
+Plugin 'Valloric/YouCompleteMe'
+let g:ycm_key_list_select_completion = ['<Enter>', '<TAB>', '<Down>']
 
 " {{{ 简单的基于上下文的补全插件, all features are implemented in YCM complete
-Plugin 'ervandew/supertab'
+" Plugin 'ervandew/supertab'
 " }}}
 
 " Plugin 'eparreno/vim-l9'
