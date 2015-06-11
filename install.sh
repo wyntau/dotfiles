@@ -182,6 +182,10 @@ function install_vimrc(){
   lnif "${APP_PATH}/vim" "$HOME/.vim"
   lnif "${APP_PATH}/vim/vimrc" "$HOME/.vimrc"
 
+  if ( ! is_prog_exists "ag" ) && ( ! is_prog_exists "ack" ); then
+    tip "Maybe you should install ag(the_silver_searcher) or ack for vim plugins"
+  fi;
+
   # install YouCompleteMe plugin
   install_vim_YouCompleteMe
 
