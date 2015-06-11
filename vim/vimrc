@@ -772,6 +772,10 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'groenewege/vim-less'
 Plugin 'smilekzs/vim-nfo'
 
+Plugin 'kien/rainbow_parentheses.vim'
+
+Plugin 'vim-scripts/matchit.zip'
+
 Plugin 'jelera/vim-javascript-syntax'
 " disable auto fold when filetype javascript
 " autocmd FileType javascript call JavaScriptFold()
@@ -805,9 +809,14 @@ let g:UltiSnipsExpandTrigger="<Tab>"
 let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+
 " --> Git support
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
+
+Plugin 'kshenoy/vim-signature'
 
 " --> 快速搜索插件
 " Plugin 'mileszs/ack.vim'
@@ -883,6 +892,7 @@ let NERDSpaceDelims=1
 let NERDCompactSexyComs=1
 "}}}
 
+Plugin 'terryma/vim-expand-region'
 " 鼠标多重选择
 Plugin 'terryma/vim-multiple-cursors'
 " 搜索替换快速预览
