@@ -15,23 +15,23 @@ PROMPT_PREFIX='\033[0;35m'
 ALL_SUFFIX='\033[0m'
 
 function step(){
-  echo -e "${STEP_PREFIX}==> $1${ALL_SUFFIX}"
+  echo -e "\n${STEP_PREFIX}==> $1${ALL_SUFFIX}"
 }
 
 function info(){
-  echo -e "${INFO_PREFIX}$1${ALL_SUFFIX}"
+  echo -e "\n${INFO_PREFIX}$1${ALL_SUFFIX}"
 }
 
 function success(){
-  echo -e "${SUCCESS_PREFIX}$1${ALL_SUFFIX}"
+  echo -e "\n${SUCCESS_PREFIX}$1${ALL_SUFFIX}"
 }
 
 function err(){
-  echo -e "${ERR_PREFIX}$1${ALL_SUFFIX}"
+  echo -e "\n${ERR_PREFIX}$1${ALL_SUFFIX}"
 }
 
 function prompt(){
-  printf "${PROMPT_PREFIX}$1${ALL_SUFFIX}"
+  printf "\n${PROMPT_PREFIX}$1${ALL_SUFFIX}"
 }
 
 ##### file and directory detect ######
@@ -69,15 +69,13 @@ function is_mac(){
   ( is_platform Darwin ) && return 0 || return 1
 }
 
-if ( is_linux ); then
-  SUBLIMEPATH="$HOME/.config/sublime-text-2"
-elif ( is_mac ); then
-  SUBLIMEPATH="$HOME/Library/Application Support/Sublime Text 2"
-else
-  err "Can't detect your platform. This support 'Linux' and 'Darwin' only"
-fi;
-
 function usage(){
+
+  if ( ! is_mac ) && ( ! is_linux ); then
+    err "Sorry. Only *Linux* and *MAC* are supported"
+    exit
+  fi;
+
   echo
   echo 'Usage: install.sh [tasks]'
   echo
@@ -92,6 +90,48 @@ function usage(){
   echo '    6) tmux'
   printf ${ALL_SUFFIX}
   echo
+}
+
+function install_vimrc_YouCompleteMe(){
+
+  step "Installing vim YouCompleteMe plugin..."
+
+  # install python package manager pip
+  if ( ! is_prog_exists pip ); then
+
+    info "Installing pip for you..."
+
+    mkdir -p "${ROOT}/.tmp"
+    wget https://bootstrap.pypa.io/get-pip.py -O "${ROOT}/.tmp/get-pip.py"
+    chmod +x "${ROOT}/.tmp/get-pip.py"
+    sudo "${ROOT}/.tmp/get-pip.py"
+    rm -rf "${ROOT}/.tmp"
+
+  fi;
+
+  # install pynvim module for neovim
+  if ( ! is_prog_exists pynvim ); then
+    info "Installing pynvim for YouCompleteMe plugin..."
+    sudo pip install neovim
+  fi;
+
+  # fetch or update YouCompleteMe
+  if ( is_dir_exists "${ROOT}/vim/bundle/YouCompleteMe" ); then
+    info "Fetching YouCompleteMe ..."
+    cd "${ROOT}/vim/bundle/YouCompleteMe"
+    git pull origin master
+  else
+    info "Updating YouCompleteMe ..."
+    git clone --depth 1 https://github.com/Valloric/YouCompleteMe.git "${ROOT}/vim/bundle/YouCompleteMe"
+  fi;
+
+  # compile libs for YouCompleteMe
+  if [ ! -e "${ROOT}/vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so" ] || [ ! -e "${ROOT}/vim/bundle/YouCompleteMe/third_party/ycmd/ycm_client_support.so" ]; then
+    info "Compiling YouCompleteMe libs for you..."
+    cd "${ROOT}/vim/bundle/YouCompleteMe"
+    git submodule update --init --recursive
+    ./install.sh
+  fi;
 }
 
 function install_vimrc(){
@@ -131,6 +171,9 @@ function install_vimrc(){
   info "Linking ${ROOT}/vim/vimrc to $HOME/.vimrc"
   ln -s "${ROOT}/vim/vimrc" "$HOME/.vimrc"
 
+  # install YouCompleteMe plugin
+  install_vimrc_YouCompleteMe
+
   info "Installing vim bundles......"
   vim +PluginInstall +qall
 
@@ -150,6 +193,15 @@ function install_vimrc(){
 }
 
 function install_sublime(){
+
+  if ( is_linux ); then
+    SUBLIMEPATH="$HOME/.config/sublime-text-2"
+  elif ( is_mac ); then
+    SUBLIMEPATH="$HOME/Library/Application Support/Sublime Text 2"
+  else
+    err "Can't detect your platform. This support 'Linux' and 'Darwin' only"
+    exit
+  fi;
 
   step "Installing sublime"
 

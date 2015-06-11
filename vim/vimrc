@@ -656,14 +656,12 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 24, 4)<cr>
 " --> shows
 " 自动补全引号, 括号等
 " Plugin 'Raimondi/delimitMate'
+" a more conservative version of auto-pairs that only works when you press Enter
+" Plugin 'rstacruz/vim-closer'
 " 另一个补全括号插件
-
 Plugin 'jiangmiao/auto-pairs'
 " Fly Mode will always force closed-pair jumping instead of inserting. only for ")", "}", "]"
 let g:AutoPairsFlyMode = 0
-
-" a more conservative version of auto-pairs that only works when you press Enter
-" Plugin 'rstacruz/vim-closer'
 
 Plugin 'Yggdroot/indentLine'
 let g:indentLine_char = '¦'
@@ -677,7 +675,6 @@ Plugin 'ntpeters/vim-better-whitespace'
 " Plugin 'vim-scripts/JumpToTrailingWhitespace'
 " Plugin 'vim-scripts/DeleteTrailingWhitespace'
 " }}}
-
 
 Plugin 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
@@ -724,22 +721,21 @@ let g:user_emmet_leader_key='<C-Y>'
 autocmd FileType html,css EmmetInstall
 " }}}
 
-" {{{ 简单的基于上下文的补全插件
-Plugin 'ervandew/supertab'
-" }}}
-" {{{ vim-snipmate 自动补全
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-" Optional:
+" 语法分析插件
+" Plugin 'scrooloose/syntastic'
+" 更强大的补全插件
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-" }}}
-
+let g:ycm_key_list_select_completion=['<C-n>', '<Down>', '<Enter>']
+let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
 " --> Git support
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
-
 
 " --> 快速搜索插件
 " Plugin 'mileszs/ack.vim'
@@ -796,7 +792,6 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 nmap <leader>nt :NERDTreeTabsToggle<CR>
 " }}}
 
-
 " {{{ plugin – NERD_commenter.vim   注释代码用的
 Plugin 'scrooloose/nerdcommenter'
 "[count]<leader>cc 注释当前行或光标以下count行逐行添加注释(7,cc)
@@ -815,7 +810,6 @@ let NERDSpaceDelims=1
 " 多行注释时样子更好看
 let NERDCompactSexyComs=1
 "}}}
-
 
 " 鼠标多重选择
 Plugin 'terryma/vim-multiple-cursors'
@@ -848,11 +842,6 @@ map <Leader>h <Plug>(easymotion-linebackward)
 let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 " With this option set, v will match both v and V, but V will match V only. Default: 0.
 let g:EasyMotion_smartcase = 1
-
-" 语法分析插件
-" Plugin "scrooloose/syntastic"
-" 更强大的补全插件
-" Plugin "Valloric/YouCompleteMe"
 
 Plugin 'tmux-plugins/vim-tmux'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
