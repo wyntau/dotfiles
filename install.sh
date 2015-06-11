@@ -31,7 +31,7 @@ function err(){
 }
 
 function prompt(){
-  printf "${PROMPT_PREFIX}$1${ALL_SUFFIX}"
+  printf "\n${PROMPT_PREFIX}$1${ALL_SUFFIX}"
 }
 
 ##### file and directory detect ######
@@ -69,15 +69,13 @@ function is_mac(){
   ( is_platform Darwin ) && return 0 || return 1
 }
 
-if ( is_linux ); then
-  SUBLIMEPATH="$HOME/.config/sublime-text-2"
-elif ( is_mac ); then
-  SUBLIMEPATH="$HOME/Library/Application Support/Sublime Text 2"
-else
-  err "Can't detect your platform. This support 'Linux' and 'Darwin' only"
-fi;
-
 function usage(){
+
+  if ( ! is_mac ) && ( ! is_linux ); then
+    err "Sorry. Only *Linux* and *MAC* are supported"
+    exit
+  fi;
+
   echo
   echo 'Usage: install.sh [tasks]'
   echo
@@ -184,6 +182,15 @@ function install_vimrc(){
 }
 
 function install_sublime(){
+
+  if ( is_linux ); then
+    SUBLIMEPATH="$HOME/.config/sublime-text-2"
+  elif ( is_mac ); then
+    SUBLIMEPATH="$HOME/Library/Application Support/Sublime Text 2"
+  else
+    err "Can't detect your platform. This support 'Linux' and 'Darwin' only"
+    exit
+  fi;
 
   step "Installing sublime"
 
