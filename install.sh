@@ -69,7 +69,7 @@ function should_program_exists_one(){
     fi;
   done;
   if [[ "$exists" = "no" ]]; then
-    tip "Maybe you can take full use of this by installing one of ($@)~"
+    tip "Maybe you can take full use of this by installing one of ($*)~"
   fi;
 }
 function must_program_exists(){
