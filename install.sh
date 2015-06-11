@@ -350,7 +350,7 @@ else
       sublime)
         install_sublime
         ;;
-      zsh)
+      zshrc)
         install_zshrc
         ;;
       zshcfg)
