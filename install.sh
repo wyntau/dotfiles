@@ -53,12 +53,32 @@ function is_file_exists(){
 function is_dir_exists(){
   [[ -d "$1" ]] && return 0 || return 1
 }
-function is_prog_exists(){
+function is_program_exists(){
   if hash "$1" 2>/dev/null; then
     return 0
   else
     return 1
   fi;
+}
+function should_program_exists_one(){
+  local exists="no"
+  for program in $@; do
+    if ( is_program_exists "$program" ); then
+      exists="yes"
+      break
+    fi;
+  done;
+  if [[ "$exists" = "no" ]]; then
+    tip "Maybe you can take full use of this by installing one of ($@)~"
+  fi;
+}
+function must_program_exists(){
+  for program in $@; do
+    if ( ! is_program_exists "$program" ); then
+      error "You must have *$program* installed!"
+      exit
+    fi;
+  done;
 }
 
 function is_platform(){
@@ -133,7 +153,7 @@ function install_vim_YouCompleteMe(){
   step "Installing vim YouCompleteMe plugin ..."
 
   # install python package manager pip
-  if ( ! is_prog_exists pip ); then
+  if ( ! is_program_exists pip ); then
 
     info "Installing pip for you..."
 
@@ -147,7 +167,7 @@ function install_vim_YouCompleteMe(){
   fi;
 
   # install pynvim module for neovim
-  if ( ! is_prog_exists pynvim ); then
+  if ( ! is_program_exists pynvim ); then
     info "Installing pynvim for YouCompleteMe plugin ..."
     sudo pip install neovim
     success "Successfully installed pynvim."
@@ -167,6 +187,11 @@ function install_vim_YouCompleteMe(){
 
 function install_vimrc(){
 
+  must_program_exists "git" \
+                      "vim" \
+                      "python" \
+                      "wget"
+
   step "Installing vimrc ..."
 
   sync_repo "https://github.com/gmarik/Vundle.vim.git" \
@@ -181,10 +206,13 @@ function install_vimrc(){
 
   lnif "${APP_PATH}/vim" "$HOME/.vim"
   lnif "${APP_PATH}/vim/vimrc" "$HOME/.vimrc"
-
-  if ( ! is_prog_exists "ag" ) && ( ! is_prog_exists "ack" ); then
-    tip "Maybe you should install ag(the_silver_searcher) or ack for vim plugins"
+  if ( is_program_exists nvim ); then
+    lnif "${APP_PATH}/vim" "$HOME/.nvim"
+    lnif "${APP_PATH}/vim/vimrc" "$HOME/.nvimrc"
   fi;
+
+  should_program_exists_one "ag" \
+                            "ack"
 
   # install YouCompleteMe plugin
   install_vim_YouCompleteMe
@@ -192,15 +220,13 @@ function install_vimrc(){
   info "Installing vim bundles ..."
   vim +PluginInstall +qall
 
-  if ( is_prog_exists nvim ); then
-    lnif "${APP_PATH}/vim" "$HOME/.nvim"
-    lnif "${APP_PATH}/vim/vimrc" "$HOME/.nvimrc"
-  fi;
-
   success "Successfully installed vimrc and bundles."
 }
 
 function install_sublime(){
+
+  must_program_exists "git"
+
   if ( is_linux ); then
     SUBLIMEPATH="$HOME/.config/sublime-text-2"
   elif ( is_mac ); then
@@ -222,6 +248,8 @@ function install_sublime(){
 }
 
 function install_gitconfig(){
+
+  must_program_exists "git"
 
   step "Installing gitconfig ..."
 
@@ -252,6 +280,9 @@ function install_gitconfig(){
 }
 
 function install_astylerc(){
+
+  must_program_exists "astyle"
+
   step "Installing astylerc ..."
 
   lnif "${APP_PATH}/astylerc" "$HOME/.astylerc"
@@ -260,14 +291,11 @@ function install_astylerc(){
 }
 
 function install_zshrc(){
-  if ( is_prog_exists zsh ); then
-    step "Installing zsh ..."
-  else
-    error "No Zsh found! Please install zsh first"
-    exit
-  fi;
 
-  ZSHPATH=`which zsh`
+  must_program_exists "git" \
+                      "zsh"
+
+  step "Installing zshrc ..."
 
   sync_repo "https://github.com/robbyrussell/oh-my-zsh.git" \
             "${APP_PATH}/zsh/oh-my-zsh"
@@ -279,7 +307,7 @@ function install_zshrc(){
   lnif "${APP_PATH}/zsh/zshrc" "$HOME/.zshrc"
 
   info "Time to change your default shell to zsh!"
-  chsh -s ${ZSHPATH}
+  chsh -s `which zsh`
 
   success "Successfully installed zsh and oh-my-zsh."
   cd ${APP_PATH}
@@ -288,6 +316,9 @@ function install_zshrc(){
 }
 
 function install_zshcfg(){
+
+  must_program_exists "zsh"
+
   step "Installing zsh configs ..."
 
   lnif "${APP_PATH}/zsh/zsh.alias" "$HOME/.zsh.alias"
@@ -302,20 +333,19 @@ function install_zshcfg(){
 }
 
 function install_tmux(){
-  if ( is_prog_exists tmux ); then
-    step "Installing tmux configs ..."
-  else
-    error "No tmux found! Please install tmux first"
-    exit
-  fi;
+
+  must_program_exists "git" \
+                      "tmux"
+
+  step "Installing tmux configs ..."
 
   sync_repo "https://github.com/tmux-plugins/tpm" \
             "${APP_PATH}/tmux/plugins/tpm"
 
   # tmux中的vim无法使用系统的粘贴板, 安装reattach-to-user-namespace修复
   if ( is_mac ); then
-    if( ! is_prog_exists reattach-to-user-namespace ); then
-      if ( is_prog_exists brew ); then
+    if( ! is_program_exists reattach-to-user-namespace ); then
+      if ( is_program_exists brew ); then
         brew install reattach-to-user-namespace
       else
         tip "Maybe you should install reattach-to-user-namespace for vim in tmux"
