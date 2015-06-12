@@ -327,13 +327,13 @@ function install_zshcfg(){
 
   step "Installing zsh configs ..."
 
-  lnif "${APP_PATH}/zsh/zsh.alias" "$HOME/.zsh.alias"
-  lnif "${APP_PATH}/zsh/zsh.paths" "$HOME/.zsh.paths"
-  lnif "${APP_PATH}/zsh/zsh.sources" "$HOME/.zsh.sources"
+  lnif "${APP_PATH}/zsh/zshrc.alias" "$HOME/.zshrc.alias"
+  lnif "${APP_PATH}/zsh/zshrc.paths" "$HOME/.zshrc.paths"
+  lnif "${APP_PATH}/zsh/zshrc.sources" "$HOME/.zshrc.sources"
 
-  source "$HOME/.zsh.alias"
-  source "$HOME/.zsh.paths"
-  source "$HOME/.zsh.sources"
+  source "$HOME/.zshrc.alias"
+  source "$HOME/.zshrc.paths"
+  source "$HOME/.zshrc.sources"
 
   success "Successfully installed zsh configs"
 }

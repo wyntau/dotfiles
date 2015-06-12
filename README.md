@@ -174,7 +174,7 @@ or do a specific task by run
 - ### Task `zshrc`
     Requirements: `git`, `zsh`
 
-    If you have your own aliases, put them in `~/.zsh.alias`, zsh will load them automatically.
+    If you have your own aliases, put them in `~/.zshrc.alias`, zsh will load them automatically.
 
     __What zsh plugins are used default?__
 

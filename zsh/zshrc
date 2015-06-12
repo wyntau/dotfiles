@@ -137,13 +137,13 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# put you own alias in ~/.zsh.alias
-[ -f $HOME/.zsh.alias ] && source $HOME/.zsh.alias
+# put you own alias in ~/.zshrc.alias
+[ -f $HOME/.zshrc.alias ] && source $HOME/.zshrc.alias
 
-# put you own paths in ~/.zsh.paths
-[ -f $HOME/.zsh.paths ] && source $HOME/.zsh.paths
+# put you own paths in ~/.zshrc.paths
+[ -f $HOME/.zshrc.paths ] && source $HOME/.zshrc.paths
 
-# put you own sources in ~/.zsh.sources
-[ -f $HOME/.zsh.sources ] && source $HOME/.zsh.sources
+# put you own sources in ~/.zshrc.sources
+[ -f $HOME/.zshrc.sources ] && source $HOME/.zshrc.sources
 
 # history | awk '{CMD[$2]++;count++;}END { for (a in CMD) print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10
