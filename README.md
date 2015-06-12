@@ -36,6 +36,7 @@
 Available tasks:
 
 - [vimrc](#task-vimrc)
+- [vimrc_ycm](#task-vimrc_ycm)
 - [gitconfig](#task-gitconfig)
 - [astylerc](#task-astylerc)
 - [sublime](#task-sublime)
@@ -59,7 +60,7 @@ or do a specific task by run
 
     And then add the new vim __PATH__ into your `$PATH`.
 
-    Additionally, if you have install `neovim`, this task will also link `vim` directory to `~/.nvim` and link `vim/vimrc` to `~/.nvimrc`.
+    Additionally, if you have install `neovim`, this task will link `vim/vimrc` to `~/.nvimrc`.
 
     #### What vim bundles are included in vimrc
 
@@ -105,6 +106,10 @@ or do a specific task by run
         Plugin 'xolox/vim-session'
         Plugin 'Valloric/YouCompleteMe'
 
+- ### Task `vimrc_ycm`
+    Requirement: `git`, `vim`, `wget`, `python`
+
+    Install YouCompleteMe plugin for vim.
 
 - ### Task `gitconfig`
     Requirement: `git`
