@@ -138,18 +138,58 @@ function usage(){
   echo
   echo 'Tasks:'
   printf "${dot_color_green}\n"
-  echo '    0) all  ==> do all things below'
-  echo '    1) vimrc'
-  echo '    2) gitconfig'
-  echo '    3) astylerc'
-  echo '    4) sublime'
-  echo '    5) zshrc'
-  echo '    6) tmux'
+  echo '    - all  ==> do all things below'
+  echo '    - vimrc'
+  echo '    - vimrc_ycm  ==> vim plugin YouCompleteMe'
+  echo '    - gitconfig'
+  echo '    - astylerc'
+  echo '    - sublime'
+  echo '    - zshrc'
+  echo '    - tmux'
   printf "${dot_color_none}\n"
   echo
 }
 
-function install_vim_YouCompleteMe(){
+function install_vimrc(){
+
+  must_program_exists "git" \
+                      "vim"
+
+  step "Installing vimrc ..."
+
+  sync_repo "https://github.com/gmarik/Vundle.vim.git" \
+            "${APP_PATH}/vim/bundle/Vundle.vim"
+
+  sync_repo "https://github.com/powerline/fonts.git" \
+            "${APP_PATH}/vim/powerline-fonts"
+  info "Installing powerline-fonts ..."
+  cd "${APP_PATH}/vim/powerline-fonts"
+  ./install.sh
+  tip "When install completed, please set your terminal to use powerline fonts for *Non-ASCII font*"
+
+  lnif "${APP_PATH}/vim" "$HOME/.vim"
+  lnif "${APP_PATH}/vim/vimrc" "$HOME/.vimrc"
+  lnif "${APP_PATH}/vim/vimrc.bundles" "$HOME/.vimrc.bundles"
+  if ( is_program_exists nvim ); then
+    lnif "${APP_PATH}/vim/vimrc" "$HOME/.nvimrc"
+  fi;
+
+  should_program_exists_one "ag" \
+                            "ack"
+
+  info "Installing vim bundles ..."
+  vim +PluginInstall +qall
+
+  success "Successfully installed vimrc and bundles."
+}
+
+function install_vimrc_ycm(){
+
+  must_program_exists "git" \
+                      "vim" \
+                      "python" \
+                      "wget"
+
   step "Installing vim YouCompleteMe plugin ..."
 
   # install python package manager pip
@@ -183,44 +223,10 @@ function install_vim_YouCompleteMe(){
     cd "${APP_PATH}/vim/bundle/YouCompleteMe"
     ./install.sh --clang-completer
   fi;
-}
 
-function install_vimrc(){
+  lnif "${APP_PATH}/vim/vimrc.bundles.ycm" "$HOME/.vimrc.bundles.ycm"
 
-  must_program_exists "git" \
-                      "vim" \
-                      "python" \
-                      "wget"
-
-  step "Installing vimrc ..."
-
-  sync_repo "https://github.com/gmarik/Vundle.vim.git" \
-            "${APP_PATH}/vim/bundle/Vundle.vim"
-
-  sync_repo "https://github.com/powerline/fonts.git" \
-            "${APP_PATH}/vim/powerline-fonts"
-  info "Installing powerline-fonts ..."
-  cd "${APP_PATH}/vim/powerline-fonts"
-  ./install.sh
-  tip "When install completed, please set your terminal to use powerline fonts for *Non-ASCII font*"
-
-  lnif "${APP_PATH}/vim" "$HOME/.vim"
-  lnif "${APP_PATH}/vim/vimrc" "$HOME/.vimrc"
-  if ( is_program_exists nvim ); then
-    lnif "${APP_PATH}/vim" "$HOME/.nvim"
-    lnif "${APP_PATH}/vim/vimrc" "$HOME/.nvimrc"
-  fi;
-
-  should_program_exists_one "ag" \
-                            "ack"
-
-  # install YouCompleteMe plugin
-  install_vim_YouCompleteMe
-
-  info "Installing vim bundles ..."
-  vim +PluginInstall +qall
-
-  success "Successfully installed vimrc and bundles."
+  success "Successfully installed YouCompleteMe plugin."
 }
 
 function install_sublime(){
@@ -366,6 +372,7 @@ else
     case $arg in
       all)
         install_vimrc
+        install_vimrc_ycm
         install_gitconfig
         install_astylerc
         install_sublime
@@ -374,6 +381,9 @@ else
         ;;
       vimrc)
         install_vimrc
+        ;;
+      vimrc_ycm)
+        install_vimrc_ycm
         ;;
       gitconfig)
         install_gitconfig

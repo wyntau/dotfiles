@@ -72,12 +72,13 @@ or do a specific task by run
         Plugin 'kchmck/vim-coffee-script'
         Plugin 'groenewege/vim-less'
         Plugin 'smilekzs/vim-nfo'
+        Plugin 'evanmiller/nginx-vim-syntax'
         Plugin 'kien/rainbow_parentheses.vim'
         Plugin 'vim-scripts/matchit.zip'
         Plugin 'jelera/vim-javascript-syntax'
+        Plugin 'pangloss/vim-javascript'
         Plugin 'Marslo/vim-coloresque'
         Plugin 'mattn/emmet-vim'
-        Plugin 'Valloric/YouCompleteMe'
         Plugin 'SirVer/ultisnips'
         Plugin 'honza/vim-snippets'
         Plugin 'tpope/vim-surround'
@@ -98,6 +99,8 @@ or do a specific task by run
         Plugin 'tmux-plugins/vim-tmux-focus-events'
         Plugin 'xolox/vim-misc'
         Plugin 'xolox/vim-session'
+        Plugin 'Valloric/YouCompleteMe'
+
 
 - ### Task `gitconfig`
     Requirement: `git`
