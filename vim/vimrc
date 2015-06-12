@@ -744,6 +744,8 @@ let g:indentLine_char = '¦'
 " Plugin 'nathanaelkane/vim-indent-guides'
 
 Plugin 'ntpeters/vim-better-whitespace'
+map <leader><space> :StripWhitespace<cr>
+
 " trailingspace plugins {{{
 " Plugin 'vim-scripts/CountJump'
 " Plugin 'vim-scripts/ShowTrailingWhitespace'
@@ -774,6 +776,7 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'groenewege/vim-less'
 Plugin 'smilekzs/vim-nfo'
+Plugin 'evanmiller/nginx-vim-syntax'
 
 Plugin 'kien/rainbow_parentheses.vim'
 autocmd VimEnter * RainbowParenthesesToggle
@@ -784,6 +787,7 @@ autocmd Syntax * RainbowParenthesesLoadBraces
 Plugin 'vim-scripts/matchit.zip'
 
 Plugin 'jelera/vim-javascript-syntax'
+Plugin 'pangloss/vim-javascript'
 " disable auto fold when filetype javascript
 " autocmd FileType javascript call JavaScriptFold()
 
@@ -812,6 +816,9 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 let g:ycm_key_list_select_completion=['<C-n>', '<Down>', '<Enter>']
 let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
+let g:ycm_complete_in_comments = 1  "在注释输入中也能补全
+let g:ycm_collect_identifiers_from_comments_and_strings = 1   "注释和字符串中的文字也会被收入补全
+let g:ycm_seed_identifiers_with_syntax=1   "语言关键字补全
 let g:UltiSnipsExpandTrigger="<Tab>"
 let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
@@ -917,9 +924,9 @@ Plugin 'scrooloose/nerdcommenter'
 "[count]<leader>cy 先复制选中部分或单行,然后再注释
 "注：count参数可选，无则默认为选中行或当前行
 " 让注释符与语句之间留一个空格
-let NERDSpaceDelims=1
+let g:NERDSpaceDelims=1
 " 多行注释时样子更好看
-let NERDCompactSexyComs=1
+let g:NERDCompactSexyComs=1
 "}}}
 
 Plugin 'terryma/vim-expand-region'
