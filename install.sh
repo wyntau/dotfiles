@@ -174,8 +174,7 @@ function install_vimrc(){
     lnif "${APP_PATH}/vim/vimrc" "$HOME/.nvimrc"
   fi;
 
-  should_program_exists_one "ag" \
-                            "ack"
+  should_program_exists_one "ag"
 
   info "Installing vim bundles ..."
   vim +PluginInstall +qall
