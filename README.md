@@ -38,6 +38,7 @@ Available tasks:
 - [vimrc](#task-vimrc)
 - [vimrc_ycm](#task-vimrc_ycm)
 - [gitconfig](#task-gitconfig)
+- [gitcofig_dmtool](#task-gitconfig_dmtool)
 - [astylerc](#task-astylerc)
 - [sublime](#task-sublime)
 - [zshrc](#task-zshrc)
@@ -116,7 +117,7 @@ or do a specific task by run
 
     __What others maybe you should install?__
 
-    - Kaleidoscope( _OS X only_ ) - an excellent difftool when input `git difftool`
+    - Kaleidoscope( _OS X only_ ) - a sooooo excellent diff and merge tool
     - git-extras - some useful tools for git, install from <https://github.com/tj/git-extras>( _Linux, OS X_ ) or
 
             # OS X only
@@ -126,6 +127,11 @@ or do a specific task by run
 
             # OS X only
             brew install git-flow
+
+- ### Task `gitconfig_dmtool`
+    Requirement: `MAC`, `git`, `Kaleidoscope`(`ksdiff`)
+
+    Config git's difftool and mergetool to Kaleidoscope.
 
 - ### Task `astylerc`
     Requirement: `astyle`. If you have installed `astyle` and press `Q` in vim, astyle will be used to format the *C*, *C++*, *C#*, *Java* file.

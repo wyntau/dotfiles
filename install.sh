@@ -60,6 +60,14 @@ function is_program_exists(){
     return 1
   fi;
 }
+function must_file_exists(){
+  for file in $@; do
+    if ( ! is_file_exists $file ); then
+      error "You must have file *$file*"
+      exit
+    fi;
+  done;
+}
 function should_program_exists_one(){
   local exists="no"
   for program in $@; do
@@ -138,10 +146,11 @@ function usage(){
   echo
   echo 'Tasks:'
   printf "${dot_color_green}\n"
-  echo '    - all  ==> do all things below'
+  echo '    - all              ==> do all things below'
   echo '    - vimrc'
-  echo '    - vimrc_ycm  ==> vim plugin YouCompleteMe'
+  echo '    - vimrc_ycm        ==> vim plugin YouCompleteMe'
   echo '    - gitconfig'
+  echo '    - gitconfig_dmtool ==> config difftool and mergetool to Kaleidoscope'
   echo '    - astylerc'
   echo '    - sublime'
   echo '    - zshrc'
@@ -284,6 +293,34 @@ function install_gitconfig(){
   success "Successfully installed gitconfig."
 }
 
+function install_gitconfig_dmtool(){
+
+  if ( ! is_mac ); then
+    error "Only MAC is supported"
+    exit
+  fi;
+
+  must_program_exists "git" \
+                      "ksdiff"
+
+  must_file_exists "/Applications/Kaleidoscope.app/Contents/MacOS/Kaleidoscope"
+
+  step "Config git's difftool and mergetool to Kaleidoscope ..."
+
+  info "Config git's difftool to Kaleidoscope"
+  git config --global diff.tool Kaleidoscope
+  git config --global difftool.Kaleidoscope.cmd "ksdiff --partial-changeset --relative-path \"\$MERGED\" -- \"\$LOCAL\" \"\$REMOTE\""
+  git config --global difftool.prompt false
+
+  info "Config git's mergetool to Kaleidoscope"
+  git config --global merge.tool Kaleidoscope
+  git config --global mergetool.Kaleidoscope.cmd "ksdiff --merge --output \"\$MERGED\" --base \"\$BASE\" -- \"\$LOCAL\" --snapshot \"\$REMOTE\" --snapshot"
+  git config --global mergetool.Kaleidoscope.trustExitCode true
+  git config --global mergetool.prompt false
+
+  success "Successfully config git's difftool and mergetool"
+}
+
 function install_astylerc(){
 
   must_program_exists "astyle"
@@ -373,6 +410,7 @@ else
         install_vimrc
         install_vimrc_ycm
         install_gitconfig
+        install_gitconfig_dmtool
         install_astylerc
         install_sublime
         install_tmux
@@ -386,6 +424,9 @@ else
         ;;
       gitconfig)
         install_gitconfig
+        ;;
+      gitconfig_dmtool)
+        install_gitconfig_dmtool
         ;;
       astylerc)
         install_astylerc
