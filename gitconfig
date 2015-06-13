@@ -1,8 +1,5 @@
 [core]
 	editor = vim
-[user]
-	name = username
-	email = username@example.com
 [alias]
 	br = branch
 	bra = branch --all
@@ -64,6 +61,3 @@
 	ui = auto
 [push]
 	default = simple
-[http]
-	postBuffer = 524288000
-#	proxy = http://127.0.0.1:8087
