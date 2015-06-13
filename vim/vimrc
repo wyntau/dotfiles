@@ -106,8 +106,10 @@ set iskeyword+=_,$,@,%,#,-
 set formatoptions=tcrqn
 " 如遇Unicode值大于255的文本，不必等到空格再折行。
 set formatoptions+=m
-" Delete comment character when joining commented lines
-set formatoptions+=j
+if has('nvim') || has('patch584')
+  " Delete comment character when joining commented lines
+  set formatoptions+=j
+end
 " 合并两行中文时，不在中间加空格：
 set formatoptions+=B
 " Use only 1 space after "." when joining lines instead of 2

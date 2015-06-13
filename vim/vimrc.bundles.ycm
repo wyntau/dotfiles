@@ -1,9 +1,11 @@
 " 语法分析插件
 " Plugin 'scrooloose/syntastic'
 " 更强大的补全插件
-Plugin 'Valloric/YouCompleteMe'
-let g:ycm_key_list_select_completion=['<C-n>', '<Down>', '<Enter>']
-let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
-let g:ycm_complete_in_comments = 1  "在注释输入中也能补全
-let g:ycm_collect_identifiers_from_comments_and_strings = 1   "注释和字符串中的文字也会被收入补全
-let g:ycm_seed_identifiers_with_syntax=1   "语言关键字补全
+if has('nvim') || has('patch584')
+  Plugin 'Valloric/YouCompleteMe'
+  let g:ycm_key_list_select_completion=['<C-n>', '<Down>', '<Enter>']
+  let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
+  let g:ycm_complete_in_comments = 1  "在注释输入中也能补全
+  let g:ycm_collect_identifiers_from_comments_and_strings = 1   "注释和字符串中的文字也会被收入补全
+  let g:ycm_seed_identifiers_with_syntax=1   "语言关键字补全
+end
