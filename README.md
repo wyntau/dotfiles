@@ -35,13 +35,13 @@
 ## Tasks & Requirement
 Available tasks:
 
-- [vimrc](#task-vimrc)
-- [vimrc_ycm](#task-vimrc_ycm)
-- [gitconfig](#task-gitconfig)
-- [gitcofig_dmtool](#task-gitconfig_dmtool)
+- [vim_rc](#task-vim_rc)
+- [vim_ycm](#task-vim_ycm)
+- [git_config](#task-git_config)
+- [git_dmtool](#task-git_dmtool)
 - [astylerc](#task-astylerc)
 - [sublime](#task-sublime)
-- [zshrc](#task-zshrc)
+- [zsh_rc](#task-zsh_rc)
 - [tmux](#task-tmux)
 
 If you want to do all tasks, just run
@@ -52,7 +52,7 @@ or do a specific task by run
 
     ./install.sh <taskname1>[ <taskname2> <tasknameN> ...]
 
-- ### Task `vimrc`
+- ### Task `vim_rc`
     Requirements: `git`, `vim`
 
     *After* **or** *Before* above, you can override the system vim with the new one installed by `homebrew`.(OS X only. This is optional, but recommended, because system vim can't use system clipbord via register `+`)
@@ -107,12 +107,12 @@ or do a specific task by run
         Plugin 'xolox/vim-session'
         Plugin 'Valloric/YouCompleteMe'
 
-- ### Task `vimrc_ycm`
+- ### Task `vim_ycm`
     Requirement: `git`, `vim`, `wget`, `python`
 
     Install YouCompleteMe plugin for vim.
 
-- ### Task `gitconfig`
+- ### Task `git_config`
     Requirement: `git`
 
     __What others maybe you should install?__
@@ -128,7 +128,7 @@ or do a specific task by run
             # OS X only
             brew install git-flow
 
-- ### Task `gitconfig_dmtool`
+- ### Task `git_dmtool`
     Requirement: `MAC`, `git`, `Kaleidoscope`(`ksdiff`)
 
     Config git's difftool and mergetool to Kaleidoscope.
@@ -177,7 +177,7 @@ or do a specific task by run
 
     > Happy coding!
 
-- ### Task `zshrc`
+- ### Task `zsh_rc`
     Requirements: `git`, `zsh`
 
     If you have your own aliases, put them in `~/.zshrc.alias`, zsh will load them automatically.

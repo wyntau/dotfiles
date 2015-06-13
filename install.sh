@@ -146,20 +146,20 @@ function usage(){
   echo
   echo 'Tasks:'
   printf "${dot_color_green}\n"
-  echo '    - all              ==> do all things below'
-  echo '    - vimrc'
-  echo '    - vimrc_ycm        ==> vim plugin YouCompleteMe'
-  echo '    - gitconfig'
-  echo '    - gitconfig_dmtool ==> config difftool and mergetool to Kaleidoscope'
+  echo '    - all          ==> do all things below'
+  echo '    - vim_rc'
+  echo '    - vim_ycm      ==> vim plugin YouCompleteMe'
+  echo '    - git_config'
+  echo '    - git_dmtool   ==> config difftool and mergetool to Kaleidoscope'
   echo '    - astylerc'
   echo '    - sublime'
-  echo '    - zshrc'
+  echo '    - zsh_rc'
   echo '    - tmux'
   printf "${dot_color_none}\n"
   echo
 }
 
-function install_vimrc(){
+function install_vim_rc(){
 
   must_program_exists "git" \
                       "vim"
@@ -191,7 +191,7 @@ function install_vimrc(){
   success "Successfully installed vimrc and bundles."
 }
 
-function install_vimrc_ycm(){
+function install_vim_ycm(){
 
   must_program_exists "git" \
                       "vim" \
@@ -261,7 +261,7 @@ function install_sublime(){
   success "Successfully installed sublime Preference and Monokai-custom theme"
 }
 
-function install_gitconfig(){
+function install_git_config(){
 
   must_program_exists "git"
 
@@ -293,7 +293,7 @@ function install_gitconfig(){
   success "Successfully installed gitconfig."
 }
 
-function install_gitconfig_dmtool(){
+function install_git_dmtool(){
 
   if ( ! is_mac ); then
     error "Only MAC is supported"
@@ -332,7 +332,7 @@ function install_astylerc(){
   success "Successfully installed astylerc."
 }
 
-function install_zshrc(){
+function install_zsh_rc(){
 
   must_program_exists "git" \
                       "zsh"
@@ -357,7 +357,7 @@ function install_zshrc(){
   source $HOME/.zshrc
 }
 
-function install_zshcfg(){
+function install_zsh_cfg(){
 
   must_program_exists "zsh"
 
@@ -407,26 +407,26 @@ else
   for arg in $@; do
     case $arg in
       all)
-        install_vimrc
-        install_vimrc_ycm
-        install_gitconfig
-        install_gitconfig_dmtool
+        install_vim_rc
+        install_vim_ycm
+        install_git_config
+        install_git_dmtool
         install_astylerc
         install_sublime
         install_tmux
-        install_zshrc
+        install_zsh_rc
         ;;
-      vimrc)
-        install_vimrc
+      vim_rc)
+        install_vim_rc
         ;;
-      vimrc_ycm)
-        install_vimrc_ycm
+      vim_ycm)
+        install_vim_ycm
         ;;
-      gitconfig)
-        install_gitconfig
+      git_config)
+        install_git_config
         ;;
-      gitconfig_dmtool)
-        install_gitconfig_dmtool
+      git_dmtool)
+        install_git_dmtool
         ;;
       astylerc)
         install_astylerc
@@ -434,11 +434,11 @@ else
       sublime)
         install_sublime
         ;;
-      zshrc)
-        install_zshrc
+      zsh_rc)
+        install_zsh_rc
         ;;
-      zshcfg)
-        install_zshcfg
+      zsh_cfg)
+        install_zsh_cfg
         ;;
       tmux)
         install_tmux
