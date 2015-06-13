@@ -156,7 +156,6 @@ function usage(){
   echo '    - zsh_rc'
   echo '    - tmux'
   printf "${dot_color_none}\n"
-  echo
 }
 
 function install_vim_rc(){
