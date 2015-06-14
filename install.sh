@@ -2,6 +2,8 @@
 
 ########## Params setup
 
+## where user excute the install.sh
+CUR_PATH=`pwd`
 ## get the real path of install.sh
 SOURCE="${BASH_SOURCE[0]}"
 # resolve $SOURCE until the file is no longer a symlink
@@ -360,7 +362,7 @@ function install_zsh_rc(){
   chsh -s `which zsh`
 
   success "Successfully installed zsh and oh-my-zsh."
-  cd ${APP_PATH}
+  cd ${CUR_PATH}
   /usr/bin/env zsh
   source $HOME/.zshrc
 }
