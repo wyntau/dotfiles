@@ -2,8 +2,17 @@
 
 ########## Params setup
 
-# APP_PATH
-APP_PATH=`pwd`
+## get the real path of install.sh
+SOURCE="${BASH_SOURCE[0]}"
+# resolve $SOURCE until the file is no longer a symlink
+while [ -L "$SOURCE" ]; do
+  APP_PATH="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+  # if $SOURCE was a relative symlink, we need to resolve it relative to the path
+  # where the symlink file was located
+  [[ $SOURCE != /* ]] && SOURCE="$APP_PATH/$SOURCE"
+done
+APP_PATH="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 # color params
 dot_color_none="\033[0m"
@@ -24,7 +33,7 @@ dot_color_cyan_light="\033[1;36m"
 dot_color_gray="\033[0;37m"
 dot_color_gray_light="\033[1;37m"
 
-########## Basic setup
+########## Basics setup
 function msg(){
   printf '%b\n' "$1${dot_color_none}" >&2
 }
@@ -132,7 +141,7 @@ function sync_repo(){
   fi;
 }
 
-########## Setup functions
+########## Steps setup
 
 function usage(){
 
@@ -171,8 +180,9 @@ function install_vim_rc(){
   sync_repo "https://github.com/powerline/fonts.git" \
             "${APP_PATH}/vim/powerline-fonts"
   info "Installing powerline-fonts ..."
-  cd "${APP_PATH}/vim/powerline-fonts"
-  ./install.sh
+
+  "${APP_PATH}/vim/powerline-fonts/install.sh"
+
   tip "When install completed, please set your terminal to use powerline fonts for *Non-ASCII font*"
 
   lnif "${APP_PATH}/vim" "$HOME/.vim"
@@ -227,8 +237,7 @@ function install_vim_ycm(){
   # compile libs for YouCompleteMe
   if ( ! is_file_exists "${APP_PATH}/vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so" ) || ( ! is_file_exists "${APP_PATH}/vim/bundle/YouCompleteMe/third_party/ycmd/ycm_client_support.so" ); then
     info "Fetching and compiling YouCompleteMe libs ..."
-    cd "${APP_PATH}/vim/bundle/YouCompleteMe"
-    ./install.sh --clang-completer
+    "${APP_PATH}/vim/bundle/YouCompleteMe/install.sh"  --clang-completer
   fi;
 
   lnif "${APP_PATH}/vim/vimrc.bundles.ycm" "$HOME/.vimrc.bundles.ycm"
