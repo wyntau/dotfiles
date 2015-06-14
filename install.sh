@@ -239,7 +239,7 @@ function install_vim_ycm(){
   # compile libs for YouCompleteMe
   if ( ! is_file_exists "${APP_PATH}/vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so" ) || ( ! is_file_exists "${APP_PATH}/vim/bundle/YouCompleteMe/third_party/ycmd/ycm_client_support.so" ); then
     info "Fetching and compiling YouCompleteMe libs ..."
-    "${APP_PATH}/vim/bundle/YouCompleteMe/install.sh"  --clang-completer
+    "${APP_PATH}/vim/bundle/YouCompleteMe/install.sh" --clang-completer
   fi;
 
   lnif "${APP_PATH}/vim/vimrc.bundles.ycm" "$HOME/.vimrc.bundles.ycm"

@@ -61,7 +61,7 @@ or do a specific task by run
 
     And then add the new vim __PATH__ into your `$PATH`.
 
-    Additionally, if you have install `neovim`, this task will link `vim/vimrc` to `~/.nvimrc`.
+    Additionally, if you have installed `neovim`, this task will link `vim/vimrc` to `~/.nvimrc`.
 
     #### What vim bundles are included in vimrc
 
