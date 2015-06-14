@@ -708,12 +708,18 @@ imap etime <c-r>=NowDate('en')<cr>
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-source ~/.vimrc.bundles
 
+" source default bundles
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+endif
+
+" source YouCompleteMe plugin
 if filereadable(expand("~/.vimrc.bundles.ycm"))
   source ~/.vimrc.bundles.ycm
 endif
 
+" If user have own plugins, load them here
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
 endif
