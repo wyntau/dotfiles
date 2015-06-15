@@ -277,7 +277,7 @@ function install_git_config(){
 
   step "Installing gitconfig ..."
 
-  lnif "${APP_PATH}/gitconfig" "$HOME/.gitconfig"
+  lnif "${APP_PATH}/git/gitconfig" "$HOME/.gitconfig"
 
   info "Now config your name and email for git."
 
@@ -329,6 +329,21 @@ function install_git_dmtool(){
   git config --global mergetool.prompt false
 
   success "Successfully config git's difftool and mergetool"
+}
+
+function install_git_extras(){
+
+  must_program_exists "git"
+
+  step "Installing git-extras ..."
+
+  sync_repo "https://github.com/tj/git-extras.git" \
+            "${APP_PATH}/git/plugins/git-extras"
+
+  cd "${APP_PATH}/git/plugins/git-extras"
+  sudo make install
+
+  success "Successfully installed git-extras."
 }
 
 function install_astylerc(){
@@ -421,6 +436,7 @@ else
         install_vim_ycm
         install_git_config
         install_git_dmtool
+        install_git_extras
         install_astylerc
         install_sublime
         install_tmux
@@ -437,6 +453,9 @@ else
         ;;
       git_dmtool)
         install_git_dmtool
+        ;;
+      git_extras)
+        install_git_extras
         ;;
       astylerc)
         install_astylerc

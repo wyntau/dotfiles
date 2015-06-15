@@ -1,7 +1,8 @@
 ## What are in the repo
     dotfile
     ├── astylerc
-    ├── gitconfig
+    ├── git
+    |   └── gitconfig
     ├── sublime
     |   ├── monokai-custom
     |   ├── Preference.sublime-settings
@@ -18,7 +19,8 @@
 ## Why is the file or directory here
 
 - astylerc - the config for **astyle** which is a format tool for *C*, *C++*, *C#*, *Java*. Also can used in VIM
-- gitconfig - the config for **git**
+- git - all things about _Git_
+    - gitconfig - the config for **git**
 - sublime - all things about _Sublime Text 2_
     - monokai-custom - git submodule, Monokai-custom colorscheme
     - Preference.sublime-settings - the Preference file
@@ -39,6 +41,7 @@ Available tasks:
 - [vim_ycm](#task-vim_ycm)
 - [git_config](#task-git_config)
 - [git_dmtool](#task-git_dmtool)
+- [git_extras](#task-git_extras)
 - [astylerc](#task-astylerc)
 - [sublime](#task-sublime)
 - [zsh_rc](#task-zsh_rc)
@@ -118,11 +121,7 @@ or do a specific task by run
     __What others maybe you should install?__
 
     - Kaleidoscope( _OS X only_ ) - a sooooo excellent diff and merge tool
-    - git-extras - some useful tools for git, install from <https://github.com/tj/git-extras>( _Linux, OS X_ ) or
-
-            # OS X only
-            brew install git-extras
-
+    - git-extras - some useful tools for git, install from <https://github.com/tj/git-extras>( _Linux, OS X_ )
     - git-flow - a post about git-flow: [a-successful-git-branching-model](http://nvie.com/posts/a-successful-git-branching-model/), install from <https://github.com/nvie/gitflow>( _Linux, OS X_ ) or
 
             # OS X only
@@ -132,6 +131,11 @@ or do a specific task by run
     Requirement: `MAC`, `git`, `Kaleidoscope`(`ksdiff`)
 
     Config git's difftool and mergetool to Kaleidoscope.
+
+- ### Task `git_extras`
+    Requirement: `git`
+
+    Install `git-extras` plugin for git.
 
 - ### Task `astylerc`
     Requirement: `astyle`. If you have installed `astyle` and press `Q` in vim, astyle will be used to format the *C*, *C++*, *C#*, *Java* file.
