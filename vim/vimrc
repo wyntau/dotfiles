@@ -165,9 +165,6 @@ set novisualbell
 " 置空错误铃声的终端代码
 set t_vb=
 
-" 开启高亮语法显示
-syntax on
-
 "显示行号
 set number
 "行号栏的宽度
@@ -203,7 +200,6 @@ if has("gui_running")
     set guioptions-=b
     " 隐藏Tab栏
     " set showtabline=0
-    set t_Co=256
     " 每行内插入两空行(方便阅读文本)
     " set linespace=1
 endif
@@ -737,15 +733,13 @@ filetype indent on
 " colortheme 主题,及一些展示上颜色的修改
 "==========================================
 
-"{{{ molokai主题配置
 set t_Co=256
-"let g:molokai_original = 1  "If you prefer the scheme to match the original monokai background color
+" 开启高亮语法显示
+syntax enable
 set background=dark
 silent! colorscheme molokai
-" 设置背景透明
-hi Normal guibg=black ctermbg=NONE
-"}}}
-
+" set background transparent
+" hi Normal guibg=black ctermbg=NONE
 
 " Go crazy! source user's local config
 if filereadable(expand("~/.vimrc.local"))

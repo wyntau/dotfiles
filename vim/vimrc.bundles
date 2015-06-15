@@ -1,10 +1,16 @@
 " --> Vundle plugin
 Plugin 'gmarik/Vundle.vim'
 
-
 " --> Themes and views
+
 " molokai colorscheme
 Plugin 'tomasr/molokai'
+"If you prefer the scheme to match the original monokai background color
+let g:molokai_original = 1
+
+" solarized colorscheme
+Plugin 'altercation/vim-colors-solarized'
+let g:solarized_termcolors=256
 
 " --> smooth scroll
 Plugin 'terryma/vim-smooth-scroll'
