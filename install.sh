@@ -270,6 +270,7 @@ function install_sublime(){
   lnif "${APP_PATH}/sublime/Preferences.sublime-settings" "${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
 
   success "Successfully installed sublime Preference and Monokai-custom theme"
+  tip "You may want to change font_face in your sublime Preference"
 }
 
 function install_git_config(){
