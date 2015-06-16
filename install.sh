@@ -188,11 +188,15 @@ function install_vim_rc(){
   "${APP_PATH}/vim/powerline-fonts/install.sh"
   tip "When install completed, please set your terminal to use powerline fonts for *Non-ASCII font*"
 
-  lnif "${APP_PATH}/vim" "$HOME/.vim"
-  lnif "${APP_PATH}/vim/vimrc" "$HOME/.vimrc"
-  lnif "${APP_PATH}/vim/vimrc.bundles" "$HOME/.vimrc.bundles"
+  lnif "${APP_PATH}/vim" \
+       "$HOME/.vim"
+  lnif "${APP_PATH}/vim/vimrc" \
+       "$HOME/.vimrc"
+  lnif "${APP_PATH}/vim/vimrc.bundles" \
+       "$HOME/.vimrc.bundles"
   if ( is_program_exists nvim ); then
-    lnif "${APP_PATH}/vim/vimrc" "$HOME/.nvimrc"
+    lnif "${APP_PATH}/vim/vimrc" \
+         "$HOME/.nvimrc"
   fi;
 
   better_program_exists_one "ag"
@@ -245,7 +249,8 @@ function install_vim_ycm(){
     "${APP_PATH}/vim/bundle/YouCompleteMe/install.sh" --clang-completer
   fi;
 
-  lnif "${APP_PATH}/vim/vimrc.bundles.ycm" "$HOME/.vimrc.bundles.ycm"
+  lnif "${APP_PATH}/vim/vimrc.bundles.ycm" \
+       "$HOME/.vimrc.bundles.ycm"
 
   success "Successfully installed YouCompleteMe plugin."
 }
@@ -268,8 +273,10 @@ function install_sublime(){
   sync_repo "https://github.com/Treri/sublime-monokai-custom.git" \
             "${APP_PATH}/sublime/monokai-custom"
 
-  lnif "${APP_PATH}/sublime/monokai-custom" "${SUBLIMEPATH}/Packages/User/monokai-custom"
-  lnif "${APP_PATH}/sublime/Preferences.sublime-settings" "${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
+  lnif "${APP_PATH}/sublime/monokai-custom" \
+       "${SUBLIMEPATH}/Packages/User/monokai-custom"
+  lnif "${APP_PATH}/sublime/Preferences.sublime-settings" \
+       "${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
 
   success "Successfully installed sublime Preference and Monokai-custom theme"
   tip "You may want to change font_face in your sublime Preference"
@@ -281,7 +288,8 @@ function install_git_config(){
 
   step "Installing gitconfig ..."
 
-  lnif "${APP_PATH}/git/gitconfig" "$HOME/.gitconfig"
+  lnif "${APP_PATH}/git/gitconfig" \
+       "$HOME/.gitconfig"
 
   info "Now config your name and email for git."
 
@@ -371,7 +379,8 @@ function install_astylerc(){
 
   step "Installing astylerc ..."
 
-  lnif "${APP_PATH}/astylerc" "$HOME/.astylerc"
+  lnif "${APP_PATH}/astylerc" \
+       "$HOME/.astylerc"
 
   success "Successfully installed astylerc."
 }
@@ -389,8 +398,10 @@ function install_zsh_rc(){
   sync_repo "https://github.com/zsh-users/zsh-syntax-highlighting.git" \
             "${APP_PATH}/zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
 
-  lnif "${APP_PATH}/zsh/oh-my-zsh" "$HOME/.oh-my-zsh"
-  lnif "${APP_PATH}/zsh/zshrc" "$HOME/.zshrc"
+  lnif "${APP_PATH}/zsh/oh-my-zsh" \
+       "$HOME/.oh-my-zsh"
+  lnif "${APP_PATH}/zsh/zshrc" \
+       "$HOME/.zshrc"
 
   info "Time to change your default shell to zsh!"
   chsh -s `which zsh`
@@ -407,9 +418,12 @@ function install_zsh_cfg(){
 
   step "Installing zsh configs ..."
 
-  lnif "${APP_PATH}/zsh/zshrc.alias" "$HOME/.zshrc.alias"
-  lnif "${APP_PATH}/zsh/zshrc.paths" "$HOME/.zshrc.paths"
-  lnif "${APP_PATH}/zsh/zshrc.sources" "$HOME/.zshrc.sources"
+  lnif "${APP_PATH}/zsh/zshrc.alias" \
+       "$HOME/.zshrc.alias"
+  lnif "${APP_PATH}/zsh/zshrc.paths" \
+       "$HOME/.zshrc.paths"
+  lnif "${APP_PATH}/zsh/zshrc.sources" \
+       "$HOME/.zshrc.sources"
 
   source "$HOME/.zshrc.alias"
   source "$HOME/.zshrc.paths"
@@ -439,8 +453,10 @@ function install_tmux(){
     fi;
   fi;
 
-  lnif "${APP_PATH}/tmux" "$HOME/.tmux"
-  lnif "${APP_PATH}/tmux/tmux.conf" "$HOME/.tmux.conf"
+  lnif "${APP_PATH}/tmux" \
+       "$HOME/.tmux"
+  lnif "${APP_PATH}/tmux/tmux.conf" \
+       "$HOME/.tmux.conf"
 
   success "Please run tmux and use prefix-I to install tmux plugins or reload your tmux.conf"
 }
