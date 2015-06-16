@@ -42,6 +42,7 @@ Available tasks:
 - [git_config](#task-git_config)
 - [git_dmtool](#task-git_dmtool)
 - [git_extras](#task-git_extras)
+- [git_flow](#task-git_flow)
 - [astylerc](#task-astylerc)
 - [sublime](#task-sublime)
 - [zsh_rc](#task-zsh_rc)
@@ -136,6 +137,11 @@ or do a specific task by run
     Requirement: `git`
 
     Install `git-extras` plugin for git.
+
+- ### Task `git_flow`
+    Requirement: `git`
+
+    Install `git-flow` plugin for git.
 
 - ### Task `astylerc`
     Requirement: `astyle`. If you have installed `astyle` and press `Q` in vim, astyle will be used to format the *C*, *C++*, *C#*, *Java* file.

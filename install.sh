@@ -162,6 +162,8 @@ function usage(){
   echo '    - vim_ycm      ==> vim plugin YouCompleteMe'
   echo '    - git_config'
   echo '    - git_dmtool   ==> config difftool and mergetool to Kaleidoscope'
+  echo '    - git_extras   ==> git-extras extensions'
+  echo '    - git_flow     ==> git-flow extensions'
   echo '    - astylerc'
   echo '    - sublime'
   echo '    - zsh_rc'
@@ -348,6 +350,21 @@ function install_git_extras(){
   success "Successfully installed git-extras."
 }
 
+function install_git_flow(){
+
+  must_program_exists "git"
+
+  step "Installing git-flow ..."
+
+  sync_repo "https://github.com/nvie/gitflow.git" \
+            "${APP_PATH}/git/plugins/git-flow"
+
+  cd "${APP_PATH}/git/plugins/git-flow"
+  sudo make install
+
+  success "Successfully installed git-flow."
+}
+
 function install_astylerc(){
 
   must_program_exists "astyle"
@@ -439,6 +456,7 @@ else
         install_git_config
         install_git_dmtool
         install_git_extras
+        install_git_flow
         install_astylerc
         install_sublime
         install_tmux
@@ -458,6 +476,9 @@ else
         ;;
       git_extras)
         install_git_extras
+        ;;
+      git_flow)
+        install_git_flow
         ;;
       astylerc)
         install_astylerc
