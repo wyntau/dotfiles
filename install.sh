@@ -79,7 +79,7 @@ function must_file_exists(){
     fi;
   done;
 }
-function should_program_exists_one(){
+function better_program_exists_one(){
   local exists="no"
   for program in $@; do
     if ( is_program_exists "$program" ); then
@@ -184,7 +184,6 @@ function install_vim_rc(){
   info "Installing powerline-fonts ..."
 
   "${APP_PATH}/vim/powerline-fonts/install.sh"
-
   tip "When install completed, please set your terminal to use powerline fonts for *Non-ASCII font*"
 
   lnif "${APP_PATH}/vim" "$HOME/.vim"
@@ -194,7 +193,7 @@ function install_vim_rc(){
     lnif "${APP_PATH}/vim/vimrc" "$HOME/.nvimrc"
   fi;
 
-  should_program_exists_one "ag"
+  better_program_exists_one "ag"
 
   info "Installing vim bundles ..."
   vim +PluginInstall +qall
@@ -228,8 +227,8 @@ function install_vim_ycm(){
   fi;
 
   # install pynvim module for neovim
-  if ( ! is_program_exists pynvim ); then
-    info "Installing pynvim for YouCompleteMe plugin ..."
+  if ( is_program_exists nvim ) && ( ! is_program_exists pynvim ); then
+    info "Installing pynvim for YouCompleteMe plugin in neovim ..."
     sudo pip install neovim
     success "Successfully installed pynvim."
   fi;
