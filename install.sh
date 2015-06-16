@@ -200,6 +200,8 @@ function install_vim_rc(){
   vim +PluginInstall +qall
 
   success "Successfully installed vimrc and bundles."
+
+  success "You can add your own configs to ~/.vimrc.local, and your own plugins to ~/.vimrc.bundles.local , vim will source them automatically"
 }
 
 function install_vim_ycm(){
