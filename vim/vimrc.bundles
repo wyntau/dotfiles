@@ -52,7 +52,7 @@ let g:airline#extensions#tabline#enabled = 1
 " 命令行（在状态行下）的高度，默认为1(不显示状态栏)，这里是2
 set laststatus=2
 " Always show the tab bar
-set showtabline=2
+" set showtabline=2
 
 " 设置在状态行显示的信息（包括文件类型和解码）
 " buffer编号 | 文件路径及文件名 | modified状态 | 只读状态 | help | preview | 文件编码 | BOM | EOL | type | demical:hexadecimal | 列:行/总行 | 文件百分比 | 时 间
