@@ -75,8 +75,8 @@ Plugin 'evanmiller/nginx-vim-syntax'
 Plugin 'luochen1990/rainbow'
 let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 let g:rainbow_conf = {
-    \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'RoyalBlue3', 'SeaGreen3', 'DarkOrchid3', 'firebrick3', 'RoyalBlue3', 'SeaGreen3', 'DarkOrchid3', 'firebrick3', 'RoyalBlue3', 'DarkOrchid3', 'RoyalBlue3', 'SeaGreen3', 'DarkOrchid3', 'firebrick'],
-    \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta', 'brown', 'Darkblue', 'darkgray', 'darkgreen', 'darkcyan', 'darkred', 'darkmagenta', 'brown', 'gray', 'darkmagenta', 'darkgreen', 'darkcyan', 'darkred', 'red'],
+    \   'guifgs': ['darkorange3', 'seagreen3', 'firebrick', 'DarkOrchid3', 'firebrick3', 'SeaGreen3'],
+    \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta', 'brown', 'darkgray', 'darkgreen', 'darkcyan', 'darkred', 'darkmagenta', 'gray', 'red'],
     \   'operators': '_,_',
     \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
     \   'separately': {
