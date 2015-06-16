@@ -31,6 +31,10 @@ let g:AutoPairsFlyMode = 0
 
 Plugin 'Yggdroot/indentLine'
 let g:indentLine_char = '¦'
+" Vim
+let g:indentLine_color_term = 239
+"GVim
+let g:indentLine_color_gui = '#A4E57E'
 " A Vim plugin for visually displaying indent levels in code
 " Plugin 'nathanaelkane/vim-indent-guides'
 
