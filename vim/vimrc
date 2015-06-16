@@ -152,9 +152,6 @@ set cursorline
 set colorcolumn=81
 " 光标移动到buffer的顶部和底部时保持3行距离
 set scrolloff=5
-" Always show the tab bar
-" set showtabline=2
-
 
 " change the terminal's title
 set title
@@ -198,8 +195,6 @@ if has("gui_running")
     set guioptions-=r
     " 隐藏底部滚动条
     set guioptions-=b
-    " 隐藏Tab栏
-    " set showtabline=0
     " 每行内插入两空行(方便阅读文本)
     " set linespace=1
 endif
