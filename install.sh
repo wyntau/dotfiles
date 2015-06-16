@@ -461,6 +461,26 @@ function install_tmux(){
   success "Please run tmux and use prefix-I to install tmux plugins or reload your tmux.conf"
 }
 
+function install_homebrew(){
+
+  if( ! is_mac ); then
+    error "Only *MAC* is supported"
+    exit
+  fi;
+
+  if ( is_program_exists "brew" ); then
+    success "You have already installed homebrew"
+    exit
+  fi;
+
+  must_program_exists "ruby" \
+                      "curl"
+
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+  success "Successfully installed homebrew"
+}
+
 if [ $# = 0 ]; then
   usage
 else
@@ -510,6 +530,9 @@ else
         ;;
       tmux)
         install_tmux
+        ;;
+      homebrew)
+        install_homebrew
         ;;
       *)
         echo
