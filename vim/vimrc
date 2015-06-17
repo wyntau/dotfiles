@@ -356,7 +356,8 @@ nmap <C-k> <C-w>k
 "保存全局变量
 set viminfo+=!
 " 共享外部剪贴板
-set clipboard+=unnamedplus
+" unnamedplus is not worked in homebrew's macvim, so include unnamed
+set clipboard+=unnamedplus,unnamed
 
 " 删除, 但是不放到公共剪切板
 " Use ,d (or ,dd or ,dj or 20,dd) to delete a line without adding it to the
