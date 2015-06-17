@@ -128,6 +128,14 @@ let g:UltiSnipsExpandTrigger="<Tab>"
 let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
+" required by tobys/pdv
+Plugin 'tobyS/vmustache'
+" phpdoc generator,
+" require tobys/pdv and SirVer/ultisnips
+Plugin 'tobyS/pdv'
+let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
+map <leader>doc :call pdv#DocumentWithSnip()<CR>
+
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 
