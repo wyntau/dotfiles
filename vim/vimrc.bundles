@@ -319,6 +319,8 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'osyo-manga/vim-over'
 " 快速文件搜索, 类似于sublime中的command + p
 Plugin 'kien/ctrlp.vim'
+" create new file in current window
+let g:ctrlp_open_new_file = 'r'
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
     \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc)$',
