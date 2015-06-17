@@ -37,25 +37,25 @@ dot_color_gray_light="\033[1;37m"
 
 ########## Basics setup
 function msg(){
-  printf '%b\n' "$1${dot_color_none}" >&2
+  printf '%b\n' "$*${dot_color_none}" >&2
 }
 function prompt(){
-  printf '%b' "${dot_color_purple}[+] $1${dot_color_none} "
+  printf '%b' "${dot_color_purple}[+] $*${dot_color_none} "
 }
 function step(){
-  msg "\n${dot_color_yellow}[→] $1"
+  msg "\n${dot_color_yellow}[→] $*"
 }
 function info(){
-  msg "${dot_color_cyan}[>] $1"
+  msg "${dot_color_cyan}[>] $*"
 }
 function success(){
-  msg "${dot_color_green}[✓] $1\n"
+  msg "${dot_color_green}[✓] $*\n"
 }
 function error(){
-  msg "${dot_color_red_light}[✗] $1"
+  msg "${dot_color_red_light}[✗] $*"
 }
 function tip(){
-  msg "${dot_color_red_light}[!] $1"
+  msg "${dot_color_red_light}[!] $*"
 }
 
 function is_file_exists(){
