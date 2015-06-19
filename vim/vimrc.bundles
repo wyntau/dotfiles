@@ -150,7 +150,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 
-Plugin 'kshenoy/vim-signature'
+" Plugin 'kshenoy/vim-signature'
 " mx           Toggle mark 'x' and display it in the leftmost column
 " dmx          Remove mark 'x' where x is a-zA-Z
 " m,           Place the next available mark
@@ -328,6 +328,8 @@ let g:NERDCompactSexyComs=1
 "}}}
 
 Plugin 'terryma/vim-expand-region'
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
 " 鼠标多重选择
 Plugin 'terryma/vim-multiple-cursors'
 " 搜索替换快速预览
