@@ -417,25 +417,25 @@ augroup vimrcEx
   autocmd FileType text setlocal textwidth=78
 
   " Some file types use real tabs
-  au FileType {make,gitconfig} set noexpandtab sw=4
+  au FileType {make,gitconfig} setlocal noexpandtab sw=4
 
   " Treat JSON files like JavaScript
   au BufNewFile,BufRead *.json setf javascript
 
   " Make Python follow PEP8
-  au FileType python set sts=4 ts=4 sw=4 tw=79
+  au FileType python setlocal sts=4 ts=4 sw=4 tw=79
 
   " Use 4 spaces for Java
-  au FileType java set sts=4 ts=4 sw=4
+  au FileType java setlocal sts=4 ts=4 sw=4
 
   " Make sure all markdown files have the correct filetype
   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown
 
   " MultiMarkdown requires 4-space tabs
-  au FileType markdown set sts=4 ts=4 sw=4
+  au FileType markdown setlocal sts=4 ts=4 sw=4
 
   " Use 4-space tabs for apache
-  au FileType apache set sts=4 ts=4 sw=4
+  au FileType apache setlocal sts=4 ts=4 sw=4
 
   " Leave the return key alone when in command line windows, since it's used
   " to run commands there
