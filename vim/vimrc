@@ -1,6 +1,6 @@
 "==============================================================================
 " Author:  Treri
-" Version: 2015-05-24
+" Version: 2015-06-24
 " Email: treri.liu@gmail.com
 " Description: 适合自己使用的vimrc文件.
 "==============================================================================
@@ -16,7 +16,7 @@ autocmd!
 set nocompatible
 
 " file encode, 文件编码,格式
-set encoding=utf-8 nobomb
+set encoding=utf-8
 " no BOM
 set nobomb
 set fileencodings=utf-8,gb2312,gbk,gb18030,ucs-bom,cp936,big5,euc-jp,euc-kr,latin1
@@ -29,10 +29,9 @@ set helplang=cn
 
 " Respect modelines in files up to this number of lines
 set modeline
-set modelines=4
 
-"设置 退出vim后，内容显示在终端屏幕, 可以用于查看和复制
-"好处：误删什么的，如果以前屏幕打开，可以找回
+" 设置 退出vim后，内容显示在终端屏幕, 可以用于查看和复制
+" 好处：误删什么的，如果以前屏幕打开，可以找回
 " Prevent Vim from clearing the scrollback buffer
 " " http://www.shallowsky.com/linux/noaltscreen.html
 " set t_ti= t_te=
@@ -54,7 +53,7 @@ let g:mapleader=","
 ""
 "" Whitespace
 ""
-"用空格代替制表符, 将Tab自动转化成空格, [需要输入真正的Tab键时，使用 Ctrl+V + Tab]
+" 用空格代替制表符, 将Tab自动转化成空格, [需要输入真正的Tab键时，使用 Ctrl+V + Tab]
 set expandtab
 " Tab键的宽度
 set tabstop=2
@@ -62,10 +61,10 @@ set tabstop=2
 set smarttab
 " 使得按退格键时可以一次删掉 2 个空格
 set softtabstop=2
-"用<>调整缩进时的长度缩进2格
+" 用<>调整缩进时的长度缩进2格
 set shiftwidth=2
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
-"复制之前缩进
+" 复制之前缩进
 set copyindent
 " 自动缩进" always set autoindenting on
 set autoindent
@@ -101,7 +100,6 @@ set diffopt+=vertical,context:3,foldcolumn:0
 " 带有如下符号的单词不要被换行分割
 set iskeyword+=_,$,@,%,#,-
 
-
 " 自动格式化
 set formatoptions=tcrqn
 " 如遇Unicode值大于255的文本，不必等到空格再折行。
@@ -118,7 +116,7 @@ set nojoinspaces
 " Don't reset cursor to start of line when moving around
 set nostartofline
 
-"匹配括号的规则，增加针对html的<>
+" 匹配括号的规则，增加针对html的<>
 set matchpairs=(:),{:},[:],<:>
 " 当光标到达行尾或者行首时，继续移动转至下一行或者上一行 允许backspace和光标键跨越行边界
 " set whichwrap=h,l,b,s,<,>,~,[,]
@@ -148,7 +146,7 @@ set matchtime=2
 set cursorcolumn
 " 突出显示当前行
 set cursorline
-"高亮显示某一列,一般用于显示80列
+" 高亮显示某一列,一般用于显示80列
 set colorcolumn=81
 " 光标移动到buffer的顶部和底部时保持3行距离
 set scrolloff=5
@@ -162,9 +160,9 @@ set novisualbell
 " 置空错误铃声的终端代码
 set t_vb=
 
-"显示行号
+" 显示行号
 set number
-"行号栏的宽度
+" 行号栏的宽度
 set numberwidth=4
 set relativenumber
 " 插入模式下用绝对行号, 普通模式下用相对
@@ -179,7 +177,7 @@ autocmd Syntax * call matchadd('Debug', '\W\zs\(NOTE\|INFO\|IDEA\|NOTICE\)')
 " 在编辑过程中，在右下角显示光标位置的状态行
 " show the cursor position all the time
 set ruler
-"分割窗口时保持相等的宽/高
+" 分割窗口时保持相等的宽/高
 set equalalways
 
 if has("gui_running")
@@ -199,8 +197,8 @@ if has("gui_running")
     " set linespace=1
 endif
 
-"防止光标闪烁
-set gcr=a:block-blinkon0
+" 防止光标闪烁
+set guicursor=a:block-blinkon0
 " 加速光标闪烁。
 " @see http://c9s.blogspot.com/2007/12/gvim.html
 " set guicursor+=n-v-c:block-cursor-blinkwait300-blinkon90-blinkoff90
@@ -276,7 +274,7 @@ set wildignore+=node_modules/*
 set wildignore+=*.swp,*~,._*
 
 " 自动补全配置
-"让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
+" 让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
 set completeopt-=menu
 set completeopt+=longest,menuone
 
@@ -286,16 +284,16 @@ set completeopt+=longest,menuone
 " 输入搜索内容时就显示搜索结果
 set incsearch
 " 高亮被搜索的句子（phrases）
-" set hlsearch
+set hlsearch
 " 搜索或者补全时忽略大小写
 set ignorecase
 " 有一个或以上大写字母时仍大小写敏感
 set smartcase
 " 禁止在搜索到文件两端时重新搜索
 set nowrapscan
-"行内替换
+" 行内替换
 " set gdefault
-"Fast remove highlight search
+" Fast remove highlight search
 " 去掉搜索高亮
 nnoremap <silent><leader><cr> :nohlsearch<cr>
 nnoremap <silent><leader>/ :nohlsearch<CR>
@@ -308,16 +306,14 @@ nnoremap <leader>hs :set hlsearch<cr>
 
 " 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存
 set hidden  "隐藏buff非关闭它
-"{{{不要生成swap文件，当buffer被丢弃的时候隐藏它
+" {{{不要生成swap文件，当buffer被丢弃的时候隐藏它
 setlocal noswapfile
 set bufhidden=hide
-"}}}
+" }}}
 " Jump to the first open window that contains the specified buffer
 set switchbuf=useopen
-"设置当文件被外部改变的时候自动读入文件
+" 设置当文件被外部改变的时候自动读入文件
 set autoread
-" Toggle current and alternate buffers
-" nnoremap <leader><leader> <c-^>
 
 " Remember buffer count to show in status line
 " au BufAdd * let g:zbuflistcount += 1
@@ -353,7 +349,7 @@ nnoremap <C-k> <C-w>k
 " Registers
 " =============================================================================
 
-"保存全局变量
+" 保存全局变量
 set viminfo+=!
 " 共享外部剪贴板
 " unnamedplus is not worked in homebrew's macvim, so include unnamed
@@ -369,7 +365,7 @@ vnoremap <leader>d "_d
 vnoremap <leader>y "+y
 nnoremap <leader>y "+y
 
-"剪切到公共剪切板
+" 剪切到公共剪切板
 vnoremap <leader>x "+d
 nnoremap <leader>x "+d
 
@@ -483,7 +479,7 @@ if has('mouse')
   set selection=exclusive
   set selectmode=mouse,key
 endif
-"}}}
+" }}}
 
 "==========================================
 " Code folding
@@ -502,7 +498,7 @@ endif
 " setlocal foldlevel=1        " 设置折叠层数为1
 " set foldclose=all           " 设置为自动关闭折叠
 " set foldexpr=1
-"{{{ 用空格键来开关折叠
+" {{{ 用空格键来开关折叠
 set foldenable
 set foldmethod=indent
 set foldlevel=99
@@ -520,7 +516,7 @@ function! ToggleFold()
         let g:FoldMethod = 0
     endif
 endfun
-"}}}
+" }}}
 
 
 
@@ -528,28 +524,28 @@ endfun
 " Custom key map
 "==========================================
 
-"强迫自己用 hjkl
+" 强迫自己用 hjkl
 " map <Left> <Nop>
 " map <Right> <Nop>
 " map <Up> <Nop>
 " map <Down> <Nop>
 
-"Treat long lines as break lines (useful when moving around in them)
+" Treat long lines as break lines (useful when moving around in them)
 " set wrap之后，将自动换行的长行当做多行处理, 方便在长行之间跳转.
-nnoremap k gk
-nnoremap gk k
-nnoremap j gj
-nnoremap gj j
+" nnoremap k gk
+" nnoremap gk k
+" nnoremap j gj
+" nnoremap gj j
 
 " remap U to <C-r> for easier redo
 nnoremap U <C-r>
 
-"设置 jj快速进入normal模式
+" 设置 jj快速进入normal模式
 inoremap kj <Esc>
 " 插入模式, 使用ctrl-l跳出右括号
 inoremap <C-l> <ESC>la
 
-"Keep search pattern at the center of the screen."
+" Keep search pattern at the center of the screen."
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
 
@@ -565,28 +561,22 @@ nnoremap <silent> g# g*zz
 nnoremap ' `
 nnoremap ` '
 
-"Use arrow key to change buffer"
+" Use arrow key to change buffer"
 noremap <left> :bp<CR>
 noremap <right> :bn<CR>
 
-" 在前后行各插入新行,不进入插入模式
-nnoremap t o<ESC>
-nnoremap T O<ESC>
+" 使用Y, 类似于D删除到行尾
 nnoremap Y y$
 
-"Reselect visual block after indent/outdent.调整缩进后自动选中，方便再次操作
+" Reselect visual block after indent/outdent.调整缩进后自动选中，方便再次操作
 vnoremap < <gv
 vnoremap > >gv
-
-" Go to home and end using capitalized directions
-noremap H ^
-noremap L $
 
 " @see http://blog.chinaunix.net/u/8681/showart_1226043.html
 " @usage 50g| jump to 50% of the lines columns.
 nnoremap <expr>g<Bar> '<Esc>'.float2nr(round((col('$')-1)*min([100,v:count])/100.0)).'<Bar>'
 
-"代码格式优化化
+" 代码格式优化化
 autocmd BufNewFile,BufRead *.{c,cpp} set formatprg=astyle
 " Don't use Ex mode, use Q for formatting
 map Q ggvGgqgg
@@ -612,8 +602,6 @@ set pastetoggle=<F5>
 " when in insert mode, press <F5> to go to paste mode, where you can paste mass data that won't be autoindented
 " disbale paste mode when leaving insert mode
 au InsertLeave * set nopaste
-
-nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
 
 "==========================================
 " mapleader key map
@@ -689,7 +677,7 @@ function! NowDate(type)
   endif
   return d
 endfunction
-""}}}
+" }}}
 
 imap ztime <c-r>=NowDate('zh')<cr>
 imap etime <c-r>=NowDate('en')<cr>
@@ -720,11 +708,11 @@ endif
 
 call vundle#end()
 filetype plugin indent on
-""" }}} Vundle.vim 配置结束
+" }}} Vundle.vim 配置结束
 
-"载入文件类型插件
+" 载入文件类型插件
 filetype plugin on
-"为特定文件类型载入相关缩进文件
+" 为特定文件类型载入相关缩进文件
 filetype indent on
 
 "==========================================
