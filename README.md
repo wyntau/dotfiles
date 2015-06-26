@@ -203,7 +203,7 @@ or do a specific task by run
     - git-flow
     - sublime
     - sudo
-    - tmux
+    - tmux (when tmux is installed)
     - z
     - zsh-syntax-highlighting
     - brew (OS X only)
