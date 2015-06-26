@@ -532,9 +532,9 @@ endfun
 
 " Treat long lines as break lines (useful when moving around in them)
 " set wrap之后，将自动换行的长行当做多行处理, 方便在长行之间跳转.
-" nnoremap k gk
+nnoremap k gk
+nnoremap j gj
 " nnoremap gk k
-" nnoremap j gj
 " nnoremap gj j
 
 " remap U to <C-r> for easier redo

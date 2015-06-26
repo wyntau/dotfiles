@@ -4,6 +4,7 @@
 	br = branch
 	bra = branch --all
 	brd = branch --delete
+	brdd = branch -D
 	ci = commit
 	cia = commit --all
 	cim = commit --amend
