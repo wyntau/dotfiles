@@ -183,8 +183,8 @@ function install_vim_rc(){
 
   sync_repo "https://github.com/powerline/fonts.git" \
             "${APP_PATH}/vim/powerline-fonts"
-  info "Installing powerline-fonts ..."
 
+  info "Installing powerline-fonts ..."
   "${APP_PATH}/vim/powerline-fonts/install.sh"
   tip "When install completed, please set your terminal to use powerline fonts for *Non-ASCII font*"
 
@@ -194,9 +194,17 @@ function install_vim_rc(){
        "$HOME/.vimrc"
   lnif "${APP_PATH}/vim/vimrc.bundles" \
        "$HOME/.vimrc.bundles"
+
   if ( is_program_exists nvim ); then
+
     lnif "${APP_PATH}/vim/vimrc" \
          "$HOME/.nvimrc"
+
+    if ( is_linux ); then
+      if ( ! is_program_exists 'xclip' ) && ( ! is_program_exists 'xsel' ); then
+        tip "Maybe you should install xlip or xsel for sharing data between vim registers and system clipboard"
+      fi;
+    fi;
   fi;
 
   better_program_exists_one "ag"
@@ -213,30 +221,38 @@ function install_vim_ycm(){
 
   must_program_exists "git" \
                       "vim" \
-                      "python" \
-                      "wget"
+                      "python"
 
   step "Installing vim YouCompleteMe plugin ..."
-
-  # install python package manager pip
-  if ( ! is_program_exists pip ); then
-
-    info "Installing pip for you..."
-
-    mkdir -p "${APP_PATH}/.tmp"
-    wget https://bootstrap.pypa.io/get-pip.py -O "${APP_PATH}/.tmp/get-pip.py"
-    chmod +x "${APP_PATH}/.tmp/get-pip.py"
-    sudo "${APP_PATH}/.tmp/get-pip.py"
-    rm -rf "${APP_PATH}/.tmp"
-
-    success "Successfully installed pip."
-  fi;
 
   # install pynvim module for neovim
   if ( is_program_exists nvim ) && ( ! is_program_exists pynvim ); then
     info "Installing pynvim for YouCompleteMe plugin in neovim ..."
-    sudo pip install neovim
-    success "Successfully installed pynvim."
+    if ( `uname -a` =~ "gentoo" ) && ( is_file_exists /etc/gentoo-release ); then
+      # in gentoo, recommend enable python USE flag to automatically install pynvim
+      tip "You are using Gentoo Linux."
+      tip "You should enable 'python' USE flag for neovim, and reinstall neovim."
+      tip "Then pynvim(dev-python/neovim-python-client) will be installed automatically."
+      tip "Also you can run '[sudo] emerge -a dev-python/neovim-python-client' manually."
+    else
+      # install python package manager pip
+      if ( ! is_program_exists pip ); then
+
+        must_program_exists "wget"
+
+        info "Installing pip for you..."
+
+        mkdir -p "${APP_PATH}/.tmp"
+        wget https://bootstrap.pypa.io/get-pip.py -O "${APP_PATH}/.tmp/get-pip.py"
+        chmod +x "${APP_PATH}/.tmp/get-pip.py"
+        sudo "${APP_PATH}/.tmp/get-pip.py"
+        rm -rf "${APP_PATH}/.tmp"
+
+        success "Successfully installed pip."
+      fi;
+      sudo pip install neovim
+      success "Successfully installed pynvim."
+    fi;
   fi;
 
   # fetch or update YouCompleteMe
