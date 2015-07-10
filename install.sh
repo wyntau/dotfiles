@@ -202,7 +202,7 @@ function install_vim_rc(){
 
     if ( is_linux ); then
       if ( ! is_program_exists 'xclip' ) && ( ! is_program_exists 'xsel' ); then
-        tip "Maybe you should install xlip or xsel for sharing data between vim registers and system clipboard"
+        tip "Maybe you should install 'xclip' or 'xsel' for sharing data between vim registers and system clipboard"
       fi;
     fi;
   fi;
