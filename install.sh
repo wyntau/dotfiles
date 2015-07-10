@@ -228,7 +228,7 @@ function install_vim_ycm(){
   # install pynvim module for neovim
   if ( is_program_exists nvim ) && ( ! is_program_exists pynvim ); then
     info "Installing pynvim for YouCompleteMe plugin in neovim ..."
-    if ( `uname -a` =~ "gentoo" ) && ( is_file_exists /etc/gentoo-release ); then
+    if [[ `uname -a` =~ "gentoo" ]] && ( is_file_exists /etc/gentoo-release ); then
       # in gentoo, recommend enable python USE flag to automatically install pynvim
       tip "You are using Gentoo Linux."
       tip "You should enable 'python' USE flag for neovim, and reinstall neovim."
