@@ -468,19 +468,6 @@ set notimeout
 set ttimeout
 set ttimeoutlen=100
 
-" =============================================================================
-" Mouse
-" =============================================================================
-" In many terminal emulators the mouse works just fine, thus enable it.
-" 使用鼠标
-" {{{可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）
-if has('mouse')
-  set mouse=a
-  set selection=exclusive
-  set selectmode=mouse,key
-endif
-" }}}
-
 "==========================================
 " Code folding
 "==========================================
