@@ -697,6 +697,7 @@ set t_Co=256
 " 开启高亮语法显示
 syntax enable
 set background=dark
+colorscheme desert
 silent! colorscheme molokai
 " set background transparent
 " hi Normal guibg=black ctermbg=NONE
