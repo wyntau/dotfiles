@@ -38,6 +38,7 @@
 Available tasks:
 
 - [vim_rc](#task-vim_rc)
+- [vim_bundles](#task-vim_bundles)
 - [vim_ycm](#task-vim_ycm)
 - [git_config](#task-git_config)
 - [git_dmtool](#task-git_dmtool)
@@ -59,13 +60,18 @@ or do a specific task by run
 - ### Task `vim_rc`
     Requirements: `git`, `vim`
 
-    *After* **or** *Before* above, you can override the system vim with the new one installed by `homebrew`.(OS X only. This is optional, but recommended, because system vim can't use system clipbord via register `+`)
+    This task will not install any bundles, if you want to use some bundles, do __[task vim_bundles](#task-vim_bundles)__.
+
+    You can override the system vim with the new one installed by `homebrew`.(OS X only. This is optional, but recommended, because system vim can't use system clipbord via register `+`)
 
         brew install macvim --override-system-vim
 
     And then add the new vim __PATH__ into your `$PATH`.
 
     Additionally, if you have installed `neovim`, this task will link `vim/vimrc` to `~/.nvimrc`.
+
+- ### Task `vim_bundles`
+    Requirements: `git`, `vim`, [task vim_rc](#task-vim_rc)
 
     #### What vim bundles are included in vimrc
 
@@ -115,7 +121,7 @@ or do a specific task by run
         Plugin 'Valloric/YouCompleteMe'
 
 - ### Task `vim_ycm`
-    Requirement: `git`, `vim`, `wget`, `python`
+    Requirement: `git`, `vim`, `wget`, `python`, [task vim_bundles](#task-vim_bundles)
 
     Install YouCompleteMe plugin for vim.
 
