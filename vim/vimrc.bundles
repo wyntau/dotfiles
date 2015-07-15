@@ -1,3 +1,6 @@
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
 " --> Vundle plugin
 Plugin 'gmarik/Vundle.vim'
 
@@ -317,11 +320,30 @@ let g:ctrlp_custom_ignore = {
     \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc)$',
     \ }
 if executable('ag')
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
+  let s:ctrlp_fallback = 'ag %s -i -l --nocolor --nogroup --hidden
+    \ --ignore .git
+    \ --ignore .svn
+    \ --ignore .hg
+    \ --ignore .DS_Store
+    \ --ignore "**/*.pyc"
+    \ -g ""'
+elseif executable('ack-grep')
+  let s:ctrlp_fallback = 'ack-grep %s --nocolor -f'
+elseif executable('ack')
+  let g:ctrlp_use_caching = 0
+  let s:ctrlp_fallback = 'ack %s --nocolor -f'
+else
+  let s:ctrlp_fallback = 'find %s -type f'
 endif
+let g:ctrlp_user_command = {
+    \ 'types': {
+        \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
+        \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+    \ },
+    \ 'fallback': s:ctrlp_fallback
+\ }
 " <cr> Open the selected file in the 'current' window if possible.
 " <c-t> Open the selected file in a new 'tab'.
 " <c-v> Open the selected file in a 'vertical' split.
@@ -361,3 +383,16 @@ let g:session_autoload = 'no'
 " let g:session_autosave = 'yes'
 " let g:session_autoload = 'yes'
 " let g:session_default_to_last = 1
+
+
+" source YouCompleteMe plugin
+if filereadable(expand("~/.vimrc.bundles.ycm"))
+  source ~/.vimrc.bundles.ycm
+endif
+
+" If user have own plugins, load them here
+if filereadable(expand("~/.vimrc.bundles.local"))
+  source ~/.vimrc.bundles.local
+endif
+
+call vundle#end()

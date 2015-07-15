@@ -675,25 +675,12 @@ imap etime <c-r>=NowDate('en')<cr>
 " off is required by vundle   "检测文件的类型
 " filetype on " without this vim emits a zero exit status, later, because of :ft off
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 
 " source default bundles
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
 
-" source YouCompleteMe plugin
-if filereadable(expand("~/.vimrc.bundles.ycm"))
-  source ~/.vimrc.bundles.ycm
-endif
-
-" If user have own plugins, load them here
-if filereadable(expand("~/.vimrc.bundles.local"))
-  source ~/.vimrc.bundles.local
-endif
-
-call vundle#end()
 filetype plugin indent on
 " }}} Vundle.vim 配置结束
 

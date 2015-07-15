@@ -159,6 +159,7 @@ function usage(){
   printf "${dot_color_green}\n"
   echo '    - all          ==> do all things below'
   echo '    - vim_rc'
+  echo '    - vim_bundles  ==> vim plugins except YouCompleteMe'
   echo '    - vim_ycm      ==> vim plugin YouCompleteMe'
   echo '    - git_config'
   echo '    - git_dmtool   ==> config difftool and mergetool to Kaleidoscope'
@@ -178,22 +179,10 @@ function install_vim_rc(){
 
   step "Installing vimrc ..."
 
-  sync_repo "https://github.com/gmarik/Vundle.vim.git" \
-            "${APP_PATH}/vim/bundle/Vundle.vim"
-
-  sync_repo "https://github.com/powerline/fonts.git" \
-            "${APP_PATH}/vim/powerline-fonts"
-
-  info "Installing powerline-fonts ..."
-  "${APP_PATH}/vim/powerline-fonts/install.sh"
-  tip "When install completed, please set your terminal to use powerline fonts for *Non-ASCII font*"
-
   lnif "${APP_PATH}/vim" \
        "$HOME/.vim"
   lnif "${APP_PATH}/vim/vimrc" \
        "$HOME/.vimrc"
-  lnif "${APP_PATH}/vim/vimrc.bundles" \
-       "$HOME/.vimrc.bundles"
 
   if ( is_program_exists nvim ); then
 
@@ -207,17 +196,52 @@ function install_vim_rc(){
     fi;
   fi;
 
+  success "Successfully installed vimrc."
+
+  success "You can add your own configs to ~/.vimrc.local, vim will source them automatically"
+}
+
+function install_vim_bundles(){
+
+  if ( ! is_file_exists "$HOME/.vimrc" ); then
+    error "You should complete vim_rc task first"
+    exit
+  fi;
+
+  must_program_exists "git" \
+                      "vim"
+
+  step "Installing vim bundles ..."
+
+  sync_repo "https://github.com/gmarik/Vundle.vim.git" \
+            "${APP_PATH}/vim/bundle/Vundle.vim"
+
+  sync_repo "https://github.com/powerline/fonts.git" \
+            "${APP_PATH}/vim/powerline-fonts"
+
+  info "Installing powerline-fonts ..."
+  "${APP_PATH}/vim/powerline-fonts/install.sh"
+  tip "When install completed, please set your terminal to use powerline fonts for *Non-ASCII font*"
+
+  lnif "${APP_PATH}/vim/vimrc.bundles" \
+       "$HOME/.vimrc.bundles"
+
   better_program_exists_one "ag"
 
   info "Installing vim bundles ..."
   vim +PluginInstall +qall
 
-  success "Successfully installed vimrc and bundles."
+  success "Successfully installed vim bundles."
 
-  success "You can add your own configs to ~/.vimrc.local, and your own plugins to ~/.vimrc.bundles.local , vim will source them automatically"
+  success "You can add your own bundles to ~/.vimrc.bundles.local , vim will source them automatically"
 }
 
 function install_vim_ycm(){
+
+  if ( ! is_file_exists "$HOME/.vimrc.bundles" ); then
+    error "You should complete vim_bundles task first"
+    exit
+  fi;
 
   must_program_exists "git" \
                       "vim" \
@@ -504,6 +528,7 @@ else
     case $arg in
       all)
         install_vim_rc
+        install_vim_bundles
         install_vim_ycm
         install_git_config
         install_git_dmtool
@@ -516,6 +541,9 @@ else
         ;;
       vim_rc)
         install_vim_rc
+        ;;
+      vim_bundles)
+        install_vim_bundles
         ;;
       vim_ycm)
         install_vim_ycm
