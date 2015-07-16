@@ -23,7 +23,8 @@ set fileencodings=utf-8,gb2312,gbk,gb18030,ucs-bom,cp936,big5,euc-jp,euc-kr,lati
 " 下面这句只影响普通模式 (非图形界面) 下的 Vim。
 set termencoding=utf-8
 set fileformats=unix,dos,mac
-language messages zh_CN.UTF-8
+" 处理consle输出乱码, use silent! prevent show error msg on some OS
+silent! language messages zh_CN.UTF-8
 set langmenu=zh_CN.UTF-8
 set helplang=cn
 
