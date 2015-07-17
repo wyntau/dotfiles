@@ -543,6 +543,11 @@ nnoremap <silent> * #zz
 nnoremap <silent> g* g#zz
 nnoremap <silent> g# g*zz
 
+" {{{全文搜索选中的文字
+vnoremap  *  y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
+vnoremap  #  y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
+" }}}
+
 " Swap implementations of ` and ' jump to markers
 " By default, ' jumps to the marked line, ` jumps to the marked line and
 " column, so swap them
@@ -568,11 +573,6 @@ nnoremap <expr>g<Bar> '<Esc>'.float2nr(round((col('$')-1)*min([100,v:count])/100
 autocmd BufNewFile,BufRead *.{c,cpp} set formatprg=astyle
 " Don't use Ex mode, use Q for formatting
 map Q ggvGgqgg
-
-" {{{全文搜索选中的文字
-vnoremap  *  y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
-vnoremap  #  y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
-" }}}
 
 function! NumberToggle()
   if(&relativenumber == 1)
