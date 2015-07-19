@@ -202,7 +202,7 @@ function install_vim_rc(){
   success "You can add your own configs to ~/.vimrc.local, vim will source them automatically"
 }
 
-function install_vim_bundles(){
+function install_vim_bundles_base(){
 
   if ( ! is_file_exists "$HOME/.vimrc" ); then
     error "You should complete vim_rc task first"
@@ -212,10 +212,18 @@ function install_vim_bundles(){
   must_program_exists "git" \
                       "vim"
 
-  step "Installing vim bundles ..."
-
   sync_repo "https://github.com/gmarik/Vundle.vim.git" \
             "${APP_PATH}/vim/bundle/Vundle.vim"
+
+  lnif "${APP_PATH}/vim/vimrc.bundles" \
+       "$HOME/.vimrc.bundles"
+}
+
+function install_vim_bundles_default(){
+
+  install_vim_bundles_base
+
+  step "Installing vim bundles ..."
 
   sync_repo "https://github.com/powerline/fonts.git" \
             "${APP_PATH}/vim/powerline-fonts"
@@ -224,12 +232,11 @@ function install_vim_bundles(){
   "${APP_PATH}/vim/powerline-fonts/install.sh"
   tip "When install completed, please set your terminal to use powerline fonts for *Non-ASCII font*"
 
-  lnif "${APP_PATH}/vim/vimrc.bundles" \
-       "$HOME/.vimrc.bundles"
-
   better_program_exists_one "ag"
 
-  info "Installing vim bundles ..."
+  lnif "${APP_PATH}/vim/vimrc.bundles.default" \
+       "$HOME/.vimrc.bundles.default"
+
   vim +PluginInstall +qall
 
   success "Successfully installed vim bundles."
@@ -270,14 +277,10 @@ function install_neovim_python_support(){
 }
 
 function install_vim_bundles_snippets(){
-  if ( ! is_file_exists "$HOME/.vimrc.bundles" ); then
-    error "You should complete vim_bundles task first"
-    exit
-  fi;
 
-  must_program_exists "git" \
-                      "vim" \
-                      "python"
+  install_vim_bundles_base
+
+  must_program_exists "python"
 
   step "Installing vim snippets plugin ..."
 
@@ -294,14 +297,9 @@ function install_vim_bundles_snippets(){
 
 function install_vim_bundles_ycm(){
 
-  if ( ! is_file_exists "$HOME/.vimrc.bundles" ); then
-    error "You should complete vim_bundles task first"
-    exit
-  fi;
+  install_vim_bundles_base
 
-  must_program_exists "git" \
-                      "vim" \
-                      "python"
+  must_program_exists "python"
 
   step "Installing vim YouCompleteMe plugin ..."
 
@@ -573,7 +571,7 @@ else
         install_vim_rc
         ;;
       vim_bundles)
-        install_vim_bundles
+        install_vim_bundles_default
         ;;
       vim_bundles_snippets)
         install_vim_bundles_snippets

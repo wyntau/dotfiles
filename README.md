@@ -12,6 +12,7 @@
     ├── vim
     │   ├── vimrc
     │   ├── vimrc.bundles
+    │   ├── vimrc.bundles.default
     │   ├── vimrc.bundles.snippets
     │   └── vimrc.bundles.ycm
     └── zsh
@@ -30,7 +31,8 @@
     - tmux.conf - tmux config
 - vim - all things about _VIM_
     - vimrc - the config for **vim**
-    - vimrc.bundles - all bundles except vim-snippets and YouCompleteMe
+    - vimrc.bundles - setup Vundle, and load other plugins
+    - vimrc.bundles.default - all bundles except vim-snippets and YouCompleteMe
     - vimrc.bundles.snippets - vim plugin vim-snippets.
     - vimrc.bundles.ycm - vim plugin YouCompleteMe. because install this plugin is not easy, so make it a separate task.
 - zsh - all things about *zsh*
