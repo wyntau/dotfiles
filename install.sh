@@ -160,7 +160,8 @@ function usage(){
   echo '    - all          ==> do all things below'
   echo '    - vim_rc'
   echo '    - vim_bundles  ==> vim plugins except YouCompleteMe and snippets'
-  echo '    - vim_bundle_ycm      ==> vim plugin YouCompleteMe'
+  echo '    - vim_bundles_snippets ==> vim plugin snippets'
+  echo '    - vim_bundles_ycm      ==> vim plugin YouCompleteMe'
   echo '    - git_config'
   echo '    - git_dmtool   ==> config difftool and mergetool to Kaleidoscope'
   echo '    - git_extras   ==> git-extras extensions'
@@ -236,19 +237,7 @@ function install_vim_bundles(){
   success "You can add your own bundles to ~/.vimrc.bundles.local , vim will source them automatically"
 }
 
-function install_vim_bundle_ycm(){
-
-  if ( ! is_file_exists "$HOME/.vimrc.bundles" ); then
-    error "You should complete vim_bundles task first"
-    exit
-  fi;
-
-  must_program_exists "git" \
-                      "vim" \
-                      "python"
-
-  step "Installing vim YouCompleteMe plugin ..."
-
+function install_neovim_python_support(){
   # install pynvim module for neovim
   if ( is_program_exists nvim ) && ( ! is_program_exists pynvim ); then
     info "Installing pynvim for YouCompleteMe plugin in neovim ..."
@@ -278,6 +267,50 @@ function install_vim_bundle_ycm(){
       success "Successfully installed pynvim."
     fi;
   fi;
+}
+
+function install_vim_bundles_snippets(){
+  if ( ! is_file_exists "$HOME/.vimrc.bundles" ); then
+    error "You should complete vim_bundles task first"
+    exit
+  fi;
+
+  must_program_exists "git" \
+                      "vim" \
+                      "python"
+
+  step "Installing vim snippets plugin ..."
+
+  # check whether have neovim. if have, make sure neovim have python feature support
+  install_neovim_python_support
+
+  sync_repo "https://github.com/SirVer/ultisnips.git" \
+            "${APP_PATH}/vim/bundle/ultisnips"
+
+  sync_repo "https://github.com/honza/vim-snippets" \
+            "${APP_PATH}/vim/bundle/vim-snippets"
+
+  lnif "${APP_PATH}/vim/vimrc.bundles.snippets" \
+       "$HOME/.vimrc.bundles.snippets"
+
+  success "Successfully installed vim-snippets plugins."
+}
+
+function install_vim_bundles_ycm(){
+
+  if ( ! is_file_exists "$HOME/.vimrc.bundles" ); then
+    error "You should complete vim_bundles task first"
+    exit
+  fi;
+
+  must_program_exists "git" \
+                      "vim" \
+                      "python"
+
+  step "Installing vim YouCompleteMe plugin ..."
+
+  # check whether have neovim. if have, make sure neovim have python feature support
+  install_neovim_python_support
 
   # fetch or update YouCompleteMe
   sync_repo "https://github.com/Valloric/YouCompleteMe.git" \
@@ -529,7 +562,8 @@ else
       all)
         install_vim_rc
         install_vim_bundles
-        install_vim_bundle_ycm
+        install_vim_bundles_snippets
+        install_vim_bundles_ycm
         install_git_config
         install_git_dmtool
         install_git_extras
@@ -545,8 +579,11 @@ else
       vim_bundles)
         install_vim_bundles
         ;;
-      vim_ycm)
-        install_vim_bundle_ycm
+      vim_bundles_snippets)
+        install_vim_bundles_snippets
+        ;;
+      vim_bundles_ycm)
+        install_vim_bundles_ycm
         ;;
       git_config)
         install_git_config

@@ -39,7 +39,8 @@ Available tasks:
 
 - [vim_rc](#task-vim_rc)
 - [vim_bundles](#task-vim_bundles)
-- [vim_bundle_ycm](#task-vim_bundle_ycm)
+- [vim_bundles_snippets](#task-vim_bundles_snippets)
+- [vim_bundles_ycm](#task-vim_bundles_ycm)
 - [git_config](#task-git_config)
 - [git_dmtool](#task-git_dmtool)
 - [git_extras](#task-git_extras)
@@ -95,8 +96,6 @@ or do a specific task by run
         Plugin 'pangloss/vim-javascript'
         Plugin 'Marslo/vim-coloresque'
         Plugin 'mattn/emmet-vim'
-        Plugin 'SirVer/ultisnips'
-        Plugin 'honza/vim-snippets'
         Plugin 'tobyS/vmustache'
         Plugin 'tobyS/pdv'
         Plugin 'heavenshell/vim-jsdoc'
@@ -115,9 +114,16 @@ or do a specific task by run
         Plugin 'Lokaltog/vim-easymotion'
         Plugin 'tmux-plugins/vim-tmux'
         Plugin 'tmux-plugins/vim-tmux-focus-events'
+        Plugin 'SirVer/ultisnips'
+        Plugin 'honza/vim-snippets'
         Plugin 'Valloric/YouCompleteMe'
 
-- ### Task `vim_bundle_ycm`
+- ### Task `vim_bundles_snippets`
+    Requirement: `git`, `vim`, `wget`, `python`, [task vim_bundles](#task-vim_bundles)
+
+    Install vim-snippets plugin for vim.
+
+- ### Task `vim_bundles_ycm`
     Requirement: `git`, `vim`, `wget`, `python`, [task vim_bundles](#task-vim_bundles)
 
     Install YouCompleteMe plugin for vim.

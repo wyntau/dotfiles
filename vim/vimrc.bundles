@@ -86,12 +86,6 @@ let g:user_emmet_leader_key='<C-Y>'
 autocmd FileType html,css EmmetInstall
 " }}}
 
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-let g:UltiSnipsExpandTrigger="<Tab>"
-let g:UltiSnipsJumpForwardTrigger="<Tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
-
 " required by tobys/pdv
 Plugin 'tobyS/vmustache'
 " phpdoc generator,
@@ -339,6 +333,11 @@ Plugin 'tmux-plugins/vim-tmux'
 " FocusGained and FocusLost autocommand events are not working in terminal vim.
 " This plugin restores them when using vim inside Tmux.
 Plugin 'tmux-plugins/vim-tmux-focus-events'
+
+" source YouCompleteMe plugin
+if filereadable(expand("~/.vimrc.bundles.snippets"))
+  source ~/.vimrc.bundles.snippets
+endif
 
 " source YouCompleteMe plugin
 if filereadable(expand("~/.vimrc.bundles.ycm"))
