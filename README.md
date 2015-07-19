@@ -79,7 +79,7 @@ or do a specific task by run
         Plugin 'tomasr/molokai'
         Plugin 'altercation/vim-colors-solarized'
         Plugin 'terryma/vim-smooth-scroll'
-        Plugin 'jiangmiao/auto-pairs'
+        Plugin 'Raimondi/delimitMate'
         Plugin 'Yggdroot/indentLine'
         Plugin 'ntpeters/vim-better-whitespace'
         Plugin 'bling/vim-airline'
