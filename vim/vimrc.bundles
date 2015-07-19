@@ -91,7 +91,6 @@ Plugin 'tpope/vim-repeat'
 
 " --> Git support
 Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
 
 " --> 快速搜索插件
 " Plugin 'mileszs/ack.vim'

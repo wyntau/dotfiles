@@ -101,7 +101,6 @@ or do a specific task by run
         Plugin 'tpope/vim-surround'
         Plugin 'tpope/vim-repeat'
         Plugin 'airblade/vim-gitgutter'
-        Plugin 'tpope/vim-fugitive'
         Plugin 'dyng/ctrlsf.vim'
         Plugin 'scrooloose/nerdtree'
         Plugin 'jistr/vim-nerdtree-tabs'
