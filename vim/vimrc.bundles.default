@@ -1,26 +1,34 @@
 
-" --> Themes and views
+" ==> Themes and views
 
 " molokai colorscheme
 Plugin 'tomasr/molokai'
 "If you prefer the scheme to match the original monokai background color
 let g:molokai_original = 1
-
 " solarized colorscheme
 Plugin 'altercation/vim-colors-solarized'
 let g:solarized_termcolors=256
 
-" --> smooth scroll
-Plugin 'terryma/vim-smooth-scroll'
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 12, 2)<cr>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 14, 2)<cr>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 22, 4)<cr>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 24, 4)<cr>
+" ==> filetype and language syntax support
+" vim-markdown {{{
+" 自动对齐
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled=1
+" }}}
+Plugin 'leafgarland/typescript-vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'groenewege/vim-less'
+Plugin 'smilekzs/vim-nfo'
+Plugin 'evanmiller/nginx-vim-syntax'
+Plugin 'tmux-plugins/vim-tmux'
+Plugin 'pangloss/vim-javascript'
 
-" --> shows
-" 自动补全引号, 括号等
-Plugin 'Raimondi/delimitMate'
+" FocusGained and FocusLost autocommand events are not working in terminal vim.
+" This plugin restores them when using vim inside Tmux.
+Plugin 'tmux-plugins/vim-tmux-focus-events'
 
+" ==> User Interface support
 Plugin 'Yggdroot/indentLine'
 let g:indentLine_char = '¦'
 " Vim
@@ -43,32 +51,27 @@ set laststatus=2
 " buffer编号 | 文件路径及文件名 | modified状态 | 只读状态 | help | preview | 文件编码 | BOM | EOL | type | demical:hexadecimal | 列:行/总行 | 文件百分比 | 时 间
 " set statusline=[%n]\ %F%m%r%h%w\ [%{&ff}]\ [%{(&fenc==\"\"?&enc:&fenc).(&bomb?\",BOM\":\"\")}]%{&eol?'':'\ [noeol]'}\ [TYPE=%Y]\ [\%03.3b:0x\%02.2B]\ [POS=%c:%l/%L][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
 
-" --> Langulage support
-" vim-markdown {{{
-" 自动对齐
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-let g:vim_markdown_folding_disabled=1
-" }}}
-Plugin 'leafgarland/typescript-vim'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'groenewege/vim-less'
-Plugin 'smilekzs/vim-nfo'
-Plugin 'evanmiller/nginx-vim-syntax'
+" ap/vim-css-color # 不支持Vim74， 使用vim-colorsque 替代
+Plugin 'Marslo/vim-coloresque'
+
+" ==> Extends
+
+" --> smooth scroll
+Plugin 'terryma/vim-smooth-scroll'
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 12, 2)<cr>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 14, 2)<cr>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 22, 4)<cr>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 24, 4)<cr>
+
+" 自动补全引号, 括号等
+Plugin 'Raimondi/delimitMate'
 
 " extended % matching for HTML, LaTeX, and many other languages
 Plugin 'vim-scripts/matchit.zip'
 
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'pangloss/vim-javascript'
-" disable auto fold when filetype javascript
-" autocmd FileType javascript call JavaScriptFold()
-
 " Write styles faster. Much faster.
 " Plugin 'rstacruz/vim-hyperstyle'
 
-" ap/vim-css-color # 不支持Vim74， 使用vim-colorsque 替代
-Plugin 'Marslo/vim-coloresque'
 " {{{{ emmet
 Plugin 'mattn/emmet-vim'
 let g:user_emmet_mode='i'  "enable all functions
@@ -88,9 +91,8 @@ Plugin 'tpope/vim-repeat'
 Plugin 'airblade/vim-gitgutter'
 
 " --> 快速搜索插件
-" Plugin 'mileszs/ack.vim'
-" Plugin 'rking/ag.vim' " install `ag` a.k.a `the_silver_searcher`
 " An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
+" require ag(a.k.a `the_silver_searcher`) or ack
 Plugin 'dyng/ctrlsf.vim'
 let g:ctrlsf_winsize='30%'
 let g:ctrlsf_auto_close=0
@@ -247,8 +249,8 @@ Plugin 'terryma/vim-multiple-cursors'
 
 " 搜索替换快速预览
 Plugin 'osyo-manga/vim-over'
-" 快速文件搜索, 类似于sublime中的command + p
 
+" 快速文件搜索, 类似于sublime中的command + p
 Plugin 'kien/ctrlp.vim'
 " create new file in current window
 let g:ctrlp_open_new_file = 'r'
@@ -306,9 +308,3 @@ map <Leader>h <Plug>(easymotion-linebackward)
 let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 " With this option set, v will match both v and V, but V will match V only. Default: 0.
 let g:EasyMotion_smartcase = 1
-
-" tmux conf highlight
-Plugin 'tmux-plugins/vim-tmux'
-" FocusGained and FocusLost autocommand events are not working in terminal vim.
-" This plugin restores them when using vim inside Tmux.
-Plugin 'tmux-plugins/vim-tmux-focus-events'
