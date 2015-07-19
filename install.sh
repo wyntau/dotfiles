@@ -574,6 +574,9 @@ else
       vim_bundles)
         install_vim_bundles_default
         ;;
+      vim_bundles_default)
+        install_vim_bundles_default
+        ;;
       vim_bundles_snippets)
         install_vim_bundles_snippets
         ;;

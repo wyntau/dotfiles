@@ -119,12 +119,12 @@ or do a specific task by run
         Plugin 'Valloric/YouCompleteMe'
 
 - ### Task `vim_bundles_snippets`
-    Requirement: `git`, `vim`, `wget`, `python`, [task vim_bundles](#task-vim_bundles)
+    Requirement: `git`, `vim`, `wget`, `python`, [task vim_rc](#task-vim_rc)
 
     Install vim-snippets plugin for vim.
 
 - ### Task `vim_bundles_ycm`
-    Requirement: `git`, `vim`, `wget`, `python`, [task vim_bundles](#task-vim_bundles)
+    Requirement: `git`, `vim`, `wget`, `python`, [task vim_rc](#task-vim_rc)
 
     Install YouCompleteMe plugin for vim.
 
