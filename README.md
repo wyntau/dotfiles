@@ -39,7 +39,7 @@ Available tasks:
 
 - [vim_rc](#task-vim_rc)
 - [vim_bundles](#task-vim_bundles)
-- [vim_ycm](#task-vim_ycm)
+- [vim_bundle_ycm](#task-vim_bundle_ycm)
 - [git_config](#task-git_config)
 - [git_dmtool](#task-git_dmtool)
 - [git_extras](#task-git_extras)
@@ -117,7 +117,7 @@ or do a specific task by run
         Plugin 'tmux-plugins/vim-tmux-focus-events'
         Plugin 'Valloric/YouCompleteMe'
 
-- ### Task `vim_ycm`
+- ### Task `vim_bundle_ycm`
     Requirement: `git`, `vim`, `wget`, `python`, [task vim_bundles](#task-vim_bundles)
 
     Install YouCompleteMe plugin for vim.

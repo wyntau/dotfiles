@@ -159,8 +159,8 @@ function usage(){
   printf "${dot_color_green}\n"
   echo '    - all          ==> do all things below'
   echo '    - vim_rc'
-  echo '    - vim_bundles  ==> vim plugins except YouCompleteMe'
-  echo '    - vim_ycm      ==> vim plugin YouCompleteMe'
+  echo '    - vim_bundles  ==> vim plugins except YouCompleteMe and snippets'
+  echo '    - vim_bundle_ycm      ==> vim plugin YouCompleteMe'
   echo '    - git_config'
   echo '    - git_dmtool   ==> config difftool and mergetool to Kaleidoscope'
   echo '    - git_extras   ==> git-extras extensions'
@@ -236,7 +236,7 @@ function install_vim_bundles(){
   success "You can add your own bundles to ~/.vimrc.bundles.local , vim will source them automatically"
 }
 
-function install_vim_ycm(){
+function install_vim_bundle_ycm(){
 
   if ( ! is_file_exists "$HOME/.vimrc.bundles" ); then
     error "You should complete vim_bundles task first"
@@ -529,7 +529,7 @@ else
       all)
         install_vim_rc
         install_vim_bundles
-        install_vim_ycm
+        install_vim_bundle_ycm
         install_git_config
         install_git_dmtool
         install_git_extras
@@ -546,7 +546,7 @@ else
         install_vim_bundles
         ;;
       vim_ycm)
-        install_vim_ycm
+        install_vim_bundle_ycm
         ;;
       git_config)
         install_git_config
