@@ -90,7 +90,6 @@ or do a specific task by run
         Plugin 'groenewege/vim-less'
         Plugin 'smilekzs/vim-nfo'
         Plugin 'evanmiller/nginx-vim-syntax'
-        Plugin 'luochen1990/rainbow'
         Plugin 'vim-scripts/matchit.zip'
         Plugin 'jelera/vim-javascript-syntax'
         Plugin 'pangloss/vim-javascript'
