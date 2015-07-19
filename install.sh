@@ -287,7 +287,7 @@ function install_vim_bundles_snippets(){
   sync_repo "https://github.com/SirVer/ultisnips.git" \
             "${APP_PATH}/vim/bundle/ultisnips"
 
-  sync_repo "https://github.com/honza/vim-snippets" \
+  sync_repo "https://github.com/honza/vim-snippets.git" \
             "${APP_PATH}/vim/bundle/vim-snippets"
 
   lnif "${APP_PATH}/vim/vimrc.bundles.snippets" \
