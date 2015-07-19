@@ -86,21 +86,6 @@ let g:user_emmet_leader_key='<C-Y>'
 autocmd FileType html,css EmmetInstall
 " }}}
 
-" required by tobys/pdv
-Plugin 'tobyS/vmustache'
-" phpdoc generator,
-" require tobys/pdv and SirVer/ultisnips
-Plugin 'tobyS/pdv'
-let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
-map <leader>doc :call pdv#DocumentWithSnip()<CR>
-
-Plugin 'heavenshell/vim-jsdoc'
-let g:jsdoc_allow_input_prompt = 1
-let g:jsdoc_input_description = 1
-let g:jsdoc_underscore_private = 1
-let g:jsdoc_access_descriptions = 2
-let g:jsdoc_allow_shorthand = 1
-
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 
