@@ -334,9 +334,11 @@ let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 " With this option set, v will match both v and V, but V will match V only. Default: 0.
 let g:EasyMotion_smartcase = 1
 
+" tmux conf highlight
 Plugin 'tmux-plugins/vim-tmux'
+" FocusGained and FocusLost autocommand events are not working in terminal vim.
+" This plugin restores them when using vim inside Tmux.
 Plugin 'tmux-plugins/vim-tmux-focus-events'
-" Plugin 'tpope/vim-obsession'
 
 " source YouCompleteMe plugin
 if filereadable(expand("~/.vimrc.bundles.ycm"))
