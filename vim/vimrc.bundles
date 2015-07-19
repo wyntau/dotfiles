@@ -268,11 +268,14 @@ let g:NERDCompactSexyComs=1
 Plugin 'terryma/vim-expand-region'
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
+
 " 鼠标多重选择
 Plugin 'terryma/vim-multiple-cursors'
+
 " 搜索替换快速预览
 Plugin 'osyo-manga/vim-over'
 " 快速文件搜索, 类似于sublime中的command + p
+
 Plugin 'kien/ctrlp.vim'
 " create new file in current window
 let g:ctrlp_open_new_file = 'r'
@@ -334,17 +337,6 @@ let g:EasyMotion_smartcase = 1
 Plugin 'tmux-plugins/vim-tmux'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 " Plugin 'tpope/vim-obsession'
-
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-session'
-set sessionoptions-=help
-set sessionoptions-=options
-let g:session_autosave = 'no'
-let g:session_autoload = 'no'
-" let g:session_autosave = 'yes'
-" let g:session_autoload = 'yes'
-" let g:session_default_to_last = 1
-
 
 " source YouCompleteMe plugin
 if filereadable(expand("~/.vimrc.bundles.ycm"))

@@ -115,8 +115,6 @@ or do a specific task by run
         Plugin 'Lokaltog/vim-easymotion'
         Plugin 'tmux-plugins/vim-tmux'
         Plugin 'tmux-plugins/vim-tmux-focus-events'
-        Plugin 'xolox/vim-misc'
-        Plugin 'xolox/vim-session'
         Plugin 'Valloric/YouCompleteMe'
 
 - ### Task `vim_ycm`
