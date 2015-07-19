@@ -284,14 +284,10 @@ function install_vim_bundles_snippets(){
   # check whether have neovim. if have, make sure neovim have python feature support
   install_neovim_python_support
 
-  sync_repo "https://github.com/SirVer/ultisnips.git" \
-            "${APP_PATH}/vim/bundle/ultisnips"
-
-  sync_repo "https://github.com/honza/vim-snippets.git" \
-            "${APP_PATH}/vim/bundle/vim-snippets"
-
   lnif "${APP_PATH}/vim/vimrc.bundles.snippets" \
        "$HOME/.vimrc.bundles.snippets"
+
+  vim +PluginInstall +qall
 
   success "Successfully installed vim-snippets plugins."
 }
