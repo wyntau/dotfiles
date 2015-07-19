@@ -153,7 +153,7 @@ function usage(){
   fi;
 
   echo
-  echo 'Usage: install.sh [tasks]'
+  echo 'Usage: install.sh <task>[ taskFoo taskBar ...]'
   echo
   echo 'Tasks:'
   printf "${dot_color_green}\n"
