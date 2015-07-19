@@ -119,6 +119,9 @@ function lnif(){
 }
 
 function sync_repo(){
+
+  must_program_exists "git"
+
   local repo_uri=$1
   local repo_path=$2
   local repo_branch=${3:-master}
@@ -175,8 +178,7 @@ function usage(){
 
 function install_vim_rc(){
 
-  must_program_exists "git" \
-                      "vim"
+  must_program_exists "vim"
 
   step "Installing vimrc ..."
 
@@ -209,8 +211,7 @@ function install_vim_bundles_base(){
     exit
   fi;
 
-  must_program_exists "git" \
-                      "vim"
+  step "Initializing Vundle.vim"
 
   sync_repo "https://github.com/gmarik/Vundle.vim.git" \
             "${APP_PATH}/vim/bundle/Vundle.vim"
