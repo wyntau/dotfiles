@@ -25,6 +25,11 @@ if filereadable(expand("~/.vimrc.bundles.snippets"))
   source ~/.vimrc.bundles.snippets
 endif
 
+" source filetype syntax
+if filereadable(expand("~/.vimrc.bundles.syntax"))
+  source ~/.vimrc.bundles.syntax
+endif
+
 " source YouCompleteMe plugin
 if filereadable(expand("~/.vimrc.bundles.ycm"))
   source ~/.vimrc.bundles.ycm

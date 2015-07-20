@@ -166,6 +166,7 @@ function usage(){
   echo '    - vim_bundles_airline'
   echo '    - vim_bundles_airline_with_fonts'
   echo '    - vim_bundles_snippets'
+  echo '    - vim_bundles_syntax'
   echo '    - vim_bundles_ycm'
   echo '    - git_config'
   echo '    - git_dmtool'
@@ -334,6 +335,20 @@ function install_vim_bundles_snippets(){
   vim +PluginInstall +qall
 
   success "Successfully installed vim-snippets plugins."
+}
+
+function install_vim_bundles_syntax(){
+
+  install_vim_bundles_base
+
+  step "Install vim syntax for different file types ..."
+
+  lnif "${APP_PATH}/vim/vimrc.bundles.syntax" \
+       "$HOME/.vimrc.bundles.syntax"
+
+  vim +PluginInstall # +qall
+
+  success "Successfully installed syntax for different file types."
 }
 
 function install_vim_bundles_ycm(){
@@ -618,6 +633,9 @@ else
         ;;
       vim_bundles_snippets)
         install_vim_bundles_snippets
+        ;;
+      vim_bundles_syntax)
+        install_vim_bundles_syntax
         ;;
       vim_bundles_ycm)
         install_vim_bundles_ycm

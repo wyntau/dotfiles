@@ -1,0 +1,16 @@
+
+" ==> filetype and language syntax support
+" vim-markdown {{{
+" 自动对齐
+" avoid confict with extends tabular
+Plugin 'godlygeek/tabular', {'name': 'vim-markdown-tabular'}
+Plugin 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled=1
+" }}}
+Plugin 'leafgarland/typescript-vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'groenewege/vim-less'
+Plugin 'smilekzs/vim-nfo'
+Plugin 'evanmiller/nginx-vim-syntax'
+Plugin 'tmux-plugins/vim-tmux'
+Plugin 'pangloss/vim-javascript'
