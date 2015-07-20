@@ -161,7 +161,7 @@ function usage(){
   echo 'Tasks:'
   printf "${dot_color_green}\n"
   echo '    - vim_rc'
-  echo '    - vim_bundles_base  ==> vim plugins except YouCompleteMe and snippets'
+  echo '    - vim_bundles_base'
   echo '    - vim_bundles_airline'
   echo '    - vim_bundles_airline_with_fonts'
   echo '    - vim_bundles_colorschemes'
