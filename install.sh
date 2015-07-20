@@ -381,8 +381,6 @@ function install_vim_bundles_ycm(){
 
 function install_sublime(){
 
-  must_program_exists "git"
-
   if ( is_linux ); then
     SUBLIMEPATH="$HOME/.config/sublime-text-2"
   elif ( is_mac ); then
@@ -511,8 +509,7 @@ function install_astylerc(){
 
 function install_zsh_rc(){
 
-  must_program_exists "git" \
-                      "zsh"
+  must_program_exists "zsh"
 
   step "Installing zshrc ..."
 
@@ -558,8 +555,7 @@ function install_zsh_cfg(){
 
 function install_tmux(){
 
-  must_program_exists "git" \
-                      "tmux"
+  must_program_exists "tmux"
 
   step "Installing tmux configs ..."
 
