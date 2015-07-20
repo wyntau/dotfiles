@@ -162,13 +162,15 @@ function usage(){
   printf "${dot_color_green}\n"
   echo '    - vim_rc'
   echo '    - vim_bundles  ==> vim plugins except YouCompleteMe and snippets'
-  echo '    - vim_bundles_colorschemes  ==> vim colorschemes'
-  echo '    - vim_bundles_snippets ==> vim plugin snippets'
-  echo '    - vim_bundles_ycm      ==> vim plugin YouCompleteMe'
+  echo '    - vim_bundles_colorschemes'
+  echo '    - vim_bundles_airline'
+  echo '    - vim_bundles_airline_with_fonts'
+  echo '    - vim_bundles_snippets'
+  echo '    - vim_bundles_ycm'
   echo '    - git_config'
-  echo '    - git_dmtool   ==> config difftool and mergetool to Kaleidoscope'
-  echo '    - git_extras   ==> git-extras extensions'
-  echo '    - git_flow     ==> git-flow extensions'
+  echo '    - git_dmtool'
+  echo '    - git_extras'
+  echo '    - git_flow'
   echo '    - astylerc'
   echo '    - sublime'
   echo '    - zsh_rc'
@@ -224,7 +226,7 @@ function install_vim_bundles_colorschemes(){
 
   install_vim_bundles_base
 
-  step "Install vim colorschemes ..."
+  step "Installing vim colorschemes ..."
 
   lnif "${APP_PATH}/vim/vimrc.bundles.colorschemes" \
        "$HOME/.vimrc.bundles.colorschemes"
@@ -234,11 +236,23 @@ function install_vim_bundles_colorschemes(){
   success "Successfully installed vim colorschemes."
 }
 
-function install_vim_bundles_default(){
+function install_vim_bundles_airline(){
 
   install_vim_bundles_base
 
-  step "Installing vim bundles ..."
+  step "Installing vim plugin vim-airline ..."
+
+  lnif "${APP_PATH}/vim/vimrc.bundles.airline" \
+       "$HOME/.vimrc.bundles.airline"
+
+  vim +PluginInstall +qall
+
+  success "Successfully installed vim-airline."
+}
+
+function install_vim_bundles_airline_with_fonts(){
+
+  step "Install powerline-fonts for airline symbols ..."
 
   sync_repo "https://github.com/powerline/fonts.git" \
             "${APP_PATH}/vim/powerline-fonts"
@@ -246,6 +260,20 @@ function install_vim_bundles_default(){
   info "Installing powerline-fonts ..."
   "${APP_PATH}/vim/powerline-fonts/install.sh"
   tip "When install completed, please set your terminal to use powerline fonts for *Non-ASCII font*"
+
+  lnif "${APP_PATH}/vim/vimrc.bundles.airline.fonts" \
+       "$HOME/.vimrc.bundles.airline.fonts"
+
+  success "Successfully installed powerline-fonts for airline."
+
+  install_vim_bundles_airline
+}
+
+function install_vim_bundles_default(){
+
+  install_vim_bundles_base
+
+  step "Installing vim bundles ..."
 
   better_program_exists_one "ag"
 
@@ -575,6 +603,12 @@ else
         ;;
       vim_bundles_colorschemes)
         install_vim_bundles_colorschemes
+        ;;
+      vim_bundles_airline)
+        install_vim_bundles_airline
+        ;;
+      vim_bundles_airline_with_fonts)
+        install_vim_bundles_airline_with_fonts
         ;;
       vim_bundles)
         install_vim_bundles_default

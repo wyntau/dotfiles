@@ -32,15 +32,6 @@ let g:indentLine_color_gui = '#3a3a3a'
 Plugin 'ntpeters/vim-better-whitespace'
 map <leader><space> :StripWhitespace<cr>
 
-Plugin 'bling/vim-airline'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-" 命令行（在状态行下）的高度，默认为1(不显示状态栏)，这里是2
-set laststatus=2
-" 设置在状态行显示的信息（包括文件类型和解码）
-" buffer编号 | 文件路径及文件名 | modified状态 | 只读状态 | help | preview | 文件编码 | BOM | EOL | type | demical:hexadecimal | 列:行/总行 | 文件百分比 | 时 间
-" set statusline=[%n]\ %F%m%r%h%w\ [%{&ff}]\ [%{(&fenc==\"\"?&enc:&fenc).(&bomb?\",BOM\":\"\")}]%{&eol?'':'\ [noeol]'}\ [TYPE=%Y]\ [\%03.3b:0x\%02.2B]\ [POS=%c:%l/%L][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
-
 " ap/vim-css-color # 不支持Vim74， 使用vim-colorsque 替代
 Plugin 'Marslo/vim-coloresque'
 

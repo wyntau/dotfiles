@@ -10,6 +10,11 @@ if filereadable(expand("~/.vimrc.bundles.colorschemes"))
   source ~/.vimrc.bundles.colorschemes
 endif
 
+" source vim-airline
+if filereadable(expand("~/.vimrc.bundles.airline"))
+  source ~/.vimrc.bundles.airline
+endif
+
 " source default plugins
 if filereadable(expand("~/.vimrc.bundles.default"))
   source ~/.vimrc.bundles.default
