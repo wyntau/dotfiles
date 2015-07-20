@@ -5,12 +5,12 @@ call vundle#begin()
 " --> Vundle plugin
 Plugin 'gmarik/Vundle.vim'
 
-" source YouCompleteMe plugin
+" source default plugins
 if filereadable(expand("~/.vimrc.bundles.default"))
   source ~/.vimrc.bundles.default
 endif
 
-" source YouCompleteMe plugin
+" source snippets plugin
 if filereadable(expand("~/.vimrc.bundles.snippets"))
   source ~/.vimrc.bundles.snippets
 endif
