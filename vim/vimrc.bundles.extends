@@ -20,9 +20,6 @@ let g:indentLine_color_gui = '#3a3a3a'
 Plugin 'ntpeters/vim-better-whitespace'
 map <leader><space> :StripWhitespace<cr>
 
-" ap/vim-css-color # 不支持Vim74， 使用vim-colorsque 替代
-Plugin 'Marslo/vim-coloresque'
-
 " --> smooth scroll
 Plugin 'terryma/vim-smooth-scroll'
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 12, 2)<cr>

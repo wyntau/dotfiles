@@ -131,7 +131,6 @@ You can do a specific task by run
         Plugin 'tmux-plugins/vim-tmux-focus-events'
         Plugin 'Yggdroot/indentLine'
         Plugin 'ntpeters/vim-better-whitespace'
-        Plugin 'Marslo/vim-coloresque'
         Plugin 'terryma/vim-smooth-scroll'
         Plugin 'Raimondi/delimitMate'
         Plugin 'vim-scripts/matchit.zip'
@@ -175,6 +174,7 @@ You can do a specific task by run
         Plugin 'evanmiller/nginx-vim-syntax'
         Plugin 'tmux-plugins/vim-tmux'
         Plugin 'pangloss/vim-javascript'
+        Plugin 'Marslo/vim-coloresque'
 
 - ### Task `vim_bundles_ycm`
     Requirement: `git`, `vim`, `wget`, `python`, [task vim_rc](#task-vim_rc)
