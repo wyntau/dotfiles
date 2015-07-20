@@ -187,29 +187,26 @@ You can do a specific task by run
 - ### Task `git_config`
     Requirement: `git`
 
-    __What others maybe you should install?__
-
-    - Kaleidoscope( _OS X only_ ) - a sooooo excellent diff and merge tool
-    - git-extras - some useful tools for git, install from <https://github.com/tj/git-extras>( _Linux, OS X_ )
-    - git-flow - a post about git-flow: [a-successful-git-branching-model](http://nvie.com/posts/a-successful-git-branching-model/), install from <https://github.com/nvie/gitflow>( _Linux, OS X_ ) or
-
-            # OS X only
-            brew install git-flow
+    This task will ask you what username and email you want to config global for git
 
 - ### Task `git_dmtool`
     Requirement: `MAC`, `git`, `Kaleidoscope`(`ksdiff`)
 
     Config git's difftool and mergetool to Kaleidoscope.
 
+    Kaleidoscope is a sooooo excellent diff and merge tool
+
 - ### Task `git_extras`
     Requirement: `git`
 
-    Install `git-extras` plugin for git.
+    Install `git-extras` plugin for git. git-extras( _Linux, OS X_ ) has some useful tools for git
 
 - ### Task `git_flow`
     Requirement: `git`
 
     Install `git-flow` plugin for git.
+
+    A post about git-flow: [a-successful-git-branching-model](http://nvie.com/posts/a-successful-git-branching-model/)
 
 - ### Task `astylerc`
     Requirement: `astyle`. If you have installed `astyle` and press `Q` in vim, astyle will be used to format the *C*, *C++*, *C#*, *Java* file.
