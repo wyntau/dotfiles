@@ -4,7 +4,6 @@
     ├── git
     |   └── gitconfig
     ├── sublime
-    |   ├── monokai-custom
     |   ├── Preference.sublime-settings
     |   └── README.md
     ├── tmux
@@ -28,7 +27,6 @@
 - git - all things about _Git_
     - gitconfig - the config for **git**
 - sublime - all things about _Sublime Text 2_
-    - monokai-custom - git submodule, Monokai-custom colorscheme
     - Preference.sublime-settings - the Preference file
     - README.md - the list of sublime packages I use
 - tmux - all things about _tmux_
