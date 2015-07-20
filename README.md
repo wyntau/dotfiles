@@ -119,6 +119,7 @@ You can do a specific task by run
 
         Plugin 'tomasr/molokai'
         Plugin 'altercation/vim-colors-solarized'
+        Plugin 'morhetz/gruvbox'
 
 - ### Task `vim_bundles_extends`
     Requirements: `git`, `vim`, [task vim_rc](#task-vim_rc)

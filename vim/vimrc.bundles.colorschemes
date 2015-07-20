@@ -8,3 +8,5 @@ let g:molokai_original = 1
 " solarized colorscheme
 Plugin 'altercation/vim-colors-solarized'
 let g:solarized_termcolors=256
+
+Plugin 'morhetz/gruvbox'
