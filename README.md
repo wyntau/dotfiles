@@ -51,9 +51,9 @@ Available tasks:
 
 - [vim_rc](#task-vim_rc)
 - [vim_bundles_base](#task-vim_bundles_base)
-- [vim_bundles_colorschemes](#task-vim_bundles_colorschemes)
 - [vim_bundles_airline](#task-vim_bundles_airline)
 - [vim_bundles_airline_with_fonts](#task-vim_bundles_airline_with_fonts)
+- [vim_bundles_colorschemes](#task-vim_bundles_colorschemes)
 - [vim_bundles_extends](#task-vim_bundles_extends)
 - [vim_bundles_snippets](#task-vim_bundles_snippets)
 - [vim_bundles_syntax](#task-vim_bundles_syntax)
@@ -90,42 +90,47 @@ You can do a specific task by run
     Setup Vundle.vim, and load other bundles. After doing this task, you can load
     your own bundles in `~/.vimrc.bundles.local`
 
+    ##### Included bundles
+
+        Plugin 'gmarik/Vundle.vim'
+
 - ### Task `vim_bundles_airline`
     Requirement: `git`, `vim`, [task vim_rc](#task-vim_rc)
 
     Install vim-airline for vim, without using powerline-fonts
+
+    ##### Included bundles
+
+        Plugin 'bling/vim-airline'
 
 - ### Task `vim_bundles_airline_with_fonts`
     Requirement: `git`, `vim`, [task vim_rc](#task-vim_rc)
 
     Install vim-airline for vim, with using powerline-fonts
 
+    ##### Included bundles
+
+        Plugin 'bling/vim-airline'
+
 - ### Task `vim_bundles_colorschemes`
     Requirement: `git`, `vim`, [task vim_rc](#task-vim_rc)
 
     Install colorschemes for vim.
 
+    ##### Included bundles
+
+        Plugin 'tomasr/molokai'
+        Plugin 'altercation/vim-colors-solarized'
+
 - ### Task `vim_bundles_extends`
     Requirements: `git`, `vim`, [task vim_rc](#task-vim_rc)
 
-    #### What vim bundles are included in vimrc
+    ##### Included bundles
 
-        Plugin 'gmarik/Vundle.vim'
-        Plugin 'tomasr/molokai'
-        Plugin 'altercation/vim-colors-solarized'
         Plugin 'godlygeek/tabular'
-        Plugin 'plasticboy/vim-markdown'
-        Plugin 'leafgarland/typescript-vim'
-        Plugin 'kchmck/vim-coffee-script'
-        Plugin 'groenewege/vim-less'
-        Plugin 'smilekzs/vim-nfo'
-        Plugin 'evanmiller/nginx-vim-syntax'
-        Plugin 'tmux-plugins/vim-tmux'
-        Plugin 'pangloss/vim-javascript'
         Plugin 'tmux-plugins/vim-tmux-focus-events'
         Plugin 'Yggdroot/indentLine'
         Plugin 'ntpeters/vim-better-whitespace'
-        Plugin 'bling/vim-airline'
         Plugin 'Marslo/vim-coloresque'
         Plugin 'terryma/vim-smooth-scroll'
         Plugin 'Raimondi/delimitMate'
@@ -143,24 +148,42 @@ You can do a specific task by run
         Plugin 'osyo-manga/vim-over'
         Plugin 'kien/ctrlp.vim'
         Plugin 'Lokaltog/vim-easymotion'
-        Plugin 'SirVer/ultisnips'
-        Plugin 'honza/vim-snippets'
-        Plugin 'Valloric/YouCompleteMe'
 
 - ### Task `vim_bundles_snippets`
     Requirement: `git`, `vim`, `wget`, `python`, [task vim_rc](#task-vim_rc)
 
     Install vim-snippets plugin for vim.
 
+    ##### Included bundles
+
+        Plugin 'SirVer/ultisnips'
+        Plugin 'honza/vim-snippets'
+
 - ### Task `vim_bundles_syntax`
     Requirement: `git`, `vim`, [task vim_rc](#task-vim_rc)
 
     Install vim syntax for different file types
 
+    ##### Included bundles
+
+        Plugin 'godlygeek/tabular'
+        Plugin 'plasticboy/vim-markdown'
+        Plugin 'leafgarland/typescript-vim'
+        Plugin 'kchmck/vim-coffee-script'
+        Plugin 'groenewege/vim-less'
+        Plugin 'smilekzs/vim-nfo'
+        Plugin 'evanmiller/nginx-vim-syntax'
+        Plugin 'tmux-plugins/vim-tmux'
+        Plugin 'pangloss/vim-javascript'
+
 - ### Task `vim_bundles_ycm`
     Requirement: `git`, `vim`, `wget`, `python`, [task vim_rc](#task-vim_rc)
 
     Install YouCompleteMe plugin for vim.
+
+    ##### Included bundles
+
+        Plugin 'Valloric/YouCompleteMe'
 
 - ### Task `git_config`
     Requirement: `git`
