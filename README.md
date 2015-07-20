@@ -15,7 +15,7 @@
     │   ├── vimrc.bundles.airline
     │   ├── vimrc.bundles.airline.fonts
     │   ├── vimrc.bundles.colorschemes
-    │   ├── vimrc.bundles.default
+    │   ├── vimrc.bundles.extends
     │   ├── vimrc.bundles.snippets
     │   ├── vimrc.bundles.syntax
     │   └── vimrc.bundles.ycm
@@ -39,7 +39,7 @@
     - vimrc.bundles.airline - vim plugin vim-airline
     - vimrc.bundles.airline.fonts - set vim-airline to use powerline-fonts
     - vimrc.bundles.colorschemes - colorshemes
-    - vimrc.bundles.default - all bundles except vim-snippets and YouCompleteMe
+    - vimrc.bundles.extends - use plugins to extend vim function
     - vimrc.bundles.snippets - vim plugin vim-snippets.
     - vimrc.bundles.syntax - vim syntax for different file types
     - vimrc.bundles.ycm - vim plugin YouCompleteMe. because install this plugin is not easy, so make it a separate task.
@@ -53,7 +53,7 @@ Available tasks:
 - [vim_bundles_colorschemes](#task-vim_bundles_colorschemes)
 - [vim_bundles_airline](#task-vim_bundles_airline)
 - [vim_bundles_airline_with_fonts](#task-vim_bundles_airline_with_fonts)
-- [vim_bundles](#task-vim_bundles)
+- [vim_bundles_extends](#task-vim_bundles_extends)
 - [vim_bundles_snippets](#task-vim_bundles_snippets)
 - [vim_bundles_syntax](#task-vim_bundles_syntax)
 - [vim_bundles_ycm](#task-vim_bundles_ycm)
@@ -98,7 +98,7 @@ You can do a specific task by run
 
     Install vim-airline for vim, with using powerline-fonts
 
-- ### Task `vim_bundles`
+- ### Task `vim_bundles_extends`
     Requirements: `git`, `vim`, [task vim_rc](#task-vim_rc)
 
     #### What vim bundles are included in vimrc

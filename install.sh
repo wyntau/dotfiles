@@ -161,10 +161,11 @@ function usage(){
   echo 'Tasks:'
   printf "${dot_color_green}\n"
   echo '    - vim_rc'
-  echo '    - vim_bundles  ==> vim plugins except YouCompleteMe and snippets'
-  echo '    - vim_bundles_colorschemes'
+  echo '    - vim_bundles_base  ==> vim plugins except YouCompleteMe and snippets'
   echo '    - vim_bundles_airline'
   echo '    - vim_bundles_airline_with_fonts'
+  echo '    - vim_bundles_colorschemes'
+  echo '    - vim_bundles_extends'
   echo '    - vim_bundles_snippets'
   echo '    - vim_bundles_syntax'
   echo '    - vim_bundles_ycm'
@@ -223,20 +224,6 @@ function install_vim_bundles_base(){
        "$HOME/.vimrc.bundles"
 }
 
-function install_vim_bundles_colorschemes(){
-
-  install_vim_bundles_base
-
-  step "Installing vim colorschemes ..."
-
-  lnif "${APP_PATH}/vim/vimrc.bundles.colorschemes" \
-       "$HOME/.vimrc.bundles.colorschemes"
-
-  vim +PluginInstall +qall
-
-  success "Successfully installed vim colorschemes."
-}
-
 function install_vim_bundles_airline(){
 
   install_vim_bundles_base
@@ -270,7 +257,21 @@ function install_vim_bundles_airline_with_fonts(){
   install_vim_bundles_airline
 }
 
-function install_vim_bundles_default(){
+function install_vim_bundles_colorschemes(){
+
+  install_vim_bundles_base
+
+  step "Installing vim colorschemes ..."
+
+  lnif "${APP_PATH}/vim/vimrc.bundles.colorschemes" \
+       "$HOME/.vimrc.bundles.colorschemes"
+
+  vim +PluginInstall +qall
+
+  success "Successfully installed vim colorschemes."
+}
+
+function install_vim_bundles_extends(){
 
   install_vim_bundles_base
 
@@ -616,20 +617,17 @@ else
         install_vim_bundles_base
         success "You can add your own bundles to ~/.vimrc.bundles.local , vim will source them automatically"
         ;;
-      vim_bundles_colorschemes)
-        install_vim_bundles_colorschemes
-        ;;
       vim_bundles_airline)
         install_vim_bundles_airline
         ;;
       vim_bundles_airline_with_fonts)
         install_vim_bundles_airline_with_fonts
         ;;
-      vim_bundles)
-        install_vim_bundles_default
+      vim_bundles_colorschemes)
+        install_vim_bundles_colorschemes
         ;;
-      vim_bundles_default)
-        install_vim_bundles_default
+      vim_bundles_extends)
+        install_vim_bundles_extends
         ;;
       vim_bundles_snippets)
         install_vim_bundles_snippets
