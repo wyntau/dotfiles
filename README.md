@@ -12,6 +12,7 @@
     ├── vim
     │   ├── vimrc
     │   ├── vimrc.bundles
+    │   ├── vimrc.bundles.colorschemes
     │   ├── vimrc.bundles.default
     │   ├── vimrc.bundles.snippets
     │   └── vimrc.bundles.ycm
@@ -32,6 +33,7 @@
 - vim - all things about _VIM_
     - vimrc - the config for **vim**
     - vimrc.bundles - setup Vundle, and load other plugins
+    - vimrc.bundles.colorschemes - colorshemes
     - vimrc.bundles.default - all bundles except vim-snippets and YouCompleteMe
     - vimrc.bundles.snippets - vim plugin vim-snippets.
     - vimrc.bundles.ycm - vim plugin YouCompleteMe. because install this plugin is not easy, so make it a separate task.
@@ -42,6 +44,7 @@
 Available tasks:
 
 - [vim_rc](#task-vim_rc)
+- [vim_bundles_colorschemes](#task-vim_bundles_colorschemes)
 - [vim_bundles](#task-vim_bundles)
 - [vim_bundles_snippets](#task-vim_bundles_snippets)
 - [vim_bundles_ycm](#task-vim_bundles_ycm)
@@ -54,11 +57,7 @@ Available tasks:
 - [zsh_rc](#task-zsh_rc)
 - [tmux](#task-tmux)
 
-If you want to do all tasks, just run
-
-    ./install.sh all
-
-or do a specific task by run
+You can do a specific task by run
 
     ./install.sh <taskname1>[ <taskname2> <tasknameN> ...]
 
@@ -74,6 +73,11 @@ or do a specific task by run
     And then add the new vim __PATH__ into your `$PATH`.
 
     Additionally, if you have installed `neovim`, this task will link `vim/vimrc` to `~/.nvimrc`.
+
+- ### Task `vim_bundles_colorschemes`
+    Requirement: `git`, `vim`, [task vim_rc](#task-vim_rc)
+
+    Install colorschemes for vim.
 
 - ### Task `vim_bundles`
     Requirements: `git`, `vim`, [task vim_rc](#task-vim_rc)

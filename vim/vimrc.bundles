@@ -5,6 +5,11 @@ call vundle#begin()
 " --> Vundle plugin
 Plugin 'gmarik/Vundle.vim'
 
+" source colorschemes
+if filereadable(expand("~/.vimrc.bundles.colorschemes"))
+  source ~/.vimrc.bundles.colorschemes
+endif
+
 " source default plugins
 if filereadable(expand("~/.vimrc.bundles.default"))
   source ~/.vimrc.bundles.default

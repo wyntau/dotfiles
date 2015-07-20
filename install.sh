@@ -160,9 +160,9 @@ function usage(){
   echo
   echo 'Tasks:'
   printf "${dot_color_green}\n"
-  echo '    - all          ==> do all things below'
   echo '    - vim_rc'
   echo '    - vim_bundles  ==> vim plugins except YouCompleteMe and snippets'
+  echo '    - vim_bundles_colorschemes  ==> vim colorschemes'
   echo '    - vim_bundles_snippets ==> vim plugin snippets'
   echo '    - vim_bundles_ycm      ==> vim plugin YouCompleteMe'
   echo '    - git_config'
@@ -220,6 +220,20 @@ function install_vim_bundles_base(){
        "$HOME/.vimrc.bundles"
 }
 
+function install_vim_bundles_colorschemes(){
+
+  install_vim_bundles_base
+
+  step "Install vim colorschemes ..."
+
+  lnif "${APP_PATH}/vim/vimrc.bundles.colorschemes" \
+       "$HOME/.vimrc.bundles.colorschemes"
+
+  vim +PluginInstall +qall
+
+  success "Successfully installed vim colorschemes."
+}
+
 function install_vim_bundles_default(){
 
   install_vim_bundles_base
@@ -241,8 +255,6 @@ function install_vim_bundles_default(){
   vim +PluginInstall +qall
 
   success "Successfully installed vim bundles."
-
-  success "You can add your own bundles to ~/.vimrc.bundles.local , vim will source them automatically"
 }
 
 function install_neovim_python_support(){
@@ -554,22 +566,15 @@ if [ $# = 0 ]; then
 else
   for arg in $@; do
     case $arg in
-      all)
-        install_vim_rc
-        install_vim_bundles
-        install_vim_bundles_snippets
-        install_vim_bundles_ycm
-        install_git_config
-        install_git_dmtool
-        install_git_extras
-        install_git_flow
-        install_astylerc
-        install_sublime
-        install_tmux
-        install_zsh_rc
-        ;;
       vim_rc)
         install_vim_rc
+        ;;
+      vim_bundles_base)
+        install_vim_bundles_base
+        success "You can add your own bundles to ~/.vimrc.bundles.local , vim will source them automatically"
+        ;;
+      vim_bundles_colorschemes)
+        install_vim_bundles_colorschemes
         ;;
       vim_bundles)
         install_vim_bundles_default
