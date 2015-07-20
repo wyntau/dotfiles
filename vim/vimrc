@@ -88,7 +88,7 @@ set backspace=indent,eol,start
 " "set listchars=tab:▸\ ,nbsp:_
 " "set listchars=tab:\ \ ,trail:·,eol:¬,nbsp:_,extends:❯,precedes:❮
 " set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_,extends:❯,precedes:❮
-set listchars=tab:>-,space:.,nbsp:_,trail:-,extends:>,precedes:<,eol:$
+set listchars=tab:>-,nbsp:_,trail:-,extends:>,precedes:<,eol:$
 
 set wrap
 set showbreak=↪\  " Character to precede line wraps"
