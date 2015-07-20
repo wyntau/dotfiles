@@ -50,6 +50,7 @@
 Available tasks:
 
 - [vim_rc](#task-vim_rc)
+- [vim_bundles_base](#task-vim_bundles_base)
 - [vim_bundles_colorschemes](#task-vim_bundles_colorschemes)
 - [vim_bundles_airline](#task-vim_bundles_airline)
 - [vim_bundles_airline_with_fonts](#task-vim_bundles_airline_with_fonts)
@@ -83,10 +84,11 @@ You can do a specific task by run
 
     Additionally, if you have installed `neovim`, this task will link `vim/vimrc` to `~/.nvimrc`.
 
-- ### Task `vim_bundles_colorschemes`
+- ### Task `vim_bundles_base`
     Requirement: `git`, `vim`, [task vim_rc](#task-vim_rc)
 
-    Install colorschemes for vim.
+    Setup Vundle.vim, and load other bundles. After doing this task, you can load
+    your own bundles in `~/.vimrc.bundles.local`
 
 - ### Task `vim_bundles_airline`
     Requirement: `git`, `vim`, [task vim_rc](#task-vim_rc)
@@ -97,6 +99,11 @@ You can do a specific task by run
     Requirement: `git`, `vim`, [task vim_rc](#task-vim_rc)
 
     Install vim-airline for vim, with using powerline-fonts
+
+- ### Task `vim_bundles_colorschemes`
+    Requirement: `git`, `vim`, [task vim_rc](#task-vim_rc)
+
+    Install colorschemes for vim.
 
 - ### Task `vim_bundles_extends`
     Requirements: `git`, `vim`, [task vim_rc](#task-vim_rc)
