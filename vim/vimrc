@@ -15,19 +15,6 @@ autocmd!
 " this option is default in neovim, and removed
 set nocompatible
 
-" file encode, 文件编码,格式
-set encoding=utf-8
-" no BOM
-set nobomb
-set fileencodings=utf-8,gb2312,gbk,gb18030,ucs-bom,cp936,big5,euc-jp,euc-kr,latin1
-" 下面这句只影响普通模式 (非图形界面) 下的 Vim。
-set termencoding=utf-8
-set fileformats=unix,dos,mac
-" 处理consle输出乱码, use silent! prevent show error msg on some OS
-silent! language messages zh_CN.UTF-8
-set langmenu=zh_CN.UTF-8
-set helplang=cn
-
 " Respect modelines in files up to this number of lines
 set modeline
 
@@ -37,19 +24,28 @@ set modeline
 " " http://www.shallowsky.com/linux/noaltscreen.html
 " set t_ti= t_te=
 
-" 启动的时候不显示那个援助索马里儿童的提示
-" set shortmess=atI
-
 " 设置leader为,
 let mapleader=","
 let g:mapleader=","
 
 " =============================================================================
-" Editing
+" File encoding and locale
 " =============================================================================
 
-" 自动切换当前目录为当前文件所在的目录
-" set autochdir
+" file encode, 文件编码,格式
+set encoding=utf-8
+set fileencodings=utf-8,gb2312,gbk,gb18030,ucs-bom,cp936,big5,euc-jp,euc-kr,latin1
+" 下面这句只影响普通模式 (非图形界面) 下的 Vim。
+set termencoding=utf-8
+set fileformats=unix,dos,mac
+" 处理consle输出乱码, use silent! prevent show error msg on some OS
+silent! language messages zh_CN.UTF-8
+set langmenu=zh_CN.UTF-8
+set helplang=cn
+
+" =============================================================================
+" Editing
+" =============================================================================
 
 ""
 "" Whitespace
@@ -363,11 +359,6 @@ nnoremap <leader>2 @q
 " Backup
 " =============================================================================
 
-" 备份,到另一个位置. 防止误删, 目前是取消备份
-" set backup
-" set backupext=.bak
-" set backupdir=~/bak/vimbk/
-
 " 覆盖文件时不备份
 set nobackup
 set noswapfile
@@ -427,6 +418,7 @@ augroup END
 " =============================================================================
 
 " Indent if at the beginning of a line, else do completion
+" we can insert one tab use ctrl-v + tab
 " function! InsertTabWrapper()
 "   let col = col('.') - 1
 "   if !col || getline('.')[col - 1] !~ '\k'
@@ -488,24 +480,14 @@ function! ToggleFold()
 endfun
 " }}}
 
-
-
 "==========================================
 " Custom key map
 "==========================================
-
-" 强迫自己用 hjkl
-" map <Left> <Nop>
-" map <Right> <Nop>
-" map <Up> <Nop>
-" map <Down> <Nop>
 
 " Treat long lines as break lines (useful when moving around in them)
 " set wrap之后，将自动换行的长行当做多行处理, 方便在长行之间跳转.
 nnoremap k gk
 nnoremap j gj
-" nnoremap gk k
-" nnoremap gj j
 
 " remap U to <C-r> for easier redo
 nnoremap U <C-r>
@@ -569,60 +551,13 @@ nnoremap <F3> :set wrap! wrap?<CR>
 nnoremap <F4> :set paste! paste?<CR>
 inoremap <F4> <C-O>:set paste! paste?<CR>
 set pastetoggle=<F4>
-" when in insert mode, press <F5> to go to paste mode, where you can paste mass data that won't be autoindented
+" when in insert mode, press <F4> to go to paste mode, where you can paste mass data that won't be autoindented
 " disbale paste mode when leaving insert mode
 au InsertLeave * set nopaste
 
 "==========================================
 " mapleader key map
 "==========================================
-
-" ==> tabs
-" 后面跟着要用新tab打开的文件名, 所以没有<cr>
-map <leader>te :tabnew 
-" 下面的命令后面直接跟<cr>执行
-map <leader>to :tabonly<cr>
-map <leader>td :tabclose<cr>
-map <leader>tm :tabmove<cr>
-map <leader>tp :tabprevious<cr>
-map <leader>tk :tabprevious<cr>
-map <leader>tn :tabnext<cr>
-map <leader>tj :tabnext<cr>
-map <leader>t0 :tabfirst<cr>
-map <leader>th :tabfirst<cr>
-map <leader>t$ :tablast<cr>
-map <leader>tl :tablast<cr>
-
-" Opens a new tab with the current buffer's path
-" Super useful when editing files in the same directory
-map <leader>t. :tabnew <c-r>=expand("%:p:h")<cr>
-
-" normal模式下切换到确切的tab
-noremap <leader>1 1gt
-noremap <leader>2 2gt
-noremap <leader>3 3gt
-noremap <leader>4 4gt
-noremap <leader>5 5gt
-noremap <leader>6 6gt
-noremap <leader>7 7gt
-noremap <leader>8 8gt
-noremap <leader>9 9gt
-noremap <leader>0 :tabfirst<cr>
-noremap <leader>$ :tablast<cr>
-
-" Toggles between the active and last active tab "
-" The first tab is always 1 "
-let g:last_active_tab = 1
-" nnoremap <leader>gt :execute 'tabnext ' . g:last_active_tab<cr>
-" nnoremap <silent> <c-o> :execute 'tabnext ' . g:last_active_tab<cr>
-" vnoremap <silent> <c-o> :execute 'tabnext ' . g:last_active_tab<cr>
-nnoremap <silent> <leader>tt :execute 'tabnext ' . g:last_active_tab<cr>
-vnoremap <silent> <leader>tt :execute 'tabnext ' . g:last_active_tab<cr>
-autocmd TabLeave * let g:last_active_tab = tabpagenr()
-
-" 新建tab  Ctrl+t
-nnoremap <C-t>     :tabnew<CR>
-inoremap <C-t>     <Esc>:tabnew<CR>
 
 " ,x16                 十六进制格式查看
 nnoremap <leader>x16 <ESC>:%!xxd<ESC>
