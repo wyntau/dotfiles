@@ -163,6 +163,7 @@ function usage(){
   echo '    - vim_rc'
   echo '    - vim_bundles_base'
   echo '    - vim_bundles_airline'
+  echo '    - vim_bundles_airline_fonts'
   echo '    - vim_bundles_airline_with_fonts'
   echo '    - vim_bundles_colorschemes'
   echo '    - vim_bundles_extends'
@@ -238,8 +239,7 @@ function install_vim_bundles_airline(){
   success "Successfully installed vim-airline."
 }
 
-function install_vim_bundles_airline_with_fonts(){
-
+function install_vim_bundles_airline_fonts(){
   step "Install powerline-fonts for airline symbols ..."
 
   sync_repo "https://github.com/powerline/fonts.git" \
@@ -253,8 +253,6 @@ function install_vim_bundles_airline_with_fonts(){
        "$HOME/.vimrc.bundles.airline.fonts"
 
   success "Successfully installed powerline-fonts for airline."
-
-  install_vim_bundles_airline
 }
 
 function install_vim_bundles_colorschemes(){
@@ -616,8 +614,12 @@ else
       vim_bundles_airline)
         install_vim_bundles_airline
         ;;
+      vim_bundles_airline_fonts)
+        install_vim_bundles_airline_fonts
+        ;;
       vim_bundles_airline_with_fonts)
-        install_vim_bundles_airline_with_fonts
+        install_vim_bundles_airline_fonts
+        install_vim_bundles_airline
         ;;
       vim_bundles_colorschemes)
         install_vim_bundles_colorschemes
