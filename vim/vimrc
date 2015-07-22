@@ -465,22 +465,11 @@ set foldmethod=indent
 set foldlevel=99
 set foldlevelstart=99
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
-" 代码折叠自定义快捷键
-let g:FoldMethod = 0
-map <leader>zz :call ToggleFold()<cr>
-function! ToggleFold()
-    if g:FoldMethod == 0
-        exe "normal! zM"
-        let g:FoldMethod = 1
-    else
-        exe "normal! zR"
-        let g:FoldMethod = 0
-    endif
-endfun
-" }}}
+
+" use zM or zR to foldAll or unfoldAll code
 
 "==========================================
-" Custom key map
+" custom key map
 "==========================================
 
 " Treat long lines as break lines (useful when moving around in them)
@@ -555,7 +544,7 @@ set pastetoggle=<F4>
 au InsertLeave * set nopaste
 
 "==========================================
-" mapleader key map
+" leader key map
 "==========================================
 
 " ,x16                 十六进制格式查看
