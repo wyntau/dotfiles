@@ -413,23 +413,6 @@ augroup vimrcEx
 augroup END
 
 " =============================================================================
-" Multipurpose Tab Key
-" =============================================================================
-
-" Indent if at the beginning of a line, else do completion
-" we can insert one tab use ctrl-v + tab
-" function! InsertTabWrapper()
-"   let col = col('.') - 1
-"   if !col || getline('.')[col - 1] !~ '\k'
-"     return "\<tab>"
-"   else
-"     return "\<c-p>"
-"   endif
-" endfunction
-" inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-" inoremap <s-tab> <c-n>
-
-" =============================================================================
 " Performance
 " =============================================================================
 
