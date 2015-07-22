@@ -74,7 +74,6 @@ set smartindent
 " 自动缩进
 set cindent
 " 为C/C++设置详细的信息缩进
-" set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s
 set cinoptions=>s,e0,n0,f0,{0,}0,^0,:s,=s,l0,gs,hs,ps,ts,+s,c3,C0,(2s,us,U0,w0,m0,j0,)20,*30
 
 " allow backspacing over everything in insert mode
@@ -83,18 +82,11 @@ set cinoptions=>s,e0,n0,f0,{0,}0,^0,:s,=s,l0,gs,hs,ps,ts,+s,c3,C0,(2s,us,U0,w0,m
 " this option is default in neovim
 set backspace=indent,eol,start
 
-" 显示Tab符 "输入:set list命令是应该显示些啥？
-" Invisible characters
-" "set listchars=tab:▸\ ,nbsp:_
-" "set listchars=tab:\ \ ,trail:·,eol:¬,nbsp:_,extends:❯,precedes:❮
-" set listchars=tab:▸\ ,trail:·,eol:¬,nbsp:_,extends:❯,precedes:❮
-set listchars=tab:>-,nbsp:_,trail:-,extends:>,precedes:<,eol:$
-
 set wrap
 set showbreak=↪\  " Character to precede line wraps"
 
 " 在被分割的窗口间显示空白，便于阅读
-set fillchars=vert:\ ,stl:\ ,stlnc:\ "注释
+set fillchars=vert:\ ,stl:\ ,stlnc:\  "注释
 
 set diffopt+=vertical,context:3,foldcolumn:0
 
@@ -120,17 +112,7 @@ set nostartofline
 " 匹配括号的规则，增加针对html的<>
 set matchpairs=(:),{:},[:],<:>
 " 当光标到达行尾或者行首时，继续移动转至下一行或者上一行 允许backspace和光标键跨越行边界
-" set whichwrap=h,l,b,s,<,>,~,[,]
 set whichwrap=b,s,<,>,~,[,]
-" ']' Insert and Replace
-" '[' Insert and Replace
-" '~' Normal
-" '>' <Right> Normal and Visual
-" '<' <Left> Normal and Visual
-" 'l' Normal and Visual (no recommended)
-" 'h' Normal and visual (no recommended)
-" 's' <Space> Normal and Visual
-" 'b' <BS> Normal and Visual
 
 " 显示括号配对情况
 set magic
@@ -210,8 +192,8 @@ set guicursor=a:block-blinkon0
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
 if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-      \ | wincmd p | diffthis
+  command DiffOrig vert new | set buftype=nofile | read ++edit # | 0d_
+    \ | diffthis | wincmd p | diffthis
 endif
 
 " =============================================================================
@@ -305,10 +287,10 @@ nnoremap <leader>hs :set hlsearch<cr>
 " Buffers
 " =============================================================================
 
-" 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存
-set hidden  "隐藏buff非关闭它
 " {{{不要生成swap文件，当buffer被丢弃的时候隐藏它
 setlocal noswapfile
+" 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存
+set hidden  "隐藏buff非关闭它
 set bufhidden=hide
 " }}}
 " Jump to the first open window that contains the specified buffer
@@ -583,11 +565,10 @@ function! NumberToggle()
   endif
 endfunc
 nnoremap <F2> :call NumberToggle()<cr>
-nnoremap <F3> :set list! list?<CR>
-nnoremap <F4> :set wrap! wrap?<CR>
-nnoremap <F5> :set paste! paste?<CR>
-inoremap <F5> <C-O>:set paste! paste?<CR>
-set pastetoggle=<F5>
+nnoremap <F3> :set wrap! wrap?<CR>
+nnoremap <F4> :set paste! paste?<CR>
+inoremap <F4> <C-O>:set paste! paste?<CR>
+set pastetoggle=<F4>
 " when in insert mode, press <F5> to go to paste mode, where you can paste mass data that won't be autoindented
 " disbale paste mode when leaving insert mode
 au InsertLeave * set nopaste
@@ -596,6 +577,7 @@ au InsertLeave * set nopaste
 " mapleader key map
 "==========================================
 
+" ==> tabs
 " 后面跟着要用新tab打开的文件名, 所以没有<cr>
 map <leader>te :tabnew 
 " 下面的命令后面直接跟<cr>执行
