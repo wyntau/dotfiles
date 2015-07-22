@@ -530,6 +530,7 @@ nnoremap U <C-r>
 
 " 设置 jj快速进入normal模式
 inoremap kj <Esc>
+inoremap jk <Esc>
 " 插入模式, 使用ctrl-l跳出右括号
 inoremap <C-l> <ESC>la
 
