@@ -570,7 +570,7 @@ nnoremap <silent> <leader>ev :edit $MYVIMRC<CR>
 nnoremap <silent> <leader>sv :source $MYVIMRC<CR>
 
 "==========================================
-" bundle 插件管理及配置
+" Vundle 插件管理及配置
 "==========================================
 " off is required by vundle   "检测文件的类型
 " filetype on " without this vim emits a zero exit status, later, because of :ft off
@@ -584,7 +584,6 @@ endif
 " 载入文件类型插件
 " 为特定文件类型载入相关缩进文件
 filetype plugin indent on
-" }}} Vundle.vim 配置结束
 
 "==========================================
 " colortheme 主题,及一些展示上颜色的修改
