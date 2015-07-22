@@ -410,6 +410,11 @@ augroup vimrcEx
   " to run commands there
   au! CmdwinEnter * :unmap <cr>
   au! CmdwinLeave * :call MapCR()
+
+  " 代码格式优化化
+  if executable('astyle')
+    autocmd BufNewFile,BufRead *.{c,cpp} set formatprg=astyle
+  endif
 augroup END
 
 " =============================================================================
@@ -504,11 +509,6 @@ vnoremap > >gv
 " @see http://blog.chinaunix.net/u/8681/showart_1226043.html
 " @usage 50g| jump to 50% of the lines columns.
 nnoremap <expr>g<Bar> '<Esc>'.float2nr(round((col('$')-1)*min([100,v:count])/100.0)).'<Bar>'
-
-" 代码格式优化化
-autocmd BufNewFile,BufRead *.{c,cpp} set formatprg=astyle
-" Don't use Ex mode, use Q for formatting
-map Q ggvGgqgg
 
 function! NumberToggle()
   if(&relativenumber == 1)
