@@ -174,15 +174,14 @@ if has("gui_running")
     set guioptions-=b
     " 每行内插入两空行(方便阅读文本)
     " set linespace=1
+    " 防止光标闪烁
+    set guicursor=a:block-blinkon0
+    " 加速光标闪烁。
+    " @see http://c9s.blogspot.com/2007/12/gvim.html
+    " set guicursor+=n-v-c:block-cursor-blinkwait300-blinkon90-blinkoff90
+    " set guicursor+=i:block-cursor-blinkwait200-blinkon110-blinkoff110
+    " set guicursor+=v:ver90-cursor-blinkwait200-blinkon150-blinkoff150
 endif
-
-" 防止光标闪烁
-set guicursor=a:block-blinkon0
-" 加速光标闪烁。
-" @see http://c9s.blogspot.com/2007/12/gvim.html
-" set guicursor+=n-v-c:block-cursor-blinkwait300-blinkon90-blinkoff90
-" set guicursor+=i:block-cursor-blinkwait200-blinkon110-blinkoff110
-" set guicursor+=v:ver90-cursor-blinkwait200-blinkon150-blinkoff150
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
