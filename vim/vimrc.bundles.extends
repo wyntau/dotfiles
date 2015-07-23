@@ -187,17 +187,6 @@ cabbrev bd! Bclose!
 
 " {{{ plugin – NERD_commenter.vim   注释代码用的
 Plugin 'scrooloose/nerdcommenter'
-" [count]<leader>cc 注释当前行或光标以下count行逐行添加注释(7,cc)
-" [count]<leader>cn 注释当前行或光标以下count行逐行添加注释(7,cn)
-" [count]<leader>c<space> 切换单行或选中的行的注释状态
-" [count]<leader>cu 光标以下count行逐行取消注释(7,cu)
-" [count]<leader>cm 光标以下count行尝试添加块注释(7,cm)
-" [count]<leader>ci 切换选中行的注释状态
-" <leader>ca 在可选的注释方式之间切换，比如C/C++ 的块注释/* */和行注释//
-" <leader>cs 以"性感"的方式注释
-" <leader>cA 在当前行尾添加注释符，并进入Insert模式 在行尾插入 /* */,并且进入插入模式。 这个命令方便写注释。
-" [count]<leader>cy 先复制选中部分或单行,然后再注释
-" 注：count参数可选，无则默认为选中行或当前行
 " 让注释符与语句之间留一个空格
 let g:NERDSpaceDelims=1
 " 多行注释时样子更好看
@@ -248,7 +237,6 @@ let g:ctrlp_user_command = {
     \ 'fallback': s:ctrlp_fallback
 \ }
 " <cr> Open the selected file in the 'current' window if possible.
-" <c-t> Open the selected file in a new 'tab'.
 " <c-v> Open the selected file in a 'vertical' split.
 " <c-x>, <c-cr>, <c-s> Open the selected file in a 'horizontal' split.
 " <c-y> Create a new file and its parent directories.
