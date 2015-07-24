@@ -168,22 +168,12 @@ let g:ctrlp_user_command = {
 " 快速到达指定位置插件
 Plugin 'Lokaltog/vim-easymotion'
 
-" Use ? to sane regexes"
-nnoremap ? /\v
-vnoremap ? /\v
-
 " use / map to easymontion's global search
 map / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
-nmap s <Plug>(easymotion-s2)
-nmap t <Plug>(easymotion-t2)
 
-map n <Plug>(easymotion-next)
-map N <Plug>(easymotion-prev)
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>h <Plug>(easymotion-linebackward)
+nmap s <Plug>(easymotion-s2)
+
 let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 " With this option set, v will match both v and V, but V will match V only. Default: 0.
 let g:EasyMotion_smartcase = 1
