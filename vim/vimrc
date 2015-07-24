@@ -433,8 +433,6 @@ set ttimeoutlen=100
 "==========================================
 " Code folding
 "==========================================
-" 代码折叠
-" set foldenable
 " 折叠方法
 " manual    手工折叠
 " indent    使用缩进表示折叠
@@ -442,18 +440,12 @@ set ttimeoutlen=100
 " syntax    使用语法定义折叠
 " diff      对没有更改的文本进行折叠
 " marker    使用标记进行折叠, 默认标记是 {{{ 和 }}}
-" set foldmethod=syntax       " 设置语法折叠
-" set foldcolumn=0            " 设置折叠区域的宽度
-" setlocal foldlevel=1        " 设置折叠层数为1
-" set foldclose=all           " 设置为自动关闭折叠
-" set foldexpr=1
-" {{{ 用空格键来开关折叠
 set foldenable
 set foldmethod=indent
 set foldlevel=99
 set foldlevelstart=99
+" 用空格键来开关折叠
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
-
 " use zM or zR to foldAll or unfoldAll code
 
 "==========================================
@@ -474,26 +466,16 @@ inoremap jk <Esc>
 " 插入模式, 使用ctrl-l跳出右括号
 inoremap <C-l> <ESC>la
 
-" Keep search pattern at the center of the screen."
-nnoremap <silent> n nzz
-nnoremap <silent> N Nzz
-
-" switch # *, and keep search pattern at the center of the screen.
-nnoremap <silent> # *zz
-nnoremap <silent> * #zz
-nnoremap <silent> g* g#zz
-nnoremap <silent> g# g*zz
+" switch # *
+nnoremap <silent> # *
+nnoremap <silent> * #
+nnoremap <silent> g* g#
+nnoremap <silent> g# g*
 
 " {{{全文搜索选中的文字
 vnoremap  *  y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 vnoremap  #  y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 " }}}
-
-" Swap implementations of ` and ' jump to markers
-" By default, ' jumps to the marked line, ` jumps to the marked line and
-" column, so swap them
-nnoremap ' `
-nnoremap ` '
 
 " Use arrow key to change buffer"
 noremap <left> :bp<CR>
