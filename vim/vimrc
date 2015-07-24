@@ -342,17 +342,25 @@ nnoremap <leader>y "+y
 vnoremap <leader>x "+d
 nnoremap <leader>x "+d
 
+vnoremap <silent> y y`]
+
 " 粘贴时设置nopaste
 nnoremap <leader>p :set paste<cr> "+p :set nopaste<cr>
 nnoremap <leader>P :set paste<cr> "+P :set nopaste<cr>
 vnoremap <leader>p :set paste<cr> "+p :set nopaste<cr>
 vnoremap <leader>P :set paste<cr> "+P :set nopaste<cr>
 
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]
+
 " Paste from unnamed register and fix indentation
 " nmap <leader>p pV`]=
 
 " Repeat the last macro in the `q` register
 nnoremap <leader>2 @q
+
+" 关闭无聊的窗口提示
+noremap q: :q
 
 " =============================================================================
 " Backup
