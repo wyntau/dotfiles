@@ -277,8 +277,8 @@ function install_vim_bundles_extends(){
 
   better_program_exists_one "ag"
 
-  lnif "${APP_PATH}/vim/vimrc.bundles.default" \
-       "$HOME/.vimrc.bundles.default"
+  lnif "${APP_PATH}/vim/vimrc.bundles.extends" \
+       "$HOME/.vimrc.bundles.extends"
 
   vim +PluginInstall +qall
 
