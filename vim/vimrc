@@ -329,6 +329,7 @@ nnoremap <C-k> <C-w>k
 
 " 保存全局变量
 set viminfo+=!
+
 " 共享外部剪贴板
 " unnamedplus is not worked in homebrew's macvim, so include unnamed
 set clipboard+=unnamedplus,unnamed
@@ -349,8 +350,13 @@ nnoremap <leader>x "+d
 
 " 粘贴时设置nopaste
 nnoremap <leader>p :set paste<cr> "+p :set nopaste<cr>
+nnoremap <leader>P :set paste<cr> "+P :set nopaste<cr>
+vnoremap <leader>p :set paste<cr> "+p :set nopaste<cr>
+vnoremap <leader>P :set paste<cr> "+P :set nopaste<cr>
+
 " Paste from unnamed register and fix indentation
 " nmap <leader>p pV`]=
+
 " Repeat the last macro in the `q` register
 nnoremap <leader>2 @q
 
@@ -473,8 +479,8 @@ nnoremap <silent> g* g#
 nnoremap <silent> g# g*
 
 " {{{全文搜索选中的文字
-vnoremap  *  y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
-vnoremap  #  y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
+vnoremap * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
+vnoremap # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 " }}}
 
 " Use arrow key to change buffer"
