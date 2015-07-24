@@ -293,15 +293,9 @@ set switchbuf=useopen
 " 设置当文件被外部改变的时候自动读入文件
 set autoread
 
-" Remember buffer count to show in status line
-" au BufAdd * let g:zbuflistcount += 1
-" au BufDelete * let g:zbuflistcount -= 1
-au VimEnter * call UpdateZBufLC()
-function! UpdateZBufLC()
-  let lst = range(1, bufnr('$'))
-  call filter(lst, 'buflisted(v:val)')
-  let g:zbuflistcount = len(lst)
-endfunction
+" Use arrow key to change buffer"
+noremap <left> :bprevious<CR>
+noremap <right> :bnext<CR>
 
 " =============================================================================
 " Windows
@@ -482,10 +476,6 @@ nnoremap <silent> g# g*
 vnoremap * y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 vnoremap # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 " }}}
-
-" Use arrow key to change buffer"
-noremap <left> :bp<CR>
-noremap <right> :bn<CR>
 
 " 使用Y, 类似于D删除到行尾
 nnoremap Y y$
