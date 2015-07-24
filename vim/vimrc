@@ -579,8 +579,11 @@ vnoremap # y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 nnoremap Y y$
 
 " Reselect visual block after indent/outdent.调整缩进后自动选中，方便再次操作
-vnoremap < <gv
 vnoremap > >gv
+vnoremap < <gv
+
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
 
 " @see http://blog.chinaunix.net/u/8681/showart_1226043.html
 " @usage 50g| jump to 50% of the lines columns.
