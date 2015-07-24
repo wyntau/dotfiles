@@ -286,7 +286,6 @@ You can do a specific task by run
     - tmux-plugins/tpm
     - tmux-plugins/tmux-sensible
     - tmux-plugins/tmux-pain-control
-    - tmux-plugins/tmux-resurrect
     - tmux-plugins/tmux-copycat
     - tmux-plugins/tmux-yank
 
