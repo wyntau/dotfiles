@@ -9,11 +9,6 @@ Plugin 'tmux-plugins/vim-tmux-focus-events'
 " ==> User Interface support
 Plugin 'Yggdroot/indentLine'
 let g:indentLine_char = '¦'
-" Vim
-let g:indentLine_color_term = 235
-" GVim
-let g:indentLine_color_gui = '#3a3a3a'
-" let g:indentLine_color_gui = '#A4E57E'
 " A Vim plugin for visually displaying indent levels in code
 " Plugin 'nathanaelkane/vim-indent-guides'
 
