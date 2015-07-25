@@ -154,27 +154,25 @@ autocmd Syntax * call matchadd('Todo',  '\W\zs\(TODO\|FIXME\|CHANGED\|DONE\|XXX\
 autocmd Syntax * call matchadd('Debug', '\W\zs\(NOTE\|INFO\|IDEA\|NOTICE\)')
 
 if has("gui_running")
-    " 设置gui字体
-    set guifont=Source\ Code\ Pro\ for\ Powerline:h13
-    " 隐藏菜单栏
-    set guioptions-=m
-    " 隐藏工具栏
-    set guioptions-=T
-    " 隐藏左侧滚动条
-    set guioptions-=L
-    " 隐藏右侧滚动条
-    set guioptions-=r
-    " 隐藏底部滚动条
-    set guioptions-=b
-    " 每行内插入两空行(方便阅读文本)
-    " set linespace=1
-    " 防止光标闪烁
-    set guicursor=a:block-blinkon0
-    " 加速光标闪烁。
-    " @see http://c9s.blogspot.com/2007/12/gvim.html
-    " set guicursor+=n-v-c:block-cursor-blinkwait300-blinkon90-blinkoff90
-    " set guicursor+=i:block-cursor-blinkwait200-blinkon110-blinkoff110
-    " set guicursor+=v:ver90-cursor-blinkwait200-blinkon150-blinkoff150
+  " 设置gui字体
+  set guifont=Source\ Code\ Pro\ for\ Powerline:h13
+  " 隐藏菜单栏
+  set guioptions-=m
+  " 隐藏工具栏
+  set guioptions-=T
+  " 隐藏左侧滚动条
+  set guioptions-=L
+  " 隐藏右侧滚动条
+  set guioptions-=r
+  " 隐藏底部滚动条
+  set guioptions-=b
+  " 防止光标闪烁
+  set guicursor=a:block-blinkon0
+  " 加速光标闪烁。
+  " @see http://c9s.blogspot.com/2007/12/gvim.html
+  " set guicursor+=n-v-c:block-cursor-blinkwait300-blinkon90-blinkoff90
+  " set guicursor+=i:block-cursor-blinkwait200-blinkon110-blinkoff110
+  " set guicursor+=v:ver90-cursor-blinkwait200-blinkon150-blinkoff150
 endif
 
 " Convenient command to see the difference between the current buffer and the
@@ -387,8 +385,6 @@ cabbrev bd! Bclose!
 " =============================================================================
 " Windows
 " =============================================================================
-" Set window width that works with standard 15" screen
-" set winwidth=80
 
 " 分割窗口时保持相等的宽/高
 set equalalways
@@ -473,7 +469,7 @@ augroup vimrcEx
 
   " Jump to last cursor position unless it's invalid or in an event handler or
   " a git commit
-  au BufReadPost *
+  autocmd BufReadPost *
     \ if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal! g`\"" |
     \ endif
@@ -483,30 +479,30 @@ augroup vimrcEx
   autocmd FileType text setlocal textwidth=78
 
   " Some file types use real tabs
-  au FileType {make,gitconfig} setlocal noexpandtab sw=4
+  autocmd FileType {make,gitconfig} setlocal noexpandtab shiftwidth=4
 
   " Treat JSON files like JavaScript
-  au BufNewFile,BufRead *.json setf javascript
+  autocmd BufNewFile,BufRead *.json setfiletype javascript
 
   " Make Python follow PEP8
-  au FileType python setlocal sts=4 ts=4 sw=4 tw=79
+  autocmd FileType python setlocal softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 
   " Use 4 spaces for Java
-  au FileType java setlocal sts=4 ts=4 sw=4
+  autocmd FileType java setlocal softtabstop=4 tabstop=4 shiftwidth=4
 
   " Make sure all markdown files have the correct filetype
-  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown
+  autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setfiletype markdown
 
   " MultiMarkdown requires 4-space tabs
-  au FileType markdown setlocal sts=4 ts=4 sw=4
+  autocmd FileType markdown setlocal softtabstop=4 tabstop=4 shiftwidth=4
 
   " Use 4-space tabs for apache
-  au FileType apache setlocal sts=4 ts=4 sw=4
+  autocmd FileType apache setlocal softtabstop=4 tabstop=4 shiftwidth=4
 
   " Leave the return key alone when in command line windows, since it's used
   " to run commands there
-  au! CmdwinEnter * :unmap <cr>
-  au! CmdwinLeave * :call MapCR()
+  autocmd! CmdwinEnter * :unmap <cr>
+  autocmd! CmdwinLeave * :call MapCR()
 
   " 代码格式优化化
   if executable('astyle')
@@ -602,7 +598,7 @@ inoremap <F4> <C-O>:set paste! paste?<CR>
 set pastetoggle=<F4>
 " when in insert mode, press <F4> to go to paste mode, where you can paste mass data that won't be autoindented
 " disbale paste mode when leaving insert mode
-au InsertLeave * set nopaste
+autocmd InsertLeave * set nopaste
 
 "==========================================
 " leader key map
