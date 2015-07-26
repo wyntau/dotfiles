@@ -345,7 +345,7 @@ function install_vim_bundles_syntax(){
   lnif "${APP_PATH}/vim/vimrc.bundles.syntax" \
        "$HOME/.vimrc.bundles.syntax"
 
-  vim +PluginInstall # +qall
+  vim +PluginInstall +qall
 
   success "Successfully installed syntax for different file types."
 }
