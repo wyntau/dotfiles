@@ -122,7 +122,7 @@ set cursorline
 " 高亮显示某一列,一般用于显示80列
 set colorcolumn=81
 " 光标移动到buffer的顶部和底部时保持3行距离
-set scrolloff=5
+set scrolloff=2
 
 " change the terminal's title
 set title
