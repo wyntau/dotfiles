@@ -121,7 +121,8 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'osyo-manga/vim-over'
 
 " 快速文件搜索, 类似于sublime中的command + p
-Plugin 'kien/ctrlp.vim'
+" Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 nnoremap <Leader>o :CtrlP<CR>
 nnoremap <Leader>i :CtrlPBuffer<CR>
 " create new file in current window
