@@ -36,6 +36,9 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'ntpeters/vim-better-whitespace'
   map <leader><space> :StripWhitespace<cr>
 
+" --> Git support
+Plugin 'airblade/vim-gitgutter'
+
 " vim-tmux-navigator
 Plugin 'christoomey/vim-tmux-navigator'
   " fix neovim C-h send backspace problem

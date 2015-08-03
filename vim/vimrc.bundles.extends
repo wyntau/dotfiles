@@ -24,9 +24,6 @@ let g:user_emmet_mode='inv'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 
-" --> Git support
-Plugin 'airblade/vim-gitgutter'
-
 " --> 快速搜索插件
 " An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
 " require ag(a.k.a `the_silver_searcher`) or ack
