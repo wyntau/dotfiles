@@ -3,9 +3,6 @@
 
 Plugin 'godlygeek/tabular'
 
-Plugin 'ntpeters/vim-better-whitespace'
-map <leader><space> :StripWhitespace<cr>
-
 " --> smooth scroll
 Plugin 'terryma/vim-smooth-scroll'
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 12, 2)<cr>

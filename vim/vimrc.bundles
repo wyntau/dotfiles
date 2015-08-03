@@ -33,6 +33,9 @@ Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'Yggdroot/indentLine'
   let g:indentLine_char = '¦'
 
+Plugin 'ntpeters/vim-better-whitespace'
+  map <leader><space> :StripWhitespace<cr>
+
 " vim-tmux-navigator
 Plugin 'christoomey/vim-tmux-navigator'
   " fix neovim C-h send backspace problem
