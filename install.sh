@@ -221,6 +221,8 @@ function install_vim_bundles_base(){
   lnif "${APP_PATH}/vim/vimrc.bundles" \
        "$HOME/.vimrc.bundles"
 
+  vim +PluginInstall +qall
+
   success "You can add your own bundles to ~/.vimrc.bundles.local , vim will source them automatically"
 }
 
