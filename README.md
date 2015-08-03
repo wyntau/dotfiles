@@ -13,7 +13,6 @@
     │   ├── vimrc.bundles
     │   ├── vimrc.bundles.airline
     │   ├── vimrc.bundles.airline.fonts
-    │   ├── vimrc.bundles.colorschemes
     │   ├── vimrc.bundles.extends
     │   ├── vimrc.bundles.snippets
     │   ├── vimrc.bundles.syntax
@@ -29,7 +28,6 @@ All vailable tasks:
 - [vim_bundles_airline](#task-vim_bundles_airline)
 - [vim_bundles_airline_fonts](#task-vim_bundles_airline_fonts)
 - [vim_bundles_airline_with_fonts](#task-vim_bundles_airline_with_fonts)
-- [vim_bundles_colorschemes](#task-vim_bundles_colorschemes)
 - [vim_bundles_extends](#task-vim_bundles_extends)
 - [vim_bundles_snippets](#task-vim_bundles_snippets)
 - [vim_bundles_syntax](#task-vim_bundles_syntax)
@@ -69,6 +67,9 @@ You can do a specific task by run
     ##### Included bundles
 
         Plugin 'gmarik/Vundle.vim'
+        Plugin 'tomasr/molokai'
+        Plugin 'altercation/vim-colors-solarized'
+        Plugin 'morhetz/gruvbox'
 
 - ### Task `vim_bundles_airline`
     Requirement: `git`, `vim`, [task vim_rc](#task-vim_rc)
@@ -92,17 +93,6 @@ You can do a specific task by run
     ##### Included bundles
 
         Plugin 'bling/vim-airline'
-
-- ### Task `vim_bundles_colorschemes`
-    Requirement: `git`, `vim`, [task vim_rc](#task-vim_rc)
-
-    Install colorschemes for vim.
-
-    ##### Included bundles
-
-        Plugin 'tomasr/molokai'
-        Plugin 'altercation/vim-colors-solarized'
-        Plugin 'morhetz/gruvbox'
 
 - ### Task `vim_bundles_extends`
     Requirements: `git`, `vim`, [task vim_rc](#task-vim_rc)

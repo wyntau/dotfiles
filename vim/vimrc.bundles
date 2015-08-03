@@ -2,8 +2,16 @@
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" --> Vundle plugin
+" ==> Vundle plugin
 Plugin 'gmarik/Vundle.vim'
+
+" ==> Themes and views
+Plugin 'tomasr/molokai'
+  "If you prefer the scheme to match the original monokai background color
+  let g:molokai_original = 1
+Plugin 'altercation/vim-colors-solarized'
+  let g:solarized_termcolors=256
+Plugin 'morhetz/gruvbox'
 
 " source vim-airline
 if filereadable(expand("~/.vimrc.bundles.airline"))
