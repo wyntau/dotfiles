@@ -25,7 +25,6 @@ All vailable tasks:
 - [vim_rc](#task-vim_rc)
 - [vim_bundles_base](#task-vim_bundles_base)
 - [vim_bundles_airline_fonts](#task-vim_bundles_airline_fonts)
-- [vim_bundles_airline_with_fonts](#task-vim_bundles_airline_with_fonts)
 - [vim_bundles_extends](#task-vim_bundles_extends)
 - [vim_bundles_snippets](#task-vim_bundles_snippets)
 - [vim_bundles_syntax](#task-vim_bundles_syntax)
@@ -74,15 +73,6 @@ You can do a specific task by run
     Requirement: `git`
 
     Install powerline-fonts for airline, and set vim-airline to use powerline-fonts
-
-- ### Task `vim_bundles_airline_with_fonts`
-    Requirement: `git`, `vim`, [task vim_rc](#task-vim_rc)
-
-    Install vim-airline for vim, with using powerline-fonts
-
-    ##### Included bundles
-
-        Plugin 'bling/vim-airline'
 
 - ### Task `vim_bundles_extends`
     Requirements: `git`, `vim`, [task vim_rc](#task-vim_rc)
