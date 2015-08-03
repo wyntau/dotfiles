@@ -13,7 +13,6 @@
     │   ├── vimrc.bundles
     │   ├── vimrc.bundles.airline.fonts
     │   ├── vimrc.bundles.snippets
-    │   ├── vimrc.bundles.syntax
     │   └── vimrc.bundles.ycm
     └── zsh
         └── zshrc
@@ -25,7 +24,6 @@ All vailable tasks:
 - [vim_bundles_base](#task-vim_bundles_base)
 - [vim_bundles_airline_fonts](#task-vim_bundles_airline_fonts)
 - [vim_bundles_snippets](#task-vim_bundles_snippets)
-- [vim_bundles_syntax](#task-vim_bundles_syntax)
 - [vim_bundles_ycm](#task-vim_bundles_ycm)
 - [git_config](#task-git_config)
 - [git_dmtool](#task-git_dmtool)
@@ -89,6 +87,17 @@ You can do a specific task by run
         Plugin 'osyo-manga/vim-over'
         Plugin 'Lokaltog/vim-easymotion'
 
+        Plugin 'godlygeek/tabular'
+        Plugin 'plasticboy/vim-markdown'
+        Plugin 'leafgarland/typescript-vim'
+        Plugin 'kchmck/vim-coffee-script'
+        Plugin 'groenewege/vim-less'
+        Plugin 'smilekzs/vim-nfo'
+        Plugin 'evanmiller/nginx-vim-syntax'
+        Plugin 'tmux-plugins/vim-tmux'
+        Plugin 'pangloss/vim-javascript'
+        Plugin 'Marslo/vim-coloresque'
+
 - ### Task `vim_bundles_airline_fonts`
     Requirement: `git`
 
@@ -103,24 +112,6 @@ You can do a specific task by run
 
         Plugin 'SirVer/ultisnips'
         Plugin 'honza/vim-snippets'
-
-- ### Task `vim_bundles_syntax`
-    Requirement: `git`, `vim`, [task vim_rc](#task-vim_rc)
-
-    Install vim syntax for different file types
-
-    ##### Included bundles
-
-        Plugin 'godlygeek/tabular'
-        Plugin 'plasticboy/vim-markdown'
-        Plugin 'leafgarland/typescript-vim'
-        Plugin 'kchmck/vim-coffee-script'
-        Plugin 'groenewege/vim-less'
-        Plugin 'smilekzs/vim-nfo'
-        Plugin 'evanmiller/nginx-vim-syntax'
-        Plugin 'tmux-plugins/vim-tmux'
-        Plugin 'pangloss/vim-javascript'
-        Plugin 'Marslo/vim-coloresque'
 
 - ### Task `vim_bundles_ycm`
     Requirement: `git`, `vim`, `wget`, `python`, [task vim_rc](#task-vim_rc)

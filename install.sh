@@ -164,7 +164,6 @@ function usage(){
   echo '    - vim_bundles_base'
   echo '    - vim_bundles_airline_fonts'
   echo '    - vim_bundles_snippets'
-  echo '    - vim_bundles_syntax'
   echo '    - vim_bundles_ycm'
   echo '    - git_config'
   echo '    - git_dmtool'
@@ -227,13 +226,6 @@ function install_vim_bundles_base(){
   success "You can add your own bundles to ~/.vimrc.bundles.local , vim will source them automatically"
 }
 
-function must_vimrc_bundles_exists(){
-  if ( ! is_file_exists "$HOME/.vimrc.bundles" ); then
-    error "You should complete vim_bundles task first"
-    exit
-  fi;
-}
-
 function install_vim_bundles_airline_fonts(){
   step "Install powerline-fonts for airline symbols ..."
 
@@ -248,6 +240,13 @@ function install_vim_bundles_airline_fonts(){
        "$HOME/.vimrc.bundles.airline.fonts"
 
   success "Successfully installed powerline-fonts for airline."
+}
+
+function must_vimrc_bundles_exists(){
+  if ( ! is_file_exists "$HOME/.vimrc.bundles" ); then
+    error "You should complete vim_bundles task first"
+    exit
+  fi;
 }
 
 function install_neovim_python_support(){
@@ -299,20 +298,6 @@ function install_vim_bundles_snippets(){
   vim +PluginInstall +qall
 
   success "Successfully installed vim-snippets plugins."
-}
-
-function install_vim_bundles_syntax(){
-
-  must_vimrc_bundles_exists
-
-  step "Install vim syntax for different file types ..."
-
-  lnif "${APP_PATH}/vim/vimrc.bundles.syntax" \
-       "$HOME/.vimrc.bundles.syntax"
-
-  vim +PluginInstall +qall
-
-  success "Successfully installed syntax for different file types."
 }
 
 function install_vim_bundles_ycm(){
@@ -580,9 +565,6 @@ else
         ;;
       vim_bundles_snippets)
         install_vim_bundles_snippets
-        ;;
-      vim_bundles_syntax)
-        install_vim_bundles_syntax
         ;;
       vim_bundles_ycm)
         install_vim_bundles_ycm

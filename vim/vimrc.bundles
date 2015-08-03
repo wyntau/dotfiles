@@ -206,19 +206,25 @@ Plugin 'Lokaltog/vim-easymotion'
 " Plugin 'justinmk/vim-sneak'
 " Plugin 'haya14busa/incsearch.vim'
 
-" source vim function extends
-if filereadable(expand("~/.vimrc.bundles.extends"))
-  source ~/.vimrc.bundles.extends
-endif
+" ==> filetype and language syntax support
+" avoid confict with extends tabular
+" Plugin 'godlygeek/tabular', {'name': 'vim-markdown-tabular'}
+" vim-markdown depends on godlygeek/tabular, but we load it before
+Plugin 'plasticboy/vim-markdown'
+  let g:vim_markdown_folding_disabled=1
+Plugin 'leafgarland/typescript-vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'groenewege/vim-less'
+Plugin 'smilekzs/vim-nfo'
+Plugin 'evanmiller/nginx-vim-syntax'
+Plugin 'tmux-plugins/vim-tmux'
+Plugin 'pangloss/vim-javascript'
+" ap/vim-css-color # 不支持Vim74， 使用vim-colorsque 替代
+Plugin 'Marslo/vim-coloresque'
 
 " source snippets plugin
 if filereadable(expand("~/.vimrc.bundles.snippets"))
   source ~/.vimrc.bundles.snippets
-endif
-
-" source filetype syntax
-if filereadable(expand("~/.vimrc.bundles.syntax"))
-  source ~/.vimrc.bundles.syntax
 endif
 
 " source YouCompleteMe plugin
