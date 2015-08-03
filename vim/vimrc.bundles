@@ -13,10 +13,14 @@ Plugin 'altercation/vim-colors-solarized'
   let g:solarized_termcolors=256
 Plugin 'morhetz/gruvbox'
 
-" source vim-airline
-if filereadable(expand("~/.vimrc.bundles.airline"))
-  source ~/.vimrc.bundles.airline
-endif
+" ==> vim-airline
+Plugin 'bling/vim-airline'
+  let g:airline#extensions#tabline#enabled = 1
+  " Show just the filename
+  " let g:airline#extensions#tabline#fnamemod = ':t'
+  " 命令行（在状态行下）的高度，默认为1(不显示状态栏)，这里是2
+  set laststatus=2
+
 " source vim-airline fonts
 if filereadable(expand("~/.vimrc.bundles.airline.fonts"))
   source ~/.vimrc.bundles.airline.fonts

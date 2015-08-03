@@ -11,7 +11,6 @@
     ├── vim
     │   ├── vimrc
     │   ├── vimrc.bundles
-    │   ├── vimrc.bundles.airline
     │   ├── vimrc.bundles.airline.fonts
     │   ├── vimrc.bundles.extends
     │   ├── vimrc.bundles.snippets
@@ -25,7 +24,6 @@ All vailable tasks:
 
 - [vim_rc](#task-vim_rc)
 - [vim_bundles_base](#task-vim_bundles_base)
-- [vim_bundles_airline](#task-vim_bundles_airline)
 - [vim_bundles_airline_fonts](#task-vim_bundles_airline_fonts)
 - [vim_bundles_airline_with_fonts](#task-vim_bundles_airline_with_fonts)
 - [vim_bundles_extends](#task-vim_bundles_extends)
@@ -70,14 +68,6 @@ You can do a specific task by run
         Plugin 'tomasr/molokai'
         Plugin 'altercation/vim-colors-solarized'
         Plugin 'morhetz/gruvbox'
-
-- ### Task `vim_bundles_airline`
-    Requirement: `git`, `vim`, [task vim_rc](#task-vim_rc)
-
-    Install vim-airline for vim, without using powerline-fonts
-
-    ##### Included bundles
-
         Plugin 'bling/vim-airline'
 
 - ### Task `vim_bundles_airline_fonts`

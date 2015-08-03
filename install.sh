@@ -162,9 +162,7 @@ function usage(){
   printf "${dot_color_green}\n"
   echo '    - vim_rc'
   echo '    - vim_bundles_base'
-  echo '    - vim_bundles_airline'
   echo '    - vim_bundles_airline_fonts'
-  echo '    - vim_bundles_airline_with_fonts'
   echo '    - vim_bundles_extends'
   echo '    - vim_bundles_snippets'
   echo '    - vim_bundles_syntax'
@@ -231,20 +229,6 @@ function must_vimrc_bundles_exists(){
     error "You should complete vim_bundles task first"
     exit
   fi;
-}
-
-function install_vim_bundles_airline(){
-
-  must_vimrc_bundles_exists
-
-  step "Installing vim plugin vim-airline ..."
-
-  lnif "${APP_PATH}/vim/vimrc.bundles.airline" \
-       "$HOME/.vimrc.bundles.airline"
-
-  vim +PluginInstall +qall
-
-  success "Successfully installed vim-airline."
 }
 
 function install_vim_bundles_airline_fonts(){
@@ -604,15 +588,8 @@ else
       vim_bundles_base)
         install_vim_bundles_base
         ;;
-      vim_bundles_airline)
-        install_vim_bundles_airline
-        ;;
       vim_bundles_airline_fonts)
         install_vim_bundles_airline_fonts
-        ;;
-      vim_bundles_airline_with_fonts)
-        install_vim_bundles_airline_fonts
-        install_vim_bundles_airline
         ;;
       vim_bundles_extends)
         install_vim_bundles_extends
