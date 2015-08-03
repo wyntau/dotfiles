@@ -54,6 +54,9 @@ Plugin 'christoomey/vim-tmux-navigator'
     tnoremap <silent> <C-l> <C-\><C-n>:TmuxNavigateRight<cr>
   end
 
+" 自动补全引号, 括号等
+Plugin 'Raimondi/delimitMate'
+
 " source vim function extends
 if filereadable(expand("~/.vimrc.bundles.extends"))
   source ~/.vimrc.bundles.extends

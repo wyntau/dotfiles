@@ -72,6 +72,7 @@ You can do a specific task by run
         Plugin 'Yggdroot/indentLine'
         Plugin 'ntpeters/vim-better-whitespace'
         Plugin 'christoomey/vim-tmux-navigator'
+        Plugin 'Raimondi/delimitMate'
 
 - ### Task `vim_bundles_airline_fonts`
     Requirement: `git`
@@ -85,7 +86,6 @@ You can do a specific task by run
 
         Plugin 'godlygeek/tabular'
         Plugin 'terryma/vim-smooth-scroll'
-        Plugin 'Raimondi/delimitMate'
         Plugin 'vim-scripts/matchit.zip'
         Plugin 'mattn/emmet-vim'
         Plugin 'tpope/vim-surround'
