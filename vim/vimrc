@@ -397,34 +397,6 @@ set splitright
 " 水平split时,在下边开启
 set splitbelow
 
-" Move around splits with <c-h/j/k/l> - This is now handled by
-" tmux_navigator.vim - https://gist.github.com/mislav/5189704
-" Switch splits
-nnoremap <Tab> <C-w>w
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-" fix neovim C-h send backspace problem
-" you should run it in `normal terminal` and `tmux` separately
-" ```bash
-" infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
-" tic $TERM.ti
-" rm $TERM.ti
-" ```
-
-" =============================================================================
-" Terminal
-" =============================================================================
-if has('nvim')
-  tnoremap <Esc> <C-\><C-n>
-  tnoremap <C-h> <C-\><C-n><C-w>h
-  tnoremap <C-j> <C-\><C-n><C-w>j
-  tnoremap <C-k> <C-\><C-n><C-w>k
-  tnoremap <C-l> <C-\><C-n><C-w>l
-end
-
 " =============================================================================
 " Registers
 " =============================================================================

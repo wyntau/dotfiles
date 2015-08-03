@@ -13,16 +13,6 @@ noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 14, 2)<cr>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 22, 4)<cr>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 24, 4)<cr>
 
-" vim-tmux-navigator
-Plugin 'christoomey/vim-tmux-navigator'
-if has('nvim')
-  tnoremap <Esc> <C-\><C-n>
-  tnoremap <silent> <C-h> <C-\><C-n>:TmuxNavigateLeft<cr>
-  tnoremap <silent> <C-j> <C-\><C-n>:TmuxNavigateDown<cr>
-  tnoremap <silent> <C-k> <C-\><C-n>:TmuxNavigateUp<cr>
-  tnoremap <silent> <C-l> <C-\><C-n>:TmuxNavigateRight<cr>
-end
-
 " 自动补全引号, 括号等
 Plugin 'Raimondi/delimitMate'
 

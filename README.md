@@ -70,6 +70,7 @@ You can do a specific task by run
         Plugin 'bling/vim-airline'
         Plugin 'tmux-plugins/vim-tmux-focus-events'
         Plugin 'Yggdroot/indentLine'
+        Plugin 'christoomey/vim-tmux-navigator'
 
 - ### Task `vim_bundles_airline_fonts`
     Requirement: `git`

@@ -33,6 +33,24 @@ Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'Yggdroot/indentLine'
   let g:indentLine_char = '¦'
 
+" vim-tmux-navigator
+Plugin 'christoomey/vim-tmux-navigator'
+  " fix neovim C-h send backspace problem
+  " you should run it in `normal terminal` and `tmux` separately
+  " ```bash
+  " infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
+  " tic $TERM.ti
+  " rm $TERM.ti
+  " ```
+  nnoremap <Tab> <C-w>w
+  if has('nvim')
+    tnoremap <Esc> <C-\><C-n>
+    tnoremap <silent> <C-h> <C-\><C-n>:TmuxNavigateLeft<cr>
+    tnoremap <silent> <C-j> <C-\><C-n>:TmuxNavigateDown<cr>
+    tnoremap <silent> <C-k> <C-\><C-n>:TmuxNavigateUp<cr>
+    tnoremap <silent> <C-l> <C-\><C-n>:TmuxNavigateRight<cr>
+  end
+
 " source vim function extends
 if filereadable(expand("~/.vimrc.bundles.extends"))
   source ~/.vimrc.bundles.extends
