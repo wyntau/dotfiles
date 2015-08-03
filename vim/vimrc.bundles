@@ -25,6 +25,14 @@ Plugin 'bling/vim-airline'
     source ~/.vimrc.bundles.airline.fonts
   endif
 
+" FocusGained and FocusLost autocommand events are not working in terminal vim.
+" This plugin restores them when using vim inside Tmux.
+Plugin 'tmux-plugins/vim-tmux-focus-events'
+
+" ==> User Interface support
+Plugin 'Yggdroot/indentLine'
+  let g:indentLine_char = '¦'
+
 " source vim function extends
 if filereadable(expand("~/.vimrc.bundles.extends"))
   source ~/.vimrc.bundles.extends

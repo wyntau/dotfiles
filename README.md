@@ -68,6 +68,8 @@ You can do a specific task by run
         Plugin 'altercation/vim-colors-solarized'
         Plugin 'morhetz/gruvbox'
         Plugin 'bling/vim-airline'
+        Plugin 'tmux-plugins/vim-tmux-focus-events'
+        Plugin 'Yggdroot/indentLine'
 
 - ### Task `vim_bundles_airline_fonts`
     Requirement: `git`
@@ -80,8 +82,6 @@ You can do a specific task by run
     ##### Included bundles
 
         Plugin 'godlygeek/tabular'
-        Plugin 'tmux-plugins/vim-tmux-focus-events'
-        Plugin 'Yggdroot/indentLine'
         Plugin 'ntpeters/vim-better-whitespace'
         Plugin 'terryma/vim-smooth-scroll'
         Plugin 'Raimondi/delimitMate'

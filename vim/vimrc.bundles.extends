@@ -3,14 +3,6 @@
 
 Plugin 'godlygeek/tabular'
 
-" FocusGained and FocusLost autocommand events are not working in terminal vim.
-" This plugin restores them when using vim inside Tmux.
-Plugin 'tmux-plugins/vim-tmux-focus-events'
-
-" ==> User Interface support
-Plugin 'Yggdroot/indentLine'
-let g:indentLine_char = '¦'
-
 Plugin 'ntpeters/vim-better-whitespace'
 map <leader><space> :StripWhitespace<cr>
 
