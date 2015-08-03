@@ -400,21 +400,28 @@ set splitbelow
 " Move around splits with <c-h/j/k/l> - This is now handled by
 " tmux_navigator.vim - https://gist.github.com/mislav/5189704
 " Switch splits
-nnoremap <Tab> <C-w><C-w>
-nnoremap <C-h> <C-w><C-h>
-nnoremap <C-j> <C-w><C-j>
-nnoremap <C-k> <C-w><C-k>
-nnoremap <C-l> <C-w><C-l>
+nnoremap <Tab> <C-w>w
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" fix neovim C-h send backspace problem
+" ```bash
+" infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
+" tic $TERM.ti
+" rm $TERM.ti
+" ```
 
 " =============================================================================
 " Terminal
 " =============================================================================
 if has('nvim')
   tnoremap <Esc> <C-\><C-n>
-  tnoremap <C-h> <C-\><C-n><C-w><C-h>
-  tnoremap <C-j> <C-\><C-n><C-w><C-j>
-  tnoremap <C-k> <C-\><C-n><C-w><C-k>
-  tnoremap <C-l> <C-\><C-n><C-w><C-l>
+  tnoremap <C-h> <C-\><C-n><C-w>h
+  tnoremap <C-j> <C-\><C-n><C-w>j
+  tnoremap <C-k> <C-\><C-n><C-w>k
+  tnoremap <C-l> <C-\><C-n><C-w>l
 end
 
 " =============================================================================
