@@ -73,6 +73,7 @@ You can do a specific task by run
         Plugin 'ntpeters/vim-better-whitespace'
         Plugin 'christoomey/vim-tmux-navigator'
         Plugin 'Raimondi/delimitMate'
+        Plugin 'ctrlpvim/ctrlp.vim'
 
 - ### Task `vim_bundles_airline_fonts`
     Requirement: `git`
@@ -98,7 +99,6 @@ You can do a specific task by run
         Plugin 'terryma/vim-expand-region'
         Plugin 'terryma/vim-multiple-cursors'
         Plugin 'osyo-manga/vim-over'
-        Plugin 'kien/ctrlp.vim'
         Plugin 'Lokaltog/vim-easymotion'
 
 - ### Task `vim_bundles_snippets`

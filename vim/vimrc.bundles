@@ -57,6 +57,47 @@ Plugin 'christoomey/vim-tmux-navigator'
 " 自动补全引号, 括号等
 Plugin 'Raimondi/delimitMate'
 
+" 快速文件搜索, 类似于sublime中的command + p
+" Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+  nnoremap <Leader>o :CtrlP<CR>
+  nnoremap <Leader>i :CtrlPBuffer<CR>
+  " create new file in current window
+  let g:ctrlp_open_new_file = 'r'
+  let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
+      \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc)$',
+      \ }
+  if executable('ag')
+    " ag is fast enough that CtrlP doesn't need to cache
+    let g:ctrlp_use_caching = 0
+    let s:ctrlp_fallback = 'ag %s -i -l --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore .hg
+      \ --ignore .DS_Store
+      \ --ignore "**/*.pyc"
+      \ -g ""'
+  elseif executable('ack-grep')
+    let s:ctrlp_fallback = 'ack-grep %s --nocolor -f'
+  elseif executable('ack')
+    let g:ctrlp_use_caching = 0
+    let s:ctrlp_fallback = 'ack %s --nocolor -f'
+  else
+    let s:ctrlp_fallback = 'find %s -type f'
+  endif
+  let g:ctrlp_user_command = {
+      \ 'types': {
+          \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
+          \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+      \ },
+      \ 'fallback': s:ctrlp_fallback
+  \ }
+  " <cr> Open the selected file in the 'current' window if possible.
+  " <c-v> Open the selected file in a 'vertical' split.
+  " <c-x>, <c-cr>, <c-s> Open the selected file in a 'horizontal' split.
+  " <c-y> Create a new file and its parent directories.
+
 " source vim function extends
 if filereadable(expand("~/.vimrc.bundles.extends"))
   source ~/.vimrc.bundles.extends
