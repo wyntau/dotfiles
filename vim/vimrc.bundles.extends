@@ -23,12 +23,6 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 24, 4)<cr>
 
 " vim-tmux-navigator
 Plugin 'christoomey/vim-tmux-navigator'
-" fix neovim C-h send backspace problem
-" ```bash
-" infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
-" tic $TERM.ti
-" rm $TERM.ti
-" ```
 if has('nvim')
   tnoremap <Esc> <C-\><C-n>
   tnoremap <silent> <C-h> <C-\><C-n>:TmuxNavigateLeft<cr>
