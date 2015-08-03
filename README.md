@@ -12,7 +12,6 @@
     │   ├── vimrc
     │   ├── vimrc.bundles
     │   ├── vimrc.bundles.airline.fonts
-    │   ├── vimrc.bundles.extends
     │   ├── vimrc.bundles.snippets
     │   ├── vimrc.bundles.syntax
     │   └── vimrc.bundles.ycm
@@ -25,7 +24,6 @@ All vailable tasks:
 - [vim_rc](#task-vim_rc)
 - [vim_bundles_base](#task-vim_bundles_base)
 - [vim_bundles_airline_fonts](#task-vim_bundles_airline_fonts)
-- [vim_bundles_extends](#task-vim_bundles_extends)
 - [vim_bundles_snippets](#task-vim_bundles_snippets)
 - [vim_bundles_syntax](#task-vim_bundles_syntax)
 - [vim_bundles_ycm](#task-vim_bundles_ycm)
@@ -76,16 +74,6 @@ You can do a specific task by run
         Plugin 'Raimondi/delimitMate'
         Plugin 'ctrlpvim/ctrlp.vim'
 
-- ### Task `vim_bundles_airline_fonts`
-    Requirement: `git`
-
-    Install powerline-fonts for airline, and set vim-airline to use powerline-fonts
-
-- ### Task `vim_bundles_extends`
-    Requirements: `git`, `vim`, [task vim_rc](#task-vim_rc)
-
-    ##### Included bundles
-
         Plugin 'godlygeek/tabular'
         Plugin 'terryma/vim-smooth-scroll'
         Plugin 'vim-scripts/matchit.zip'
@@ -100,6 +88,11 @@ You can do a specific task by run
         Plugin 'terryma/vim-multiple-cursors'
         Plugin 'osyo-manga/vim-over'
         Plugin 'Lokaltog/vim-easymotion'
+
+- ### Task `vim_bundles_airline_fonts`
+    Requirement: `git`
+
+    Install powerline-fonts for airline, and set vim-airline to use powerline-fonts
 
 - ### Task `vim_bundles_snippets`
     Requirement: `git`, `vim`, `wget`, `python`, [task vim_rc](#task-vim_rc)

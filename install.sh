@@ -163,7 +163,6 @@ function usage(){
   echo '    - vim_rc'
   echo '    - vim_bundles_base'
   echo '    - vim_bundles_airline_fonts'
-  echo '    - vim_bundles_extends'
   echo '    - vim_bundles_snippets'
   echo '    - vim_bundles_syntax'
   echo '    - vim_bundles_ycm'
@@ -223,6 +222,8 @@ function install_vim_bundles_base(){
 
   vim +PluginInstall +qall
 
+  better_program_exists_one "ag"
+
   success "You can add your own bundles to ~/.vimrc.bundles.local , vim will source them automatically"
 }
 
@@ -247,22 +248,6 @@ function install_vim_bundles_airline_fonts(){
        "$HOME/.vimrc.bundles.airline.fonts"
 
   success "Successfully installed powerline-fonts for airline."
-}
-
-function install_vim_bundles_extends(){
-
-  must_vimrc_bundles_exists
-
-  step "Installing vim bundles ..."
-
-  better_program_exists_one "ag"
-
-  lnif "${APP_PATH}/vim/vimrc.bundles.extends" \
-       "$HOME/.vimrc.bundles.extends"
-
-  vim +PluginInstall +qall
-
-  success "Successfully installed vim bundles."
 }
 
 function install_neovim_python_support(){
@@ -592,9 +577,6 @@ else
         ;;
       vim_bundles_airline_fonts)
         install_vim_bundles_airline_fonts
-        ;;
-      vim_bundles_extends)
-        install_vim_bundles_extends
         ;;
       vim_bundles_snippets)
         install_vim_bundles_snippets
