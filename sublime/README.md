@@ -32,7 +32,9 @@ The Sublime Packages I used are listed below:
 - <del>JSHint Gutter</del>
 - LESS
 - <del>LineEndings</del>
+- <del>MarkdownEditing</del>
 - Markdown Preview
+- <del>OmniMarkupPreviewer</del>
 - Package Control (required by all others)
 - <del>Pretty JSON</del>
 - PyV8 (auto installed by emmet)
