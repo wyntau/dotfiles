@@ -1,7 +1,5 @@
 ## Sublime Text 2 Packages
-First of all, you should have installed `Package Control`, if you haven't, press `ctrl` + `` ` ``, then input
-
-    import urllib2,os,hashlib; h = '2deb499853c4371624f5a07e27c334aa' + 'bf8c4e67d14fb0525ba4f89698a6d7e1'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), 'wb' ).write(by) if dh == h else None; print('Error validating download (got %s instead of %s), please try manual install' % (dh, h) if dh != h else 'Please restart Sublime Text to finish installation')
+First of all, you should have installed `Package Control`. If you haven't, press <kbd>ctrl</kbd> + <kbd>`</kbd>, then input the code in <https://packagecontrol.io/installation#st2>
 
 then press `Enter`, the `Package Control` will be installed.
 
@@ -9,7 +7,7 @@ The Sublime Packages I used are listed below:
 
 - AdvancedNewFile
 - Alignment
-- AlignTab
+- <del>AlignTab</del>
 - <del>Autoprefixer</del>
 - BracketHighlighter
 - <del>Can I Use</del>
@@ -25,10 +23,10 @@ The Sublime Packages I used are listed below:
 - <del>Gist</del>
 - <del>Git</del>
 - GitGutter
-- GoSublime
+- <del>GoSublime</del>
 - HTML-CSS-JS Prettify
 - JsFormat
-- JSHint
+- <del>JSHint</del>
 - <del>JSHint Gutter</del>
 - LESS
 - <del>LineEndings</del>
@@ -42,7 +40,7 @@ The Sublime Packages I used are listed below:
 - <del>SidebarEnhancements</del>
 - <del>SublimeAStyleFormatter</del>
 - <del>SublimeCodeIntel</del>
-- SublimeLinter
+- <del>SublimeLinter</del>
 - <del>SublimeREPL</del>
 - <del>Tag</del>
 - <del>Terminal</del>
