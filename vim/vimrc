@@ -93,7 +93,7 @@ if has('nvim') || has('patch584')
   " To disable Python 3 interpreter check
   let g:python3_host_skip_check = 1
   " To disable Python 3 interface
-  let g:loaded_python3_provider = 0
+  let g:loaded_python3_provider = 1
 end
 " 合并两行中文时，不在中间加空格：
 set formatoptions+=B
