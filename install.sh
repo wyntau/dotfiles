@@ -350,6 +350,7 @@ function install_sublime(){
 
   success "Successfully installed sublime Preference and Monokai-custom theme"
   tip "You may want to change font_face in your sublime Preference"
+  tip "Maybe you will like 'Source Code Pro' of Adobe, see https://github.com/adobe-fonts/source-code-pro"
 }
 
 function install_git_config(){
