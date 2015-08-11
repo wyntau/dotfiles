@@ -46,6 +46,12 @@ Plugin 'ntpeters/vim-better-whitespace'
 
 " --> Git support
 Plugin 'airblade/vim-gitgutter'
+" default maps
+" nmap [c <Plug>GitGutterPrevHunk
+" nmap ]c <Plug>GitGutterNextHunk
+" nmap <Leader>hs <Plug>GitGutterStageHunk
+" nmap <Leader>hr <Plug>GitGutterRevertHunk
+" nmap <Leader>hp <Plug>GitGutterPreviewHunk
 
 " vim-tmux-navigator
 Plugin 'christoomey/vim-tmux-navigator'
