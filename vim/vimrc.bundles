@@ -79,6 +79,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'ctrlpvim/ctrlp.vim'
   nnoremap <Leader>o :CtrlP<CR>
   nnoremap <Leader>i :CtrlPBuffer<CR>
+  nnoremap <Leader>u :CtrlPMixed<CR>
   " create new file in current window
   let g:ctrlp_open_new_file = 'r'
   let g:ctrlp_custom_ignore = {
