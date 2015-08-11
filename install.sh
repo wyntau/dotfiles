@@ -318,9 +318,21 @@ function install_vim_bundles_ycm(){
   # Force recompile YouCompleteMe libs
   # or YouCompleteMe libs not exists
   # compile libs for YouCompleteMe
-  if [[ "$YCM_FORCE_COMPILE" = "true" ]] || ( ! is_file_exists "${APP_PATH}/vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so" ) || ( ! is_file_exists "${APP_PATH}/vim/bundle/YouCompleteMe/third_party/ycmd/ycm_client_support.so" ); then
+  ycmd_path="${APP_PATH}/vim/bundle/YouCompleteMe/third_party/ycmd"
+  if [[ "$YCM_COMPILE_FORCE" = "true" ]] || ( ! is_file_exists "$ycmd_path/ycm_core.so" ) || ( ! is_file_exists "$ycmd_path/ycm_client_support.so" ); then
     info "Compiling YouCompleteMe libs ..."
-    "${APP_PATH}/vim/bundle/YouCompleteMe/install.sh" --clang-completer
+    case $YCM_COMPLETER in
+      clang)
+        YCM_COMPLETER_FLAG="--clang-completer"
+        ;;
+      omnisharp)
+        YCM_COMPLETER_FLAG="--omnisharp-completer"
+        ;;
+      gocode)
+        YCM_COMPLETER_FLAG="--gocode-completer"
+        ;;
+    esac;
+    "${APP_PATH}/vim/bundle/YouCompleteMe/install.sh" "$YCM_COMPLETER_FLAG"
   fi;
 
   lnif "${APP_PATH}/vim/vimrc.bundles.ycm" \
