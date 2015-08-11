@@ -275,7 +275,7 @@ set nowrapscan
 nnoremap <silent><leader><cr> :nohlsearch<cr>
 nnoremap <silent><leader>/ :nohlsearch<CR>
 " Re-highlight last search pattern
-nnoremap <leader>hs :set hlsearch<cr>
+nnoremap <leader>hls :set hlsearch<cr>
 
 " =============================================================================
 " Buffers
