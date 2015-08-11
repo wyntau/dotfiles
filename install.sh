@@ -315,9 +315,11 @@ function install_vim_bundles_ycm(){
   sync_repo "https://github.com/Valloric/YouCompleteMe.git" \
             "${APP_PATH}/vim/bundle/YouCompleteMe"
 
+  # Force recompile YouCompleteMe libs
+  # or YouCompleteMe libs not exists
   # compile libs for YouCompleteMe
-  if ( ! is_file_exists "${APP_PATH}/vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so" ) || ( ! is_file_exists "${APP_PATH}/vim/bundle/YouCompleteMe/third_party/ycmd/ycm_client_support.so" ); then
-    info "Fetching and compiling YouCompleteMe libs ..."
+  if [[ "$YCM_FORCE_COMPILE" = "true" ]] || ( ! is_file_exists "${APP_PATH}/vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so" ) || ( ! is_file_exists "${APP_PATH}/vim/bundle/YouCompleteMe/third_party/ycmd/ycm_client_support.so" ); then
+    info "Compiling YouCompleteMe libs ..."
     "${APP_PATH}/vim/bundle/YouCompleteMe/install.sh" --clang-completer
   fi;
 
