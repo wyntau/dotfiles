@@ -152,6 +152,8 @@ Plugin 'dyng/ctrlsf.vim'
   nmap     <C-F>n <Plug>CtrlSFCwordPath
   nmap     <C-F>p <Plug>CtrlSFPwordPath
   nnoremap <C-F>o :CtrlSFOpen<CR>
+  nnoremap <C-F>t :CtrlSFToggle<CR>
+  inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
   " In CtrlSF window:
   " Enter - Open corresponding file of current line in the window which CtrlSF is launched from.
   " t - Like Enter but open file in a new tab.
