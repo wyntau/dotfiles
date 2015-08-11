@@ -332,7 +332,7 @@ function install_vim_bundles_ycm(){
         YCM_COMPLETER_FLAG="--gocode-completer"
         ;;
     esac;
-    "${APP_PATH}/vim/bundle/YouCompleteMe/install.sh" "$YCM_COMPLETER_FLAG"
+    "${APP_PATH}/vim/bundle/YouCompleteMe/install.sh" $YCM_COMPLETER_FLAG
   fi;
 
   lnif "${APP_PATH}/vim/vimrc.bundles.ycm" \
