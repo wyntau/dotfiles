@@ -12,6 +12,7 @@
     │   ├── vimrc
     │   ├── vimrc.bundles
     │   ├── vimrc.bundles.airline.fonts
+    │   ├── vimrc.bundles.matchtag
     │   ├── vimrc.bundles.snippets
     │   └── vimrc.bundles.ycm
     └── zsh
@@ -23,6 +24,7 @@ All vailable tasks:
 - [vim_rc](#task-vim_rc)
 - [vim_bundles_base](#task-vim_bundles_base)
 - [vim_bundles_airline_fonts](#task-vim_bundles_airline_fonts)
+- [vim_bundles_matchtag](#task-vim_bundles_matchtag)
 - [vim_bundles_snippets](#task-vim_bundles_snippets)
 - [vim_bundles_ycm](#task-vim_bundles_ycm)
 - [git_config](#task-git_config)
@@ -102,6 +104,16 @@ You can do a specific task by run
     Requirement: `git`
 
     Install powerline-fonts for airline, and set vim-airline to use powerline-fonts
+
+- ### Task `vim_bundles_matchtag`
+    Requirement: `git`, `vim`, `wget`, `python`, [task vim_rc](#task-vim_rc)
+
+    Install html matchtag plugin for vim. Here i use python version matchtag.
+    If you don't want to include python modules, you can also use non-python version 'gregsexton/MatchTag'
+
+    ##### Included bundles
+
+        Plugin 'valloric/MatchTagAlways'
 
 - ### Task `vim_bundles_snippets`
     Requirement: `git`, `vim`, `wget`, `python`, [task vim_rc](#task-vim_rc)

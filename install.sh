@@ -163,6 +163,7 @@ function usage(){
   echo '    - vim_rc'
   echo '    - vim_bundles_base'
   echo '    - vim_bundles_airline_fonts'
+  echo '    - vim_bundles_matchtag'
   echo '    - vim_bundles_snippets'
   echo '    - vim_bundles_ycm'
   echo '    - git_config'
@@ -279,6 +280,25 @@ function install_neovim_python_support(){
       success "Successfully installed pynvim."
     fi;
   fi;
+}
+
+function install_vim_bundles_matchtag(){
+
+  must_vimrc_bundles_exists
+
+  must_program_exists "python"
+
+  step "Installing vim MatchTagAlways plugin ..."
+
+  # check whether have neovim. if have, make sure neovim have python feature support
+  install_neovim_python_support
+
+  lnif "${APP_PATH}/vim/vimrc.bundles.matchtag" \
+       "$HOME/.vimrc.bundles.matchtag"
+
+  vim +PluginInstall +qall
+
+  success "Successfully installed MatchTagAlways plugins."
 }
 
 function install_vim_bundles_snippets(){
@@ -577,6 +597,9 @@ else
         ;;
       vim_bundles_airline_fonts)
         install_vim_bundles_airline_fonts
+        ;;
+      vim_bundles_matchtag)
+        install_vim_bundles_matchtag
         ;;
       vim_bundles_snippets)
         install_vim_bundles_snippets

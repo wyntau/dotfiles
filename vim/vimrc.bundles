@@ -239,6 +239,11 @@ Plugin 'pangloss/vim-javascript'
 " ap/vim-css-color # 不支持Vim74， 使用vim-colorsque 替代
 Plugin 'Marslo/vim-coloresque'
 
+" source matchtag plugin
+if filereadable(expand("~/.vimrc.bundles.matchtag"))
+  source ~/.vimrc.bundles.matchtag
+endif
+
 " source snippets plugin
 if filereadable(expand("~/.vimrc.bundles.snippets"))
   source ~/.vimrc.bundles.snippets
