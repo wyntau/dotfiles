@@ -32,7 +32,7 @@ Plugin 'tmux-plugins/vim-tmux-focus-events'
 " ==> User Interface support
 Plugin 'Yggdroot/indentLine'
   let g:indentLine_char = '¦'
-  let g:indentLine_color_term = 239
+  let g:indentLine_color_term = 237
   " background will auto set to light when some condition
   " so force color_term to 239
   " if &background ==# "light"
