@@ -609,10 +609,6 @@ nnoremap <leader>x16 <ESC>:%!xxd<ESC>
 " ,r16                返回普通格式
 nnoremap <leader>r16 <ESC>:%!xxd -r<ESC>
 
-" Quickly edit/reload the vimrc file
-nnoremap <silent> <leader>ev :edit $MYVIMRC<CR>
-nnoremap <silent> <leader>sv :source $MYVIMRC<CR>
-
 "==========================================
 " Vundle 插件管理及配置
 "==========================================
