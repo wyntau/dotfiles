@@ -10,7 +10,7 @@ Plugin 'tomasr/molokai'
   "If you prefer the scheme to match the original monokai background color
   let g:molokai_original = 1
 Plugin 'altercation/vim-colors-solarized'
-  let g:solarized_termcolors=256
+  let g:solarized_termcolors = 256
 Plugin 'morhetz/gruvbox'
 
 " ==> vim-airline
@@ -144,8 +144,8 @@ Plugin 'tpope/vim-repeat'
 " An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
 " require ag(a.k.a `the_silver_searcher`) or ack
 Plugin 'dyng/ctrlsf.vim'
-  let g:ctrlsf_winsize='30%'
-  let g:ctrlsf_auto_close=0
+  let g:ctrlsf_winsize = '30%'
+  let g:ctrlsf_auto_close = 0
   nmap     <C-F>f <Plug>CtrlSFPrompt
   vmap     <C-F>f <Plug>CtrlSFVwordPath
   vmap     <C-F>F <Plug>CtrlSFVwordExec
@@ -188,17 +188,17 @@ Plugin 'scrooloose/nerdtree'
 " {{{ NERDTreeTabsToggle
 Plugin 'jistr/vim-nerdtree-tabs'
   " 始终焦点位于文件窗口内
-  let g:nerdtree_tabs_smart_startup_focus=2
+  let g:nerdtree_tabs_smart_startup_focus = 2
   " 默认不显示NERDTree窗口
-  let g:nerdtree_tabs_open_on_gui_startup=0
+  let g:nerdtree_tabs_open_on_gui_startup = 0
   nmap <leader>nt :NERDTreeTabsToggle<CR>
   " }}}
 
 Plugin 'scrooloose/nerdcommenter'
   " 让注释符与语句之间留一个空格
-  let g:NERDSpaceDelims=1
+  let g:NERDSpaceDelims = 1
   " 多行注释时样子更好看
-  let g:NERDCompactSexyComs=1
+  let g:NERDCompactSexyComs = 1
 
 Plugin 'terryma/vim-expand-region'
   vmap v <Plug>(expand_region_expand)
@@ -228,7 +228,7 @@ Plugin 'Lokaltog/vim-easymotion'
 " Plugin 'godlygeek/tabular', {'name': 'vim-markdown-tabular'}
 " vim-markdown depends on godlygeek/tabular, but we load it before
 Plugin 'plasticboy/vim-markdown'
-  let g:vim_markdown_folding_disabled=1
+  let g:vim_markdown_folding_disabled = 1
 Plugin 'leafgarland/typescript-vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'groenewege/vim-less'
