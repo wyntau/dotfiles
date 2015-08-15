@@ -43,7 +43,7 @@ You can do a specific task by run
 - ### Task `vim_rc`
     Requirements: `git`, `vim`
 
-    This task will not install any bundles, if you want to use some bundles, do __[task vim_bundles](#task-vim_bundles)__.
+    This task will not install any bundles, if you want to use some bundles, do __[task vim_bundles_base](#task-vim_bundles_base)__.
 
     You can override the system vim with the new one installed by `homebrew`.(OS X only. This is optional, but recommended, because system vim can't use system clipbord via register `+`)
 
