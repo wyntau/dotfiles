@@ -77,12 +77,10 @@ set showbreak=↪\  " Character to precede line wraps"
 
 " 在被分割的窗口间显示空白，便于阅读
 set fillchars=vert:\ ,stl:\ ,stlnc:\  "注释
-" set list listchars=eol:¬,tab:▸\ ,trail:.,
-" set list listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:•
-" set list listchars=tab:▸\ ,extends:❯,precedes:❮,nbsp:␣
-" if has('nvim')
-  " set listchars+=space:.
-" endif
+set listchars=eol:¬,tab:▸\ ,trail:•,nbsp:␣,extends:»,precedes:«
+if has('nvim')
+  set listchars+=space:.
+endif
 
 set diffopt+=vertical,context:3,foldcolumn:0
 
