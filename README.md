@@ -214,17 +214,21 @@ You can do a specific task by run
     __What zsh plugins are used default?__
 
     - colored-man
+    - encode64
     - extract
-    - git
-    - git-extras
-    - git-flow
     - sublime
     - sudo
-    - tmux (when tmux is installed)
     - z
+    - zsh_reload
     - zsh-syntax-highlighting
-    - brew (OS X only)
-    - osx (OS X only)
+    - brew          (when brew is installed)
+    - git           (when git is installed)
+    - git-extras    (when git is installed)
+    - git-flow      (when git is installed)
+    - httpie        (when httpie is installed)
+    - mosh          (when mosh is installed)
+    - tmux          (when tmux is installed)
+    - osx           (OS X only)
 
     So, maybe you should install some of them to make full use of zsh.
 

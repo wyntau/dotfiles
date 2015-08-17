@@ -78,15 +78,48 @@ export TERM="${USER_TERM_PREFIX}${USER_TERM_SUFFIX}"
 # set zsh plugins
 plugins=(
   colored-man
+  encode64
   extract
-  git
-  git-extras
-  git-flow
   sublime
   sudo
   z
+  zsh_reload
   zsh-syntax-highlighting
 )
+
+# if we have brew installed, add brew plugin
+if which brew &> /dev/null; then
+  plugins=(
+    $plugins
+    brew
+  )
+fi;
+
+# if we have git installed, add git plugin
+if which git &> /dev/null; then
+  plugins=(
+    $plugins
+    git
+    git-extras
+    git-flow
+  )
+fi;
+
+# if we have httpie installed, add httpie plugin
+if which http &> /dev/null; then
+  plugins=(
+    $plugins
+    httpie
+  )
+fi;
+
+# if we have mosh installed, add mosh plugin
+if which mosh &> /dev/null; then
+  plugins=(
+    $plugins
+    mosh
+  )
+fi;
 
 # if we have tmux installed, add tmux plugin
 if which tmux &> /dev/null; then
@@ -100,7 +133,6 @@ fi;
 if [[ "$OSTYPE" == "darwin"* ]]; then
   plugins=(
     $plugins
-    brew
     osx
   )
 fi;
