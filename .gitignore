@@ -4,14 +4,11 @@ git/plugins
 
 vim/bundle
 vim/powerline-fonts
-vim/sessions
 
 sublime/monokai-custom
 
 zsh/oh-my-zsh
 
 tmux/plugins
-tmux/resurrect
-tmux/sidebar
 
 .tmp
