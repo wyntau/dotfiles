@@ -214,6 +214,7 @@ You can do a specific task by run
     __What zsh plugins are used default?__
 
     - colored-man
+    - extract
     - git
     - git-extras
     - git-flow

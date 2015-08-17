@@ -78,6 +78,7 @@ export TERM="${USER_TERM_PREFIX}${USER_TERM_SUFFIX}"
 # set zsh plugins
 plugins=(
   colored-man
+  extract
   git
   git-extras
   git-flow
