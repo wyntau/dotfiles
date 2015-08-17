@@ -149,12 +149,6 @@ function sync_repo(){
 ########## Steps setup
 
 function usage(){
-
-  if ( ! is_mac ) && ( ! is_linux ); then
-    error "Sorry. Only *Linux* and *MAC* are supported"
-    exit
-  fi;
-
   echo
   echo 'Usage: install.sh <task>[ taskFoo taskBar ...]'
   echo
@@ -566,11 +560,6 @@ function install_tmux(){
 
 function install_homebrew(){
 
-  if( ! is_mac ); then
-    error "Only *MAC* is supported"
-    exit
-  fi;
-
   if ( is_program_exists "brew" ); then
     success "You have already installed homebrew"
     exit
@@ -579,7 +568,11 @@ function install_homebrew(){
   must_program_exists "ruby" \
                       "curl"
 
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  if ( is_mac ); then
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  elif ( is_linux ); then
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
+  fi;
 
   success "Successfully installed homebrew"
 }
