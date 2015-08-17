@@ -146,14 +146,14 @@ Plugin 'tpope/vim-repeat'
 Plugin 'dyng/ctrlsf.vim'
   let g:ctrlsf_winsize = '30%'
   let g:ctrlsf_auto_close = 0
-  nmap     <C-F>f <Plug>CtrlSFPrompt
-  vmap     <C-F>f <Plug>CtrlSFVwordPath
-  vmap     <C-F>F <Plug>CtrlSFVwordExec
-  nmap     <C-F>n <Plug>CtrlSFCwordPath
-  nmap     <C-F>p <Plug>CtrlSFPwordPath
-  nnoremap <C-F>o :CtrlSFOpen<CR>
-  nnoremap <C-F>t :CtrlSFToggle<CR>
-  inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+  nmap     <C-S>f <Plug>CtrlSFPrompt
+  vmap     <C-S>f <Plug>CtrlSFVwordPath
+  vmap     <C-S>F <Plug>CtrlSFVwordExec
+  nmap     <C-S>n <Plug>CtrlSFCwordPath
+  nmap     <C-S>p <Plug>CtrlSFPwordPath
+  nnoremap <C-S>o :CtrlSFOpen<CR>
+  nnoremap <C-S>t :CtrlSFToggle<CR>
+  inoremap <C-S>t <Esc>:CtrlSFToggle<CR>
   " In CtrlSF window:
   " Enter - Open corresponding file of current line in the window which CtrlSF is launched from.
   " t - Like Enter but open file in a new tab.
