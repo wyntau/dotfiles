@@ -389,7 +389,9 @@ else
   nnoremap <silent> <Leader>bd :Bclose<CR>
   nnoremap <silent> <Leader>bD :Bclose!<CR>
   cabbrev bd Bclose
+  cabbrev Bd Bclose
   cabbrev bD Bclose!
+  cabbrev BD Bclose!
   cabbrev bd! Bclose!
   " bugfix end}}}
 endif
