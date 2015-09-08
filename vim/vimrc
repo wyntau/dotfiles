@@ -312,8 +312,8 @@ nnoremap <leader>bd :bd<CR>
 " nnoremap <leader>bq :bp <BAR> bd #<CR>
 
 " Use arrow key to change buffer"
-noremap <left> :bprevious<CR>
-noremap <right> :bnext<CR>
+" noremap <left> :bprevious<CR>
+" noremap <right> :bnext<CR>
 
 " bugfix for using :bd close all buffer and vim {{{
 " Delete buffer while keeping window layout (don't close buffer's windows).
