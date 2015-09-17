@@ -44,9 +44,17 @@
 	# --patch => 生成diff预览
 	# --date=local 去除时区信息
 
-	lg = log --color --graph --pretty=format:'%C(magenta)%h %Creset-%C(red)%d %Creset%s %C(green)%ar%C(cyan)(%ad)%C(bold blue)<%an>' --date=local
-	ll = log --color --graph --pretty=format:'%C(red)%d %C(yellow)%B %C(magenta)%H%n Author: %C(green)%ar%C(cyan)(%ad)%C(bold blue)<%an>%n Committer: %C(green)%cr%C(cyan)(%cd)%C(bold blue)<%cn>%n'  --stat --topo-order --date=local
-	lp = log --color --graph --pretty=format:'%C(red)%d %C(yellow)%B %C(magenta)%H%n Author: %C(green)%ar%C(cyan)(%ad)%C(bold blue)<%an>%n Committer: %C(green)%cr%C(cyan)(%cd)%C(bold blue)<%cn>%n'  --stat --topo-order --date=local --patch
+	lg = log --color --graph --pretty=format:'%C(magenta)%h %C(reset)-%C(red)%d%C(reset)%s %C(bold blue)<%an>%C(reset)%C(green)%ar%C(cyan)(%ad)' --date=local
+	ll = log --color --graph --pretty=format:'%C(red)%d%C(yellow)%B\
+%n%C(ul)Hash:%C(reset) %C(magenta)%H\
+%n%C(ul)Author:%C(reset) %C(bold blue)<%an>%C(reset)%C(green)%ar%C(cyan)(%ad)\
+%n%C(ul)Committer:%C(reset) %C(bold blue)<%cn>%C(reset)%C(green)%cr%C(cyan)(%cd)\
+%n'  --stat --topo-order --date=local
+	lp = log --color --graph --pretty=format:'%C(red)%d%C(yellow)%B\
+%n%C(ul)Hash:%C(reset) %C(magenta)%H\
+%n%C(ul)Author:%C(reset) %C(bold blue)<%an>%C(reset)%C(green)%ar%C(cyan)(%ad)\
+%n%C(ul)Committer:%C(reset) %C(bold blue)<%cn>%C(reset)%C(green)%cr%C(cyan)(%cd)\
+%n'  --stat --topo-order --date=local --patch
 
 	mg = merge
 	mgn = merge --no-ff   # branchName here
