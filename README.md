@@ -221,6 +221,9 @@ You can do a specific task by run
     - z
     - zsh_reload
     - zsh-syntax-highlighting
+
+    __What zsh plugins are used when relational programs installed?__
+
     - brew          (when brew is installed)
     - git           (when git is installed)
     - git-extras    (when git is installed)
