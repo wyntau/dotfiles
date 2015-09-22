@@ -225,7 +225,6 @@ You can do a specific task by run
     __What zsh plugins are used when relational programs installed?__
 
     - brew          (when brew is installed)
-    - git           (when git is installed)
     - git-extras    (when git is installed)
     - git-flow      (when git is installed)
     - httpie        (when httpie is installed)
