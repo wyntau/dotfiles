@@ -99,6 +99,7 @@ fi;
 if which git &> /dev/null; then
   plugins=(
     $plugins
+    gitfast
     git-extras
     git-flow
   )
