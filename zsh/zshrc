@@ -75,18 +75,6 @@ if [[ `tput colors` == "256" ]] || [ -e /usr/share/terminfo/s/screen-256color ] 
 fi;
 export TERM="${USER_TERM_PREFIX}${USER_TERM_SUFFIX}"
 
-# set zsh plugins
-plugins=(
-  colored-man
-  encode64
-  extract
-  sublime
-  sudo
-  z
-  zsh_reload
-  zsh-syntax-highlighting
-)
-
 # if we have brew installed, add brew plugin
 if which brew &> /dev/null; then
   plugins=(
@@ -136,6 +124,19 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     osx
   )
 fi;
+
+# set default zsh plugins
+plugins=(
+  $plugins
+  colored-man
+  encode64
+  extract
+  sublime
+  sudo
+  z
+  zsh_reload
+  zsh-syntax-highlighting
+)
 
 # User configuration
 
