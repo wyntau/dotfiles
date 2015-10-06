@@ -1,8 +1,3 @@
-# for Node Version Manager
-if hash brew 2>/dev/null; then
-  [ -f $(brew --prefix nvm)/nvm.sh ] && source $(brew --prefix nvm)/nvm.sh
-fi;
-
 # If you are in various user mode, use this PROMPT show current user name
 if [ `uname` = "Darwin" ]; then
   export PROMPT="%{$fg_bold[red]%}($(whoami)) ${PROMPT}"
