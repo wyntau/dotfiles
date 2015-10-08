@@ -3,7 +3,10 @@
     ├── astylerc
     ├── git
     |   └── gitconfig
-    ├── sublime
+    ├── sublime2
+    |   ├── Preference.sublime-settings
+    |   └── README.md
+    ├── sublime3
     |   ├── Preference.sublime-settings
     |   └── README.md
     ├── tmux
@@ -32,7 +35,8 @@ All vailable tasks:
 - [git_extras](#task-git_extras)
 - [git_flow](#task-git_flow)
 - [astylerc](#task-astylerc)
-- [sublime](#task-sublime)
+- [sublime2](#task-sublime2)
+- [sublime3](#task-sublime3)
 - [zsh_rc](#task-zsh_rc)
 - [tmux](#task-tmux)
 
@@ -172,7 +176,7 @@ You can do a specific task by run
         # OS X only
         brew install astyle
 
-- ### Task `sublime`
+- ### Task `sublime2`
     Requirement: `git`, `Sublime Text 2`
 
     **bakup your preference file first!**
@@ -205,6 +209,13 @@ You can do a specific task by run
     > In either case you'll need to restart your computer for the change to take place.
 
     > Happy coding!
+
+- ### Task `sublime3`
+    Requirement: `git`, `Sublime Text 3`
+
+    **bakup your preference file first!**
+
+    If you use `Sublime Text 3`, this task will add user Preference for it.
 
 - ### Task `zsh_rc`
     Requirements: `git`, `zsh`
