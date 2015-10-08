@@ -49,7 +49,7 @@ function info(){
   msg "${dot_color_cyan}[>] $*"
 }
 function success(){
-  msg "${dot_color_green}[✓] $*\n"
+  msg "${dot_color_green}[✓] $*"
 }
 function error(){
   msg "${dot_color_red_light}[✗] $*"
