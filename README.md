@@ -181,7 +181,7 @@ You can do a specific task by run
 
     **bakup your preference file first!**
 
-    If you use `Sublime Text 2`, this task will add user Preference for it, and also add a [`Monokai-custom`](https://github.com/Treri/sublime-monokai-custom) colorscheme which supports Markdown file highlight.
+    If you use `Sublime Text 2`, this task will add user Preference for it, and also add a [`Monokai Extended`](https://github.com/jonschlinkert/sublime-monokai-extended) colorscheme which supports Markdown file highlight.
 
     After installing the preference, maybe you want to reset `font_face` and `font_size` to what you prefer in `Preference.sublime-settings`. Also you can see what sublime packages I used in [SublimePackages](sublime/README.md).
 
@@ -215,7 +215,7 @@ You can do a specific task by run
 
     **bakup your preference file first!**
 
-    If you use `Sublime Text 3`, this task will add user Preference for it.
+    If you use `Sublime Text 3`, this task will add user Preference for it, and also add a [`Monokai Extended`](https://github.com/jonschlinkert/sublime-monokai-extended) colorscheme which supports Markdown file highlight.
 
 - ### Task `zsh_rc`
     Requirements: `git`, `zsh`

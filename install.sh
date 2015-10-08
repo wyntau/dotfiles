@@ -369,15 +369,15 @@ function install_sublime2(){
 
   step "Installing sublime2 configs ..."
 
-  sync_repo "https://github.com/Treri/sublime-monokai-custom.git" \
-            "${APP_PATH}/sublime2/monokai-custom"
+  sync_repo "https://github.com/jonschlinkert/sublime-monokai-extended.git" \
+            "${APP_PATH}/sublime2/monokai-extended"
 
-  lnif "${APP_PATH}/sublime2/monokai-custom" \
-       "${SUBLIMEPATH}/Packages/User/monokai-custom"
+  lnif "${APP_PATH}/sublime2/monokai-extended" \
+       "${SUBLIMEPATH}/Packages/User/monokai-extended"
   lnif "${APP_PATH}/sublime2/Preferences.sublime-settings" \
        "${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
 
-  success "Successfully installed sublime2 Preference and Monokai-custom theme"
+  success "Successfully installed sublime2 Preference and monokai-extended theme"
   tip "You may want to change font_face in your sublime Preference"
   tip "Maybe you will like 'Source Code Pro' of Adobe, see https://github.com/adobe-fonts/source-code-pro"
 }
@@ -395,15 +395,15 @@ function install_sublime3(){
 
   step "Installing sublime3 configs ..."
 
-  # sync_repo "https://github.com/Treri/sublime-monokai-custom.git" \
-  #           "${APP_PATH}/sublime2/monokai-custom"
+  sync_repo "https://github.com/jonschlinkert/sublime-monokai-extended.git" \
+            "${APP_PATH}/sublime3/monokai-extended"
 
-  # lnif "${APP_PATH}/sublime2/monokai-custom" \
-  #      "${SUBLIMEPATH}/Packages/User/monokai-custom"
+  lnif "${APP_PATH}/sublime3/monokai-extended" \
+       "${SUBLIMEPATH}/Packages/User/monokai-extended"
   lnif "${APP_PATH}/sublime3/Preferences.sublime-settings" \
        "${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
 
-  success "Successfully installed sublime3 Preference"
+  success "Successfully installed sublime3 Preference and monokai-extended theme"
   tip "You may want to change font_face in your sublime Preference"
   tip "Maybe you will like 'Source Code Pro' of Adobe, see https://github.com/adobe-fonts/source-code-pro"
 }

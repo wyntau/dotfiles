@@ -5,7 +5,8 @@ git/plugins
 vim/bundle
 vim/powerline-fonts
 
-sublime2/monokai-custom
+sublime2/monokai-extended
+sublime3/monokai-extended
 
 zsh/oh-my-zsh
 
