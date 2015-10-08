@@ -166,6 +166,7 @@ function usage(){
   echo '    - git_flow'
   echo '    - astylerc'
   echo '    - sublime2'
+  echo '    - sublime3'
   echo '    - zsh_rc'
   echo '    - tmux'
   printf "${dot_color_none}\n"
@@ -377,6 +378,32 @@ function install_sublime2(){
        "${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
 
   success "Successfully installed sublime2 Preference and Monokai-custom theme"
+  tip "You may want to change font_face in your sublime Preference"
+  tip "Maybe you will like 'Source Code Pro' of Adobe, see https://github.com/adobe-fonts/source-code-pro"
+}
+
+function install_sublime3(){
+
+  if ( is_linux ); then
+    SUBLIMEPATH="$HOME/.config/sublime-text-3"
+  elif ( is_mac ); then
+    SUBLIMEPATH="$HOME/Library/Application Support/Sublime Text 3"
+  else
+    error "Can't detect your platform. This support 'Linux' and 'Darwin' only"
+    exit
+  fi;
+
+  step "Installing sublime3 configs ..."
+
+  # sync_repo "https://github.com/Treri/sublime-monokai-custom.git" \
+  #           "${APP_PATH}/sublime2/monokai-custom"
+
+  # lnif "${APP_PATH}/sublime2/monokai-custom" \
+  #      "${SUBLIMEPATH}/Packages/User/monokai-custom"
+  lnif "${APP_PATH}/sublime3/Preferences.sublime-settings" \
+       "${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
+
+  success "Successfully installed sublime3 Preference"
   tip "You may want to change font_face in your sublime Preference"
   tip "Maybe you will like 'Source Code Pro' of Adobe, see https://github.com/adobe-fonts/source-code-pro"
 }
@@ -617,6 +644,9 @@ else
         ;;
       sublime2)
         install_sublime2
+        ;;
+       sublime3)
+        install_sublime3
         ;;
       zsh_rc)
         install_zsh_rc

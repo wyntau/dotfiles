@@ -1,0 +1,24 @@
+{
+	"bold_folder_labels": true,
+	"drag_text": false,
+	"ensure_newline_at_eof_on_save": true,
+	"font_face": "Source Code Pro",
+	"font_size": 13.0,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"hot_exit": false,
+	"ignored_packages":
+	[
+	],
+	"rulers":
+	[
+		80
+	],
+	"scroll_past_end": true,
+	"tab_size": 2,
+	"translate_tabs_to_spaces": true,
+	"use_tab_stops": true,
+	"vintage_start_in_command_mode": true,
+	"vintage_use_clipboard": true,
+	"word_wrap": true
+}
