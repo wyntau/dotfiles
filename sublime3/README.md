@@ -22,6 +22,7 @@ The Sublime Packages I used are listed below:
 - <del>JSHint Gutter</del>
 - LESS
 - LineEndings
+- Markdown Extended
 - Markdown Preview
 - Package Control (required by all others)
 - PyV8 (Sublime Text 3/Installed Packages/PyV8/PyV8-osx-p3)
