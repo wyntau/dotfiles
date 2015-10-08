@@ -165,7 +165,7 @@ function usage(){
   echo '    - git_extras'
   echo '    - git_flow'
   echo '    - astylerc'
-  echo '    - sublime'
+  echo '    - sublime2'
   echo '    - zsh_rc'
   echo '    - tmux'
   printf "${dot_color_none}\n"
@@ -355,7 +355,7 @@ function install_vim_bundles_ycm(){
   success "Successfully installed YouCompleteMe plugin."
 }
 
-function install_sublime(){
+function install_sublime2(){
 
   if ( is_linux ); then
     SUBLIMEPATH="$HOME/.config/sublime-text-2"
@@ -366,17 +366,17 @@ function install_sublime(){
     exit
   fi;
 
-  step "Installing sublime ..."
+  step "Installing sublime2 configs ..."
 
   sync_repo "https://github.com/Treri/sublime-monokai-custom.git" \
-            "${APP_PATH}/sublime/monokai-custom"
+            "${APP_PATH}/sublime2/monokai-custom"
 
-  lnif "${APP_PATH}/sublime/monokai-custom" \
+  lnif "${APP_PATH}/sublime2/monokai-custom" \
        "${SUBLIMEPATH}/Packages/User/monokai-custom"
-  lnif "${APP_PATH}/sublime/Preferences.sublime-settings" \
+  lnif "${APP_PATH}/sublime2/Preferences.sublime-settings" \
        "${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
 
-  success "Successfully installed sublime Preference and Monokai-custom theme"
+  success "Successfully installed sublime2 Preference and Monokai-custom theme"
   tip "You may want to change font_face in your sublime Preference"
   tip "Maybe you will like 'Source Code Pro' of Adobe, see https://github.com/adobe-fonts/source-code-pro"
 }
@@ -615,8 +615,8 @@ else
       astylerc)
         install_astylerc
         ;;
-      sublime)
-        install_sublime
+      sublime2)
+        install_sublime2
         ;;
       zsh_rc)
         install_zsh_rc
