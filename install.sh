@@ -371,9 +371,14 @@ function install_sublime2(){
 
   sync_repo "https://github.com/jonschlinkert/sublime-monokai-extended.git" \
             "${APP_PATH}/sublime2/monokai-extended"
-
   lnif "${APP_PATH}/sublime2/monokai-extended" \
        "${SUBLIMEPATH}/Packages/User/monokai-extended"
+
+  sync_repo "https://github.com/jonschlinkert/sublime-markdown-extended.git" \
+            "${APP_PATH}/sublime2/markdown-extended"
+  lnif "${APP_PATH}/sublime2/markdown-extended" \
+       "${SUBLIMEPATH}/Packages/User/markdown-extended"
+
   lnif "${APP_PATH}/sublime2/Preferences.sublime-settings" \
        "${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
 
@@ -397,9 +402,14 @@ function install_sublime3(){
 
   sync_repo "https://github.com/jonschlinkert/sublime-monokai-extended.git" \
             "${APP_PATH}/sublime3/monokai-extended"
-
   lnif "${APP_PATH}/sublime3/monokai-extended" \
        "${SUBLIMEPATH}/Packages/User/monokai-extended"
+
+  sync_repo "https://github.com/jonschlinkert/sublime-markdown-extended.git" \
+            "${APP_PATH}/sublime3/markdown-extended"
+  lnif "${APP_PATH}/sublime3/markdown-extended" \
+       "${SUBLIMEPATH}/Packages/User/markdown-extended"
+
   lnif "${APP_PATH}/sublime3/Preferences.sublime-settings" \
        "${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
 

@@ -6,7 +6,10 @@ vim/bundle
 vim/powerline-fonts
 
 sublime2/monokai-extended
+sublime2/markdown-extended
+
 sublime3/monokai-extended
+sublime3/markdown-extended
 
 zsh/oh-my-zsh
 
