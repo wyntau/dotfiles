@@ -1,4 +1,5 @@
 {
+	"always_show_minimap_viewport": true,
 	"bold_folder_labels": true,
 	"color_scheme": "Packages/User/monokai-extended/Monokai Extended.tmTheme",
 	"drag_text": false,
