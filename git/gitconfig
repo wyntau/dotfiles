@@ -1,21 +1,31 @@
 [core]
 	editor = vim
 [alias]
+
+	# branch
 	br = branch
 	bra = branch --all
 	brd = branch --delete
 	brdd = branch -D
+
+	# commit
 	ci = commit
 	cia = commit --all
 	cim = commit --amend
-	co = checkout  # branchName here
-	cb = checkout -b  # new branchName here
-	ct = checkout --track  # remote branchName here
+
+	# checkout
+	co = checkout
+	cob = checkout -b
+	cot = checkout --track
+
+	# diff
 	df = diff
 	dfc = diff --cached
 	dfn = diff --name-only
 	dfs = diff --stat
+
 	dft = difftool
+	dftc = difftool --cached
 
 	# %h => commit hash => like `--abbrev-commit'
 	# %H => full commit hash
@@ -45,21 +55,25 @@
 	# --date=local 去除时区信息
 
 	lg = log --color --graph --pretty=format:'%C(magenta)%h %C(reset)-%C(red)%d %C(reset)%s %C(bold blue)<%an> %C(reset)%C(green)%ar%C(cyan)(%ad)' --date=local
+
 	ll = log --color --graph --pretty=format:'%C(red)%d%C(yellow)%B\
 %n%C(ul)Hash:%C(reset) %C(magenta)%H\
 %n%C(ul)Author:%C(reset) %C(bold blue)%an<%ae> %C(reset)%C(green)%ar%C(cyan)(%ad)\
 %n%C(ul)Committer:%C(reset) %C(bold blue)%cn<%ce> %C(reset)%C(green)%cr%C(cyan)(%cd)\
 %n'  --stat --topo-order --date=local
+
 	lp = log --color --graph --pretty=format:'%C(red)%d%C(yellow)%B\
 %n%C(ul)Hash:%C(reset) %C(magenta)%H\
 %n%C(ul)Author:%C(reset) %C(bold blue)%an<%ae> %C(reset)%C(green)%ar%C(cyan)(%ad)\
 %n%C(ul)Committer:%C(reset) %C(bold blue)%cn<%ce> %C(reset)%C(green)%cr%C(cyan)(%cd)\
 %n'  --stat --topo-order --date=local --patch
 
+	# merge
 	mg = merge
-	mgn = merge --no-ff   # branchName here
+	mgn = merge --no-ff
 	mgs = merge --squash
 	mgt = mergetool
+
 	plb = pull --rebase
 	st = status --short --branch
 	unstage = reset --soft HEAD --   # fileName here
