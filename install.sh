@@ -164,6 +164,7 @@ function usage(){
   echo '    - git_dmtool'
   echo '    - git_extras'
   echo '    - git_flow'
+  echo '    - fonts_source_code_pro'
   echo '    - astylerc'
   echo '    - sublime2'
   echo '    - sublime3'
@@ -263,12 +264,11 @@ function install_neovim_python_support(){
 
         info "Installing pip for you..."
 
-        mkdir -p "${APP_PATH}/.temp"
+        mkdir -p "${APP_PATH}/.assets"
         info "Downloading pip installation script ..."
-        curl https://bootstrap.pypa.io/get-pip.py -o "${APP_PATH}/.temp/get-pip.py"
-        chmod +x "${APP_PATH}/.temp/get-pip.py"
-        sudo "${APP_PATH}/.temp/get-pip.py"
-        rm -rf "${APP_PATH}/.temp/get-pip.py"
+        curl https://bootstrap.pypa.io/get-pip.py -o "${APP_PATH}/.assets/get-pip.py"
+        chmod +x "${APP_PATH}/.assets/get-pip.py"
+        sudo "${APP_PATH}/.assets/get-pip.py"
 
         success "Successfully installed pip."
       fi;
@@ -364,7 +364,7 @@ function install_sublime2(){
   elif ( is_mac ); then
     SUBLIMEPATH="$HOME/Library/Application Support/Sublime Text 2"
   else
-    error "Can't detect your platform. This support 'Linux' and 'Darwin' only"
+    error "Can't detect your platform. This support 'Linux' and 'Mac' only"
     exit
   fi;
 
@@ -395,7 +395,7 @@ function install_sublime3(){
   elif ( is_mac ); then
     SUBLIMEPATH="$HOME/Library/Application Support/Sublime Text 3"
   else
-    error "Can't detect your platform. This support 'Linux' and 'Darwin' only"
+    error "Can't detect your platform. This support 'Linux' and 'Mac' only"
     exit
   fi;
 
@@ -508,6 +508,47 @@ function install_git_flow(){
   sudo make install
 
   success "Successfully installed git-flow."
+}
+
+function install_fonts_source_code_pro(){
+
+  if ( ! is_mac ) && ( ! is_linux ); then
+    error "This support 'Linux' and 'Mac' only"
+    exit
+  fi;
+
+  must_program_exists "git"
+
+  step "Installing font Source Code Pro ..."
+
+  sync_repo "https://github.com/adobe-fonts/source-code-pro.git" \
+            "${APP_PATH}/.assets/fonts/source-code-pro" \
+            "release"
+
+  source_code_pro_ttf_dir="${APP_PATH}/.assets/fonts/source-code-pro/TTF"
+
+
+  # borrowed from powerline/fonts/install.sh
+  find_command="find \"$source_code_pro_ttf_dir\" \( -name '*.[o,t]tf' -or -name '*.pcf.gz' \) -type f -print0"
+
+  if ( is_mac ); then
+    # MacOS
+    font_dir="$HOME/Library/Fonts"
+  else
+    # Linux
+    font_dir="$HOME/.fonts"
+    mkdir -p $font_dir
+  fi
+
+  # Copy all fonts to user fonts directory
+  eval $find_command | xargs -0 -I % cp "%" "$font_dir/"
+
+  # Reset font cache on Linux
+  if [[ -n `which fc-cache` ]]; then
+    fc-cache -f $font_dir
+  fi
+
+  success "Successfully installed Source Code Pro font."
 }
 
 function install_astylerc(){
@@ -649,6 +690,9 @@ else
         ;;
       git_flow)
         install_git_flow
+        ;;
+      fonts_source_code_pro)
+        install_fonts_source_code_pro
         ;;
       astylerc)
         install_astylerc
