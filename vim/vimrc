@@ -164,7 +164,7 @@ autocmd Syntax * call matchadd('Debug', '\W\zs\(NOTE\|INFO\|IDEA\|NOTICE\)')
 
 if has("gui_running")
   " 设置gui字体
-  set guifont=Source\ Code\ Pro\ for\ Powerline:h13
+  set guifont=Source\ Code\ Pro:h13
   " 隐藏菜单栏
   set guioptions-=m
   " 隐藏工具栏
