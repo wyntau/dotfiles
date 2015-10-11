@@ -224,19 +224,17 @@ function install_vim_bundles_base(){
 }
 
 function install_vim_bundles_airline_fonts(){
-  step "Install powerline-fonts for airline symbols ..."
 
-  sync_repo "https://github.com/powerline/fonts.git" \
-            "${APP_PATH}/vim/powerline-fonts"
+  install_fonts_source_code_pro
 
-  info "Installing powerline-fonts ..."
-  "${APP_PATH}/vim/powerline-fonts/install.sh"
-  tip "When install completed, please set your terminal to use powerline fonts for *Non-ASCII font*"
+  tip "When install completed, please set your terminal to use the font 'source code pro'"
+
+  step "Installing airline config to use powerline symbols ..."
 
   lnif "${APP_PATH}/vim/vimrc.bundles.airline.fonts" \
        "$HOME/.vimrc.bundles.airline.fonts"
 
-  success "Successfully installed powerline-fonts for airline."
+  success "Successfully set airline to use powerline symbols."
 }
 
 function must_vimrc_bundles_exists(){
