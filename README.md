@@ -110,7 +110,7 @@ You can do a specific task by run
     Install powerline-fonts for airline, and set vim-airline to use powerline-fonts
 
 - ### Task `vim_bundles_matchtag`
-    Requirement: `git`, `vim`, `wget`, `python`, [task vim_rc](#task-vim_rc)
+    Requirement: `git`, `vim`, `curl`, `python`, [task vim_rc](#task-vim_rc)
 
     Install html matchtag plugin for vim. Here i use python version matchtag.
     If you don't want to include python modules, you can also use non-python version 'gregsexton/MatchTag'
@@ -120,7 +120,7 @@ You can do a specific task by run
         Plugin 'valloric/MatchTagAlways'
 
 - ### Task `vim_bundles_snippets`
-    Requirement: `git`, `vim`, `wget`, `python`, [task vim_rc](#task-vim_rc)
+    Requirement: `git`, `vim`, `curl`, `python`, [task vim_rc](#task-vim_rc)
 
     Install vim-snippets plugin for vim.
 
@@ -130,7 +130,7 @@ You can do a specific task by run
         Plugin 'honza/vim-snippets'
 
 - ### Task `vim_bundles_ycm`
-    Requirement: `git`, `vim`, `wget`, `python`, [task vim_rc](#task-vim_rc)
+    Requirement: `git`, `vim`, `curl`, `python`, [task vim_rc](#task-vim_rc)
 
     Install YouCompleteMe plugin for vim.
 

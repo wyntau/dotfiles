@@ -259,15 +259,16 @@ function install_neovim_python_support(){
       # install python package manager pip
       if ( ! is_program_exists pip ); then
 
-        must_program_exists "wget"
+        must_program_exists "curl"
 
         info "Installing pip for you..."
 
         mkdir -p "${APP_PATH}/.temp"
-        wget https://bootstrap.pypa.io/get-pip.py -O "${APP_PATH}/.temp/get-pip.py"
+        info "Downloading pip installation script ..."
+        curl https://bootstrap.pypa.io/get-pip.py -o "${APP_PATH}/.temp/get-pip.py"
         chmod +x "${APP_PATH}/.temp/get-pip.py"
         sudo "${APP_PATH}/.temp/get-pip.py"
-        rm -rf "${APP_PATH}/.temp"
+        rm -rf "${APP_PATH}/.temp/get-pip.py"
 
         success "Successfully installed pip."
       fi;
