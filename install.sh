@@ -154,6 +154,7 @@ function usage(){
   echo
   echo 'Tasks:'
   printf "${dot_color_green}\n"
+  echo '    - fonts_source_code_pro'
   echo '    - vim_rc'
   echo '    - vim_bundles_base'
   echo '    - vim_bundles_airline_fonts'
@@ -164,13 +165,53 @@ function usage(){
   echo '    - git_dmtool'
   echo '    - git_extras'
   echo '    - git_flow'
-  echo '    - fonts_source_code_pro'
   echo '    - astylerc'
   echo '    - sublime2'
   echo '    - sublime3'
   echo '    - zsh_rc'
   echo '    - tmux'
   printf "${dot_color_none}\n"
+}
+
+function install_fonts_source_code_pro(){
+
+  if ( ! is_mac ) && ( ! is_linux ); then
+    error "This support 'Linux' and 'Mac' only"
+    exit
+  fi;
+
+  must_program_exists "git"
+
+  step "Installing font Source Code Pro ..."
+
+  sync_repo "https://github.com/adobe-fonts/source-code-pro.git" \
+            "${APP_PATH}/.assets/fonts/source-code-pro" \
+            "release"
+
+  source_code_pro_ttf_dir="${APP_PATH}/.assets/fonts/source-code-pro/TTF"
+
+
+  # borrowed from powerline/fonts/install.sh
+  find_command="find \"$source_code_pro_ttf_dir\" \( -name '*.[o,t]tf' -or -name '*.pcf.gz' \) -type f -print0"
+
+  if ( is_mac ); then
+    # MacOS
+    font_dir="$HOME/Library/Fonts"
+  else
+    # Linux
+    font_dir="$HOME/.fonts"
+    mkdir -p $font_dir
+  fi
+
+  # Copy all fonts to user fonts directory
+  eval $find_command | xargs -0 -I % cp "%" "$font_dir/"
+
+  # Reset font cache on Linux
+  if [[ -n `which fc-cache` ]]; then
+    fc-cache -f $font_dir
+  fi
+
+  success "Successfully installed Source Code Pro font."
 }
 
 function install_vim_rc(){
@@ -382,8 +423,10 @@ function install_sublime2(){
        "${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
 
   success "Successfully installed sublime2 Preference and monokai-extended theme"
-  tip "You may want to change font_face in your sublime Preference"
-  tip "Maybe you will like 'Source Code Pro' of Adobe, see https://github.com/adobe-fonts/source-code-pro"
+
+  install_fonts_source_code_pro
+
+  tip "You can change font_size and font_face in your sublime Preference"
 }
 
 function install_sublime3(){
@@ -413,8 +456,10 @@ function install_sublime3(){
        "${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
 
   success "Successfully installed sublime3 Preference and monokai-extended theme"
-  tip "You may want to change font_face in your sublime Preference"
-  tip "Maybe you will like 'Source Code Pro' of Adobe, see https://github.com/adobe-fonts/source-code-pro"
+
+  install_fonts_source_code_pro
+
+  tip "You can change font_size and font_face in your sublime Preference"
 }
 
 function install_git_config(){
@@ -506,47 +551,6 @@ function install_git_flow(){
   sudo make install
 
   success "Successfully installed git-flow."
-}
-
-function install_fonts_source_code_pro(){
-
-  if ( ! is_mac ) && ( ! is_linux ); then
-    error "This support 'Linux' and 'Mac' only"
-    exit
-  fi;
-
-  must_program_exists "git"
-
-  step "Installing font Source Code Pro ..."
-
-  sync_repo "https://github.com/adobe-fonts/source-code-pro.git" \
-            "${APP_PATH}/.assets/fonts/source-code-pro" \
-            "release"
-
-  source_code_pro_ttf_dir="${APP_PATH}/.assets/fonts/source-code-pro/TTF"
-
-
-  # borrowed from powerline/fonts/install.sh
-  find_command="find \"$source_code_pro_ttf_dir\" \( -name '*.[o,t]tf' -or -name '*.pcf.gz' \) -type f -print0"
-
-  if ( is_mac ); then
-    # MacOS
-    font_dir="$HOME/Library/Fonts"
-  else
-    # Linux
-    font_dir="$HOME/.fonts"
-    mkdir -p $font_dir
-  fi
-
-  # Copy all fonts to user fonts directory
-  eval $find_command | xargs -0 -I % cp "%" "$font_dir/"
-
-  # Reset font cache on Linux
-  if [[ -n `which fc-cache` ]]; then
-    fc-cache -f $font_dir
-  fi
-
-  success "Successfully installed Source Code Pro font."
 }
 
 function install_astylerc(){
