@@ -128,7 +128,7 @@ fi;
 # set default zsh plugins
 plugins=(
   $plugins
-  colored-man
+  colored-man-pages
   encode64
   extract
   sublime
