@@ -263,11 +263,11 @@ function install_neovim_python_support(){
 
         info "Installing pip for you..."
 
-        mkdir -p "${APP_PATH}/.tmp"
-        wget https://bootstrap.pypa.io/get-pip.py -O "${APP_PATH}/.tmp/get-pip.py"
-        chmod +x "${APP_PATH}/.tmp/get-pip.py"
-        sudo "${APP_PATH}/.tmp/get-pip.py"
-        rm -rf "${APP_PATH}/.tmp"
+        mkdir -p "${APP_PATH}/.temp"
+        wget https://bootstrap.pypa.io/get-pip.py -O "${APP_PATH}/.temp/get-pip.py"
+        chmod +x "${APP_PATH}/.temp/get-pip.py"
+        sudo "${APP_PATH}/.temp/get-pip.py"
+        rm -rf "${APP_PATH}/.temp"
 
         success "Successfully installed pip."
       fi;
