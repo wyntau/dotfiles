@@ -2,6 +2,10 @@
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" =============================================================================
+" Common plugins
+" =============================================================================
+
 " ==> Vundle plugin
 Plugin 'gmarik/Vundle.vim'
 
@@ -25,9 +29,14 @@ Plugin 'bling/vim-airline'
     source ~/.vimrc.bundles.airline.fonts
   endif
 
-" FocusGained and FocusLost autocommand events are not working in terminal vim.
-" This plugin restores them when using vim inside Tmux.
-Plugin 'tmux-plugins/vim-tmux-focus-events'
+" ==> Git support
+Plugin 'airblade/vim-gitgutter'
+" default maps
+" nmap [c <Plug>GitGutterPrevHunk
+" nmap ]c <Plug>GitGutterNextHunk
+" nmap <Leader>hs <Plug>GitGutterStageHunk
+" nmap <Leader>hr <Plug>GitGutterRevertHunk
+" nmap <Leader>hp <Plug>GitGutterPreviewHunk
 
 " ==> User Interface support
 Plugin 'Yggdroot/indentLine'
@@ -41,18 +50,11 @@ Plugin 'Yggdroot/indentLine'
   "   let g:indentLine_color_term = 239
   " endif
 
-Plugin 'ntpeters/vim-better-whitespace'
-  map <leader><space> :StripWhitespace<cr>
-
-" --> Git support
-Plugin 'airblade/vim-gitgutter'
-" default maps
-" nmap [c <Plug>GitGutterPrevHunk
-" nmap ]c <Plug>GitGutterNextHunk
-" nmap <Leader>hs <Plug>GitGutterStageHunk
-" nmap <Leader>hr <Plug>GitGutterRevertHunk
-" nmap <Leader>hp <Plug>GitGutterPreviewHunk
-
+" ==> tmux support
+Plugin 'tmux-plugins/vim-tmux'
+" FocusGained and FocusLost autocommand events are not working in terminal vim.
+" This plugin restores them when using vim inside Tmux.
+Plugin 'tmux-plugins/vim-tmux-focus-events'
 " vim-tmux-navigator
 Plugin 'christoomey/vim-tmux-navigator'
   " fix neovim C-h send backspace problem
@@ -71,10 +73,7 @@ Plugin 'christoomey/vim-tmux-navigator'
     tnoremap <silent> <C-l> <C-\><C-n>:TmuxNavigateRight<cr>
   end
 
-" 自动补全引号, 括号等
-Plugin 'Raimondi/delimitMate'
-
-" 快速文件搜索, 类似于sublime中的command + p
+" ==> 快速文件搜索, 类似于sublime中的command + p
 " Plugin 'kien/ctrlp.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
   nnoremap <Leader>o :CtrlP<CR>
@@ -116,56 +115,6 @@ Plugin 'ctrlpvim/ctrlp.vim'
   " <c-x>, <c-cr>, <c-s> Open the selected file in a 'horizontal' split.
   " <c-y> Create a new file and its parent directories.
 
-Plugin 'godlygeek/tabular'
-
-" --> smooth scroll
-Plugin 'terryma/vim-smooth-scroll'
-  noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<cr>
-  noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<cr>
-  noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<cr>
-  noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<cr>
-
-" extended % matching for HTML, LaTeX, and many other languages
-Plugin 'vim-scripts/matchit.zip'
-
-" Write styles faster. Much faster.
-" Plugin 'rstacruz/vim-hyperstyle'
-
-" {{{{ emmet
-" default keymap is `<C-Y>,` (not <leader>, just comma `,')
-Plugin 'mattn/emmet-vim'
-  let g:user_emmet_mode='inv'
-
-Plugin 'tpope/vim-surround'
-
-Plugin 'tpope/vim-repeat'
-
-" --> 快速搜索插件
-" An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
-" require ag(a.k.a `the_silver_searcher`) or ack
-Plugin 'dyng/ctrlsf.vim'
-  let g:ctrlsf_winsize = '30%'
-  let g:ctrlsf_auto_close = 0
-  nmap     <C-S>f <Plug>CtrlSFPrompt
-  vmap     <C-S>f <Plug>CtrlSFVwordPath
-  vmap     <C-S>F <Plug>CtrlSFVwordExec
-  nmap     <C-S>n <Plug>CtrlSFCwordPath
-  nmap     <C-S>p <Plug>CtrlSFPwordPath
-  nnoremap <C-S>o :CtrlSFOpen<CR>
-  nnoremap <C-S>t :CtrlSFToggle<CR>
-  inoremap <C-S>t <Esc>:CtrlSFToggle<CR>
-  " In CtrlSF window:
-  " Enter - Open corresponding file of current line in the window which CtrlSF is launched from.
-  " t - Like Enter but open file in a new tab.
-  " p - Like Enter but open file in a preview window.
-  " O - Like Enter but always leave CtrlSF window opening.
-  " T - Lkie t but focus CtrlSF window instead of new opened tab.
-  " q - Quit CtrlSF window.
-  " <C-J> - Move cursor to next match.
-  " <C-K> - Move cursor to previous match.
-  " In preview window:
-  " q - Close preview window.
-
 Plugin 'scrooloose/nerdtree'
   " o.......打开文件目录或书签
   " t.......在新的tab页中打开文件或书签
@@ -194,21 +143,38 @@ Plugin 'jistr/vim-nerdtree-tabs'
   nmap <leader>nt :NERDTreeTabsToggle<CR>
   " }}}
 
-Plugin 'scrooloose/nerdcommenter'
-  " 让注释符与语句之间留一个空格
-  let g:NERDSpaceDelims = 1
-  " 多行注释时样子更好看
-  let g:NERDCompactSexyComs = 1
+" ==> smooth scroll
+Plugin 'terryma/vim-smooth-scroll'
+  noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<cr>
+  noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<cr>
+  noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<cr>
+  noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<cr>
 
-Plugin 'terryma/vim-expand-region'
-  vmap v <Plug>(expand_region_expand)
-  vmap <C-v> <Plug>(expand_region_shrink)
-
-" 鼠标多重选择
-Plugin 'terryma/vim-multiple-cursors'
-
-" 搜索替换快速预览
-Plugin 'osyo-manga/vim-over'
+" ==> 快速搜索插件
+" An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
+" require ag(a.k.a `the_silver_searcher`) or ack
+Plugin 'dyng/ctrlsf.vim'
+  let g:ctrlsf_winsize = '30%'
+  let g:ctrlsf_auto_close = 0
+  nmap     <C-S>f <Plug>CtrlSFPrompt
+  vmap     <C-S>f <Plug>CtrlSFVwordPath
+  vmap     <C-S>F <Plug>CtrlSFVwordExec
+  nmap     <C-S>n <Plug>CtrlSFCwordPath
+  nmap     <C-S>p <Plug>CtrlSFPwordPath
+  nnoremap <C-S>o :CtrlSFOpen<CR>
+  nnoremap <C-S>t :CtrlSFToggle<CR>
+  inoremap <C-S>t <Esc>:CtrlSFToggle<CR>
+  " In CtrlSF window:
+  " Enter - Open corresponding file of current line in the window which CtrlSF is launched from.
+  " t - Like Enter but open file in a new tab.
+  " p - Like Enter but open file in a preview window.
+  " O - Like Enter but always leave CtrlSF window opening.
+  " T - Lkie t but focus CtrlSF window instead of new opened tab.
+  " q - Quit CtrlSF window.
+  " <C-J> - Move cursor to next match.
+  " <C-K> - Move cursor to previous match.
+  " In preview window:
+  " q - Close preview window.
 
 " 快速到达指定位置插件
 Plugin 'Lokaltog/vim-easymotion'
@@ -219,9 +185,52 @@ Plugin 'Lokaltog/vim-easymotion'
   map / <Plug>(easymotion-sn)
   omap / <Plug>(easymotion-tn)
   nmap s <Plug>(easymotion-s2)
-
 " Plugin 'justinmk/vim-sneak'
 " Plugin 'haya14busa/incsearch.vim'
+
+Plugin 'terryma/vim-expand-region'
+  vmap v <Plug>(expand_region_expand)
+  vmap <C-v> <Plug>(expand_region_shrink)
+
+" ==> Trailing whitespace
+Plugin 'ntpeters/vim-better-whitespace'
+  map <leader><space> :StripWhitespace<cr>
+
+" ==> 自动补全引号, 括号等
+Plugin 'Raimondi/delimitMate'
+
+Plugin 'godlygeek/tabular'
+
+Plugin 'tpope/vim-surround'
+
+Plugin 'tpope/vim-repeat'
+
+Plugin 'scrooloose/nerdcommenter'
+  " 让注释符与语句之间留一个空格
+  let g:NERDSpaceDelims = 1
+  " 多行注释时样子更好看
+  let g:NERDCompactSexyComs = 1
+
+" 鼠标多重选择
+Plugin 'terryma/vim-multiple-cursors'
+
+" 搜索替换快速预览
+Plugin 'osyo-manga/vim-over'
+
+" =============================================================================
+" Filetype specific plugins
+" =============================================================================
+
+" ==> extended % matching for HTML, LaTeX, and many other languages
+Plugin 'vim-scripts/matchit.zip'
+
+" Write styles faster. Much faster.
+" Plugin 'rstacruz/vim-hyperstyle'
+
+" {{{{ emmet
+" default keymap is `<C-Y>,` (not <leader>, just comma `,')
+Plugin 'mattn/emmet-vim'
+  let g:user_emmet_mode='inv'
 
 " ==> filetype and language syntax support
 " avoid confict with extends tabular
@@ -229,13 +238,19 @@ Plugin 'Lokaltog/vim-easymotion'
 " vim-markdown depends on godlygeek/tabular, but we load it before
 Plugin 'plasticboy/vim-markdown'
   let g:vim_markdown_folding_disabled = 1
+
 Plugin 'leafgarland/typescript-vim'
+
 Plugin 'kchmck/vim-coffee-script'
+
 Plugin 'groenewege/vim-less'
+
 Plugin 'smilekzs/vim-nfo'
+
 Plugin 'evanmiller/nginx-vim-syntax'
-Plugin 'tmux-plugins/vim-tmux'
+
 Plugin 'pangloss/vim-javascript'
+
 " ap/vim-css-color # 不支持Vim74， 使用vim-colorsque 替代
 Plugin 'Marslo/vim-coloresque'
 
