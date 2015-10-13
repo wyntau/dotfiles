@@ -157,7 +157,6 @@ function usage(){
   echo '    - fonts_source_code_pro'
   echo '    - vim_rc'
   echo '    - vim_bundles_base'
-  echo '    - vim_bundles_airline_fonts'
   echo '    - vim_bundles_matchtag'
   echo '    - vim_bundles_snippets'
   echo '    - vim_bundles_ycm'
@@ -262,20 +261,9 @@ function install_vim_bundles_base(){
   better_program_exists_one "ag"
 
   success "You can add your own bundles to ~/.vimrc.bundles.local , vim will source them automatically"
-}
-
-function install_vim_bundles_airline_fonts(){
 
   install_fonts_source_code_pro
-
-  tip "When install completed, please set your terminal to use the font 'source code pro'"
-
-  step "Installing airline config to use powerline symbols ..."
-
-  lnif "${APP_PATH}/vim/vimrc.bundles.airline.fonts" \
-       "$HOME/.vimrc.bundles.airline.fonts"
-
-  success "Successfully set airline to use powerline symbols."
+  tip "In order to use powerline symbols with airline in vim, please set your terminal to use the font 'Source Code Pro'"
 }
 
 function must_vimrc_bundles_exists(){
@@ -668,9 +656,6 @@ else
         ;;
       vim_bundles_base)
         install_vim_bundles_base
-        ;;
-      vim_bundles_airline_fonts)
-        install_vim_bundles_airline_fonts
         ;;
       vim_bundles_matchtag)
         install_vim_bundles_matchtag

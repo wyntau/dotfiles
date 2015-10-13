@@ -19,6 +19,8 @@ Plugin 'morhetz/gruvbox'
 
 " ==> vim-airline
 Plugin 'bling/vim-airline'
+  " set airline to use powerline symbols
+  let g:airline_powerline_fonts = 1
   let g:airline#extensions#tabline#enabled = 1
   " Show just the filename
   " let g:airline#extensions#tabline#fnamemod = ':t'

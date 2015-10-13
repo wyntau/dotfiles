@@ -27,7 +27,6 @@ All vailable tasks:
 - [fonts_source_code_pro](#task-fonts_source_code_pro)
 - [vim_rc](#task-vim_rc)
 - [vim_bundles_base](#task-vim_bundles_base)
-- [vim_bundles_airline_fonts](#task-vim_bundles_airline_fonts)
 - [vim_bundles_matchtag](#task-vim_bundles_matchtag)
 - [vim_bundles_snippets](#task-vim_bundles_snippets)
 - [vim_bundles_ycm](#task-vim_bundles_ycm)
@@ -52,7 +51,7 @@ You can do a specific task by run
 
     The new version font is compatible with powerline fonts which have some useful symbols used in some vim plugins and shell plugins, and it will update frequently. So use it to replace [Powerline fonts](https://github.com/powerline/fonts).
 
-    This font will be installed automatically when do task [vim_bundles_airline_fonts](#task-vim_bundles_airline_fonts), [sublime2](#task-sublime2) and [sublime3](#task-sublime3).
+    This font will be installed automatically when do task [vim_bundles_base](#task-vim_bundles_base), [sublime2](#task-sublime2) and [sublime3](#task-sublime3).
 
 - ### Task `vim_rc`
     Requirements: `git`, `vim`
@@ -112,11 +111,6 @@ You can do a specific task by run
         Plugin 'evanmiller/nginx-vim-syntax'
         Plugin 'pangloss/vim-javascript'
         Plugin 'Marslo/vim-coloresque'
-
-- ### Task `vim_bundles_airline_fonts`
-    Requirement: `git`
-
-    Install Source Code Pro font for airline, and set vim-airline to use powerline symbols
 
 - ### Task `vim_bundles_matchtag`
     Requirement: `git`, `vim`, `curl`, `python`, [task vim_rc](#task-vim_rc)
