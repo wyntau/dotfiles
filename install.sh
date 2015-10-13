@@ -296,6 +296,7 @@ function install_neovim_python_support(){
         info "Downloading pip installation script ..."
         curl https://bootstrap.pypa.io/get-pip.py -o "$scripts_dir/get-pip.py"
         chmod +x "$scripts_dir/get-pip.py"
+        info "Installing pip ..."
         sudo "$scripts_dir/get-pip.py"
 
         success "Successfully installed pip."
