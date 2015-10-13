@@ -305,9 +305,9 @@ function install_neovim_python_support(){
 
         mkdir -p "${APP_PATH}/.assets"
         info "Downloading pip installation script ..."
-        curl https://bootstrap.pypa.io/get-pip.py -o "${APP_PATH}/.assets/get-pip.py"
-        chmod +x "${APP_PATH}/.assets/get-pip.py"
-        sudo "${APP_PATH}/.assets/get-pip.py"
+        curl https://bootstrap.pypa.io/get-pip.py -o "${APP_PATH}/.assets/scripts/get-pip.py"
+        chmod +x "${APP_PATH}/.assets/scripts/get-pip.py"
+        sudo "${APP_PATH}/.assets/scripts/get-pip.py"
 
         success "Successfully installed pip."
       fi;
