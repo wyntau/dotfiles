@@ -37,25 +37,25 @@ dot_color_gray_light="\033[1;37m"
 
 ########## Basics setup
 function msg(){
-  printf '%b\n' "$*${dot_color_none}" >&2
+  printf '%b\n' "$*$dot_color_none" >&2
 }
 function prompt(){
-  printf '%b' "${dot_color_purple}[+] $*${dot_color_none} "
+  printf '%b' "$dot_color_purple[+] $*$dot_color_none "
 }
 function step(){
-  msg "\n${dot_color_yellow}[→] $*"
+  msg "\n$dot_color_yellow[→] $*"
 }
 function info(){
-  msg "${dot_color_cyan}[>] $*"
+  msg "$dot_color_cyan[>] $*"
 }
 function success(){
-  msg "${dot_color_green}[✓] $*"
+  msg "$dot_color_green[✓] $*"
 }
 function error(){
-  msg "${dot_color_red_light}[✗] $*"
+  msg "$dot_color_red_light[✗] $*"
 }
 function tip(){
-  msg "${dot_color_red_light}[!] $*"
+  msg "$dot_color_red_light[!] $*"
 }
 
 function is_file_exists(){
@@ -153,7 +153,7 @@ function usage(){
   echo 'Usage: install.sh <task>[ taskFoo taskBar ...]'
   echo
   echo 'Tasks:'
-  printf "${dot_color_green}\n"
+  printf "$dot_color_green\n"
   echo '    - fonts_source_code_pro'
   echo '    - vim_rc'
   echo '    - vim_bundles_base'
@@ -169,7 +169,7 @@ function usage(){
   echo '    - sublime3'
   echo '    - zsh_rc'
   echo '    - tmux'
-  printf "${dot_color_none}\n"
+  printf "$dot_color_none\n"
 }
 
 function install_fonts_source_code_pro(){
@@ -184,10 +184,10 @@ function install_fonts_source_code_pro(){
   step "Installing font Source Code Pro ..."
 
   sync_repo "https://github.com/adobe-fonts/source-code-pro.git" \
-            "${APP_PATH}/.assets/fonts/source-code-pro" \
+            "$APP_PATH/.assets/fonts/source-code-pro" \
             "release"
 
-  source_code_pro_ttf_dir="${APP_PATH}/.assets/fonts/source-code-pro/TTF"
+  source_code_pro_ttf_dir="$APP_PATH/.assets/fonts/source-code-pro/TTF"
 
 
   # borrowed from powerline/fonts/install.sh
@@ -219,14 +219,14 @@ function install_vim_rc(){
 
   step "Installing vimrc ..."
 
-  lnif "${APP_PATH}/vim" \
+  lnif "$APP_PATH/vim" \
        "$HOME/.vim"
-  lnif "${APP_PATH}/vim/vimrc" \
+  lnif "$APP_PATH/vim/vimrc" \
        "$HOME/.vimrc"
 
   if ( is_program_exists nvim ); then
 
-    lnif "${APP_PATH}/vim/vimrc" \
+    lnif "$APP_PATH/vim/vimrc" \
          "$HOME/.nvimrc"
 
     if ( is_linux ); then
@@ -251,9 +251,9 @@ function install_vim_bundles_base(){
   step "Initializing Vundle.vim"
 
   sync_repo "https://github.com/gmarik/Vundle.vim.git" \
-            "${APP_PATH}/vim/bundle/Vundle.vim"
+            "$APP_PATH/vim/bundle/Vundle.vim"
 
-  lnif "${APP_PATH}/vim/vimrc.bundles" \
+  lnif "$APP_PATH/vim/vimrc.bundles" \
        "$HOME/.vimrc.bundles"
 
   vim +PluginInstall +qall
@@ -291,11 +291,12 @@ function install_neovim_python_support(){
 
         info "Installing pip for you..."
 
-        mkdir -p "${APP_PATH}/.assets"
+        scripts_dir="$APP_PATH/.assets/scripts"
+        mkdir -p "$scripts_dir"
         info "Downloading pip installation script ..."
-        curl https://bootstrap.pypa.io/get-pip.py -o "${APP_PATH}/.assets/scripts/get-pip.py"
-        chmod +x "${APP_PATH}/.assets/scripts/get-pip.py"
-        sudo "${APP_PATH}/.assets/scripts/get-pip.py"
+        curl https://bootstrap.pypa.io/get-pip.py -o "$scripts_dir/get-pip.py"
+        chmod +x "$scripts_dir/get-pip.py"
+        sudo "$scripts_dir/get-pip.py"
 
         success "Successfully installed pip."
       fi;
@@ -316,7 +317,7 @@ function install_vim_bundles_matchtag(){
   # check whether have neovim. if have, make sure neovim have python feature support
   install_neovim_python_support
 
-  lnif "${APP_PATH}/vim/vimrc.bundles.matchtag" \
+  lnif "$APP_PATH/vim/vimrc.bundles.matchtag" \
        "$HOME/.vimrc.bundles.matchtag"
 
   vim +PluginInstall +qall
@@ -335,7 +336,7 @@ function install_vim_bundles_snippets(){
   # check whether have neovim. if have, make sure neovim have python feature support
   install_neovim_python_support
 
-  lnif "${APP_PATH}/vim/vimrc.bundles.snippets" \
+  lnif "$APP_PATH/vim/vimrc.bundles.snippets" \
        "$HOME/.vimrc.bundles.snippets"
 
   vim +PluginInstall +qall
@@ -356,12 +357,12 @@ function install_vim_bundles_ycm(){
 
   # fetch or update YouCompleteMe
   sync_repo "https://github.com/Valloric/YouCompleteMe.git" \
-            "${APP_PATH}/vim/bundle/YouCompleteMe"
+            "$APP_PATH/vim/bundle/YouCompleteMe"
 
   # Force recompile YouCompleteMe libs
   # or YouCompleteMe libs not exists
   # compile libs for YouCompleteMe
-  ycmd_path="${APP_PATH}/vim/bundle/YouCompleteMe/third_party/ycmd"
+  ycmd_path="$APP_PATH/vim/bundle/YouCompleteMe/third_party/ycmd"
   if [[ "$YCM_COMPILE_FORCE" = "true" ]] || ( ! is_file_exists "$ycmd_path/ycm_core.so" ) || ( ! is_file_exists "$ycmd_path/ycm_client_support.so" ); then
     info "Compiling YouCompleteMe libs ..."
     case $YCM_COMPLETER in
@@ -375,10 +376,10 @@ function install_vim_bundles_ycm(){
         YCM_COMPLETER_FLAG="--gocode-completer"
         ;;
     esac;
-    "${APP_PATH}/vim/bundle/YouCompleteMe/install.sh" $YCM_COMPLETER_FLAG
+    "$APP_PATH/vim/bundle/YouCompleteMe/install.sh" $YCM_COMPLETER_FLAG
   fi;
 
-  lnif "${APP_PATH}/vim/vimrc.bundles.ycm" \
+  lnif "$APP_PATH/vim/vimrc.bundles.ycm" \
        "$HOME/.vimrc.bundles.ycm"
 
   success "Successfully installed YouCompleteMe plugin."
@@ -398,17 +399,17 @@ function install_sublime2(){
   step "Installing sublime2 configs ..."
 
   sync_repo "https://github.com/jonschlinkert/sublime-monokai-extended.git" \
-            "${APP_PATH}/sublime2/monokai-extended"
-  lnif "${APP_PATH}/sublime2/monokai-extended" \
-       "${SUBLIMEPATH}/Packages/User/monokai-extended"
+            "$APP_PATH/sublime2/monokai-extended"
+  lnif "$APP_PATH/sublime2/monokai-extended" \
+       "$SUBLIMEPATH/Packages/User/monokai-extended"
 
   sync_repo "https://github.com/jonschlinkert/sublime-markdown-extended.git" \
-            "${APP_PATH}/sublime2/markdown-extended"
-  lnif "${APP_PATH}/sublime2/markdown-extended" \
-       "${SUBLIMEPATH}/Packages/User/markdown-extended"
+            "$APP_PATH/sublime2/markdown-extended"
+  lnif "$APP_PATH/sublime2/markdown-extended" \
+       "$SUBLIMEPATH/Packages/User/markdown-extended"
 
-  lnif "${APP_PATH}/sublime2/Preferences.sublime-settings" \
-       "${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
+  lnif "$APP_PATH/sublime2/Preferences.sublime-settings" \
+       "$SUBLIMEPATH/Packages/User/Preferences.sublime-settings"
 
   success "Successfully installed sublime2 Preference and monokai-extended theme"
 
@@ -431,17 +432,17 @@ function install_sublime3(){
   step "Installing sublime3 configs ..."
 
   sync_repo "https://github.com/jonschlinkert/sublime-monokai-extended.git" \
-            "${APP_PATH}/sublime3/monokai-extended"
-  lnif "${APP_PATH}/sublime3/monokai-extended" \
-       "${SUBLIMEPATH}/Packages/User/monokai-extended"
+            "$APP_PATH/sublime3/monokai-extended"
+  lnif "$APP_PATH/sublime3/monokai-extended" \
+       "$SUBLIMEPATH/Packages/User/monokai-extended"
 
   sync_repo "https://github.com/jonschlinkert/sublime-markdown-extended.git" \
-            "${APP_PATH}/sublime3/markdown-extended"
-  lnif "${APP_PATH}/sublime3/markdown-extended" \
-       "${SUBLIMEPATH}/Packages/User/markdown-extended"
+            "$APP_PATH/sublime3/markdown-extended"
+  lnif "$APP_PATH/sublime3/markdown-extended" \
+       "$SUBLIMEPATH/Packages/User/markdown-extended"
 
-  lnif "${APP_PATH}/sublime3/Preferences.sublime-settings" \
-       "${SUBLIMEPATH}/Packages/User/Preferences.sublime-settings"
+  lnif "$APP_PATH/sublime3/Preferences.sublime-settings" \
+       "$SUBLIMEPATH/Packages/User/Preferences.sublime-settings"
 
   success "Successfully installed sublime3 Preference and monokai-extended theme"
 
@@ -456,25 +457,25 @@ function install_git_config(){
 
   step "Installing gitconfig ..."
 
-  lnif "${APP_PATH}/git/gitconfig" \
+  lnif "$APP_PATH/git/gitconfig" \
        "$HOME/.gitconfig"
 
   info "Now config your name and email for git."
 
   USER=`whoami`
-  prompt "What's your git username? (${USER}) "
+  prompt "What's your git username? ($USER) "
   read USERNAME
-  if [ "${USERNAME}" = "" ]; then
-    USERNAME=${USER}
+  if [ "$USERNAME" = "" ]; then
+    USERNAME=$USER
   fi;
-  git config --global user.name ${USERNAME}
+  git config --global user.name $USERNAME
 
-  prompt "What's your git email? (${USERNAME}@example.com) "
+  prompt "What's your git email? ($USERNAME@example.com) "
   read EMAIL
   if [ "$EMAIL" = "" ]; then
-    EMAIL=${USER}@example.com
+    EMAIL=$USER@example.com
   fi;
-  git config --global user.email ${EMAIL}
+  git config --global user.email $EMAIL
 
   if ( is_mac ); then
     git config --global credential.helper osxkeychain
@@ -518,9 +519,9 @@ function install_git_extras(){
   step "Installing git-extras ..."
 
   sync_repo "https://github.com/tj/git-extras.git" \
-            "${APP_PATH}/git/plugins/git-extras"
+            "$APP_PATH/git/plugins/git-extras"
 
-  cd "${APP_PATH}/git/plugins/git-extras"
+  cd "$APP_PATH/git/plugins/git-extras"
   sudo make install
 
   success "Successfully installed git-extras."
@@ -533,9 +534,9 @@ function install_git_flow(){
   step "Installing git-flow ..."
 
   sync_repo "https://github.com/nvie/gitflow.git" \
-            "${APP_PATH}/git/plugins/git-flow"
+            "$APP_PATH/git/plugins/git-flow"
 
-  cd "${APP_PATH}/git/plugins/git-flow"
+  cd "$APP_PATH/git/plugins/git-flow"
   sudo make install
 
   success "Successfully installed git-flow."
@@ -547,7 +548,7 @@ function install_astylerc(){
 
   step "Installing astylerc ..."
 
-  lnif "${APP_PATH}/astylerc" \
+  lnif "$APP_PATH/astylerc" \
        "$HOME/.astylerc"
 
   success "Successfully installed astylerc."
@@ -560,21 +561,21 @@ function install_zsh_rc(){
   step "Installing zshrc ..."
 
   sync_repo "https://github.com/robbyrussell/oh-my-zsh.git" \
-            "${APP_PATH}/zsh/oh-my-zsh"
+            "$APP_PATH/zsh/oh-my-zsh"
 
   sync_repo "https://github.com/zsh-users/zsh-syntax-highlighting.git" \
-            "${APP_PATH}/zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+            "$APP_PATH/zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
 
-  lnif "${APP_PATH}/zsh/oh-my-zsh" \
+  lnif "$APP_PATH/zsh/oh-my-zsh" \
        "$HOME/.oh-my-zsh"
-  lnif "${APP_PATH}/zsh/zshrc" \
+  lnif "$APP_PATH/zsh/zshrc" \
        "$HOME/.zshrc"
 
   info "Time to change your default shell to zsh!"
   chsh -s `which zsh`
 
   success "Successfully installed zsh and oh-my-zsh."
-  cd ${CUR_PATH}
+  cd $CUR_PATH
   /usr/bin/env zsh
   source $HOME/.zshrc
 }
@@ -585,11 +586,11 @@ function install_zsh_cfg(){
 
   step "Installing zsh configs ..."
 
-  lnif "${APP_PATH}/zsh/zshrc.alias" \
+  lnif "$APP_PATH/zsh/zshrc.alias" \
        "$HOME/.zshrc.alias"
-  lnif "${APP_PATH}/zsh/zshrc.paths" \
+  lnif "$APP_PATH/zsh/zshrc.paths" \
        "$HOME/.zshrc.paths"
-  lnif "${APP_PATH}/zsh/zshrc.sources" \
+  lnif "$APP_PATH/zsh/zshrc.sources" \
        "$HOME/.zshrc.sources"
 
   source "$HOME/.zshrc.alias"
@@ -606,7 +607,7 @@ function install_tmux(){
   step "Installing tmux configs ..."
 
   sync_repo "https://github.com/tmux-plugins/tpm" \
-            "${APP_PATH}/tmux/plugins/tpm"
+            "$APP_PATH/tmux/plugins/tpm"
 
   # tmux中的vim无法使用系统的粘贴板, 安装reattach-to-user-namespace修复
   if ( is_mac ); then
@@ -619,9 +620,9 @@ function install_tmux(){
     fi;
   fi;
 
-  lnif "${APP_PATH}/tmux" \
+  lnif "$APP_PATH/tmux" \
        "$HOME/.tmux"
-  lnif "${APP_PATH}/tmux/tmux.conf" \
+  lnif "$APP_PATH/tmux/tmux.conf" \
        "$HOME/.tmux.conf"
 
   success "Please run tmux and use prefix-I to install tmux plugins or reload your tmux.conf"
@@ -704,7 +705,7 @@ else
         ;;
       *)
         echo
-        error "Invalid params ${arg}"
+        error "Invalid params $arg"
         usage
         ;;
     esac;
