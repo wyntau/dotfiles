@@ -31,4 +31,4 @@ The Sublime Packages I used are listed below:
 - TrailingSpaces
 - Typescript
 - View In Browser
-- VintageEX
+- Vintageous
