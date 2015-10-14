@@ -14,7 +14,6 @@
     ├── vim
     │   ├── vimrc
     │   ├── vimrc.bundles
-    │   ├── vimrc.bundles.airline.fonts
     │   ├── vimrc.bundles.matchtag
     │   ├── vimrc.bundles.snippets
     │   └── vimrc.bundles.ycm
