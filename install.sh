@@ -167,6 +167,7 @@ function usage(){
   echo '    - astylerc'
   echo '    - sublime2'
   echo '    - sublime3'
+  echo '    - editorconfig'
   echo '    - zsh_rc'
   echo '    - tmux'
   printf "$dot_color_none\n"
@@ -452,6 +453,17 @@ function install_sublime3(){
   tip "You can change font_size and font_face in your sublime Preference"
 }
 
+function install_editorconfig(){
+
+  step "Installing editorconfig ..."
+
+  lnif "$APP_PATH/editorconfig" \
+       "$HOME/.editorconfig"
+
+  tip "Maybe you should install editorconfig plugin for vim or sublime"
+  success "Successfully installed editorconfig."
+}
+
 function install_git_config(){
 
   must_program_exists "git"
@@ -689,8 +701,11 @@ else
       sublime2)
         install_sublime2
         ;;
-       sublime3)
+      sublime3)
         install_sublime3
+        ;;
+      editorconfig)
+        install_editorconfig
         ;;
       zsh_rc)
         install_zsh_rc

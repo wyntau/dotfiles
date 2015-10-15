@@ -1,6 +1,7 @@
 ## What are in the repo
     dotfile
     ├── astylerc
+    ├── editorconfig
     ├── git
     |   └── gitconfig
     ├── sublime2
@@ -36,6 +37,7 @@ All vailable tasks:
 - [astylerc](#task-astylerc)
 - [sublime2](#task-sublime2)
 - [sublime3](#task-sublime3)
+- [editorconfig](#task-editorconfig)
 - [zsh_rc](#task-zsh_rc)
 - [tmux](#task-tmux)
 
@@ -218,6 +220,10 @@ You can do a specific task by run
     **bakup your preference file first!**
 
     If you use `Sublime Text 3`, this task will add user Preference, [`Monokai Extended`](https://github.com/jonschlinkert/sublime-monokai-extended) colorscheme and [`Markdown Extended`](https://github.com/jonschlinkert/sublime-markdown-extended) plugin which supports more files including Markdown highlight.
+
+- ### Task `editorconfig`
+
+    Install global `.editorconfig` to you home. You can see [what config is used](editorconfig).
 
 - ### Task `zsh_rc`
     Requirements: `git`, `zsh`
