@@ -252,6 +252,8 @@ Plugin 'smilekzs/vim-nfo'
 Plugin 'evanmiller/nginx-vim-syntax'
 
 Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'othree/yajs.vim'
 
 " ap/vim-css-color # 不支持Vim74， 使用vim-colorsque 替代
 Plugin 'Marslo/vim-coloresque'

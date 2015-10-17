@@ -111,6 +111,8 @@ You can do a specific task by run
         Plugin 'smilekzs/vim-nfo'
         Plugin 'evanmiller/nginx-vim-syntax'
         Plugin 'pangloss/vim-javascript'
+        Plugin 'mxw/vim-jsx'
+        Plugin 'othree/yajs.vim'
         Plugin 'Marslo/vim-coloresque'
 
 - ### Task `vim_bundles_matchtag`
