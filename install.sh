@@ -579,6 +579,9 @@ function install_zsh_rc(){
   sync_repo "https://github.com/zsh-users/zsh-syntax-highlighting.git" \
             "$APP_PATH/zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
 
+  sync_repo "https://github.com/tarruda/zsh-autosuggestions.git" \
+            "$APP_PATH/zsh/oh-my-zsh/custom/plugins/zsh-autosuggestions"
+
   lnif "$APP_PATH/zsh/oh-my-zsh" \
        "$HOME/.oh-my-zsh"
   lnif "$APP_PATH/zsh/zshrc" \
