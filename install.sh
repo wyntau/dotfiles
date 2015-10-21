@@ -581,6 +581,8 @@ function install_zsh_rc(){
 
   sync_repo "https://github.com/tarruda/zsh-autosuggestions.git" \
             "$APP_PATH/zsh/oh-my-zsh/custom/plugins/zsh-autosuggestions"
+  sync_repo "https://github.com/Treri/zsh-autosuggestions-conf.git" \
+            "$APP_PATH/zsh/oh-my-zsh/custom/plugins/zsh-autosuggestions-conf"
 
   lnif "$APP_PATH/zsh/oh-my-zsh" \
        "$HOME/.oh-my-zsh"

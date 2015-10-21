@@ -242,6 +242,7 @@ You can do a specific task by run
     - zsh_reload
     - zsh-syntax-highlighting
     - zsh-autosuggestions
+    - zsh-autosuggestions-conf
 
     __What zsh plugins are used when relational programs installed?__
 
