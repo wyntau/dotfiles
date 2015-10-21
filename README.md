@@ -89,7 +89,6 @@ You can do a specific task by run
         Plugin 'ctrlpvim/ctrlp.vim'
         Plugin 'scrooloose/nerdtree'
         Plugin 'jistr/vim-nerdtree-tabs'
-        Plugin 'terryma/vim-smooth-scroll'
         Plugin 'dyng/ctrlsf.vim'
         Plugin 'Lokaltog/vim-easymotion'
         Plugin 'terryma/vim-expand-region'

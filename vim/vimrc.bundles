@@ -145,13 +145,6 @@ Plugin 'jistr/vim-nerdtree-tabs'
   nmap <leader>nt :NERDTreeTabsToggle<CR>
   " }}}
 
-" ==> smooth scroll
-Plugin 'terryma/vim-smooth-scroll'
-  noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<cr>
-  noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<cr>
-  noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<cr>
-  noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<cr>
-
 " ==> 快速搜索插件
 " An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
 " require ag(a.k.a `the_silver_searcher`) or ack
