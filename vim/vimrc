@@ -42,6 +42,7 @@ set helplang=cn
 " =============================================================================
 
 " 在 insert 模式下切换中文输入法输入完成，然后按 Esc，就自动切换回英文输入(maybe only Gvim)
+" macvim -> Preferences -> deselect "Draw marked text inline"
 set noimdisable
 autocmd! InsertLeave * set imdisable
 autocmd! InsertEnter * set noimdisable
