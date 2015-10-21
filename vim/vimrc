@@ -643,6 +643,7 @@ filetype plugin indent on
 set t_Co=256
 " 开启高亮语法显示
 syntax enable
+set synmaxcol=180
 set background=dark
 colorscheme desert
 silent! colorscheme molokai
