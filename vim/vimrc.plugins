@@ -91,6 +91,8 @@ Plugin 'ctrlpvim/ctrlp.vim'
       \ --ignore .svn
       \ --ignore .hg
       \ --ignore .DS_Store
+      \ --ignore node_modules
+      \ --ignore bower_components
       \ --ignore "**/*.pyc"
       \ -g ""'
   elseif executable('ack-grep')
