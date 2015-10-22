@@ -236,6 +236,7 @@ You can do a specific task by run
     - colored-man-pages
     - encode64
     - extract
+    - fzf-zsh(fzf)
     - sublime
     - sudo
     - zsh_reload

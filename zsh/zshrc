@@ -162,6 +162,7 @@ plugins=(
   colored-man-pages
   encode64
   extract
+  fzf-zsh
   sublime
   sudo
   zsh_reload

@@ -587,6 +587,14 @@ function install_zsh_rc(){
   cd "$APP_PATH/zsh/plugins/fasd"
   sudo make install
 
+  # install fzf support
+  sync_repo "https://github.com/junegunn/fzf.git" \
+            "$APP_PATH/.assets/plugins/fzf"
+  "$APP_PATH/.assets/plugins/fzf/install" --bin
+  sync_repo "https://github.com/Treri/fzf-zsh.git" \
+            "$APP_PATH/.assets/plugins/fzf-zsh"
+  lnif "$APP_PATH/.assets/plugins/fzf-zsh" "$APP_PATH/zsh/oh-my-zsh/custom/plugins/fzf-zsh"
+
   lnif "$APP_PATH/zsh/oh-my-zsh" \
        "$HOME/.oh-my-zsh"
   lnif "$APP_PATH/zsh/zshrc" \
