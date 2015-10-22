@@ -156,10 +156,10 @@ function usage(){
   printf "$dot_color_green\n"
   echo '    - fonts_source_code_pro'
   echo '    - vim_rc'
-  echo '    - vim_bundles_base'
-  echo '    - vim_bundles_matchtag'
-  echo '    - vim_bundles_snippets'
-  echo '    - vim_bundles_ycm'
+  echo '    - vim_plugins_base'
+  echo '    - vim_plugins_matchtag'
+  echo '    - vim_plugins_snippets'
+  echo '    - vim_plugins_ycm'
   echo '    - git_config'
   echo '    - git_dmtool'
   echo '    - git_extras'
@@ -242,7 +242,7 @@ function install_vim_rc(){
   success "You can add your own configs to ~/.vimrc.local, vim will source them automatically"
 }
 
-function install_vim_bundles_base(){
+function install_vim_plugins_base(){
 
   if ( ! is_file_exists "$HOME/.vimrc" ); then
     error "You should complete vim_rc task first"
@@ -269,7 +269,7 @@ function install_vim_bundles_base(){
 
 function must_vimrc_bundles_exists(){
   if ( ! is_file_exists "$HOME/.vimrc.plugins" ); then
-    error "You should complete vim_bundles task first"
+    error "You should complete vim_plugins task first"
     exit
   fi;
 }
@@ -308,7 +308,7 @@ function install_neovim_python_support(){
   fi;
 }
 
-function install_vim_bundles_matchtag(){
+function install_vim_plugins_matchtag(){
 
   must_vimrc_bundles_exists
 
@@ -327,7 +327,7 @@ function install_vim_bundles_matchtag(){
   success "Successfully installed MatchTagAlways plugins."
 }
 
-function install_vim_bundles_snippets(){
+function install_vim_plugins_snippets(){
 
   must_vimrc_bundles_exists
 
@@ -346,7 +346,7 @@ function install_vim_bundles_snippets(){
   success "Successfully installed vim-snippets plugins."
 }
 
-function install_vim_bundles_ycm(){
+function install_vim_plugins_ycm(){
 
   must_vimrc_bundles_exists
 
@@ -676,17 +676,17 @@ else
       vim_rc)
         install_vim_rc
         ;;
-      vim_bundles_base)
-        install_vim_bundles_base
+      vim_plugins_base)
+        install_vim_plugins_base
         ;;
-      vim_bundles_matchtag)
-        install_vim_bundles_matchtag
+      vim_plugins_matchtag)
+        install_vim_plugins_matchtag
         ;;
-      vim_bundles_snippets)
-        install_vim_bundles_snippets
+      vim_plugins_snippets)
+        install_vim_plugins_snippets
         ;;
-      vim_bundles_ycm)
-        install_vim_bundles_ycm
+      vim_plugins_ycm)
+        install_vim_plugins_ycm
         ;;
       git_config)
         install_git_config

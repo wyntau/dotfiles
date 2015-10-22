@@ -26,10 +26,10 @@ All vailable tasks:
 
 - [fonts_source_code_pro](#task-fonts_source_code_pro)
 - [vim_rc](#task-vim_rc)
-- [vim_bundles_base](#task-vim_bundles_base)
-- [vim_bundles_matchtag](#task-vim_bundles_matchtag)
-- [vim_bundles_snippets](#task-vim_bundles_snippets)
-- [vim_bundles_ycm](#task-vim_bundles_ycm)
+- [vim_plugins_base](#task-vim_plugins_base)
+- [vim_plugins_matchtag](#task-vim_plugins_matchtag)
+- [vim_plugins_snippets](#task-vim_plugins_snippets)
+- [vim_plugins_ycm](#task-vim_plugins_ycm)
 - [git_config](#task-git_config)
 - [git_dmtool](#task-git_dmtool)
 - [git_extras](#task-git_extras)
@@ -52,12 +52,12 @@ You can do a specific task by run
 
     The new version font is compatible with powerline fonts which have some useful symbols used in some vim plugins and shell plugins, and it will update frequently. So use it to replace [Powerline fonts](https://github.com/powerline/fonts).
 
-    This font will be installed automatically when do task [vim_bundles_base](#task-vim_bundles_base), [sublime2](#task-sublime2) and [sublime3](#task-sublime3).
+    This font will be installed automatically when do task [vim_plugins_base](#task-vim_plugins_base), [sublime2](#task-sublime2) and [sublime3](#task-sublime3).
 
 - ### Task `vim_rc`
     Requirements: `git`, `vim`
 
-    This task will not install any bundles, if you want to use some bundles, do __[task vim_bundles_base](#task-vim_bundles_base)__.
+    This task will not install any bundles, if you want to use some bundles, do __[task vim_plugins_base](#task-vim_plugins_base)__.
 
     You can override the system vim with the new one installed by `homebrew`.(OS X only. This is optional, but recommended, because system vim can't use system clipbord via register `+`)
 
@@ -67,7 +67,7 @@ You can do a specific task by run
 
     Additionally, if you have installed `neovim`, this task will link `vim/vimrc` to `~/.nvimrc`.
 
-- ### Task `vim_bundles_base`
+- ### Task `vim_plugins_base`
     Requirement: `git`, `vim`, [task vim_rc](#task-vim_rc)
 
     Setup Vundle.vim, and load other bundles. After doing this task, you can load
@@ -114,7 +114,7 @@ You can do a specific task by run
         Plugin 'othree/yajs.vim'
         Plugin 'Marslo/vim-coloresque'
 
-- ### Task `vim_bundles_matchtag`
+- ### Task `vim_plugins_matchtag`
     Requirement: `git`, `vim`, `curl`, `python`, [task vim_rc](#task-vim_rc)
 
     Install html matchtag plugin for vim. Here i use python version matchtag.
@@ -124,7 +124,7 @@ You can do a specific task by run
 
         Plugin 'valloric/MatchTagAlways'
 
-- ### Task `vim_bundles_snippets`
+- ### Task `vim_plugins_snippets`
     Requirement: `git`, `vim`, `curl`, `python`, [task vim_rc](#task-vim_rc)
 
     Install vim-snippets plugin for vim.
@@ -134,7 +134,7 @@ You can do a specific task by run
         Plugin 'SirVer/ultisnips'
         Plugin 'honza/vim-snippets'
 
-- ### Task `vim_bundles_ycm`
+- ### Task `vim_plugins_ycm`
     Requirement: `git`, `vim`, `curl`, `python`, [task vim_rc](#task-vim_rc)
 
     Install YouCompleteMe plugin for vim.
