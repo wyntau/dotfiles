@@ -41,6 +41,12 @@ ZSH_THEME="robbyrussell"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# User configuration
+
+# Uncomment following line if you use homebrew
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
+# export MANPATH="/usr/local/man:$MANPATH"
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -75,8 +81,16 @@ if [[ `tput colors` == "256" ]] || [ -e /usr/share/terminfo/s/screen-256color ] 
 fi;
 export TERM="${USER_TERM_PREFIX}${USER_TERM_SUFFIX}"
 
+function is_program_exists(){
+  if type "$1" &>/dev/null; then
+    return 0
+  else
+    return 1
+  fi;
+}
+
 # if we have brew installed, add brew plugin
-if which brew &> /dev/null; then
+if ( is_program_exists brew ); then
   plugins=(
     $plugins
     brew
@@ -84,7 +98,7 @@ if which brew &> /dev/null; then
 fi;
 
 # if we have git installed, add git plugin
-if which git &> /dev/null; then
+if ( is_program_exists git ); then
   plugins=(
     $plugins
     gitfast
@@ -94,7 +108,7 @@ if which git &> /dev/null; then
 fi;
 
 # if we have httpie installed, add httpie plugin
-if which http &> /dev/null; then
+if ( is_program_exists http ); then
   plugins=(
     $plugins
     httpie
@@ -102,7 +116,7 @@ if which http &> /dev/null; then
 fi;
 
 # if we have mosh installed, add mosh plugin
-if which mosh &> /dev/null; then
+if ( is_program_exists mosh ); then
   plugins=(
     $plugins
     mosh
@@ -110,7 +124,7 @@ if which mosh &> /dev/null; then
 fi;
 
 # if we have tmux installed, add tmux plugin
-if which tmux &> /dev/null; then
+if ( is_program_exists tmux ); then
   plugins=(
     $plugins
     tmux
@@ -118,7 +132,7 @@ if which tmux &> /dev/null; then
 fi;
 
 # if we have fasd installed, use fasd plugin, otherwise use z
-if which fasd &> /dev/null; then
+if ( is_program_exists fasd ); then
   plugins=(
     $plugins
     fasd
@@ -151,12 +165,6 @@ plugins=(
   zsh-autosuggestions
   zsh-autosuggestions-conf
 )
-
-# User configuration
-
-# Uncomment following line if you use homebrew
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
-# export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 

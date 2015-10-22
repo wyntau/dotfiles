@@ -65,7 +65,7 @@ function is_dir_exists(){
   [[ -d "$1" ]] && return 0 || return 1
 }
 function is_program_exists(){
-  if hash "$1" 2>/dev/null; then
+  if type "$1" &>/dev/null; then
     return 0
   else
     return 1
