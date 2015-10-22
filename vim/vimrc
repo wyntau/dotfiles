@@ -629,8 +629,8 @@ nnoremap <leader>r16 <ESC>:%!xxd -r<ESC>
 filetype off
 
 " source default bundles
-if filereadable(expand("~/.vimrc.bundles"))
-  source ~/.vimrc.bundles
+if filereadable(expand("~/.vimrc.plugins"))
+  source ~/.vimrc.plugins
 endif
 
 " 载入文件类型插件

@@ -26,10 +26,6 @@ Plugin 'bling/vim-airline'
   " let g:airline#extensions#tabline#fnamemod = ':t'
   " 命令行（在状态行下）的高度，默认为1(不显示状态栏)，这里是2
   set laststatus=2
-  " source vim-airline fonts
-  if filereadable(expand("~/.vimrc.bundles.airline.fonts"))
-    source ~/.vimrc.bundles.airline.fonts
-  endif
 
 " ==> Git support
 Plugin 'airblade/vim-gitgutter'
@@ -252,23 +248,23 @@ Plugin 'othree/yajs.vim'
 Plugin 'Marslo/vim-coloresque'
 
 " source matchtag plugin
-if filereadable(expand("~/.vimrc.bundles.matchtag"))
-  source ~/.vimrc.bundles.matchtag
+if filereadable(expand("~/.vimrc.plugins.matchtag"))
+  source ~/.vimrc.plugins.matchtag
 endif
 
 " source snippets plugin
-if filereadable(expand("~/.vimrc.bundles.snippets"))
-  source ~/.vimrc.bundles.snippets
+if filereadable(expand("~/.vimrc.plugins.snippets"))
+  source ~/.vimrc.plugins.snippets
 endif
 
 " source YouCompleteMe plugin
-if filereadable(expand("~/.vimrc.bundles.ycm"))
-  source ~/.vimrc.bundles.ycm
+if filereadable(expand("~/.vimrc.plugins.ycm"))
+  source ~/.vimrc.plugins.ycm
 endif
 
 " If user have own plugins, load them here
-if filereadable(expand("~/.vimrc.bundles.local"))
-  source ~/.vimrc.bundles.local
+if filereadable(expand("~/.vimrc.plugins.local"))
+  source ~/.vimrc.plugins.local
 endif
 
 call vundle#end()

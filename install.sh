@@ -254,21 +254,21 @@ function install_vim_bundles_base(){
   sync_repo "https://github.com/VundleVim/Vundle.vim.git" \
             "$APP_PATH/vim/bundle/Vundle.vim"
 
-  lnif "$APP_PATH/vim/vimrc.bundles" \
-       "$HOME/.vimrc.bundles"
+  lnif "$APP_PATH/vim/vimrc.plugins" \
+       "$HOME/.vimrc.plugins"
 
   vim +PluginInstall +qall
 
   better_program_exists_one "ag"
 
-  success "You can add your own bundles to ~/.vimrc.bundles.local , vim will source them automatically"
+  success "You can add your own bundles to ~/.vimrc.plugins.local , vim will source them automatically"
 
   install_fonts_source_code_pro
   tip "In order to use powerline symbols with airline in vim, please set your terminal to use the font 'Source Code Pro'"
 }
 
 function must_vimrc_bundles_exists(){
-  if ( ! is_file_exists "$HOME/.vimrc.bundles" ); then
+  if ( ! is_file_exists "$HOME/.vimrc.plugins" ); then
     error "You should complete vim_bundles task first"
     exit
   fi;
@@ -319,8 +319,8 @@ function install_vim_bundles_matchtag(){
   # check whether have neovim. if have, make sure neovim have python feature support
   install_neovim_python_support
 
-  lnif "$APP_PATH/vim/vimrc.bundles.matchtag" \
-       "$HOME/.vimrc.bundles.matchtag"
+  lnif "$APP_PATH/vim/vimrc.plugins.matchtag" \
+       "$HOME/.vimrc.plugins.matchtag"
 
   vim +PluginInstall +qall
 
@@ -338,8 +338,8 @@ function install_vim_bundles_snippets(){
   # check whether have neovim. if have, make sure neovim have python feature support
   install_neovim_python_support
 
-  lnif "$APP_PATH/vim/vimrc.bundles.snippets" \
-       "$HOME/.vimrc.bundles.snippets"
+  lnif "$APP_PATH/vim/vimrc.plugins.snippets" \
+       "$HOME/.vimrc.plugins.snippets"
 
   vim +PluginInstall +qall
 
@@ -381,8 +381,8 @@ function install_vim_bundles_ycm(){
     "$APP_PATH/vim/bundle/YouCompleteMe/install.py" $YCM_COMPLETER_FLAG
   fi;
 
-  lnif "$APP_PATH/vim/vimrc.bundles.ycm" \
-       "$HOME/.vimrc.bundles.ycm"
+  lnif "$APP_PATH/vim/vimrc.plugins.ycm" \
+       "$HOME/.vimrc.plugins.ycm"
 
   success "Successfully installed YouCompleteMe plugin."
 }

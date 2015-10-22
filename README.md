@@ -14,10 +14,10 @@
     │   └── tmux.conf
     ├── vim
     │   ├── vimrc
-    │   ├── vimrc.bundles
-    │   ├── vimrc.bundles.matchtag
-    │   ├── vimrc.bundles.snippets
-    │   └── vimrc.bundles.ycm
+    │   ├── vimrc.plugins
+    │   ├── vimrc.plugins.matchtag
+    │   ├── vimrc.plugins.snippets
+    │   └── vimrc.plugins.ycm
     └── zsh
         └── zshrc
 
@@ -71,7 +71,7 @@ You can do a specific task by run
     Requirement: `git`, `vim`, [task vim_rc](#task-vim_rc)
 
     Setup Vundle.vim, and load other bundles. After doing this task, you can load
-    your own bundles in `~/.vimrc.bundles.local`
+    your own bundles in `~/.vimrc.plugins.local`
 
     ##### Included bundles
 
