@@ -251,7 +251,7 @@ function install_vim_bundles_base(){
 
   step "Initializing Vundle.vim"
 
-  sync_repo "https://github.com/gmarik/Vundle.vim.git" \
+  sync_repo "https://github.com/VundleVim/Vundle.vim.git" \
             "$APP_PATH/vim/bundle/Vundle.vim"
 
   lnif "$APP_PATH/vim/vimrc.bundles" \
