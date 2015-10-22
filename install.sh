@@ -533,7 +533,6 @@ function install_git_extras(){
 
   sync_repo "https://github.com/tj/git-extras.git" \
             "$APP_PATH/git/plugins/git-extras"
-
   cd "$APP_PATH/git/plugins/git-extras"
   sudo make install
 
@@ -548,7 +547,6 @@ function install_git_flow(){
 
   sync_repo "https://github.com/nvie/gitflow.git" \
             "$APP_PATH/git/plugins/git-flow"
-
   cd "$APP_PATH/git/plugins/git-flow"
   sudo make install
 
@@ -583,6 +581,11 @@ function install_zsh_rc(){
             "$APP_PATH/zsh/oh-my-zsh/custom/plugins/zsh-autosuggestions"
   sync_repo "https://github.com/Treri/zsh-autosuggestions-conf.git" \
             "$APP_PATH/zsh/oh-my-zsh/custom/plugins/zsh-autosuggestions-conf"
+
+  sync_repo "https://github.com/clvv/fasd.git" \
+            "$APP_PATH/zsh/plugins/fasd"
+  cd "$APP_PATH/zsh/plugins/fasd"
+  sudo make install
 
   lnif "$APP_PATH/zsh/oh-my-zsh" \
        "$HOME/.oh-my-zsh"

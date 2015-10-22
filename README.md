@@ -238,7 +238,6 @@ You can do a specific task by run
     - extract
     - sublime
     - sudo
-    - z
     - zsh_reload
     - zsh-syntax-highlighting
     - zsh-autosuggestions
@@ -253,6 +252,7 @@ You can do a specific task by run
     - httpie        (when httpie is installed)
     - mosh          (when mosh is installed)
     - tmux          (when tmux is installed)
+    - fasd          (when fasd is installed, otherwise z)
     - osx           (OS X only)
 
     So, maybe you should install some of them to make full use of zsh.
