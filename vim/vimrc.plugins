@@ -7,7 +7,7 @@ call vundle#begin()
 " =============================================================================
 
 " ==> Vundle plugin
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " ==> Themes and views
 Plugin 'tomasr/molokai'
