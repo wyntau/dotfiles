@@ -10,6 +10,10 @@ ZSH_THEME="robbyrussell"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
@@ -47,11 +51,6 @@ ZSH_THEME="robbyrussell"
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-
 # bugfix for vim in tmux not using 256 color.
 # if [[ "$OSTYPE" == "linux-gnu" ]]; then
   # if [ $TMUX ]; then
@@ -80,6 +79,11 @@ if [[ `tput colors` == "256" ]] || [ -e /usr/share/terminfo/s/screen-256color ] 
   USER_TERM_SUFFIX='-256color'
 fi;
 export TERM="${USER_TERM_PREFIX}${USER_TERM_SUFFIX}"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
 
 function is_program_exists(){
   if type "$1" &>/dev/null; then
