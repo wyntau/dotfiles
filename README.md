@@ -15,6 +15,7 @@
     ├── vim
     │   ├── vimrc
     │   ├── vimrc.plugins
+    │   ├── vimrc.plugins.fzf
     │   ├── vimrc.plugins.matchtag
     │   ├── vimrc.plugins.snippets
     │   └── vimrc.plugins.ycm
@@ -27,6 +28,7 @@ All vailable tasks:
 - [fonts_source_code_pro](#task-fonts_source_code_pro)
 - [vim_rc](#task-vim_rc)
 - [vim_plugins_base](#task-vim_plugins_base)
+- [vim_plugins_fzf](#task-vim_plugins_fzf)
 - [vim_plugins_matchtag](#task-vim_plugins_matchtag)
 - [vim_plugins_snippets](#task-vim_plugins_snippets)
 - [vim_plugins_ycm](#task-vim_plugins_ycm)
@@ -75,43 +77,53 @@ You can do a specific task by run
 
     ##### Included plugins
 
-        Plugin 'tomasr/molokai'
-        Plugin 'altercation/vim-colors-solarized'
-        Plugin 'morhetz/gruvbox'
+        Plug 'tomasr/molokai'
+        Plug 'altercation/vim-colors-solarized'
+        Plug 'morhetz/gruvbox'
 
-        Plugin 'bling/vim-airline'
-        Plugin 'airblade/vim-gitgutter'
-        Plugin 'Yggdroot/indentLine'
-        Plugin 'tmux-plugins/vim-tmux'
-        Plugin 'tmux-plugins/vim-tmux-focus-events'
-        Plugin 'christoomey/vim-tmux-navigator'
-        Plugin 'ctrlpvim/ctrlp.vim'
-        Plugin 'scrooloose/nerdtree'
-        Plugin 'jistr/vim-nerdtree-tabs'
-        Plugin 'dyng/ctrlsf.vim'
-        Plugin 'Lokaltog/vim-easymotion'
-        Plugin 'terryma/vim-expand-region'
-        Plugin 'ntpeters/vim-better-whitespace'
-        Plugin 'Raimondi/delimitMate'
-        Plugin 'godlygeek/tabular'
-        Plugin 'tpope/vim-surround'
-        Plugin 'tpope/vim-repeat'
-        Plugin 'scrooloose/nerdcommenter'
-        Plugin 'terryma/vim-multiple-cursors'
-        Plugin 'osyo-manga/vim-over'
+        Plug 'bling/vim-airline'
+        Plug 'airblade/vim-gitgutter'
+        Plug 'Yggdroot/indentLine'
+        Plug 'tmux-plugins/vim-tmux'
+        Plug 'tmux-plugins/vim-tmux-focus-events'
+        Plug 'christoomey/vim-tmux-navigator'
+        Plug 'ctrlpvim/ctrlp.vim'
+        Plug 'scrooloose/nerdtree'
+        Plug 'jistr/vim-nerdtree-tabs'
+        Plug 'dyng/ctrlsf.vim'
+        Plug 'Lokaltog/vim-easymotion'
+        Plug 'terryma/vim-expand-region'
+        Plug 'ntpeters/vim-better-whitespace'
+        Plug 'Raimondi/delimitMate'
+        Plug 'godlygeek/tabular'
+        Plug 'tpope/vim-surround'
+        Plug 'tpope/vim-repeat'
+        Plug 'scrooloose/nerdcommenter'
+        Plug 'terryma/vim-multiple-cursors'
+        Plug 'osyo-manga/vim-over'
 
-        Plugin 'vim-scripts/matchit.zip'
-        Plugin 'mattn/emmet-vim'
-        Plugin 'plasticboy/vim-markdown'
-        Plugin 'leafgarland/typescript-vim'
-        Plugin 'kchmck/vim-coffee-script'
-        Plugin 'groenewege/vim-less'
-        Plugin 'smilekzs/vim-nfo'
-        Plugin 'evanmiller/nginx-vim-syntax'
-        Plugin 'pangloss/vim-javascript'
-        Plugin 'mxw/vim-jsx'
-        Plugin 'othree/yajs.vim'
-        Plugin 'Marslo/vim-coloresque'
+        Plug 'vim-scripts/matchit.zip'
+        Plug 'mattn/emmet-vim'
+        Plug 'plasticboy/vim-markdown'
+        Plug 'leafgarland/typescript-vim'
+        Plug 'kchmck/vim-coffee-script'
+        Plug 'groenewege/vim-less'
+        Plug 'smilekzs/vim-nfo'
+        Plug 'evanmiller/nginx-vim-syntax'
+        Plug 'pangloss/vim-javascript'
+        Plug 'mxw/vim-jsx'
+        Plug 'othree/yajs.vim'
+        Plug 'Marslo/vim-coloresque'
+
+- ### Task `vim_plugins_fzf`
+    Requirement: `git`, `vim`, `curl` or `wget`, [task vim_rc](#task-vim_rc)
+
+    Install fzf.vim plugin for vim.
+
+    ##### Included plugins
+
+        Plug 'junegunn/fzf'
+        Plug 'junegunn/fzf.vim'
 
 - ### Task `vim_plugins_matchtag`
     Requirement: `git`, `vim`, `curl`, `python`, [task vim_rc](#task-vim_rc)
@@ -121,7 +133,7 @@ You can do a specific task by run
 
     ##### Included plugins
 
-        Plugin 'valloric/MatchTagAlways'
+        Plug 'valloric/MatchTagAlways'
 
 - ### Task `vim_plugins_snippets`
     Requirement: `git`, `vim`, `curl`, `python`, [task vim_rc](#task-vim_rc)
@@ -130,8 +142,8 @@ You can do a specific task by run
 
     ##### Included plugins
 
-        Plugin 'SirVer/ultisnips'
-        Plugin 'honza/vim-snippets'
+        Plug 'SirVer/ultisnips'
+        Plug 'honza/vim-snippets'
 
 - ### Task `vim_plugins_ycm`
     Requirement: `git`, `vim`, `curl`, `python`, [task vim_rc](#task-vim_rc)
@@ -144,7 +156,7 @@ You can do a specific task by run
 
     ##### Included plugins
 
-        Plugin 'Valloric/YouCompleteMe'
+        Plug 'Valloric/YouCompleteMe'
 
 - ### Task `git_config`
     Requirement: `git`

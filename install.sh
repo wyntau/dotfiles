@@ -157,6 +157,7 @@ function usage(){
   echo '    - fonts_source_code_pro'
   echo '    - vim_rc'
   echo '    - vim_plugins_base'
+  echo '    - vim_plugins_fzf'
   echo '    - vim_plugins_matchtag'
   echo '    - vim_plugins_snippets'
   echo '    - vim_plugins_ycm'
@@ -251,7 +252,7 @@ function install_vim_plugins_base(){
     exit
   fi;
 
-  step "Initializing Vundle.vim"
+  step "Initializing vim-plug"
 
   sync_repo "https://github.com/junegunn/vim-plug.git" \
             "$APP_PATH/vim/autoload"
@@ -259,21 +260,42 @@ function install_vim_plugins_base(){
   lnif "$APP_PATH/vim/vimrc.plugins" \
        "$HOME/.vimrc.plugins"
 
-  vim +PluginInstall +qall
+  vim +PlugInstall +qall
 
   better_program_exists_one "ag"
 
-  success "You can add your own bundles to ~/.vimrc.plugins.local , vim will source them automatically"
+  success "You can add your own plugins to ~/.vimrc.plugins.local , vim will source them automatically"
 
   install_fonts_source_code_pro
   tip "In order to use powerline symbols with airline in vim, please set your terminal to use the font 'Source Code Pro'"
 }
 
-function must_vimrc_bundles_exists(){
+function must_vimrc_plugins_exists(){
   if ( ! is_file_exists "$HOME/.vimrc.plugins" ); then
     error "You should complete vim_plugins task first"
     exit
   fi;
+}
+
+function install_vim_plugins_fzf(){
+
+  must_vimrc_plugins_exists
+
+  step "Installing vim plugin fzf ..."
+
+  # install fzf support
+  sync_repo "https://github.com/junegunn/fzf.git" \
+            "$APP_PATH/.assets/plugins/fzf"
+  "$APP_PATH/.assets/plugins/fzf/install" --bin
+  lnif "$APP_PATH/.assets/plugins/fzf" \
+       "$APP_PATH/vim/plugins/fzf"
+
+  lnif "$APP_PATH/vim/vimrc.plugins.fzf" \
+       "$HOME/.vimrc.plugins.fzf"
+
+  vim +PlugInstall +qall
+
+  success "Successfully installed vim fzf plugin."
 }
 
 function install_neovim_python_support(){
@@ -312,7 +334,7 @@ function install_neovim_python_support(){
 
 function install_vim_plugins_matchtag(){
 
-  must_vimrc_bundles_exists
+  must_vimrc_plugins_exists
 
   must_program_exists "python"
 
@@ -324,14 +346,14 @@ function install_vim_plugins_matchtag(){
   lnif "$APP_PATH/vim/vimrc.plugins.matchtag" \
        "$HOME/.vimrc.plugins.matchtag"
 
-  vim +PluginInstall +qall
+  vim +PlugInstall +qall
 
   success "Successfully installed MatchTagAlways plugins."
 }
 
 function install_vim_plugins_snippets(){
 
-  must_vimrc_bundles_exists
+  must_vimrc_plugins_exists
 
   must_program_exists "python"
 
@@ -343,14 +365,14 @@ function install_vim_plugins_snippets(){
   lnif "$APP_PATH/vim/vimrc.plugins.snippets" \
        "$HOME/.vimrc.plugins.snippets"
 
-  vim +PluginInstall +qall
+  vim +PlugInstall +qall
 
   success "Successfully installed vim-snippets plugins."
 }
 
 function install_vim_plugins_ycm(){
 
-  must_vimrc_bundles_exists
+  must_vimrc_plugins_exists
 
   must_program_exists "python"
 
@@ -688,6 +710,9 @@ else
         ;;
       vim_plugins_base)
         install_vim_plugins_base
+        ;;
+      vim_plugins_fzf)
+        install_vim_plugins_fzf
         ;;
       vim_plugins_matchtag)
         install_vim_plugins_matchtag

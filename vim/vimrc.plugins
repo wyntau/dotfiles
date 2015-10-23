@@ -245,6 +245,11 @@ Plug 'othree/yajs.vim'
 " ap/vim-css-color # 不支持Vim74， 使用vim-colorsque 替代
 Plug 'Marslo/vim-coloresque'
 
+" source fzf plugin
+if filereadable(expand("~/.vimrc.plugins.fzf"))
+  source ~/.vimrc.plugins.fzf
+endif
+
 " source matchtag plugin
 if filereadable(expand("~/.vimrc.plugins.matchtag"))
   source ~/.vimrc.plugins.matchtag
