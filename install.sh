@@ -227,6 +227,8 @@ function install_vim_rc(){
 
   if ( is_program_exists nvim ); then
 
+    lnif "$APP_PATH/vim" \
+         "$HOME/.nvim"
     lnif "$APP_PATH/vim/vimrc" \
          "$HOME/.nvimrc"
 
@@ -251,8 +253,8 @@ function install_vim_plugins_base(){
 
   step "Initializing Vundle.vim"
 
-  sync_repo "https://github.com/VundleVim/Vundle.vim.git" \
-            "$APP_PATH/vim/bundle/Vundle.vim"
+  sync_repo "https://github.com/junegunn/vim-plug.git" \
+            "$APP_PATH/vim/autoload"
 
   lnif "$APP_PATH/vim/vimrc.plugins" \
        "$HOME/.vimrc.plugins"
@@ -359,12 +361,12 @@ function install_vim_plugins_ycm(){
 
   # fetch or update YouCompleteMe
   sync_repo "https://github.com/Valloric/YouCompleteMe.git" \
-            "$APP_PATH/vim/bundle/YouCompleteMe"
+            "$APP_PATH/vim/plugins/YouCompleteMe"
 
   # Force recompile YouCompleteMe libs
   # or YouCompleteMe libs not exists
   # compile libs for YouCompleteMe
-  ycmd_path="$APP_PATH/vim/bundle/YouCompleteMe/third_party/ycmd"
+  ycmd_path="$APP_PATH/vim/plugins/YouCompleteMe/third_party/ycmd"
   if [[ "$YCM_COMPILE_FORCE" = "true" ]] || ( ! is_file_exists "$ycmd_path/ycm_core.so" ) || ( ! is_file_exists "$ycmd_path/ycm_client_support.so" ); then
     info "Compiling YouCompleteMe libs ..."
     case $YCM_COMPLETER in
@@ -378,7 +380,7 @@ function install_vim_plugins_ycm(){
         YCM_COMPLETER_FLAG="--gocode-completer"
         ;;
     esac;
-    "$APP_PATH/vim/bundle/YouCompleteMe/install.py" $YCM_COMPLETER_FLAG
+    "$APP_PATH/vim/plugins/YouCompleteMe/install.py" $YCM_COMPLETER_FLAG
   fi;
 
   lnif "$APP_PATH/vim/vimrc.plugins.ycm" \

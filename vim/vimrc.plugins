@@ -1,24 +1,20 @@
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugins')
 
 " =============================================================================
 " Common plugins
 " =============================================================================
 
-" ==> Vundle plugin
-Plugin 'VundleVim/Vundle.vim'
-
 " ==> Themes and views
-Plugin 'tomasr/molokai'
+Plug 'tomasr/molokai'
   "If you prefer the scheme to match the original monokai background color
   let g:molokai_original = 1
-Plugin 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'
   let g:solarized_termcolors = 256
-Plugin 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 
 " ==> vim-airline
-Plugin 'bling/vim-airline'
+Plug 'bling/vim-airline'
   " set airline to use powerline symbols
   let g:airline_powerline_fonts = 1
   let g:airline#extensions#tabline#enabled = 1
@@ -28,7 +24,7 @@ Plugin 'bling/vim-airline'
   set laststatus=2
 
 " ==> Git support
-Plugin 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 " default maps
 " nmap [c <Plug>GitGutterPrevHunk
 " nmap ]c <Plug>GitGutterNextHunk
@@ -37,7 +33,7 @@ Plugin 'airblade/vim-gitgutter'
 " nmap <Leader>hp <Plug>GitGutterPreviewHunk
 
 " ==> User Interface support
-Plugin 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
   let g:indentLine_char = '¦'
   let g:indentLine_color_term = 237
   " background will auto set to light when some condition
@@ -49,12 +45,12 @@ Plugin 'Yggdroot/indentLine'
   " endif
 
 " ==> tmux support
-Plugin 'tmux-plugins/vim-tmux'
+Plug 'tmux-plugins/vim-tmux'
 " FocusGained and FocusLost autocommand events are not working in terminal vim.
 " This plugin restores them when using vim inside Tmux.
-Plugin 'tmux-plugins/vim-tmux-focus-events'
+Plug 'tmux-plugins/vim-tmux-focus-events'
 " vim-tmux-navigator
-Plugin 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-navigator'
   " fix neovim C-h send backspace problem
   " you should run it in `normal terminal` and `tmux` separately
   " ```bash
@@ -72,8 +68,8 @@ Plugin 'christoomey/vim-tmux-navigator'
   end
 
 " ==> 快速文件搜索, 类似于sublime中的command + p
-" Plugin 'kien/ctrlp.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
+" Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
   nnoremap <Leader>o :CtrlP<CR>
   nnoremap <Leader>i :CtrlPBuffer<CR>
   nnoremap <Leader>u :CtrlPMixed<CR>
@@ -115,7 +111,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
   " <c-x>, <c-cr>, <c-s> Open the selected file in a 'horizontal' split.
   " <c-y> Create a new file and its parent directories.
 
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
   " o.......打开文件目录或书签
   " t.......在新的tab页中打开文件或书签
   " i.......在split window中打开选择的文件
@@ -135,7 +131,7 @@ Plugin 'scrooloose/nerdtree'
   " B.......切换书签隐藏显示
   " }}}
 " {{{ NERDTreeTabsToggle
-Plugin 'jistr/vim-nerdtree-tabs'
+Plug 'jistr/vim-nerdtree-tabs'
   " 始终焦点位于文件窗口内
   let g:nerdtree_tabs_smart_startup_focus = 2
   " 默认不显示NERDTree窗口
@@ -146,7 +142,7 @@ Plugin 'jistr/vim-nerdtree-tabs'
 " ==> 快速搜索插件
 " An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
 " require ag(a.k.a `the_silver_searcher`) or ack
-Plugin 'dyng/ctrlsf.vim'
+Plug 'dyng/ctrlsf.vim'
   let g:ctrlsf_winsize = '30%'
   let g:ctrlsf_auto_close = 0
   nmap     <C-S>f <Plug>CtrlSFPrompt
@@ -170,7 +166,7 @@ Plugin 'dyng/ctrlsf.vim'
   " q - Close preview window.
 
 " 快速到达指定位置插件
-Plugin 'Lokaltog/vim-easymotion'
+Plug 'Lokaltog/vim-easymotion'
   let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
   " With this option set, v will match both v and V, but V will match V only. Default: 0.
   let g:EasyMotion_smartcase = 1
@@ -178,76 +174,76 @@ Plugin 'Lokaltog/vim-easymotion'
   map / <Plug>(easymotion-sn)
   omap / <Plug>(easymotion-tn)
   nmap s <Plug>(easymotion-s2)
-" Plugin 'justinmk/vim-sneak'
-" Plugin 'haya14busa/incsearch.vim'
+" Plug 'justinmk/vim-sneak'
+" Plug 'haya14busa/incsearch.vim'
 
-Plugin 'terryma/vim-expand-region'
+Plug 'terryma/vim-expand-region'
   vmap v <Plug>(expand_region_expand)
   vmap <C-v> <Plug>(expand_region_shrink)
 
 " ==> Trailing whitespace
-Plugin 'ntpeters/vim-better-whitespace'
+Plug 'ntpeters/vim-better-whitespace'
   map <leader><space> :StripWhitespace<cr>
 
 " ==> 自动补全引号, 括号等
-Plugin 'Raimondi/delimitMate'
+Plug 'Raimondi/delimitMate'
 
-Plugin 'godlygeek/tabular'
+Plug 'godlygeek/tabular'
 
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 
-Plugin 'tpope/vim-repeat'
+Plug 'tpope/vim-repeat'
 
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
   " 让注释符与语句之间留一个空格
   let g:NERDSpaceDelims = 1
   " 多行注释时样子更好看
   let g:NERDCompactSexyComs = 1
 
 " 鼠标多重选择
-Plugin 'terryma/vim-multiple-cursors'
+Plug 'terryma/vim-multiple-cursors'
 
 " 搜索替换快速预览
-Plugin 'osyo-manga/vim-over'
+Plug 'osyo-manga/vim-over'
 
 " =============================================================================
 " Filetype specific plugins
 " =============================================================================
 
 " ==> extended % matching for HTML, LaTeX, and many other languages
-Plugin 'vim-scripts/matchit.zip'
+Plug 'vim-scripts/matchit.zip'
 
 " Write styles faster. Much faster.
-" Plugin 'rstacruz/vim-hyperstyle'
+" Plug 'rstacruz/vim-hyperstyle'
 
 " {{{{ emmet
 " default keymap is `<C-Y>,` (not <leader>, just comma `,')
-Plugin 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
   let g:user_emmet_mode='inv'
 
 " ==> filetype and language syntax support
 " avoid confict with extends tabular
-" Plugin 'godlygeek/tabular', {'name': 'vim-markdown-tabular'}
+" Plug 'godlygeek/tabular', {'name': 'vim-markdown-tabular'}
 " vim-markdown depends on godlygeek/tabular, but we load it before
-Plugin 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown'
   let g:vim_markdown_folding_disabled = 1
 
-Plugin 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim'
 
-Plugin 'kchmck/vim-coffee-script'
+Plug 'kchmck/vim-coffee-script'
 
-Plugin 'groenewege/vim-less'
+Plug 'groenewege/vim-less'
 
-Plugin 'smilekzs/vim-nfo'
+Plug 'smilekzs/vim-nfo'
 
-Plugin 'evanmiller/nginx-vim-syntax'
+Plug 'evanmiller/nginx-vim-syntax'
 
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'othree/yajs.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'othree/yajs.vim'
 
 " ap/vim-css-color # 不支持Vim74， 使用vim-colorsque 替代
-Plugin 'Marslo/vim-coloresque'
+Plug 'Marslo/vim-coloresque'
 
 " source matchtag plugin
 if filereadable(expand("~/.vimrc.plugins.matchtag"))
@@ -269,4 +265,4 @@ if filereadable(expand("~/.vimrc.plugins.local"))
   source ~/.vimrc.plugins.local
 endif
 
-call vundle#end()
+call plug#end()

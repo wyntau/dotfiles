@@ -2,7 +2,9 @@
 
 git/plugins
 
-vim/bundle
+vim/plugins
+vim/autoload
+vim/shada
 
 sublime2/monokai-extended
 sublime2/markdown-extended

@@ -57,7 +57,7 @@ You can do a specific task by run
 - ### Task `vim_rc`
     Requirements: `git`, `vim`
 
-    This task will not install any bundles, if you want to use some bundles, do __[task vim_plugins_base](#task-vim_plugins_base)__.
+    This task will not install any plugin, if you want to use some plugins, do __[task vim_plugins_base](#task-vim_plugins_base)__.
 
     You can override the system vim with the new one installed by `homebrew`.(OS X only. This is optional, but recommended, because system vim can't use system clipbord via register `+`)
 
@@ -65,17 +65,16 @@ You can do a specific task by run
 
     And then add the new vim __PATH__ into your `$PATH`.
 
-    Additionally, if you have installed `neovim`, this task will link `vim/vimrc` to `~/.nvimrc`.
+    Additionally, if you have installed `neovim`, this task will link `vim` to `~/.nvim`, `vim/vimrc` to `~/.nvimrc`.
 
 - ### Task `vim_plugins_base`
     Requirement: `git`, `vim`, [task vim_rc](#task-vim_rc)
 
-    Setup Vundle.vim, and load other bundles. After doing this task, you can load
-    your own bundles in `~/.vimrc.plugins.local`
+    Setup vim-plug, and load other plugins. After doing this task, you can load
+    your own plugins in `~/.vimrc.plugins.local`
 
-    ##### Included bundles
+    ##### Included plugins
 
-        Plugin 'gmarik/Vundle.vim'
         Plugin 'tomasr/molokai'
         Plugin 'altercation/vim-colors-solarized'
         Plugin 'morhetz/gruvbox'
@@ -120,7 +119,7 @@ You can do a specific task by run
     Install html matchtag plugin for vim. Here i use python version matchtag.
     If you don't want to include python modules, you can also use non-python version 'gregsexton/MatchTag'
 
-    ##### Included bundles
+    ##### Included plugins
 
         Plugin 'valloric/MatchTagAlways'
 
@@ -129,7 +128,7 @@ You can do a specific task by run
 
     Install vim-snippets plugin for vim.
 
-    ##### Included bundles
+    ##### Included plugins
 
         Plugin 'SirVer/ultisnips'
         Plugin 'honza/vim-snippets'
@@ -143,7 +142,7 @@ You can do a specific task by run
 
     Also you can set `YCM_COMPLETER` with different language support. Available languages are `clang`, `omnisharp` and `gocode`. This option is empty default.
 
-    ##### Included bundles
+    ##### Included plugins
 
         Plugin 'Valloric/YouCompleteMe'
 
