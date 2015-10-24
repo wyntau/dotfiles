@@ -268,8 +268,6 @@ function install_vim_plugins_base(){
 
   install_fonts_source_code_pro
   tip "In order to use powerline symbols with airline in vim, please set your terminal to use the font *Source Code Pro*"
-
-  tip "Maybe you also should have *Exuberant Ctags* installed, so you can jump to symbols using <Leader>t (aka. CtrlPBufTag)"
 }
 
 function must_vimrc_plugins_exists(){

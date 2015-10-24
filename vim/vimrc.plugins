@@ -73,7 +73,6 @@ Plug 'ctrlpvim/ctrlp.vim'
   nnoremap <Leader>o :CtrlP<CR>
   nnoremap <Leader>i :CtrlPBuffer<CR>
   nnoremap <Leader>u :CtrlPMixed<CR>
-  nnoremap <Leader>t :CtrlPBufTag<CR>
   " create new file in current window
   let g:ctrlp_open_new_file = 'r'
   let g:ctrlp_custom_ignore = {
@@ -111,6 +110,8 @@ Plug 'ctrlpvim/ctrlp.vim'
   " <c-v> Open the selected file in a 'vertical' split.
   " <c-x>, <c-cr>, <c-s> Open the selected file in a 'horizontal' split.
   " <c-y> Create a new file and its parent directories.
+Plug 'tacahiroy/ctrlp-funky'
+  nnoremap <Leader>r :CtrlPFunky<CR>
 
 Plug 'scrooloose/nerdtree'
   " o.......打开文件目录或书签
