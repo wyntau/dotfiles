@@ -618,8 +618,8 @@ autocmd InsertLeave * set nopaste
 " ,x16                 十六进制格式查看
 nnoremap <leader>x16 <ESC>:%!xxd<ESC>
 
-" ,r16                返回普通格式
-nnoremap <leader>r16 <ESC>:%!xxd -r<ESC>
+" ,xx16                返回普通格式
+nnoremap <leader>xx16 <ESC>:%!xxd -r<ESC>
 
 "==========================================
 " Vundle 插件管理及配置
