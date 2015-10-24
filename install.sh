@@ -177,7 +177,7 @@ function usage(){
 function install_fonts_source_code_pro(){
 
   if ( ! is_mac ) && ( ! is_linux ); then
-    error "This support 'Linux' and 'Mac' only"
+    error "This support *Linux* and *Mac* only"
     exit
   fi;
 
@@ -235,7 +235,7 @@ function install_vim_rc(){
 
     if ( is_linux ); then
       if ( ! is_program_exists 'xclip' ) && ( ! is_program_exists 'xsel' ); then
-        tip "Maybe you should install 'xclip' or 'xsel' for sharing data between vim registers and system clipboard"
+        tip "Maybe you should install *xclip* or *xsel* for sharing data between vim registers and system clipboard"
       fi;
     fi;
   fi;
@@ -267,7 +267,9 @@ function install_vim_plugins_base(){
   success "You can add your own plugins to ~/.vimrc.plugins.local , vim will source them automatically"
 
   install_fonts_source_code_pro
-  tip "In order to use powerline symbols with airline in vim, please set your terminal to use the font 'Source Code Pro'"
+  tip "In order to use powerline symbols with airline in vim, please set your terminal to use the font *Source Code Pro*"
+
+  tip "Maybe you also should have *Exuberant Ctags* installed, so you can jump to symbols using <Leader>t (aka. CtrlPBufTag)"
 }
 
 function must_vimrc_plugins_exists(){
@@ -305,7 +307,7 @@ function install_neovim_python_support(){
     if [[ `uname -a` =~ "gentoo" ]] && ( is_file_exists /etc/gentoo-release ); then
       # in gentoo, recommend enable python USE flag to automatically install pynvim
       tip "You are using Gentoo Linux."
-      tip "You should enable 'python' USE flag for neovim, and reinstall neovim."
+      tip "You should enable *python* USE flag for neovim, and reinstall neovim."
       tip "Then pynvim(dev-python/neovim-python-client) will be installed automatically."
       tip "Also you can run '[sudo] emerge -a dev-python/neovim-python-client' manually."
     else
@@ -418,7 +420,7 @@ function install_sublime2(){
   elif ( is_mac ); then
     SUBLIMEPATH="$HOME/Library/Application Support/Sublime Text 2"
   else
-    error "Can't detect your platform. This support 'Linux' and 'Mac' only"
+    error "Can't detect your platform. This support *Linux* and *Mac* only"
     exit
   fi;
 
@@ -451,7 +453,7 @@ function install_sublime3(){
   elif ( is_mac ); then
     SUBLIMEPATH="$HOME/Library/Application Support/Sublime Text 3"
   else
-    error "Can't detect your platform. This support 'Linux' and 'Mac' only"
+    error "Can't detect your platform. This support *Linux* and *Mac* only"
     exit
   fi;
 
