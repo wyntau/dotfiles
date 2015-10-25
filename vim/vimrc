@@ -622,10 +622,10 @@ nnoremap <leader>x16 <ESC>:%!xxd<ESC>
 nnoremap <leader>xx16 <ESC>:%!xxd -r<ESC>
 
 "==========================================
-" Vundle 插件管理及配置
+" plugins 插件管理及配置
 "==========================================
-" off is required by vundle   "检测文件的类型
-" filetype on " without this vim emits a zero exit status, later, because of :ft off
+" off is required by vim-plug   "检测文件的类型
+filetype on " without this vim emits a zero exit status, later, because of :ft off
 filetype off
 
 " source default bundles
