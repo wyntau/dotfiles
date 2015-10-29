@@ -13,6 +13,7 @@
     ├── tmux
     │   └── tmux.conf
     ├── vim
+    │   ├── init.vim -> vimrc
     │   ├── vimrc
     │   ├── vimrc.plugins
     │   ├── vimrc.plugins.fzf

@@ -228,6 +228,12 @@ function install_vim_rc(){
 
   if ( is_program_exists nvim ); then
 
+    # for newer neovim, code from `:help nvim-from-vim'
+    mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+    lnif "$APP_PATH/vim" \
+         "$XDG_CONFIG_HOME/nvim"
+
+    # for old neovim
     lnif "$APP_PATH/vim" \
          "$HOME/.nvim"
     lnif "$APP_PATH/vim/vimrc" \
