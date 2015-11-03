@@ -81,6 +81,7 @@ You can do a specific task by run
         Plug 'tomasr/molokai'
         Plug 'altercation/vim-colors-solarized'
         Plug 'morhetz/gruvbox'
+        Plug 'junegunn/seoul256.vim'
 
         Plug 'CodeFalling/fcitx-vim-osx'
         Plug 'bling/vim-airline'
