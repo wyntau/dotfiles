@@ -206,25 +206,19 @@ Plug 't9md/vim-choosewin'
   " invoke with '-'
   nmap - <Plug>(choosewin)
   " Key Action  Description
-  " 0 tab_first Select FIRST tab
-  " [ tab_prev  Select PREVIOUS tab
-  " ] tab_next  Select NEXT tab
-  " $ tab_last  Select LAST tab
-  " x tab_close Close current tab
   " ; win_land  Navigate to current window
   " - previous  Naviage to previous window
   " s swap  Swap windows #1
   " S swap_stay Swap windows but stay #1
-  " win_land  Navigate to current window
-  " Disable predefined keymap
 
 " ==> Trailing whitespace
 Plug 'ntpeters/vim-better-whitespace'
   map <leader><space> :StripWhitespace<cr>
 
 " ==> 自动补全引号, 括号等
-" Plug 'Raimondi/delimitMate'
-Plug 'jiangmiao/auto-pairs'
+Plug 'Raimondi/delimitMate'
+  let g:delimitMate_expand_cr = 1
+  let g:delimitMate_expand_space = 1
 
 Plug 'godlygeek/tabular'
 

@@ -99,7 +99,7 @@ You can do a specific task by run
         Plug 't9md/vim-textmanip'
         Plug 't9md/vim-choosewin'
         Plug 'ntpeters/vim-better-whitespace'
-        Plug 'jiangmiao/auto-pairs'
+        Plug 'Raimondi/delimitMate'
         Plug 'godlygeek/tabular'
         Plug 'tpope/vim-surround'
         Plug 'tpope/vim-repeat'
