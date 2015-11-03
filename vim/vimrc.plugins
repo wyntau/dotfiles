@@ -13,6 +13,8 @@ Plug 'altercation/vim-colors-solarized'
   let g:solarized_termcolors = 256
 Plug 'morhetz/gruvbox'
 
+Plug 'CodeFalling/fcitx-vim-osx'
+
 " ==> vim-airline
 Plug 'bling/vim-airline'
   " set airline to use powerline symbols
