@@ -283,16 +283,24 @@ Plug 'kchmck/vim-coffee-script'
 
 Plug 'groenewege/vim-less'
 
+Plug 'hail2u/vim-css3-syntax'
+augroup VimCSS3Syntax
+  autocmd!
+  autocmd FileType css setlocal iskeyword+=-
+augroup END
+
+" ap/vim-css-color # 不支持Vim74， 使用vim-colorsque 替代
+Plug 'Marslo/vim-coloresque', {'for': ['css', 'less', 'scss']}
+
 Plug 'smilekzs/vim-nfo'
 
 Plug 'evanmiller/nginx-vim-syntax'
 
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'othree/yajs.vim'
 
-" ap/vim-css-color # 不支持Vim74， 使用vim-colorsque 替代
-Plug 'Marslo/vim-coloresque'
+" javascript ES6 support, only enable this in pure javascript files,
+Plug 'othree/yajs.vim', {'for': ['javascript', 'javascript.jsx']}
 
 " source fzf plugin
 if filereadable(expand("~/.vimrc.plugins.fzf"))

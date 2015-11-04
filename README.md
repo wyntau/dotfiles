@@ -115,12 +115,13 @@ You can do a specific task by run
         Plug 'leafgarland/typescript-vim'
         Plug 'kchmck/vim-coffee-script'
         Plug 'groenewege/vim-less'
+        Plug 'hail2u/vim-css3-syntax'
+        Plug 'Marslo/vim-coloresque'
         Plug 'smilekzs/vim-nfo'
         Plug 'evanmiller/nginx-vim-syntax'
         Plug 'pangloss/vim-javascript'
         Plug 'mxw/vim-jsx'
         Plug 'othree/yajs.vim'
-        Plug 'Marslo/vim-coloresque'
 
 - ### Task `vim_plugins_fzf`
     Requirement: `git`, `vim`, `curl` or `wget`, [task vim_rc](#task-vim_rc)
