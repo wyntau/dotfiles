@@ -94,6 +94,7 @@ You can do a specific task by run
         Plug 'ctrlpvim/ctrlp.vim'
         Plug 'tacahiroy/ctrlp-funky'
         Plug 'scrooloose/nerdtree'
+        Plug 'Xuyuanp/nerdtree-git-plugin'
         Plug 'jistr/vim-nerdtree-tabs'
         Plug 'dyng/ctrlsf.vim'
         Plug 'Lokaltog/vim-easymotion'
