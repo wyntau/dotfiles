@@ -75,6 +75,12 @@ Plug 'christoomey/vim-tmux-navigator'
     tnoremap <silent> <C-k> <C-\><C-n>:TmuxNavigateUp<cr>
     tnoremap <silent> <C-l> <C-\><C-n>:TmuxNavigateRight<cr>
   end
+  " Window resizing mappings {{{
+  nnoremap <silent> <S-Up> 5<c-w>+<CR>
+  nnoremap <silent> <S-Down> 5<c-w>-<CR>
+  nnoremap <silent> <S-Left> 5<c-w><<CR>
+  nnoremap <silent> <S-Right> 5<c-w>><CR>
+  " }}}
 
 " ==> 快速文件搜索, 类似于sublime中的command + p
 " Plug 'kien/ctrlp.vim'
