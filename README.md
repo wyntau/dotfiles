@@ -90,6 +90,7 @@ You can do a specific task by run
         Plug 'tmux-plugins/vim-tmux'
         Plug 'tmux-plugins/vim-tmux-focus-events'
         Plug 'christoomey/vim-tmux-navigator'
+        Plug 'schickling/vim-bufonly'
         Plug 'ctrlpvim/ctrlp.vim'
         Plug 'tacahiroy/ctrlp-funky'
         Plug 'scrooloose/nerdtree'
