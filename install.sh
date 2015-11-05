@@ -266,11 +266,18 @@ function install_vim_plugins_base(){
   lnif "$APP_PATH/vim/vimrc.plugins" \
        "$HOME/.vimrc.plugins"
 
+  if ( is_mac ); then
+    FCITX_IM=${FCITX_IM:=baidu-wubi}
+    sync_repo "https://github.com/CodeFalling/fcitx-remote-for-osx.git" \
+              "$APP_PATH/.assets/plugins/fcitx-remote-for-osx" \
+              "binary"
+    lnif "$APP_PATH/.assets/plugins/fcitx-remote-for-osx/fcitx-remote-$FCITX_IM" \
+         "/usr/local/bin/fcitx-remote"
+  fi;
+
   vim +PlugInstall +qall
 
   better_program_exists_one "ag"
-
-  tip "If you want to use CodeFalling/fcitx-vim-osx plugin, you can install corresponding fcitx-remote binary in https://github.com/CodeFalling/fcitx-remote-for-osx/releases"
 
   success "You can add your own plugins to ~/.vimrc.plugins.local , vim will source them automatically"
 
