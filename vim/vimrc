@@ -560,6 +560,9 @@ nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 " custom key map
 "==========================================
 
+nnoremap <silent> <leader>DD :exe ":profile start profile.log"<cr>:exe ":profile func *"<cr>:exe ":profile file *"<cr>
+nnoremap <silent> <leader>DQ :exe ":profile pause"<cr>:noautocmd qall!<cr>
+
 " Treat long lines as break lines (useful when moving around in them)
 " set wrap之后，将自动换行的长行当做多行处理, 方便在长行之间跳转.
 nnoremap k gk
