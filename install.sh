@@ -157,7 +157,6 @@ function usage(){
   echo '    - fonts_source_code_pro'
   echo '    - vim_rc'
   echo '    - vim_plugins_base'
-  echo '    - vim_plugins_fzf'
   echo '    - vim_plugins_matchtag'
   echo '    - vim_plugins_snippets'
   echo '    - vim_plugins_ycm'
@@ -290,27 +289,6 @@ function must_vimrc_plugins_exists(){
     error "You should complete vim_plugins task first"
     exit
   fi;
-}
-
-function install_vim_plugins_fzf(){
-
-  must_vimrc_plugins_exists
-
-  step "Installing vim plugin fzf ..."
-
-  # install fzf support
-  sync_repo "https://github.com/junegunn/fzf.git" \
-            "$APP_PATH/.assets/plugins/fzf"
-  "$APP_PATH/.assets/plugins/fzf/install" --bin
-  lnif "$APP_PATH/.assets/plugins/fzf" \
-       "$APP_PATH/vim/plugins/fzf"
-
-  lnif "$APP_PATH/vim/vimrc.plugins.fzf" \
-       "$HOME/.vimrc.plugins.fzf"
-
-  vim +PlugInstall +qall
-
-  success "Successfully installed vim fzf plugin."
 }
 
 function install_neovim_python_support(){
@@ -725,9 +703,6 @@ else
         ;;
       vim_plugins_base)
         install_vim_plugins_base
-        ;;
-      vim_plugins_fzf)
-        install_vim_plugins_fzf
         ;;
       vim_plugins_matchtag)
         install_vim_plugins_matchtag
