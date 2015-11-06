@@ -293,6 +293,11 @@ Plug 'mattn/emmet-vim'
 " vim-markdown depends on godlygeek/tabular, but we load it before
 Plug 'plasticboy/vim-markdown'
   let g:vim_markdown_folding_disabled = 1
+Plug 'amiorin/vim-fenced-code-blocks'
+  " :E to edit in the same window, CTRL-^ to go back to the markdown file
+  " :EV to edit in the vertical split window, CTRL-W l to go back to the markdown file
+  " :ES to edit in the horizontal split window, CTRL-W j to go back to the markdown file
+  " :ET to edit in a new tab.
 
 Plug 'leafgarland/typescript-vim'
 

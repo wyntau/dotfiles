@@ -113,6 +113,7 @@ You can do a specific task by run
         Plug 'vim-scripts/matchit.zip'
         Plug 'mattn/emmet-vim'
         Plug 'plasticboy/vim-markdown'
+        Plug 'amiorin/vim-fenced-code-blocks'
         Plug 'leafgarland/typescript-vim'
         Plug 'kchmck/vim-coffee-script'
         Plug 'groenewege/vim-less'
