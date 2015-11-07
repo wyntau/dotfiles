@@ -123,7 +123,7 @@ set matchpairs=(:),{:},[:],<:>
 set whichwrap=b,s,<,>,~,[,]
 
 " disable matchparen plugin, this option will slow down vim in some conditions
-let loaded_matchparen = 1
+" let loaded_matchparen = 1
 
 " 显示括号配对情况
 set magic
