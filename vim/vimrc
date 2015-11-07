@@ -122,21 +122,27 @@ set matchpairs=(:),{:},[:],<:>
 " 当光标到达行尾或者行首时，继续移动转至下一行或者上一行 允许backspace和光标键跨越行边界
 set whichwrap=b,s,<,>,~,[,]
 
+" disable matchparen plugin, this option will slow down vim in some conditions
+let loaded_matchparen = 1
+
 " 显示括号配对情况
 set magic
+" showmatch can also slow down vim in some conditon
 " 插入括号时，短暂地跳转到匹配的对应括号,设置匹配模式，类似当输入一个左括号时会匹配相应的那个右括号
-set showmatch
+" set showmatch
 " 短暂跳转到匹配括号的时间
-set matchtime=2
+" set matchtime=2
 
 " =============================================================================
 " Appearance
 " =============================================================================
 
+" NOTE: enable cursorline and cursorcolumn will use more than 30% CPU when `CursorMoved` and `CursorMovedI`
+" so horrible! let's disable them
 " 突出显示当前列
-set cursorcolumn
+" set cursorcolumn
 " 突出显示当前行
-set cursorline
+" set cursorline
 " 高亮显示某一列,一般用于显示80列
 set colorcolumn=81
 " 光标移动到buffer的顶部和底部时保持3行距离
@@ -162,12 +168,15 @@ set t_vb=
 set number
 " 行号栏的宽度
 set numberwidth=4
-set relativenumber
+
+" relative will cause vim redraw always and slow down
+" so horriable, let's disable it
+" set relativenumber
 " 插入模式下用绝对行号, 普通模式下用相对
-autocmd FocusLost * :set norelativenumber number
-autocmd FocusGained * :set relativenumber
-autocmd InsertEnter * :set norelativenumber number
-autocmd InsertLeave * :set relativenumber
+" autocmd FocusLost * :set norelativenumber number
+" autocmd FocusGained * :set relativenumber
+" autocmd InsertEnter * :set norelativenumber number
+" autocmd InsertLeave * :set relativenumber
 
 autocmd Syntax * call matchadd('Todo',  '\W\zs\(TODO\|FIXME\|CHANGED\|DONE\|XXX\|BUG\|HACK\)')
 autocmd Syntax * call matchadd('Debug', '\W\zs\(NOTE\|INFO\|IDEA\|NOTICE\)')
