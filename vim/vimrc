@@ -667,6 +667,8 @@ silent! colorscheme molokai
 " set background transparent
 " hi Normal guibg=black ctermbg=NONE
 
+highlight Comment cterm=italic
+
 " Go crazy! source user's local config
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local

@@ -672,6 +672,8 @@ function install_tmux(){
        "$HOME/.tmux.conf"
 
   success "Please run tmux and use prefix-I to install tmux plugins or reload your tmux.conf"
+
+  tip "Please run 'tic $APP_PATH/terminfo/screen-256color-italic.terminfo' in tmux session!!"
 }
 
 function install_homebrew(){

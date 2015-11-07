@@ -51,35 +51,6 @@ ZSH_THEME="robbyrussell"
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# bugfix for vim in tmux not using 256 color.
-# if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  # if [ $TMUX ]; then
-    # if [ -e /usr/share/terminfo/s/screen-256color ]; then
-      # export TERM='screen-256color'
-    # else
-      # export TERM='screen'
-    # fi;
-  # else
-    # if [ -e /usr/share/terminfo/x/xterm-256color ] || [ -e /usr/share/terminfo/x/xterm+256color ]; then
-      # export TERM='xterm-256color'
-    # else
-      # export TERM='xterm'
-    # fi;
-  # fi;
-# fi;
-if [ $TMUX ]; then
-  USER_TERM_PREFIX='screen'
-else
-  USER_TERM_PREFIX='xterm'
-fi;
-# in some Linux like Gentoo, `tput colors' will return 8
-# so use terminfo to detect colors
-# may be screen-256color, xterm-256color or xterm+256color depending on your distro
-if [[ `tput colors` == "256" ]] || [ -e /usr/share/terminfo/s/screen-256color ] || [ -e /usr/share/terminfo/x/xterm-256color ] || [ -e /usr/share/terminfo/x/xterm+256color ]; then
-  USER_TERM_SUFFIX='-256color'
-fi;
-export TERM="${USER_TERM_PREFIX}${USER_TERM_SUFFIX}"
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
