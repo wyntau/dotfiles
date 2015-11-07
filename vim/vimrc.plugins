@@ -11,8 +11,9 @@ Plug 'tomasr/molokai'
   let g:molokai_original = 1
 Plug 'altercation/vim-colors-solarized'
   let g:solarized_termcolors = 256
+  let g:solarized_italic = 1
 Plug 'morhetz/gruvbox'
-  let g:gruvbox_italic=1
+  let g:gruvbox_italic = 1
 Plug 'junegunn/seoul256.vim'
   " seoul256 (dark):
   "   Range:   233 (darkest) ~ 239 (lightest)
