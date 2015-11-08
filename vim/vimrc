@@ -658,6 +658,7 @@ filetype plugin indent on
 set t_Co=256
 " 开启高亮语法显示
 syntax enable
+syntax sync minlines=50 maxlines=90
 set synmaxcol=300
 set background=dark
 colorscheme desert
