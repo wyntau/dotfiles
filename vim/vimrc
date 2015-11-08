@@ -123,15 +123,7 @@ set matchpairs=(:),{:},[:],<:>
 set whichwrap=b,s,<,>,~,[,]
 
 " disable matchparen plugin, this option will slow down vim in some conditions
-" let loaded_matchparen = 1
-
-" 显示括号配对情况
-set magic
-" showmatch can also slow down vim in some conditon
-" 插入括号时，短暂地跳转到匹配的对应括号,设置匹配模式，类似当输入一个左括号时会匹配相应的那个右括号
-" set showmatch
-" 短暂跳转到匹配括号的时间
-" set matchtime=2
+let loaded_matchparen = 1
 
 " =============================================================================
 " Appearance
