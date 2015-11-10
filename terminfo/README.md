@@ -5,7 +5,15 @@ Like iTerm2, gnome-terminal or else
 
 1. cd this directory
 2. run `tic xterm-256color-italic.terminfo`
-2. change termial `TERM` report to `xterm-256color-italic`
+3. change termial `TERM` report to `xterm-256color-italic`
+
+**Trouble Shooting**
+
+If your ssh server renders incorrectly and doesn't have `xterm-256color-italic` terminfo, you can
+
+1. run same steps above in your ssh server to add `xterm-256color-italic` terminfo, or
+2. set `alias ssh="TERM=xterm-256color ssh"` or `alias ssh="TERM=xterm ssh"` or
+something else in your local environment to use normal terminfo in you ssh server.
 
 #### tmux
 1. enter tmux session
