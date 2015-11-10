@@ -157,6 +157,7 @@ function usage(){
   echo '    - fonts_source_code_pro'
   echo '    - vim_rc'
   echo '    - vim_plugins_base'
+  echo '    - vim_plugins_fcitx'
   echo '    - vim_plugins_matchtag'
   echo '    - vim_plugins_snippets'
   echo '    - vim_plugins_ycm'
@@ -265,15 +266,6 @@ function install_vim_plugins_base(){
   lnif "$APP_PATH/vim/vimrc.plugins" \
        "$HOME/.vimrc.plugins"
 
-  if ( is_mac ); then
-    FCITX_IM=${FCITX_IM:=baidu-wubi}
-    sync_repo "https://github.com/CodeFalling/fcitx-remote-for-osx.git" \
-              "$APP_PATH/.assets/plugins/fcitx-remote-for-osx" \
-              "binary"
-    lnif "$APP_PATH/.assets/plugins/fcitx-remote-for-osx/fcitx-remote-$FCITX_IM" \
-         "/usr/local/bin/fcitx-remote"
-  fi;
-
   vim +PlugInstall +qall
 
   better_program_exists_one "ag"
@@ -289,6 +281,32 @@ function must_vimrc_plugins_exists(){
     error "You should complete vim_plugins task first"
     exit
   fi;
+}
+
+function install_vim_plugins_fcitx(){
+
+  must_vimrc_plugins_exists
+
+  step "installing fcitx support plugin for vim ..."
+
+  if ( is_mac ); then
+    if [ "$FCITX_IM" = "" ]; then
+      error "You must set FCITX_IM to use fcitx-vim-osx plugin"
+      exit
+    fi;
+    sync_repo "https://github.com/CodeFalling/fcitx-remote-for-osx.git" \
+              "$APP_PATH/.assets/plugins/fcitx-remote-for-osx" \
+              "binary"
+    lnif "$APP_PATH/.assets/plugins/fcitx-remote-for-osx/fcitx-remote-$FCITX_IM" \
+         "/usr/local/bin/fcitx-remote"
+  fi;
+
+  lnif "$APP_PATH/vim/vimrc.plugins.fcitx" \
+       "$HOME/.vimrc.plugins.fcitx"
+
+  vim +PlugInstall +qall
+
+  success "Successfully installed fcitx support plugin."
 }
 
 function install_neovim_python_support(){
@@ -703,6 +721,9 @@ else
         ;;
       vim_plugins_base)
         install_vim_plugins_base
+        ;;
+      vim_plugins_fcitx)
+        install_vim_plugins_fcitx
         ;;
       vim_plugins_matchtag)
         install_vim_plugins_matchtag

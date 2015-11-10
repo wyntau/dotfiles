@@ -16,6 +16,7 @@
     │   ├── init.vim -> vimrc
     │   ├── vimrc
     │   ├── vimrc.plugins
+    │   ├── vimrc.plugins.fcitx
     │   ├── vimrc.plugins.matchtag
     │   ├── vimrc.plugins.snippets
     │   └── vimrc.plugins.ycm
@@ -28,6 +29,7 @@ All vailable tasks:
 - [fonts_source_code_pro](#task-fonts_source_code_pro)
 - [vim_rc](#task-vim_rc)
 - [vim_plugins_base](#task-vim_plugins_base)
+- [vim_plugins_fcitx](#task-vim_plugins_fcitx)
 - [vim_plugins_matchtag](#task-vim_plugins_matchtag)
 - [vim_plugins_snippets](#task-vim_plugins_snippets)
 - [vim_plugins_ycm](#task-vim_plugins_ycm)
@@ -82,7 +84,6 @@ You can do a specific task by run
         Plug 'junegunn/seoul256.vim'
         Plug 'zeis/vim-kolor'
 
-        Plug 'CodeFalling/fcitx-vim-osx'
         Plug 'bling/vim-airline'
         Plug 'airblade/vim-gitgutter'
         Plug 'Yggdroot/indentLine'
@@ -123,6 +124,15 @@ You can do a specific task by run
         Plug 'pangloss/vim-javascript'
         Plug 'mxw/vim-jsx'
         Plug 'othree/yajs.vim'
+
+- ### Task `vim_plugins_fcitx`
+    Requirement: `git`, `vim`, [task vim_rc](#task-vim_rc)
+
+    Install fcitx support plugin for vim. This plugin help you to switch input method(eg. English and Chinese keyboard) automatically when you switch vim `Insert` and `Normal` mode.
+
+    ##### Included plugins
+
+        Plug 'CodeFalling/fcitx-vim-osx'
 
 - ### Task `vim_plugins_matchtag`
     Requirement: `git`, `vim`, `curl`, `python`, [task vim_rc](#task-vim_rc)

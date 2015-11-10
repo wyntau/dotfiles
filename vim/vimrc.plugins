@@ -23,8 +23,6 @@ Plug 'junegunn/seoul256.vim'
   "   Default: 253
 Plug 'zeis/vim-kolor'
 
-Plug 'CodeFalling/fcitx-vim-osx'
-
 " ==> vim-airline
 Plug 'bling/vim-airline'
   " set airline to use powerline symbols
@@ -327,9 +325,9 @@ Plug 'mxw/vim-jsx'
 " javascript ES6 support, only enable this in pure javascript files,
 Plug 'othree/yajs.vim', {'for': ['javascript', 'javascript.jsx']}
 
-" source fzf plugin
-if filereadable(expand("~/.vimrc.plugins.fzf"))
-  source ~/.vimrc.plugins.fzf
+" source fcitx plugin
+if filereadable(expand("~/.vimrc.plugins.fcitx"))
+  source ~/.vimrc.plugins.fcitx
 endif
 
 " source matchtag plugin
