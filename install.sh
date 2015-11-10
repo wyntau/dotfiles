@@ -639,6 +639,7 @@ function install_zsh_rc(){
   chsh -s `which zsh`
 
   success "Successfully installed zsh and oh-my-zsh."
+  tip "You can add your own configs to ~/.zshrc.local , zsh will source them automatically"
   cd $CUR_PATH
   /usr/bin/env zsh
   source $HOME/.zshrc
