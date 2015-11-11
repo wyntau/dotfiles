@@ -76,7 +76,7 @@ You can do a specific task by run
     Setup vim-plug, and load other plugins. After doing this task, you can load
     your own plugins in `~/.vimrc.plugins.local`
 
-    ##### Included plugins
+    ##### Included plugin(s)
 
         Plug 'tomasr/molokai'
         Plug 'altercation/vim-colors-solarized'
@@ -130,7 +130,7 @@ You can do a specific task by run
 
     Install fcitx support plugin for vim. This plugin help you to switch input method(eg. English and Chinese keyboard) automatically when you switch vim `Insert` and `Normal` mode.
 
-    ##### Included plugins
+    ##### Included plugin(s)
 
         Plug 'CodeFalling/fcitx-vim-osx'
 
@@ -140,7 +140,7 @@ You can do a specific task by run
     Install html matchtag plugin for vim. Here i use python version matchtag.
     If you don't want to include python modules, you can also use non-python version 'gregsexton/MatchTag'
 
-    ##### Included plugins
+    ##### Included plugin(s)
 
         Plug 'valloric/MatchTagAlways'
 
@@ -149,7 +149,7 @@ You can do a specific task by run
 
     Install vim-snippets plugin for vim.
 
-    ##### Included plugins
+    ##### Included plugin(s)
 
         Plug 'SirVer/ultisnips'
         Plug 'honza/vim-snippets'
@@ -163,7 +163,7 @@ You can do a specific task by run
 
     Also you can set `YCM_COMPLETER` with different language support. Available languages are `clang`, `omnisharp` and `gocode`. This option is empty default.
 
-    ##### Included plugins
+    ##### Included plugin(s)
 
         Plug 'Valloric/YouCompleteMe'
 
