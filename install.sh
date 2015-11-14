@@ -309,7 +309,27 @@ function install_vim_plugins_fcitx(){
   success "Successfully installed fcitx support plugin."
 }
 
-function install_neovim_python_support(){
+function ensure_python_pip_support(){
+  # install python package manager pip
+  if ( ! is_program_exists pip ); then
+
+    must_program_exists "curl"
+
+    info "Installing pip for you..."
+
+    scripts_dir="$APP_PATH/.cache"
+    mkdir -p "$scripts_dir"
+    info "Downloading pip installation script ..."
+    curl https://bootstrap.pypa.io/get-pip.py -o "$scripts_dir/get-pip.py"
+    chmod +x "$scripts_dir/get-pip.py"
+    info "Installing pip ..."
+    sudo "$scripts_dir/get-pip.py"
+
+    success "Successfully installed pip."
+  fi;
+}
+
+function ensure_python_neovim_support(){
   # install pynvim module for neovim
   if ( is_program_exists nvim ) && ( ! is_program_exists pynvim ); then
     info "Installing pynvim for YouCompleteMe plugin in neovim ..."
@@ -320,24 +340,12 @@ function install_neovim_python_support(){
       tip "Then pynvim(dev-python/neovim-python-client) will be installed automatically."
       tip "Also you can run '[sudo] emerge -a dev-python/neovim-python-client' manually."
     else
-      # install python package manager pip
-      if ( ! is_program_exists pip ); then
 
-        must_program_exists "curl"
+      # make sure pip is installed
+      ensure_python_pip_support
 
-        info "Installing pip for you..."
-
-        scripts_dir="$APP_PATH/.cache"
-        mkdir -p "$scripts_dir"
-        info "Downloading pip installation script ..."
-        curl https://bootstrap.pypa.io/get-pip.py -o "$scripts_dir/get-pip.py"
-        chmod +x "$scripts_dir/get-pip.py"
-        info "Installing pip ..."
-        sudo "$scripts_dir/get-pip.py"
-
-        success "Successfully installed pip."
-      fi;
       sudo pip install neovim
+
       success "Successfully installed pynvim."
     fi;
   fi;
@@ -352,7 +360,7 @@ function install_vim_plugins_matchtag(){
   step "Installing vim MatchTagAlways plugin ..."
 
   # check whether have neovim. if have, make sure neovim have python feature support
-  install_neovim_python_support
+  ensure_python_neovim_support
 
   lnif "$APP_PATH/vim/vimrc.plugins.matchtag" \
        "$HOME/.vimrc.plugins.matchtag"
@@ -371,7 +379,7 @@ function install_vim_plugins_snippets(){
   step "Installing vim snippets plugin ..."
 
   # check whether have neovim. if have, make sure neovim have python feature support
-  install_neovim_python_support
+  ensure_python_neovim_support
 
   lnif "$APP_PATH/vim/vimrc.plugins.snippets" \
        "$HOME/.vimrc.plugins.snippets"
@@ -390,7 +398,7 @@ function install_vim_plugins_ycm(){
   step "Installing vim YouCompleteMe plugin ..."
 
   # check whether have neovim. if have, make sure neovim have python feature support
-  install_neovim_python_support
+  ensure_python_neovim_support
 
   # fetch or update YouCompleteMe
   sync_repo "https://github.com/Valloric/YouCompleteMe.git" \
