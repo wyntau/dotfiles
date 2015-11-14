@@ -110,6 +110,7 @@ fi;
 if [[ "$OSTYPE" == "darwin"* ]]; then
   plugins=(
     $plugins
+    thefuck
     osx
   )
 fi;
@@ -124,7 +125,6 @@ plugins=(
   fzf-zsh
   sublime
   sudo
-  thefuck
   zsh_reload
   zsh-syntax-highlighting
   zsh-autosuggestions
