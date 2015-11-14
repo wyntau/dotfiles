@@ -186,10 +186,10 @@ function install_fonts_source_code_pro(){
   step "Installing font Source Code Pro ..."
 
   sync_repo "https://github.com/adobe-fonts/source-code-pro.git" \
-            "$APP_PATH/.assets/fonts/source-code-pro" \
+            "$APP_PATH/.cache/source-code-pro" \
             "release"
 
-  source_code_pro_ttf_dir="$APP_PATH/.assets/fonts/source-code-pro/TTF"
+  source_code_pro_ttf_dir="$APP_PATH/.cache/source-code-pro/TTF"
 
 
   # borrowed from powerline/fonts/install.sh
@@ -295,9 +295,9 @@ function install_vim_plugins_fcitx(){
       exit
     fi;
     sync_repo "https://github.com/CodeFalling/fcitx-remote-for-osx.git" \
-              "$APP_PATH/.assets/plugins/fcitx-remote-for-osx" \
+              "$APP_PATH/vim/.cache/fcitx-remote-for-osx" \
               "binary"
-    lnif "$APP_PATH/.assets/plugins/fcitx-remote-for-osx/fcitx-remote-$FCITX_IM" \
+    lnif "$APP_PATH/vim/.cache/fcitx-remote-for-osx/fcitx-remote-$FCITX_IM" \
          "/usr/local/bin/fcitx-remote"
   fi;
 
@@ -327,7 +327,7 @@ function install_neovim_python_support(){
 
         info "Installing pip for you..."
 
-        scripts_dir="$APP_PATH/.assets/scripts"
+        scripts_dir="$APP_PATH/.cache"
         mkdir -p "$scripts_dir"
         info "Downloading pip installation script ..."
         curl https://bootstrap.pypa.io/get-pip.py -o "$scripts_dir/get-pip.py"
@@ -436,16 +436,16 @@ function install_sublime2(){
   step "Installing sublime2 configs ..."
 
   sync_repo "https://github.com/jonschlinkert/sublime-monokai-extended.git" \
-            "$APP_PATH/sublime2/monokai-extended"
-  lnif "$APP_PATH/sublime2/monokai-extended" \
+            "$APP_PATH/sublime2/.cache/monokai-extended"
+  lnif "$APP_PATH/sublime2/.cache/monokai-extended" \
        "$SUBLIMEPATH/Packages/User/monokai-extended"
 
   sync_repo "https://github.com/jonschlinkert/sublime-markdown-extended.git" \
-            "$APP_PATH/sublime2/markdown-extended"
-  lnif "$APP_PATH/sublime2/markdown-extended" \
+            "$APP_PATH/sublime2/.cache/markdown-extended"
+  lnif "$APP_PATH/sublime2/.cache/markdown-extended" \
        "$SUBLIMEPATH/Packages/User/markdown-extended"
 
-  lnif "$APP_PATH/sublime2/Preferences.sublime-settings" \
+  lnif "$APP_PATH/sublime2/.cache/Preferences.sublime-settings" \
        "$SUBLIMEPATH/Packages/User/Preferences.sublime-settings"
 
   success "Successfully installed sublime2 Preference and monokai-extended theme"
@@ -469,16 +469,16 @@ function install_sublime3(){
   step "Installing sublime3 configs ..."
 
   sync_repo "https://github.com/jonschlinkert/sublime-monokai-extended.git" \
-            "$APP_PATH/sublime3/monokai-extended"
-  lnif "$APP_PATH/sublime3/monokai-extended" \
+            "$APP_PATH/sublime3/.cache/monokai-extended"
+  lnif "$APP_PATH/sublime3/.cache/monokai-extended" \
        "$SUBLIMEPATH/Packages/User/monokai-extended"
 
   sync_repo "https://github.com/jonschlinkert/sublime-markdown-extended.git" \
-            "$APP_PATH/sublime3/markdown-extended"
-  lnif "$APP_PATH/sublime3/markdown-extended" \
+            "$APP_PATH/sublime3/.cache/markdown-extended"
+  lnif "$APP_PATH/sublime3/.cache/markdown-extended" \
        "$SUBLIMEPATH/Packages/User/markdown-extended"
 
-  lnif "$APP_PATH/sublime3/Preferences.sublime-settings" \
+  lnif "$APP_PATH/sublime3/.cache/Preferences.sublime-settings" \
        "$SUBLIMEPATH/Packages/User/Preferences.sublime-settings"
 
   success "Successfully installed sublime3 Preference and monokai-extended theme"
@@ -567,8 +567,8 @@ function install_git_extras(){
   step "Installing git-extras ..."
 
   sync_repo "https://github.com/tj/git-extras.git" \
-            "$APP_PATH/git/plugins/git-extras"
-  cd "$APP_PATH/git/plugins/git-extras"
+            "$APP_PATH/git/.cache/git-extras"
+  cd "$APP_PATH/git/.cache/git-extras"
   sudo make install
 
   success "Successfully installed git-extras."
@@ -581,8 +581,8 @@ function install_git_flow(){
   step "Installing git-flow ..."
 
   sync_repo "https://github.com/nvie/gitflow.git" \
-            "$APP_PATH/git/plugins/git-flow"
-  cd "$APP_PATH/git/plugins/git-flow"
+            "$APP_PATH/git/.cache/git-flow"
+  cd "$APP_PATH/git/.cache/git-flow"
   sudo make install
 
   success "Successfully installed git-flow."
@@ -618,17 +618,17 @@ function install_zsh_rc(){
             "$APP_PATH/zsh/oh-my-zsh/custom/plugins/zsh-autosuggestions-conf"
 
   sync_repo "https://github.com/clvv/fasd.git" \
-            "$APP_PATH/zsh/plugins/fasd"
-  cd "$APP_PATH/zsh/plugins/fasd"
+            "$APP_PATH/zsh/.cache/fasd"
+  cd "$APP_PATH/zsh/.cache/fasd"
   sudo make install
 
   # install fzf support
   sync_repo "https://github.com/junegunn/fzf.git" \
-            "$APP_PATH/.assets/plugins/fzf"
-  "$APP_PATH/.assets/plugins/fzf/install" --bin
+            "$APP_PATH/zsh/oh-my-zsh/custom/plugins/fzf"
+  "$APP_PATH/zsh/oh-my-zsh/custom/plugins/fzf/install" --bin
+
   sync_repo "https://github.com/Treri/fzf-zsh.git" \
-            "$APP_PATH/.assets/plugins/fzf-zsh"
-  lnif "$APP_PATH/.assets/plugins/fzf-zsh" "$APP_PATH/zsh/oh-my-zsh/custom/plugins/fzf-zsh"
+            "$APP_PATH/zsh/oh-my-zsh/custom/plugins/fzf-zsh"
 
   lnif "$APP_PATH/zsh/oh-my-zsh" \
        "$HOME/.oh-my-zsh"

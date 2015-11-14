@@ -1,20 +1,11 @@
 .DS_Store
 
-git/plugins
+.cache
 
 vim/plugins
 vim/autoload
 vim/shada
 
-sublime2/monokai-extended
-sublime2/markdown-extended
-
-sublime3/monokai-extended
-sublime3/markdown-extended
-
 zsh/oh-my-zsh
-zsh/plugins
 
 tmux/plugins
-
-.assets
