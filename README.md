@@ -259,6 +259,7 @@ You can do a specific task by run
     - fzf-zsh(fzf)
     - sublime
     - sudo
+    - thefuck
     - zsh_reload
     - zsh-syntax-highlighting
     - zsh-autosuggestions

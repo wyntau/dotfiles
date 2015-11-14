@@ -617,24 +617,32 @@ function install_zsh_rc(){
   sync_repo "https://github.com/robbyrussell/oh-my-zsh.git" \
             "$APP_PATH/zsh/oh-my-zsh"
 
+  # add zsh plugin zsh-syntax-highlighting support
   sync_repo "https://github.com/zsh-users/zsh-syntax-highlighting.git" \
             "$APP_PATH/zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
 
+  # add zsh plugin zsh-autosuggestions support
   sync_repo "https://github.com/tarruda/zsh-autosuggestions.git" \
             "$APP_PATH/zsh/oh-my-zsh/custom/plugins/zsh-autosuggestions"
   sync_repo "https://github.com/Treri/zsh-autosuggestions-conf.git" \
             "$APP_PATH/zsh/oh-my-zsh/custom/plugins/zsh-autosuggestions-conf"
 
+  # add zsh plugin fasd support
   sync_repo "https://github.com/clvv/fasd.git" \
             "$APP_PATH/zsh/.cache/fasd"
   cd "$APP_PATH/zsh/.cache/fasd"
   sudo make install
 
-  # install fzf support
+  # add zsh plugin thefuck support
+  ensure_python_pip_support
+  sudo pip install thefuck --upgrade --ignore-installed six
+  mkdir -p "$APP_PATH/zsh/oh-my-zsh/custom/plugins/thefuck"
+  echo 'eval "$(thefuck --alias)"' > "$APP_PATH/zsh/oh-my-zsh/custom/plugins/thefuck/thefuck.plugin.zsh"
+
+  # add zsh plugin fzf support
   sync_repo "https://github.com/junegunn/fzf.git" \
             "$APP_PATH/zsh/oh-my-zsh/custom/plugins/fzf"
   "$APP_PATH/zsh/oh-my-zsh/custom/plugins/fzf/install" --bin
-
   sync_repo "https://github.com/Treri/fzf-zsh.git" \
             "$APP_PATH/zsh/oh-my-zsh/custom/plugins/fzf-zsh"
 

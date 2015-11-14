@@ -136,6 +136,7 @@ plugins=(
   fzf-zsh
   sublime
   sudo
+  thefuck
   zsh_reload
   zsh-syntax-highlighting
   zsh-autosuggestions
