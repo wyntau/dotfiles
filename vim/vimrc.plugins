@@ -278,7 +278,7 @@ Plug 'osyo-manga/vim-over'
 " =============================================================================
 
 " ==> extended % matching for HTML, LaTeX, and many other languages
-Plug 'vim-scripts/matchit.zip'
+Plug 'tmhedberg/matchit'
 
 " Write styles faster. Much faster.
 " Plug 'rstacruz/vim-hyperstyle'

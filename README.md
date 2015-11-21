@@ -113,7 +113,7 @@ You can do a specific task by run
         Plug 'terryma/vim-multiple-cursors'
         Plug 'osyo-manga/vim-over'
 
-        Plug 'vim-scripts/matchit.zip'
+        Plug 'tmhedberg/matchit'
         Plug 'mattn/emmet-vim'
         Plug 'plasticboy/vim-markdown'
         Plug 'amiorin/vim-fenced-code-blocks'
