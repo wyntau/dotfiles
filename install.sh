@@ -170,6 +170,8 @@ function usage(){
   echo '    - sublime3'
   echo '    - editorconfig'
   echo '    - zsh_rc'
+  echo '    - zsh_plugins_thefuck'
+  echo '    - zsh_plugins_fasd'
   echo '    - tmux'
   printf "$dot_color_none\n"
 }
@@ -627,20 +629,6 @@ function install_zsh_rc(){
   sync_repo "https://github.com/Treri/zsh-autosuggestions-conf.git" \
             "$APP_PATH/zsh/oh-my-zsh/custom/plugins/zsh-autosuggestions-conf"
 
-  # add zsh plugin fasd support
-  sync_repo "https://github.com/clvv/fasd.git" \
-            "$APP_PATH/zsh/.cache/fasd"
-  cd "$APP_PATH/zsh/.cache/fasd"
-  sudo make install
-
-  if ( is_mac ); then
-    # add zsh plugin thefuck support
-    ensure_python_pip_support
-    sudo pip install thefuck --upgrade --ignore-installed six
-    mkdir -p "$APP_PATH/zsh/oh-my-zsh/custom/plugins/thefuck"
-    echo 'eval "$(thefuck --alias)"' > "$APP_PATH/zsh/oh-my-zsh/custom/plugins/thefuck/thefuck.plugin.zsh"
-  fi;
-
   # add zsh plugin fzf support
   sync_repo "https://github.com/junegunn/fzf.git" \
             "$APP_PATH/zsh/oh-my-zsh/custom/plugins/fzf"
@@ -659,8 +647,43 @@ function install_zsh_rc(){
   success "Successfully installed zsh and oh-my-zsh."
   tip "You can add your own configs to ~/.zshrc.local , zsh will source them automatically"
   cd $CUR_PATH
-  /usr/bin/env zsh
-  source $HOME/.zshrc
+  if [ `ps -p $$ -oargs=` != "zsh"* ]; then
+    /usr/bin/env zsh
+  else
+    info "Great! You have used zsh already."
+  fi;
+  source $HOME/.zshrc &>/dev/null
+}
+
+function install_zsh_plugins_thefuck(){
+  step "Installing thefuck plugin for zsh ..."
+
+  # add zsh plugin thefuck support
+  ensure_python_pip_support
+  sudo pip install thefuck --upgrade --ignore-installed six
+
+  if [ $? -eq 0 ]; then
+    mkdir -p "$APP_PATH/zsh/oh-my-zsh/custom/plugins/thefuck"
+    echo 'eval "$(thefuck --alias)"' > "$APP_PATH/zsh/oh-my-zsh/custom/plugins/thefuck/thefuck.plugin.zsh"
+    source $HOME/.zshrc &>/dev/null
+    success "Successfully installed thefuck plugin."
+  else
+    error "Something error..."
+  fi;
+}
+
+function install_zsh_plugins_fasd(){
+  step "Installing fasd plugin for zsh ..."
+
+  # add zsh plugin fasd support
+  sync_repo "https://github.com/clvv/fasd.git" \
+            "$APP_PATH/zsh/.cache/fasd"
+  cd "$APP_PATH/zsh/.cache/fasd"
+  sudo make install
+
+  source $HOME/.zshrc &>/dev/null
+
+  success "Successfully installed fasd plugin."
 }
 
 function install_zsh_cfg(){
@@ -782,6 +805,12 @@ else
         ;;
       zsh_rc)
         install_zsh_rc
+        ;;
+      zsh_plugins_thefuck)
+        install_zsh_plugins_thefuck
+        ;;
+      zsh_plugins_fasd)
+        install_zsh_plugins_fasd
         ;;
       zsh_cfg)
         install_zsh_cfg
