@@ -274,7 +274,7 @@ You can do a specific task by run
     - httpie        (when httpie is installed)
     - mosh          (when mosh is installed)
     - tmux          (when tmux is installed)
-    - thefuck       (OS X only)
+    - thefuck       (when thefuck is installed)
     - osx           (OS X only)
 
     So, maybe you should install some of them to make full use of zsh.
