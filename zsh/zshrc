@@ -72,6 +72,20 @@ if ( is_program_exists brew ); then
   )
 fi;
 
+# if we have fasd installed, add fasd plugin
+# otherwise use z plugin
+if ( is_program_exists fasd ); then
+  plugins=(
+    $plugins
+    fasd
+  )
+else
+  plugins=(
+    $plugins
+    z
+  )
+fi
+
 # if we have git installed, add git plugin
 if ( is_program_exists git ); then
   plugins=(
@@ -98,34 +112,19 @@ if ( is_program_exists mosh ); then
   )
 fi;
 
-# if we have tmux installed, add tmux plugin
-if ( is_program_exists tmux ); then
-  plugins=(
-    $plugins
-    tmux
-  )
-fi;
-
-# if we have fasd installed, add fasd plugin
-# otherwise use z plugin
-if ( is_program_exists fasd ); then
-  plugins=(
-    $plugins
-    fasd
-  )
-else
-  plugins=(
-    $plugins
-    z
-  )
-fi
-
-
 # if we have thefuck installed, add thefuck plugin
 if ( is_program_exists thefuck ); then
   plugins=(
     $plugins
     thefuck
+  )
+fi;
+
+# if we have tmux installed, add tmux plugin
+if ( is_program_exists tmux ); then
+  plugins=(
+    $plugins
+    tmux
   )
 fi;
 

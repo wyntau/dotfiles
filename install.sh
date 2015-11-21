@@ -170,8 +170,8 @@ function usage(){
   echo '    - sublime3'
   echo '    - editorconfig'
   echo '    - zsh_rc'
-  echo '    - zsh_plugins_thefuck'
   echo '    - zsh_plugins_fasd'
+  echo '    - zsh_plugins_thefuck'
   echo '    - tmux'
   printf "$dot_color_none\n"
 }
@@ -651,6 +651,36 @@ function install_zsh_rc(){
   success "Please open a new zsh terminal to make configs go into effect."
 }
 
+function install_zsh_cfg(){
+
+  must_program_exists "zsh"
+
+  step "Installing zsh configs ..."
+
+  lnif "$APP_PATH/zsh/zshrc.alias" \
+       "$HOME/.zshrc.alias"
+  lnif "$APP_PATH/zsh/zshrc.paths" \
+       "$HOME/.zshrc.paths"
+  lnif "$APP_PATH/zsh/zshrc.sources" \
+       "$HOME/.zshrc.sources"
+
+  success "Successfully installed zsh configs"
+  success "Please open a new zsh terminal to make configs go into effect."
+}
+
+function install_zsh_plugins_fasd(){
+  step "Installing fasd plugin for zsh ..."
+
+  # add zsh plugin fasd support
+  sync_repo "https://github.com/clvv/fasd.git" \
+            "$APP_PATH/zsh/.cache/fasd"
+  cd "$APP_PATH/zsh/.cache/fasd"
+  sudo make install
+
+  success "Successfully installed fasd plugin."
+  success "Please open a new zsh terminal to make configs go into effect."
+}
+
 function install_zsh_plugins_thefuck(){
   step "Installing thefuck plugin for zsh ..."
 
@@ -667,36 +697,6 @@ function install_zsh_plugins_thefuck(){
   else
     error "Something error..."
   fi;
-}
-
-function install_zsh_plugins_fasd(){
-  step "Installing fasd plugin for zsh ..."
-
-  # add zsh plugin fasd support
-  sync_repo "https://github.com/clvv/fasd.git" \
-            "$APP_PATH/zsh/.cache/fasd"
-  cd "$APP_PATH/zsh/.cache/fasd"
-  sudo make install
-
-  success "Successfully installed fasd plugin."
-  success "Please open a new zsh terminal to make configs go into effect."
-}
-
-function install_zsh_cfg(){
-
-  must_program_exists "zsh"
-
-  step "Installing zsh configs ..."
-
-  lnif "$APP_PATH/zsh/zshrc.alias" \
-       "$HOME/.zshrc.alias"
-  lnif "$APP_PATH/zsh/zshrc.paths" \
-       "$HOME/.zshrc.paths"
-  lnif "$APP_PATH/zsh/zshrc.sources" \
-       "$HOME/.zshrc.sources"
-
-  success "Successfully installed zsh configs"
-  success "Please open a new zsh terminal to make configs go into effect."
 }
 
 function install_tmux(){
@@ -799,11 +799,11 @@ else
       zsh_rc)
         install_zsh_rc
         ;;
-      zsh_plugins_thefuck)
-        install_zsh_plugins_thefuck
-        ;;
       zsh_plugins_fasd)
         install_zsh_plugins_fasd
+        ;;
+      zsh_plugins_thefuck)
+        install_zsh_plugins_thefuck
         ;;
       zsh_cfg)
         install_zsh_cfg

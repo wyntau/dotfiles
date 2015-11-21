@@ -267,14 +267,14 @@ You can do a specific task by run
     __What zsh plugins are used when relational programs installed?__
 
     - brew          (when brew is installed)
+    - fasd          (when fasd is installed, otherwise z is used)
     - gitfast       (when git is installed)
     - git-extras    (when git is installed)
     - git-flow      (when git is installed)
     - httpie        (when httpie is installed)
     - mosh          (when mosh is installed)
-    - tmux          (when tmux is installed)
     - thefuck       (when thefuck is installed)
-    - fasd          (when fasd is installed, otherwise z is used)
+    - tmux          (when tmux is installed)
     - osx           (OS X only)
 
     So, maybe you should install some of them to make full use of zsh.
