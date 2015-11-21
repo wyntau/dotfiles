@@ -42,6 +42,8 @@ All vailable tasks:
 - [sublime3](#task-sublime3)
 - [editorconfig](#task-editorconfig)
 - [zsh_rc](#task-zsh_rc)
+- [zsh_plugins_fasd](#task-zsh_plugins_fasd)
+- [zsh_plugins_thefuck](#task-zsh_plugins_thefuck)
 - [tmux](#task-tmux)
 
 You can do a specific task by run
@@ -278,6 +280,16 @@ You can do a specific task by run
     - osx           (OS X only)
 
     So, maybe you should install some of them to make full use of zsh.
+
+- ### Task `zsh_plugins_fasd`
+    Requirements: `git`, `zsh`, [task zsh_rc](#task-zsh_rc)
+
+    Install oh-my-zsh plugin `fasd`, replace default `z`
+
+- ### Task `zsh_plugins_thefuck`
+    Requirements: `git`, `zsh`, [task zsh_rc](#task-zsh_rc)
+
+    Install oh-my-zsh plugin `thefuck`
 
 - ### Task `tmux`
     Requirements: `git`, `tmux`
