@@ -256,7 +256,6 @@ You can do a specific task by run
     - colored-man-pages
     - encode64
     - extract
-    - fasd
     - fzf-zsh(fzf)
     - sublime
     - sudo
@@ -275,6 +274,7 @@ You can do a specific task by run
     - mosh          (when mosh is installed)
     - tmux          (when tmux is installed)
     - thefuck       (when thefuck is installed)
+    - fasd          (when fasd is installed, otherwise z is used)
     - osx           (OS X only)
 
     So, maybe you should install some of them to make full use of zsh.

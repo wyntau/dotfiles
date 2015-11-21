@@ -114,6 +114,20 @@ if ( is_program_exists thefuck ); then
   )
 fi;
 
+# if we have fasd installed, add fasd plugin
+# otherwise use z plugin
+if ( is_program_exists fasd ); then
+  plugins=(
+    $plugins
+    fasd
+  )
+else
+  plugins=(
+    $plugins
+    z
+  )
+fi
+
 # if we are in osx, add osx only plugins
 if [[ "$OSTYPE" == "darwin"* ]]; then
   plugins=(
@@ -128,7 +142,6 @@ plugins=(
   colored-man-pages
   encode64
   extract
-  fasd
   fzf-zsh
   sublime
   sudo
