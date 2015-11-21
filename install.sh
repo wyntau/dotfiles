@@ -646,13 +646,9 @@ function install_zsh_rc(){
 
   success "Successfully installed zsh and oh-my-zsh."
   tip "You can add your own configs to ~/.zshrc.local , zsh will source them automatically"
+
   cd $CUR_PATH
-  if [ `ps -p $$ -oargs=` != "zsh"* ]; then
-    /usr/bin/env zsh
-  else
-    info "Great! You have used zsh already."
-  fi;
-  source $HOME/.zshrc &>/dev/null
+  success "Please open a new zsh terminal to make configs go into effect."
 }
 
 function install_zsh_plugins_thefuck(){
@@ -665,8 +661,9 @@ function install_zsh_plugins_thefuck(){
   if [ $? -eq 0 ]; then
     mkdir -p "$APP_PATH/zsh/oh-my-zsh/custom/plugins/thefuck"
     echo 'eval "$(thefuck --alias)"' > "$APP_PATH/zsh/oh-my-zsh/custom/plugins/thefuck/thefuck.plugin.zsh"
-    source $HOME/.zshrc &>/dev/null
+
     success "Successfully installed thefuck plugin."
+    success "Please open a new zsh terminal to make configs go into effect."
   else
     error "Something error..."
   fi;
@@ -681,9 +678,8 @@ function install_zsh_plugins_fasd(){
   cd "$APP_PATH/zsh/.cache/fasd"
   sudo make install
 
-  source $HOME/.zshrc &>/dev/null
-
   success "Successfully installed fasd plugin."
+  success "Please open a new zsh terminal to make configs go into effect."
 }
 
 function install_zsh_cfg(){
@@ -699,11 +695,8 @@ function install_zsh_cfg(){
   lnif "$APP_PATH/zsh/zshrc.sources" \
        "$HOME/.zshrc.sources"
 
-  source "$HOME/.zshrc.alias"
-  source "$HOME/.zshrc.paths"
-  source "$HOME/.zshrc.sources"
-
   success "Successfully installed zsh configs"
+  success "Please open a new zsh terminal to make configs go into effect."
 }
 
 function install_tmux(){
