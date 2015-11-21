@@ -43,6 +43,7 @@ All vailable tasks:
 - [editorconfig](#task-editorconfig)
 - [zsh_rc](#task-zsh_rc)
 - [zsh_plugins_fasd](#task-zsh_plugins_fasd)
+- [zsh_plugins_fzf](#task-zsh_plugins_fzf)
 - [zsh_plugins_thefuck](#task-zsh_plugins_thefuck)
 - [tmux](#task-tmux)
 
@@ -285,6 +286,11 @@ You can do a specific task by run
     Requirements: `git`, `zsh`, [task zsh_rc](#task-zsh_rc)
 
     Install oh-my-zsh plugin `fasd`, replace default `z`
+
+- ### Task `zsh_plugins_fzf`
+    Requirements: `git`, `zsh`, [task zsh_rc](#task-zsh_rc)
+
+    Install oh-my-zsh plugin `fzf`
 
 - ### Task `zsh_plugins_thefuck`
     Requirements: `git`, `zsh`, [task zsh_rc](#task-zsh_rc)

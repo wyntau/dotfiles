@@ -171,6 +171,7 @@ function usage(){
   echo '    - editorconfig'
   echo '    - zsh_rc'
   echo '    - zsh_plugins_fasd'
+  echo '    - zsh_plugins_fzf'
   echo '    - zsh_plugins_thefuck'
   echo '    - tmux'
   printf "$dot_color_none\n"
@@ -629,13 +630,6 @@ function install_zsh_rc(){
   sync_repo "https://github.com/Treri/zsh-autosuggestions-conf.git" \
             "$APP_PATH/zsh/oh-my-zsh/custom/plugins/zsh-autosuggestions-conf"
 
-  # add zsh plugin fzf support
-  sync_repo "https://github.com/junegunn/fzf.git" \
-            "$APP_PATH/zsh/oh-my-zsh/custom/plugins/fzf"
-  "$APP_PATH/zsh/oh-my-zsh/custom/plugins/fzf/install" --bin
-  sync_repo "https://github.com/Treri/fzf-zsh.git" \
-            "$APP_PATH/zsh/oh-my-zsh/custom/plugins/fzf-zsh"
-
   lnif "$APP_PATH/zsh/oh-my-zsh" \
        "$HOME/.oh-my-zsh"
   lnif "$APP_PATH/zsh/zshrc" \
@@ -669,7 +663,7 @@ function install_zsh_cfg(){
 }
 
 function install_zsh_plugins_fasd(){
-  step "Installing fasd plugin for zsh ..."
+  step "Installing fasd plugin for oh-my-zsh ..."
 
   # add zsh plugin fasd support
   sync_repo "https://github.com/clvv/fasd.git" \
@@ -681,8 +675,22 @@ function install_zsh_plugins_fasd(){
   success "Please open a new zsh terminal to make configs go into effect."
 }
 
+function install_zsh_plugins_fzf(){
+  step "Installing fzf plugin for oh-my-zsh ..."
+
+  # add zsh plugin fzf support
+  sync_repo "https://github.com/junegunn/fzf.git" \
+            "$APP_PATH/zsh/oh-my-zsh/custom/plugins/fzf"
+  "$APP_PATH/zsh/oh-my-zsh/custom/plugins/fzf/install" --bin
+  sync_repo "https://github.com/Treri/fzf-zsh.git" \
+            "$APP_PATH/zsh/oh-my-zsh/custom/plugins/fzf-zsh"
+
+  success "Successfully installed fzf plugin."
+  success "Please open a new zsh terminal to make configs go into effect."
+}
+
 function install_zsh_plugins_thefuck(){
-  step "Installing thefuck plugin for zsh ..."
+  step "Installing thefuck plugin for oh-my-zsh ..."
 
   # add zsh plugin thefuck support
   ensure_python_pip_support
@@ -801,6 +809,9 @@ else
         ;;
       zsh_plugins_fasd)
         install_zsh_plugins_fasd
+        ;;
+      zsh_plugins_fzf)
+        install_zsh_plugins_fzf
         ;;
       zsh_plugins_thefuck)
         install_zsh_plugins_thefuck
