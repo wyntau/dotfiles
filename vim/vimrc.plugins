@@ -257,6 +257,8 @@ Plug 'godlygeek/tabular'
   nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
   vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 
+Plug 'wellle/targets.vim'
+
 Plug 'tpope/vim-surround'
 
 Plug 'tpope/vim-repeat'

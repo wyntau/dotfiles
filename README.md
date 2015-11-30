@@ -107,6 +107,7 @@ You can do a specific task by run
         Plug 'ntpeters/vim-better-whitespace'
         Plug 'Raimondi/delimitMate'
         Plug 'godlygeek/tabular'
+        Plug 'wellle/targets.vim'
         Plug 'tpope/vim-surround'
         Plug 'tpope/vim-repeat'
         Plug 'scrooloose/nerdcommenter'
