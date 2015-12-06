@@ -1,25 +1,30 @@
 ## What are in the repo
     dotfile
-    ├── astylerc
+    ├── astyle
+    │   └── astylerc
     ├── editorconfig
     ├── git
-    |   └── gitconfig
+    │   └── gitconfig
     ├── sublime2
-    |   ├── Preference.sublime-settings
-    |   └── README.md
+    │   ├── Preferences.sublime-settings
+    │   └── README.md
     ├── sublime3
-    |   ├── Preference.sublime-settings
-    |   └── README.md
+    │   ├── Preferences.sublime-settings
+    │   └── README.md
+    ├── terminfo
+    │   ├── README.md
+    │   ├── screen-256color-italic.terminfo
+    │   └── xterm-256color-italic.terminfo
     ├── tmux
-    │   └── tmux.conf
+    │   └── tmux.conf
     ├── vim
-    │   ├── init.vim -> vimrc
-    │   ├── vimrc
+    │   ├── init.vim -> vimrc
+    │   ├── vimrc
     │   ├── vimrc.plugins
     │   ├── vimrc.plugins.fcitx
     │   ├── vimrc.plugins.matchtag
     │   ├── vimrc.plugins.snippets
-    │   └── vimrc.plugins.ycm
+    │   └── vimrc.plugins.ycm
     └── zsh
         └── zshrc
 
@@ -37,7 +42,7 @@ All vailable tasks:
 - [git_dmtool](#task-git_dmtool)
 - [git_extras](#task-git_extras)
 - [git_flow](#task-git_flow)
-- [astylerc](#task-astylerc)
+- [astyle_rc](#task-astyle_rc)
 - [sublime2](#task-sublime2)
 - [sublime3](#task-sublime3)
 - [editorconfig](#task-editorconfig)
@@ -195,7 +200,7 @@ You can do a specific task by run
 
     A post about git-flow: [a-successful-git-branching-model](http://nvie.com/posts/a-successful-git-branching-model/)
 
-- ### Task `astylerc`
+- ### Task `astyle_rc`
     Requirement: `astyle`. If you have installed `astyle` and press `Q` in vim, astyle will be used to format the *C*, *C++*, *C#*, *Java* file.
 
     __What others maybe you should install?__

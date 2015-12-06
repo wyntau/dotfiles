@@ -165,7 +165,7 @@ function usage(){
   echo '    - git_dmtool'
   echo '    - git_extras'
   echo '    - git_flow'
-  echo '    - astylerc'
+  echo '    - astyle_rc'
   echo '    - sublime2'
   echo '    - sublime3'
   echo '    - editorconfig'
@@ -599,13 +599,13 @@ function install_git_flow(){
   success "Successfully installed git-flow."
 }
 
-function install_astylerc(){
+function install_astyle_rc(){
 
   must_program_exists "astyle"
 
   step "Installing astylerc ..."
 
-  lnif "$APP_PATH/astylerc" \
+  lnif "$APP_PATH/astyle/astylerc" \
        "$HOME/.astylerc"
 
   success "Successfully installed astylerc."
@@ -792,8 +792,8 @@ else
       fonts_source_code_pro)
         install_fonts_source_code_pro
         ;;
-      astylerc)
-        install_astylerc
+      astyle_rc)
+        install_astyle_rc
         ;;
       sublime2)
         install_sublime2
