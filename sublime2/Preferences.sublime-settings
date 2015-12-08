@@ -20,7 +20,7 @@
 	"tab_size": 2,
 	"translate_tabs_to_spaces": true,
 	"use_tab_stops": true,
-	"vintage_start_in_command_mode": true,
+	"vintage_start_in_command_mode": false,
 	"vintage_use_clipboard": true,
 	"word_wrap": true
 }
