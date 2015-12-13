@@ -456,7 +456,7 @@ function install_sublime2(){
   lnif "$APP_PATH/sublime2/.cache/markdown-extended" \
        "$SUBLIMEPATH/Packages/User/markdown-extended"
 
-  lnif "$APP_PATH/sublime2/.cache/Preferences.sublime-settings" \
+  lnif "$APP_PATH/sublime2/Preferences.sublime-settings" \
        "$SUBLIMEPATH/Packages/User/Preferences.sublime-settings"
 
   success "Successfully installed sublime2 Preference and monokai-extended theme"
@@ -489,7 +489,7 @@ function install_sublime3(){
   lnif "$APP_PATH/sublime3/.cache/markdown-extended" \
        "$SUBLIMEPATH/Packages/User/markdown-extended"
 
-  lnif "$APP_PATH/sublime3/.cache/Preferences.sublime-settings" \
+  lnif "$APP_PATH/sublime3/Preferences.sublime-settings" \
        "$SUBLIMEPATH/Packages/User/Preferences.sublime-settings"
 
   success "Successfully installed sublime3 Preference and monokai-extended theme"
