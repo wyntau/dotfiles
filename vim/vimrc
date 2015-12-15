@@ -629,18 +629,10 @@ nnoremap <leader>xx16 <ESC>:%!xxd -r<ESC>
 "==========================================
 " plugins 插件管理及配置
 "==========================================
-" off is required by vim-plug   "检测文件的类型
-filetype on " without this vim emits a zero exit status, later, because of :ft off
-filetype off
-
 " source default bundles
 if filereadable(expand("~/.vimrc.plugins"))
   source ~/.vimrc.plugins
 endif
-
-" 载入文件类型插件
-" 为特定文件类型载入相关缩进文件
-filetype plugin indent on
 
 "==========================================
 " colortheme 主题,及一些展示上颜色的修改
