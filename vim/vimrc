@@ -609,18 +609,9 @@ vnoremap <S-Tab> <gv
 " @usage 50g| jump to 50% of the lines columns.
 nnoremap <expr>g<Bar> '<Esc>'.float2nr(round((col('$')-1)*min([100,v:count])/100.0)).'<Bar>'
 
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set norelativenumber number
-  else
-    set relativenumber
-  endif
-endfunc
-nnoremap <F2> :call NumberToggle()<cr>
-nnoremap <F3> :set wrap! wrap?<CR>
-nnoremap <F4> :set paste! paste?<CR>
-inoremap <F4> <C-O>:set paste! paste?<CR>
-set pastetoggle=<F4>
+nnoremap <F2> :set paste! paste?<CR>
+inoremap <F2> <C-O>:set paste! paste?<CR>
+set pastetoggle=<F2>
 " when in insert mode, press <F4> to go to paste mode, where you can paste mass data that won't be autoindented
 " disbale paste mode when leaving insert mode
 autocmd InsertLeave * set nopaste
