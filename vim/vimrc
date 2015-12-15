@@ -621,10 +621,10 @@ autocmd InsertLeave * set nopaste
 "==========================================
 
 " ,x16                 十六进制格式查看
-nnoremap <leader>x16 <ESC>:%!xxd<ESC>
+nnoremap <leader>x16 <ESC>:%!xxd<CR>
 
 " ,xx16                返回普通格式
-nnoremap <leader>xx16 <ESC>:%!xxd -r<ESC>
+nnoremap <leader>xx16 <ESC>:%!xxd -r<CR>
 
 "==========================================
 " plugins 插件管理及配置
