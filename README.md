@@ -133,6 +133,9 @@ You can do a specific task by run
         Plug 'pangloss/vim-javascript'
         Plug 'mxw/vim-jsx'
         Plug 'othree/yajs.vim'
+        Plug 'heavenshell/vim-jsdoc'
+        Plug 'tobyS/vmustache'
+        Plug 'tobyS/pdv'
 
 - ### Task `vim_plugins_fcitx`
     Requirement: `git`, `vim`, [task vim_rc](#task-vim_rc)

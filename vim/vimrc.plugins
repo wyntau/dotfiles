@@ -327,6 +327,21 @@ Plug 'mxw/vim-jsx'
 " javascript ES6 support, only enable this in pure javascript files,
 Plug 'othree/yajs.vim', {'for': ['javascript', 'javascript.jsx']}
 
+Plug 'heavenshell/vim-jsdoc'
+let g:jsdoc_input_description = 1
+let g:jsdoc_underscore_private = 1
+let g:jsdoc_access_descriptions = 2
+let g:jsdoc_enable_es6 = 1
+
+Plug 'SirVer/ultisnips'
+" required by tobys/pdv
+Plug 'tobyS/vmustache', {'for': ['php']}
+" phpdoc generator,
+" require tobys/pdv and SirVer/ultisnips
+Plug 'tobyS/pdv', {'for': ['php']}
+let g:pdv_template_dir = $HOME ."/.vim/plugins/pdv/templates_snip"
+map <leader>doc :call pdv#DocumentWithSnip()<CR>
+
 " source fcitx plugin
 if filereadable(expand("~/.vimrc.plugins.fcitx"))
   source ~/.vimrc.plugins.fcitx
