@@ -327,13 +327,13 @@ Plug 'mxw/vim-jsx'
 " javascript ES6 support, only enable this in pure javascript files,
 Plug 'othree/yajs.vim', {'for': ['javascript', 'javascript.jsx']}
 
-Plug 'heavenshell/vim-jsdoc'
+Plug 'heavenshell/vim-jsdoc', {'for': ['javascript', 'javascript.jsx','html']}
 let g:jsdoc_allow_input_prompt = 1
 let g:jsdoc_input_description = 1
 let g:jsdoc_underscore_private = 1
 let g:jsdoc_access_descriptions = 2
 let g:jsdoc_enable_es6 = 1
-autocmd Filetype {javascript,javascript.jsx} map <leader>doc :JsDoc<CR>
+autocmd Filetype {javascript,javascript.jsx,html} map <leader>doc :JsDoc<CR>
 
 Plug 'SirVer/ultisnips'
 " required by tobys/pdv
