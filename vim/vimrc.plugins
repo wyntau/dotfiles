@@ -328,10 +328,12 @@ Plug 'mxw/vim-jsx'
 Plug 'othree/yajs.vim', {'for': ['javascript', 'javascript.jsx']}
 
 Plug 'heavenshell/vim-jsdoc'
+let g:jsdoc_allow_input_prompt = 1
 let g:jsdoc_input_description = 1
 let g:jsdoc_underscore_private = 1
 let g:jsdoc_access_descriptions = 2
 let g:jsdoc_enable_es6 = 1
+autocmd Filetype {javascript,javascript.jsx} map <leader>doc :JsDoc<CR>
 
 Plug 'SirVer/ultisnips'
 " required by tobys/pdv
@@ -340,7 +342,7 @@ Plug 'tobyS/vmustache', {'for': ['php']}
 " require tobys/pdv and SirVer/ultisnips
 Plug 'tobyS/pdv', {'for': ['php']}
 let g:pdv_template_dir = $HOME ."/.vim/plugins/pdv/templates_snip"
-map <leader>doc :call pdv#DocumentWithSnip()<CR>
+autocmd Filetype php map <leader>doc :call pdv#DocumentWithSnip()<CR>
 
 " source fcitx plugin
 if filereadable(expand("~/.vimrc.plugins.fcitx"))
