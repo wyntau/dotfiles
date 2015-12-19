@@ -109,84 +109,85 @@ You can do a specific task by run
     ```
 
     ##### Included plugin(s)
+    ```viml
+    " group 'themes'
+    Plug 'tomasr/molokai'
+    Plug 'altercation/vim-colors-solarized'
+    Plug 'morhetz/gruvbox'
+    Plug 'junegunn/seoul256.vim'
+    Plug 'zeis/vim-kolor'
 
-        # group 'themes'
-        Plug 'tomasr/molokai'
-        Plug 'altercation/vim-colors-solarized'
-        Plug 'morhetz/gruvbox'
-        Plug 'junegunn/seoul256.vim'
-        Plug 'zeis/vim-kolor'
+    " group 'interface'
+    Plug 'bling/vim-airline'
+    Plug 'Yggdroot/indentLine'
 
-        # group 'interface'
-        Plug 'bling/vim-airline'
-        Plug 'Yggdroot/indentLine'
+    " group 'explorer'
+    Plug 'schickling/vim-bufonly'
+    Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'tacahiroy/ctrlp-funky'
+    Plug 'scrooloose/nerdtree'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'jistr/vim-nerdtree-tabs'
+    Plug 'dyng/ctrlsf.vim'
+    Plug 't9md/vim-choosewin'
 
-        # group 'explorer'
-        Plug 'schickling/vim-bufonly'
-        Plug 'ctrlpvim/ctrlp.vim'
-        Plug 'tacahiroy/ctrlp-funky'
-        Plug 'scrooloose/nerdtree'
-        Plug 'Xuyuanp/nerdtree-git-plugin'
-        Plug 'jistr/vim-nerdtree-tabs'
-        Plug 'dyng/ctrlsf.vim'
-        Plug 't9md/vim-choosewin'
+    " group 'motion'
+    Plug 'Lokaltog/vim-easymotion'
+    Plug 'terryma/vim-expand-region'
+    Plug 't9md/vim-textmanip'
 
-        # group 'motion'
-        Plug 'Lokaltog/vim-easymotion'
-        Plug 'terryma/vim-expand-region'
-        Plug 't9md/vim-textmanip'
+    " group 'writing'
+    Plug 'ntpeters/vim-better-whitespace'
+    Plug 'Raimondi/delimitMate'
+    Plug 'godlygeek/tabular'
+    Plug 'wellle/targets.vim'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-repeat'
+    Plug 'scrooloose/nerdcommenter'
+    Plug 'terryma/vim-multiple-cursors'
+    Plug 'osyo-manga/vim-over'
 
-        # group 'writing'
-        Plug 'ntpeters/vim-better-whitespace'
-        Plug 'Raimondi/delimitMate'
-        Plug 'godlygeek/tabular'
-        Plug 'wellle/targets.vim'
-        Plug 'tpope/vim-surround'
-        Plug 'tpope/vim-repeat'
-        Plug 'scrooloose/nerdcommenter'
-        Plug 'terryma/vim-multiple-cursors'
-        Plug 'osyo-manga/vim-over'
+    " group 'git'
+    Plug 'airblade/vim-gitgutter'
 
-        # group 'git'
-        Plug 'airblade/vim-gitgutter'
+    " group 'tmux'
+    Plug 'tmux-plugins/vim-tmux'
+    Plug 'tmux-plugins/vim-tmux-focus-events'
+    Plug 'christoomey/vim-tmux-navigator'
 
-        # group 'tmux'
-        Plug 'tmux-plugins/vim-tmux'
-        Plug 'tmux-plugins/vim-tmux-focus-events'
-        Plug 'christoomey/vim-tmux-navigator'
+    " group 'html'
+    Plug 'tmhedberg/matchit'
+    Plug 'mattn/emmet-vim'
 
-        # group 'html'
-        Plug 'tmhedberg/matchit'
-        Plug 'mattn/emmet-vim'
+    " group 'css'
+    Plug 'groenewege/vim-less'
+    Plug 'hail2u/vim-css3-syntax'
+    Plug 'Marslo/vim-coloresque'
 
-        # group 'css'
-        Plug 'groenewege/vim-less'
-        Plug 'hail2u/vim-css3-syntax'
-        Plug 'Marslo/vim-coloresque'
+    " group 'js'
+    Plug 'leafgarland/typescript-vim'
+    Plug 'kchmck/vim-coffee-script'
+    Plug 'pangloss/vim-javascript'
+    Plug 'mxw/vim-jsx'
+    Plug 'othree/yajs.vim'
+    Plug 'heavenshell/vim-jsdoc'
 
-        # group 'js'
-        Plug 'leafgarland/typescript-vim'
-        Plug 'kchmck/vim-coffee-script'
-        Plug 'pangloss/vim-javascript'
-        Plug 'mxw/vim-jsx'
-        Plug 'othree/yajs.vim'
-        Plug 'heavenshell/vim-jsdoc'
+    " group 'php'
+    Plug 'SirVer/ultisnips'
+    Plug 'tobyS/vmustache'
+    Plug 'tobyS/pdv'
 
-        # group 'php'
-        Plug 'SirVer/ultisnips'
-        Plug 'tobyS/vmustache'
-        Plug 'tobyS/pdv'
+    " group 'markdown'
+    Plug 'godlygeek/tabular'
+    Plug 'plasticboy/vim-markdown'
+    Plug 'amiorin/vim-fenced-code-blocks'
 
-        # group 'markdown'
-        Plug 'godlygeek/tabular'
-        Plug 'plasticboy/vim-markdown'
-        Plug 'amiorin/vim-fenced-code-blocks'
+    " group 'nginx'
+    Plug 'evanmiller/nginx-vim-syntax'
 
-        # group 'nginx'
-        Plug 'evanmiller/nginx-vim-syntax'
-
-        # group 'nfo'
-        Plug 'smilekzs/vim-nfo'
+    " group 'nfo'
+    Plug 'smilekzs/vim-nfo'
+    ```
 
 - ### Task `vim_plugins_fcitx`
     Requirement: `git`, `vim`, [task vim_plugins](#task-vim_plugins)
@@ -194,9 +195,10 @@ You can do a specific task by run
     Install fcitx support plugin for vim. This plugin help you to switch input method(eg. English and Chinese keyboard) automatically when you switch vim `Insert` and `Normal` mode.
 
     ##### Included plugin(s)
-
-        # group 'fcitx'
-        Plug 'CodeFalling/fcitx-vim-osx'
+    ```viml
+    " group 'fcitx'
+    Plug 'CodeFalling/fcitx-vim-osx'
+    ```
 
 - ### Task `vim_plugins_matchtag`
     Requirement: `git`, `vim`, `curl`, `python`, [task vim_plugins](#task-vim_plugins)
@@ -205,9 +207,10 @@ You can do a specific task by run
     If you don't want to include python modules, you can also use non-python version 'gregsexton/MatchTag'
 
     ##### Included plugin(s)
-
-        # group 'matchtag'
-        Plug 'valloric/MatchTagAlways'
+    ```viml
+    " group 'matchtag'
+    Plug 'valloric/MatchTagAlways'
+    ```
 
 - ### Task `vim_plugins_snippets`
     Requirement: `git`, `vim`, `curl`, `python`, [task vim_plugins](#task-vim_plugins)
@@ -215,10 +218,11 @@ You can do a specific task by run
     Install vim-snippets plugin for vim.
 
     ##### Included plugin(s)
-
-        # group 'snippets'
-        Plug 'SirVer/ultisnips'
-        Plug 'honza/vim-snippets'
+    ```viml
+    " group 'snippets'
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
+    ```
 
 - ### Task `vim_plugins_ycm`
     Requirement: `git`, `vim`, `curl`, `python`, [task vim_plugins](#task-vim_plugins)
@@ -230,9 +234,10 @@ You can do a specific task by run
     Also you can set `YCM_COMPLETER` with different language support. Available languages are `clang`, `omnisharp` and `gocode`. This option is empty default.
 
     ##### Included plugin(s)
-
-        # group 'youcompleteme'
-        Plug 'Valloric/YouCompleteMe'
+    ```viml
+    " group 'youcompleteme'
+    Plug 'Valloric/YouCompleteMe'
+    ```
 
 - ### Task `git_config`
     Requirement: `git`
