@@ -156,7 +156,7 @@ function usage(){
   printf "$dot_color_green\n"
   echo '    - fonts_source_code_pro'
   echo '    - vim_rc'
-  echo '    - vim_plugins_base'
+  echo '    - vim_plugins'
   echo '    - vim_plugins_fcitx'
   echo '    - vim_plugins_matchtag'
   echo '    - vim_plugins_snippets'
@@ -268,7 +268,7 @@ function append_plugins_group(){
   fi;
 }
 
-function install_vim_plugins_base(){
+function install_vim_plugins(){
 
   if ( ! is_file_exists "$HOME/.vimrc" ); then
     error "You should complete vim_rc task first"
@@ -776,8 +776,8 @@ else
       vim_rc)
         install_vim_rc
         ;;
-      vim_plugins_base)
-        install_vim_plugins_base
+      vim_plugins)
+        install_vim_plugins
         ;;
       vim_plugins_fcitx)
         install_vim_plugins_fcitx

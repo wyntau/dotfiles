@@ -33,7 +33,7 @@ All vailable tasks:
 
 - [fonts_source_code_pro](#task-fonts_source_code_pro)
 - [vim_rc](#task-vim_rc)
-- [vim_plugins_base](#task-vim_plugins_base)
+- [vim_plugins](#task-vim_plugins)
 - [vim_plugins_fcitx](#task-vim_plugins_fcitx)
 - [vim_plugins_matchtag](#task-vim_plugins_matchtag)
 - [vim_plugins_snippets](#task-vim_plugins_snippets)
@@ -63,12 +63,12 @@ You can do a specific task by run
 
     The new version font is compatible with powerline fonts which have some useful symbols used in some vim plugins and shell plugins, and it will update frequently. So use it to replace [Powerline fonts](https://github.com/powerline/fonts).
 
-    This font will be installed automatically when do task [vim_plugins_base](#task-vim_plugins_base), [sublime2](#task-sublime2) and [sublime3](#task-sublime3).
+    This font will be installed automatically when do task [vim_plugins](#task-vim_plugins), [sublime2](#task-sublime2) and [sublime3](#task-sublime3).
 
 - ### Task `vim_rc`
     Requirements: `git`, `vim`
 
-    This task will not install any plugin, if you want to use some plugins, do __[task vim_plugins_base](#task-vim_plugins_base)__.
+    This task will not install any plugin, if you want to use some plugins, do __[task vim_plugins](#task-vim_plugins)__.
 
     You can override the system vim with the new one installed by `homebrew`.(OS X only. This is optional, but recommended, because system vim can't use system clipbord via register `+`)
 
@@ -78,7 +78,7 @@ You can do a specific task by run
 
     Additionally, if you have installed `neovim`, this task will link `vim` to `~/.nvim`, `vim/vimrc` to `~/.nvimrc`.
 
-- ### Task `vim_plugins_base`
+- ### Task `vim_plugins`
     Requirement: `git`, `vim`, [task vim_rc](#task-vim_rc)
 
     Setup vim-plug, and load other plugins. After doing this task, you can load
