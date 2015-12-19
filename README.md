@@ -100,7 +100,7 @@ You can do a specific task by run
     After this task complete, you can add your own plugins_group or load your own
     plugins in `~/.vimrc.plugin.local` like below
 
-    ```vimscript
+    ```viml
     " load some plugins groups
     let g:plugins_groups = ['explorer', 'git', 'js']
 
@@ -189,7 +189,7 @@ You can do a specific task by run
         Plug 'smilekzs/vim-nfo'
 
 - ### Task `vim_plugins_fcitx`
-    Requirement: `git`, `vim`, [task vim_rc](#task-vim_rc)
+    Requirement: `git`, `vim`, [task vim_plugins](#task-vim_plugins)
 
     Install fcitx support plugin for vim. This plugin help you to switch input method(eg. English and Chinese keyboard) automatically when you switch vim `Insert` and `Normal` mode.
 
@@ -199,7 +199,7 @@ You can do a specific task by run
         Plug 'CodeFalling/fcitx-vim-osx'
 
 - ### Task `vim_plugins_matchtag`
-    Requirement: `git`, `vim`, `curl`, `python`, [task vim_rc](#task-vim_rc)
+    Requirement: `git`, `vim`, `curl`, `python`, [task vim_plugins](#task-vim_plugins)
 
     Install html matchtag plugin for vim. Here i use python version matchtag.
     If you don't want to include python modules, you can also use non-python version 'gregsexton/MatchTag'
@@ -210,7 +210,7 @@ You can do a specific task by run
         Plug 'valloric/MatchTagAlways'
 
 - ### Task `vim_plugins_snippets`
-    Requirement: `git`, `vim`, `curl`, `python`, [task vim_rc](#task-vim_rc)
+    Requirement: `git`, `vim`, `curl`, `python`, [task vim_plugins](#task-vim_plugins)
 
     Install vim-snippets plugin for vim.
 
@@ -221,7 +221,7 @@ You can do a specific task by run
         Plug 'honza/vim-snippets'
 
 - ### Task `vim_plugins_ycm`
-    Requirement: `git`, `vim`, `curl`, `python`, [task vim_rc](#task-vim_rc)
+    Requirement: `git`, `vim`, `curl`, `python`, [task vim_plugins](#task-vim_plugins)
 
     Install YouCompleteMe plugin for vim.
 
