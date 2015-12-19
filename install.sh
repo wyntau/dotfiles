@@ -318,8 +318,7 @@ function install_vim_plugins_fcitx(){
          "/usr/local/bin/fcitx-remote"
   fi;
 
-  lnif "$APP_PATH/vim/vimrc.plugins.fcitx" \
-       "$HOME/.vimrc.plugins.fcitx"
+  append_plugins_group "fcitx"
 
   vim +PlugInstall +qall
 
@@ -379,8 +378,7 @@ function install_vim_plugins_matchtag(){
   # check whether have neovim. if have, make sure neovim have python feature support
   ensure_python_neovim_support
 
-  lnif "$APP_PATH/vim/vimrc.plugins.matchtag" \
-       "$HOME/.vimrc.plugins.matchtag"
+  append_plugins_group "matchtag"
 
   vim +PlugInstall +qall
 
@@ -398,8 +396,7 @@ function install_vim_plugins_snippets(){
   # check whether have neovim. if have, make sure neovim have python feature support
   ensure_python_neovim_support
 
-  lnif "$APP_PATH/vim/vimrc.plugins.snippets" \
-       "$HOME/.vimrc.plugins.snippets"
+  append_plugins_group "snippets"
 
   vim +PlugInstall +qall
 
@@ -441,8 +438,7 @@ function install_vim_plugins_ycm(){
     "$APP_PATH/vim/plugins/YouCompleteMe/install.py" $YCM_COMPLETER_FLAG
   fi;
 
-  lnif "$APP_PATH/vim/vimrc.plugins.ycm" \
-       "$HOME/.vimrc.plugins.ycm"
+  append_plugins_group "youcompleteme"
 
   success "Successfully installed YouCompleteMe plugin."
 }

@@ -20,11 +20,7 @@
     ├── vim
     │   ├── init.vim -> vimrc
     │   ├── vimrc
-    │   ├── vimrc.plugins
-    │   ├── vimrc.plugins.fcitx
-    │   ├── vimrc.plugins.matchtag
-    │   ├── vimrc.plugins.snippets
-    │   └── vimrc.plugins.ycm
+    │   └── vimrc.plugins
     └── zsh
         └── zshrc
 
