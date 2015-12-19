@@ -254,6 +254,20 @@ function install_vim_rc(){
   success "You can add your own configs to ~/.vimrc.local, vim will source them automatically"
 }
 
+function append_plugins_group(){
+  local group=$1
+  local conf="$HOME/.vimrc.plugins.local"
+
+  if ! grep -iE "^[ \t]*let[ \t]+g:plugins_groups[ \t]*=[ \t]*\[.+]" "$conf" &>/dev/null ; then
+    echo "let g:plugins_groups = ['$group']" > "$conf"
+  elif ! grep -iE "'$group'" "$conf" &>/dev/null; then
+    echo `sed -e "s/]/, '$group']/" "$conf"` > "$conf"
+    if grep -iE "\[[ \t]*," "$conf" &>/dev/null; then
+      echo `sed -e "s/\[[ \t]*,[ \t]*/[/" "$conf"` > "$conf"
+    fi;
+  fi;
+}
+
 function install_vim_plugins_base(){
 
   if ( ! is_file_exists "$HOME/.vimrc" ); then
