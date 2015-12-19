@@ -81,23 +81,51 @@ You can do a specific task by run
 - ### Task `vim_plugins`
     Requirement: `git`, `vim`, [task vim_rc](#task-vim_rc)
 
-    Setup vim-plug, and load other plugins. After doing this task, you can load
-    your own plugins in `~/.vimrc.plugins.local`
+    Setup vim-plug, and load other plugins.
+
+    We have some plugins_group below.
+
+    - themes
+    - interface
+    - explorer
+    - motion
+    - writing
+    - git
+    - tmux
+    - html
+    - css
+    - js
+    - php
+    - markdown
+    - nginx
+    - nfo
+
+    In above plugins_groups, only `themes` and `interface` will be loaded default.
+    After this task complete, you can add your own plugins_group or load your own
+    plugins in `~/.vimrc.plugin.local` like below
+
+    ```vimscript
+    " load some plugins groups
+    let g:plugins_groups = ['explorer', 'git', 'js']
+
+    " load your own plugins
+    " Plug 'name/repo'
+    ```
 
     ##### Included plugin(s)
 
+        # group 'themes'
         Plug 'tomasr/molokai'
         Plug 'altercation/vim-colors-solarized'
         Plug 'morhetz/gruvbox'
         Plug 'junegunn/seoul256.vim'
         Plug 'zeis/vim-kolor'
 
+        # group 'interface'
         Plug 'bling/vim-airline'
-        Plug 'airblade/vim-gitgutter'
         Plug 'Yggdroot/indentLine'
-        Plug 'tmux-plugins/vim-tmux'
-        Plug 'tmux-plugins/vim-tmux-focus-events'
-        Plug 'christoomey/vim-tmux-navigator'
+
+        # group 'explorer'
         Plug 'schickling/vim-bufonly'
         Plug 'ctrlpvim/ctrlp.vim'
         Plug 'tacahiroy/ctrlp-funky'
@@ -105,10 +133,14 @@ You can do a specific task by run
         Plug 'Xuyuanp/nerdtree-git-plugin'
         Plug 'jistr/vim-nerdtree-tabs'
         Plug 'dyng/ctrlsf.vim'
+        Plug 't9md/vim-choosewin'
+
+        # group 'motion'
         Plug 'Lokaltog/vim-easymotion'
         Plug 'terryma/vim-expand-region'
         Plug 't9md/vim-textmanip'
-        Plug 't9md/vim-choosewin'
+
+        # group 'writing'
         Plug 'ntpeters/vim-better-whitespace'
         Plug 'Raimondi/delimitMate'
         Plug 'godlygeek/tabular'
@@ -119,23 +151,46 @@ You can do a specific task by run
         Plug 'terryma/vim-multiple-cursors'
         Plug 'osyo-manga/vim-over'
 
+        # group 'git'
+        Plug 'airblade/vim-gitgutter'
+
+        # group 'tmux'
+        Plug 'tmux-plugins/vim-tmux'
+        Plug 'tmux-plugins/vim-tmux-focus-events'
+        Plug 'christoomey/vim-tmux-navigator'
+
+        # group 'html'
         Plug 'tmhedberg/matchit'
         Plug 'mattn/emmet-vim'
-        Plug 'plasticboy/vim-markdown'
-        Plug 'amiorin/vim-fenced-code-blocks'
-        Plug 'leafgarland/typescript-vim'
-        Plug 'kchmck/vim-coffee-script'
+
+        # group 'css'
         Plug 'groenewege/vim-less'
         Plug 'hail2u/vim-css3-syntax'
         Plug 'Marslo/vim-coloresque'
-        Plug 'smilekzs/vim-nfo'
-        Plug 'evanmiller/nginx-vim-syntax'
+
+        # group 'js'
+        Plug 'leafgarland/typescript-vim'
+        Plug 'kchmck/vim-coffee-script'
         Plug 'pangloss/vim-javascript'
         Plug 'mxw/vim-jsx'
         Plug 'othree/yajs.vim'
         Plug 'heavenshell/vim-jsdoc'
+
+        # group 'php'
+        Plug 'SirVer/ultisnips'
         Plug 'tobyS/vmustache'
         Plug 'tobyS/pdv'
+
+        # group 'markdown'
+        Plug 'godlygeek/tabular'
+        Plug 'plasticboy/vim-markdown'
+        Plug 'amiorin/vim-fenced-code-blocks'
+
+        # group 'nginx'
+        Plug 'evanmiller/nginx-vim-syntax'
+
+        # group 'nfo'
+        Plug 'smilekzs/vim-nfo'
 
 - ### Task `vim_plugins_fcitx`
     Requirement: `git`, `vim`, [task vim_rc](#task-vim_rc)
@@ -144,6 +199,7 @@ You can do a specific task by run
 
     ##### Included plugin(s)
 
+        # group 'fcitx'
         Plug 'CodeFalling/fcitx-vim-osx'
 
 - ### Task `vim_plugins_matchtag`
@@ -154,6 +210,7 @@ You can do a specific task by run
 
     ##### Included plugin(s)
 
+        # group 'matchtag'
         Plug 'valloric/MatchTagAlways'
 
 - ### Task `vim_plugins_snippets`
@@ -163,6 +220,7 @@ You can do a specific task by run
 
     ##### Included plugin(s)
 
+        # group 'snippets'
         Plug 'SirVer/ultisnips'
         Plug 'honza/vim-snippets'
 
@@ -177,6 +235,7 @@ You can do a specific task by run
 
     ##### Included plugin(s)
 
+        # group 'youcompleteme'
         Plug 'Valloric/YouCompleteMe'
 
 - ### Task `git_config`
