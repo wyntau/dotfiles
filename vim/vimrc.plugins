@@ -128,7 +128,7 @@ if (count(g:plugins_groups, 'common') && ! count(g:plugins_groups, '-explorer'))
     " I.......切换隐藏文件是否显示
     " B.......切换书签隐藏显示
 
-  if count(g:plugins_groups, 'git')
+  if (count(g:plugins_groups, 'common') && ! count(g:plugins_groups, '-git')) || count(g:plugins_groups, 'git')
     Plug 'Xuyuanp/nerdtree-git-plugin'
   endif
 
