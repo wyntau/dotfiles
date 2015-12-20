@@ -221,23 +221,11 @@ if (count(g:plugins_groups, 'common') && ! count(g:plugins_groups, '-writing')) 
     let g:delimitMate_expand_cr = 1
     let g:delimitMate_expand_space = 1
 
-  Plug 'godlygeek/tabular'
-    nmap <Leader>a& :Tabularize /&<CR>
-    vmap <Leader>a& :Tabularize /&<CR>
-    nmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
-    vmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
-    nmap <Leader>a=> :Tabularize /=><CR>
-    vmap <Leader>a=> :Tabularize /=><CR>
-    nmap <Leader>a: :Tabularize /:<CR>
-    vmap <Leader>a: :Tabularize /:<CR>
-    nmap <Leader>a:: :Tabularize /:\zs<CR>
-    vmap <Leader>a:: :Tabularize /:\zs<CR>
-    nmap <Leader>a, :Tabularize /,<CR>
-    vmap <Leader>a, :Tabularize /,<CR>
-    nmap <Leader>a,, :Tabularize /,\zs<CR>
-    vmap <Leader>a,, :Tabularize /,\zs<CR>
-    nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-    vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+  Plug 'junegunn/vim-easy-align'
+    " Start interactive EasyAlign in visual mode (e.g. vipga)
+    xmap ga <Plug>(EasyAlign)
+    " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+    nmap ga <Plug>(EasyAlign)
 
   Plug 'wellle/targets.vim'
 
@@ -365,6 +353,7 @@ if (count(g:plugins_groups, 'common') && ! count(g:plugins_groups, '-markdown'))
   Plug 'godlygeek/tabular'
   Plug 'plasticboy/vim-markdown'
     let g:vim_markdown_folding_disabled = 1
+    let g:vim_markdown_frontmatter = 1
   Plug 'amiorin/vim-fenced-code-blocks'
     " :E to edit in the same window, CTRL-^ to go back to the markdown file
     " :EV to edit in the vertical split window, CTRL-W l to go back to the markdown file

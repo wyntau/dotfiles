@@ -146,7 +146,7 @@ You can do a specific task by run
     " group 'writing'
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'Raimondi/delimitMate'
-    Plug 'godlygeek/tabular'
+    Plug 'junegunn/vim-easy-align'
     Plug 'wellle/targets.vim'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-repeat'
