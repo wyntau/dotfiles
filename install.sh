@@ -348,7 +348,7 @@ function ensure_python_pip_support(){
 function ensure_python_neovim_support(){
   # install pynvim module for neovim
   if ( is_program_exists nvim ) && ( ! is_program_exists pynvim ); then
-    info "Installing pynvim for YouCompleteMe plugin in neovim ..."
+    info "Installing pynvim for python-related plugins in neovim ..."
     if [[ `uname -a` =~ "gentoo" ]] && ( is_file_exists /etc/gentoo-release ); then
       # in gentoo, recommend enable python USE flag to automatically install pynvim
       tip "You are using Gentoo Linux."
