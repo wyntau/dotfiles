@@ -55,24 +55,34 @@ You can do a specific task by run
 - ### Task `fonts_source_code_pro`
     Requirements: `git`
 
-    This task will install [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) font for you.
+    This task will install
+    [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) font for you.
 
-    The new version font is compatible with powerline fonts which have some useful symbols used in some vim plugins and shell plugins, and it will update frequently. So use it to replace [Powerline fonts](https://github.com/powerline/fonts).
+    The new version font is compatible with powerline fonts which have some
+    useful symbols used in some vim plugins and shell plugins, and it will
+    update frequently. So use it to replace
+    [Powerline fonts](https://github.com/powerline/fonts).
 
-    This font will be installed automatically when do task [vim_plugins](#task-vim_plugins), [sublime2](#task-sublime2) and [sublime3](#task-sublime3).
+    This font will be installed automatically when do task
+    [vim_plugins](#task-vim_plugins), [sublime2](#task-sublime2) and
+    [sublime3](#task-sublime3).
 
 - ### Task `vim_rc`
     Requirements: `git`, `vim`
 
-    This task will not install any plugin, if you want to use some plugins, do __[task vim_plugins](#task-vim_plugins)__.
+    This task will not install any plugin, if you want to use some plugins, do
+    __[task vim_plugins](#task-vim_plugins)__.
 
-    You can override the system vim with the new one installed by `homebrew`.(OS X only. This is optional, but recommended, because system vim can't use system clipbord via register `+`)
+    You can override the system vim with the new one installed by `homebrew`.
+    (OS X only. This is optional, but recommended, because system vim can't use
+    system clipbord via register `+`)
 
         brew install macvim --with-override-system-vim
 
     And then add the new vim __PATH__ into your `$PATH`.
 
-    Additionally, if you have installed `neovim`, this task will link `vim` to `~/.nvim`, `vim/vimrc` to `~/.nvimrc`.
+    Additionally, if you have installed `neovim`, this task will link `vim` to
+    `~/.nvim`, `vim/vimrc` to `~/.nvimrc`.
 
 - ### Task `vim_plugins`
     Requirement: `git`, `vim`, [task vim_rc](#task-vim_rc)
@@ -108,7 +118,8 @@ You can do a specific task by run
     " Plug 'name/repo'
     ```
 
-    If you want to include most of them but except some one, you can set `g:plugins_groups` like below.
+    If you want to include most of them but except some one, you can set
+    `g:plugins_groups` like below.
 
     ```viml
     " include groups except nfo and git
@@ -199,7 +210,9 @@ You can do a specific task by run
 - ### Task `vim_plugins_fcitx`
     Requirement: `git`, `vim`, [task vim_plugins](#task-vim_plugins)
 
-    Install fcitx support plugin for vim. This plugin help you to switch input method(eg. English and Chinese keyboard) automatically when you switch vim `Insert` and `Normal` mode.
+    Install fcitx support plugin for vim. This plugin help you to switch input
+    method(eg. English and Chinese keyboard) automatically when you switch vim
+    `Insert` and `Normal` mode.
 
     ##### Included plugin(s)
     ```viml
@@ -208,10 +221,12 @@ You can do a specific task by run
     ```
 
 - ### Task `vim_plugins_matchtag`
-    Requirement: `git`, `vim`, `curl`, `python`, [task vim_plugins](#task-vim_plugins)
+    Requirement: `git`, `vim`, `curl`, `python`,
+    [task vim_plugins](#task-vim_plugins)
 
     Install html matchtag plugin for vim. Here i use python version matchtag.
-    If you don't want to include python modules, you can also use non-python version 'gregsexton/MatchTag'
+    If you don't want to include python modules, you can also use non-python
+    version 'gregsexton/MatchTag'
 
     ##### Included plugin(s)
     ```viml
@@ -220,7 +235,8 @@ You can do a specific task by run
     ```
 
 - ### Task `vim_plugins_snippets`
-    Requirement: `git`, `vim`, `curl`, `python`, [task vim_plugins](#task-vim_plugins)
+    Requirement: `git`, `vim`, `curl`, `python`,
+    [task vim_plugins](#task-vim_plugins)
 
     Install vim-snippets plugin for vim.
 
@@ -232,13 +248,17 @@ You can do a specific task by run
     ```
 
 - ### Task `vim_plugins_ycm`
-    Requirement: `git`, `vim`, `curl`, `python`, [task vim_plugins](#task-vim_plugins)
+    Requirement: `git`, `vim`, `curl`, `python`,
+    [task vim_plugins](#task-vim_plugins)
 
     Install YouCompleteMe plugin for vim.
 
-    If YouCompleteMe lib files not exist, or you force YouCompleteMe to recompile with `export YCM_COMPILE_FORCE=true`, YouCompleteMe lib files will be compiled automatically.
+    If YouCompleteMe lib files not exist, or you force YouCompleteMe to
+    recompile with `export YCM_COMPILE_FORCE=true`, YouCompleteMe lib files
+    will be compiled automatically.
 
-    Also you can set `YCM_COMPLETER` with different language support. Available languages are `clang`, `omnisharp` and `gocode`. This option is empty default.
+    Also you can set `YCM_COMPLETER` with different language support. Available
+    languages are `clang`, `omnisharp` and `gocode`. This option is empty default.
 
     ##### Included plugin(s)
     ```viml
@@ -249,7 +269,8 @@ You can do a specific task by run
 - ### Task `git_config`
     Requirement: `git`
 
-    This task will ask you what username and email you want to config global for git
+    This task will ask you what username and email you want to config global
+    for git.
 
 - ### Task `git_dmtool`
     Requirement: `MAC`, `git`, `Kaleidoscope`(`ksdiff`)
@@ -261,17 +282,20 @@ You can do a specific task by run
 - ### Task `git_extras`
     Requirement: `git`
 
-    Install `git-extras` plugin for git. git-extras( _Linux, OS X_ ) has some useful tools for git
+    Install `git-extras` plugin for git. git-extras( _Linux, OS X_ ) has some
+    useful tools for git.
 
 - ### Task `git_flow`
     Requirement: `git`
 
     Install `git-flow` plugin for git.
 
-    A post about git-flow: [a-successful-git-branching-model](http://nvie.com/posts/a-successful-git-branching-model/)
+    A post about git-flow:
+    [a-successful-git-branching-model](http://nvie.com/posts/a-successful-git-branching-model/)
 
 - ### Task `astyle_rc`
-    Requirement: `astyle`. If you have installed `astyle` and press `Q` in vim, astyle will be used to format the *C*, *C++*, *C#*, *Java* file.
+    Requirement: `astyle`. If you have installed `astyle` and press `Q` in vim,
+    astyle will be used to format the *C*, *C++*, *C#*, *Java* file.
 
     __What others maybe you should install?__
 
@@ -285,11 +309,19 @@ You can do a specific task by run
 
     **bakup your preference file first!**
 
-    If you use `Sublime Text 2`, this task will add user Preference, [`Monokai Extended`](https://github.com/jonschlinkert/sublime-monokai-extended) colorscheme and [`Markdown Extended`](https://github.com/jonschlinkert/sublime-markdown-extended) plugin which supports more files including Markdown highlight.
+    If you use `Sublime Text 2`, this task will add user Preference,
+    [`Monokai Extended`](https://github.com/jonschlinkert/sublime-monokai-extended)
+    colorscheme and
+    [`Markdown Extended`](https://github.com/jonschlinkert/sublime-markdown-extended)
+    plugin which supports more files including Markdown highlight.
 
-    After installing the preference, maybe you want to reset `font_face` and `font_size` to what you prefer in `Preference.sublime-settings`. Also you can see what sublime packages I used in [SublimePackages](sublime/README.md).
+    After installing the preference, maybe you want to reset `font_face` and
+    `font_size` to what you prefer in `Preference.sublime-settings`. Also you
+    can see what sublime packages I used in [SublimePackages](sublime/README.md).
 
-    If you use `VIM Mode` in Sublime Text 2 on OS X 10.8+, when you hold `h`, `l`, `j`, `k`, the cursor will not move `left` `right` `down` `up` continually like real VIM, the solution is below.
+    If you use `VIM Mode` in Sublime Text 2 on OS X 10.8+, when you hold `h`,
+    `l`, `j`, `k`, the cursor will not move `left` `right` `down` `up`
+    continually like real VIM, the solution is below.
 
     > Mac OS X Lion introduced a new, iOS-like context menu when you press and hold a key
     > that enables you to choose a character from a menu of options. If you are on Lion
@@ -319,16 +351,22 @@ You can do a specific task by run
 
     **bakup your preference file first!**
 
-    If you use `Sublime Text 3`, this task will add user Preference, [`Monokai Extended`](https://github.com/jonschlinkert/sublime-monokai-extended) colorscheme and [`Markdown Extended`](https://github.com/jonschlinkert/sublime-markdown-extended) plugin which supports more files including Markdown highlight.
+    If you use `Sublime Text 3`, this task will add user Preference,
+    [`Monokai Extended`](https://github.com/jonschlinkert/sublime-monokai-extended)
+    colorscheme and
+    [`Markdown Extended`](https://github.com/jonschlinkert/sublime-markdown-extended)
+    plugin which supports more files including Markdown highlight.
 
 - ### Task `editorconfig`
 
-    Install global `.editorconfig` to you home. You can see [what config is used](editorconfig).
+    Install global `.editorconfig` to you home. You can see
+    [what config is used](editorconfig).
 
 - ### Task `zsh_rc`
     Requirements: `git`, `zsh`
 
-    If you have your own aliases, put them in `~/.zshrc.alias`, zsh will load them automatically.
+    If you have your own aliases, put them in `~/.zshrc.alias`, zsh will load
+    them automatically.
 
     __What zsh plugins are used default?__
 
