@@ -135,8 +135,8 @@ let loaded_matchparen = 1
 " set cursorcolumn
 " 突出显示当前行
 " set cursorline
-" 高亮显示某一列,一般用于显示80列
-set colorcolumn=81
+" 高亮显示某一列,对代码宽度起到提示作用
+set colorcolumn=79
 " 光标移动到buffer的顶部和底部时保持3行距离
 set scrolloff=1
 set sidescrolloff=1
