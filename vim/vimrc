@@ -19,8 +19,8 @@ set nocompatible
 set modeline
 
 " 设置leader为,
-let mapleader=","
-let g:mapleader=","
+let mapleader="\<Space>"
+let g:mapleader="\<Space>"
 
 " =============================================================================
 " Encoding and Locale
@@ -286,12 +286,10 @@ set smartcase
 set nowrapscan
 " 行内替换
 " set gdefault
+
 " Fast remove highlight search
-" 去掉搜索高亮
-nnoremap <silent><leader><cr> :nohlsearch<cr>
-nnoremap <silent><leader>/ :nohlsearch<CR>
-" Re-highlight last search pattern
-nnoremap <leader>hls :set hlsearch<cr>
+" 去掉搜索高亮 ~t~oggle ~h~lsearch
+nnoremap <leader>th :set hlsearch! hlsearch?<CR>
 
 " =============================================================================
 " Buffers
@@ -317,14 +315,6 @@ nnoremap <leader>bh :bprevious<CR>
 nnoremap <leader>bp :bprevious<CR>
 nnoremap <leader>bs :ls<CR>
 nnoremap <leader>bd :bd<CR>
-
-" Close the current buffer and move to the previous one
-" This replicates the idea of closing a tab
-" nnoremap <leader>bq :bp <BAR> bd #<CR>
-
-" Use arrow key to change buffer"
-" noremap <left> :bprevious<CR>
-" noremap <right> :bnext<CR>
 
 " bugfix for using :bd close all buffer and vim {{{
 " Delete buffer while keeping window layout (don't close buffer's windows).

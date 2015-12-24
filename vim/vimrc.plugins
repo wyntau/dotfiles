@@ -66,9 +66,9 @@ if (count(g:plugins_groups, 'common') && ! count(g:plugins_groups, '-explorer'))
   " ==> 快速文件搜索, 类似于sublime中的command + p
   " Plug 'kien/ctrlp.vim'
   Plug 'ctrlpvim/ctrlp.vim'
-    nnoremap <Leader>o :CtrlP<CR>
-    nnoremap <Leader>i :CtrlPBuffer<CR>
-    nnoremap <Leader>u :CtrlPMixed<CR>
+    nnoremap <Leader>ff :CtrlP<CR>
+    nnoremap <Leader>fb :CtrlPBuffer<CR>
+    nnoremap <Leader>fm :CtrlPMixed<CR>
     " create new file in current window
     let g:ctrlp_open_new_file = 'r'
     let g:ctrlp_custom_ignore = {
@@ -107,7 +107,7 @@ if (count(g:plugins_groups, 'common') && ! count(g:plugins_groups, '-explorer'))
     " <c-x>, <c-cr>, <c-s> Open the selected file in a 'horizontal' split.
     " <c-y> Create a new file and its parent directories.
   Plug 'tacahiroy/ctrlp-funky'
-    nnoremap <Leader>r :CtrlPFunky<CR>
+    nnoremap <Leader>fr :CtrlPFunky<CR>
 
   Plug 'scrooloose/nerdtree'
     " o.......打开文件目录或书签
@@ -137,7 +137,7 @@ if (count(g:plugins_groups, 'common') && ! count(g:plugins_groups, '-explorer'))
     let g:nerdtree_tabs_smart_startup_focus = 2
     " 默认不显示NERDTree窗口
     let g:nerdtree_tabs_open_on_gui_startup = 0
-    nmap <leader>nt :NERDTreeTabsToggle<CR>
+    nmap <leader>ft :NERDTreeTabsToggle<CR>
 
   " ==> 快速搜索插件
   " An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
