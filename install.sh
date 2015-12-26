@@ -424,17 +424,6 @@ function install_vim_plugins_ycm(){
   ycmd_path="$APP_PATH/vim/plugins/YouCompleteMe/third_party/ycmd"
   if [[ "$YCM_COMPILE_FORCE" = "true" ]] || ( ! is_file_exists "$ycmd_path/ycm_core.so" ) || ( ! is_file_exists "$ycmd_path/ycm_client_support.so" ); then
     info "Compiling YouCompleteMe libs ..."
-    case $YCM_COMPLETER in
-      clang)
-        YCM_COMPLETER_FLAG="--clang-completer"
-        ;;
-      omnisharp)
-        YCM_COMPLETER_FLAG="--omnisharp-completer"
-        ;;
-      gocode)
-        YCM_COMPLETER_FLAG="--gocode-completer"
-        ;;
-    esac;
     "$APP_PATH/vim/plugins/YouCompleteMe/install.py" $YCM_COMPLETER_FLAG
   fi;
 

@@ -257,8 +257,12 @@ You can do a specific task by run
     recompile with `export YCM_COMPILE_FORCE=true`, YouCompleteMe lib files
     will be compiled automatically.
 
-    Also you can set `YCM_COMPLETER` with different language support. Available
-    languages are `clang`, `omnisharp` and `gocode`. This option is empty default.
+    Also you can set `YCM_COMPLETER_FLAG` with different language support.
+
+    e.g.
+    ```sh
+    YCM_COMPLETER_FLAG="--clang-completer --tern-completer" ./install.sh vim_plugins_ycm
+    ```
 
     ##### Included plugin(s)
     ```viml
