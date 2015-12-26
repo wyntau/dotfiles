@@ -261,8 +261,12 @@ You can do a specific task by run
 
     e.g.
     ```sh
-    YCM_COMPLETER_FLAG="--clang-completer --tern-completer" ./install.sh vim_plugins_ycm
+    YCM_COMPLETER_FLAG="--tern-completer" ./install.sh vim_plugins_ycm
     ```
+
+    If you want to enable `--tern-completer` support, You may want to have `node`
+    and `npm` installed and `.tern-project` config file in you project or
+    `$HOME` directory.
 
     ##### Included plugin(s)
     ```viml
