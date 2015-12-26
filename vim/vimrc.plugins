@@ -180,6 +180,7 @@ endif
 if (count(g:plugins_groups, 'common') && ! count(g:plugins_groups, '-motion')) || count(g:plugins_groups, 'motion')
   " 快速到达指定位置插件
   Plug 'Lokaltog/vim-easymotion'
+    let g:EasyMotion_do_mapping = 0 " Disable default mappings
     let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
     " With this option set, v will match both v and V, but V will match V only. Default: 0.
     let g:EasyMotion_smartcase = 1
@@ -195,11 +196,6 @@ if (count(g:plugins_groups, 'common') && ! count(g:plugins_groups, '-motion')) |
     vmap <C-v> <Plug>(expand_region_shrink)
 
   Plug 't9md/vim-textmanip'
-    xmap <Space>d <Plug>(textmanip-duplicate-down)
-    nmap <Space>d <Plug>(textmanip-duplicate-down)
-    xmap <Space>D <Plug>(textmanip-duplicate-up)
-    nmap <Space>D <Plug>(textmanip-duplicate-up)
-
     xmap <C-j> <Plug>(textmanip-move-down)
     xmap <C-k> <Plug>(textmanip-move-up)
     xmap <C-h> <Plug>(textmanip-move-left)
