@@ -61,7 +61,7 @@ endif
 
 if (count(g:plugins_groups, 'common') && ! count(g:plugins_groups, '-explorer')) || count(g:plugins_groups, 'explorer')
   Plug 'schickling/vim-bufonly'
-    nnoremap <Leader>bo :Bufonly<CR>
+    nnoremap <Leader>bK :Bufonly<CR>
 
   " ==> 快速文件搜索, 类似于sublime中的command + p
   " Plug 'kien/ctrlp.vim'

@@ -306,16 +306,6 @@ set switchbuf=useopen
 " 设置当文件被外部改变的时候自动读入文件
 set autoread
 
-" To open a new empty buffer
-" This replaces :tabnew which I used to bind to this mapping
-nnoremap <leader>bt :enew<CR>
-nnoremap <leader>bl :bnext<CR>
-nnoremap <leader>bn :bnext<CR>
-nnoremap <leader>bh :bprevious<CR>
-nnoremap <leader>bp :bprevious<CR>
-nnoremap <leader>bs :ls<CR>
-nnoremap <leader>bd :bd<CR>
-
 " bugfix for using :bd close all buffer and vim {{{
 " Delete buffer while keeping window layout (don't close buffer's windows).
 " Version 2008-11-18 from http://vim.wikia.com/wiki/VimTip165
@@ -387,8 +377,6 @@ else
     execute wcurrent.'wincmd w'
   endfunction
   command! -bang -complete=buffer -nargs=? Bclose call <SID>Bclose('<bang>', '<args>')
-  nnoremap <silent> <Leader>bd :Bclose<CR>
-  nnoremap <silent> <Leader>bD :Bclose!<CR>
   cabbrev bd Bclose
   cabbrev Bd Bclose
   cabbrev bD Bclose!
@@ -396,6 +384,18 @@ else
   cabbrev bd! Bclose!
   " bugfix end}}}
 endif
+
+" switch to the *scratch* buffer
+nnoremap <leader>bs :enew<CR>
+nnoremap <leader>bn :bnext<CR>
+" like spacemacs `SPC b b` to switch buffer
+nnoremap <leader>bb :bnext<CR>
+nnoremap <leader>bp :bprevious<CR>
+nnoremap <leader>bl :ls<CR>
+" use Bclose to fix bug
+nnoremap <leader>bd :Bclose<CR>
+nnoremap <leader>bk :Bclose<CR>
+
 
 " =============================================================================
 " Windows
@@ -416,8 +416,13 @@ set splitbelow
 set viminfo+=!
 
 " 共享外部剪贴板
-" unnamedplus is not worked in homebrew's macvim, so include unnamed
-set clipboard+=unnamedplus,unnamed
+if has('clipboard')
+  if has('unnamedplus')  " When possible use + register for copy-paste
+    set clipboard=unnamed,unnamedplus
+  else         " On mac and Windows, use * register for copy-paste
+    set clipboard=unnamed
+  endif
+endif
 
 " 删除, 但是不放到公共剪切板
 " Use ,d (or ,dd or ,dj or 20,dd) to delete a line without adding it to the
@@ -544,7 +549,7 @@ set foldmethod=indent
 set foldlevel=99
 set foldlevelstart=99
 " 用空格键来开关折叠
-nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+nnoremap <leader>zz @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 " use zM or zR to foldAll or unfoldAll code
 
 "==========================================
