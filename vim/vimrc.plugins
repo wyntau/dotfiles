@@ -66,9 +66,8 @@ if (count(g:plugins_groups, 'common') && ! count(g:plugins_groups, '-explorer'))
   " ==> 快速文件搜索, 类似于sublime中的command + p
   " Plug 'kien/ctrlp.vim'
   Plug 'ctrlpvim/ctrlp.vim'
-    nnoremap <Leader>ff :CtrlP<CR>
-    nnoremap <Leader>fb :CtrlPBuffer<CR>
-    nnoremap <Leader>fm :CtrlPMixed<CR>
+    nnoremap <Leader>pf :CtrlP<CR>
+    nnoremap <Leader>bb :CtrlPBuffer<CR>
     " create new file in current window
     let g:ctrlp_open_new_file = 'r'
     let g:ctrlp_custom_ignore = {
@@ -107,7 +106,8 @@ if (count(g:plugins_groups, 'common') && ! count(g:plugins_groups, '-explorer'))
     " <c-x>, <c-cr>, <c-s> Open the selected file in a 'horizontal' split.
     " <c-y> Create a new file and its parent directories.
   Plug 'tacahiroy/ctrlp-funky'
-    nnoremap <Leader>fr :CtrlPFunky<CR>
+    " search/symbol jump
+    nnoremap <Leader>sj :CtrlPFunky<CR>
 
   Plug 'scrooloose/nerdtree'
     " o.......打开文件目录或书签

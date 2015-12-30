@@ -19,8 +19,10 @@ set nocompatible
 set modeline
 
 " 设置leader为,
-let mapleader="\<Space>"
-let g:mapleader="\<Space>"
+let mapleader=","
+let g:mapleader=","
+" let mapleader="\<Space>"
+" let g:mapleader="\<Space>"
 
 " =============================================================================
 " Encoding and Locale
@@ -288,8 +290,8 @@ set nowrapscan
 " set gdefault
 
 " Fast remove highlight search
-" 去掉搜索高亮 ~t~oggle ~h~lsearch
-nnoremap <leader>th :set hlsearch! hlsearch?<CR>
+" 去掉搜索高亮 search/symbol highlight persist remove
+nnoremap <leader>sc :set hlsearch! hlsearch?<CR>
 
 " =============================================================================
 " Buffers
