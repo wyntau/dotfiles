@@ -232,8 +232,6 @@ if (count(g:plugins_groups, 'common') && ! count(g:plugins_groups, '-writing')) 
   Plug 'scrooloose/nerdcommenter'
     " 让注释符与语句之间留一个空格
     let g:NERDSpaceDelims = 1
-    " 多行注释时样子更好看
-    let g:NERDCompactSexyComs = 1
 
   " 鼠标多重选择
   Plug 'terryma/vim-multiple-cursors'
