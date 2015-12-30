@@ -21,10 +21,12 @@
 	# diff
 	df = diff
 	dfc = diff --cached
+
 	dfn = diff --name-only
 	dfs = diff --stat
 
 	dft = difftool
+	dfct = difftool --cached
 	dftc = difftool --cached
 
 	# %h => commit hash => like `--abbrev-commit'
