@@ -232,12 +232,19 @@ if (count(g:plugins_groups, 'common') && ! count(g:plugins_groups, '-writing')) 
   Plug 'scrooloose/nerdcommenter'
     " 让注释符与语句之间留一个空格
     let g:NERDSpaceDelims = 1
+    " 不自动绑定键位
+    let g:NERDCreateDefaultMappings = 0
+    " !!! can not use noremap here
+    nmap <leader>cl <Plug>NERDCommenterInvert
+    nmap <leader>cy <Plug>NERDCommenterYank
 
   " 鼠标多重选择
   Plug 'terryma/vim-multiple-cursors'
 
   " 搜索替换快速预览
   Plug 'osyo-manga/vim-over'
+    " search and substitute
+    nnoremap <leader>ss :OverCommandLine<CR>
 endif
 
 if (count(g:plugins_groups, 'common') && ! count(g:plugins_groups, '-git')) || count(g:plugins_groups, 'git')
