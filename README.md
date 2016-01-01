@@ -150,7 +150,10 @@ You can do a specific task by run
     Plug 't9md/vim-choosewin'
 
     " group 'motion'
-    Plug 'Lokaltog/vim-easymotion'
+    Plug 'justinmk/vim-sneak'
+    Plug 'easymotion/vim-easymotion'
+    Plug 'haya14busa/incsearch.vim'
+    Plug 'haya14busa/incsearch-easymotion.vim'
     Plug 'terryma/vim-expand-region'
     Plug 't9md/vim-textmanip'
 

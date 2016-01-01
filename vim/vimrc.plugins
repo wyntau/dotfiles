@@ -178,18 +178,39 @@ if (count(g:plugins_groups, 'common') && ! count(g:plugins_groups, '-explorer'))
 endif
 
 if (count(g:plugins_groups, 'common') && ! count(g:plugins_groups, '-motion')) || count(g:plugins_groups, 'motion')
+  Plug 'justinmk/vim-sneak'
+    let g:sneak#streak = 1
+    "replace 'f' with 1-char Sneak
+    nmap f <Plug>Sneak_f
+    nmap F <Plug>Sneak_F
+    xmap f <Plug>Sneak_f
+    xmap F <Plug>Sneak_F
+    omap f <Plug>Sneak_f
+    omap F <Plug>Sneak_F
+    "replace 't' with 1-char Sneak
+    nmap t <Plug>Sneak_t
+    nmap T <Plug>Sneak_T
+    xmap t <Plug>Sneak_t
+    xmap T <Plug>Sneak_T
+    omap t <Plug>Sneak_t
+    omap T <Plug>Sneak_T
+
   " 快速到达指定位置插件
   Plug 'easymotion/vim-easymotion'
     let g:EasyMotion_do_mapping = 0 " Disable default mappings
     let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
     " With this option set, v will match both v and V, but V will match V only. Default: 0.
     let g:EasyMotion_smartcase = 1
-    " use / map to easymontion's global search
-    map / <Plug>(easymotion-sn)
-    omap / <Plug>(easymotion-tn)
-    nmap s <Plug>(easymotion-s2)
-  " Plug 'justinmk/vim-sneak'
-  " Plug 'haya14busa/incsearch.vim'
+  Plug 'haya14busa/incsearch.vim'
+    map /  <Plug>(incsearch-forward)
+    map ?  <Plug>(incsearch-backward)
+    map g/ <Plug>(incsearch-stay)
+    " <Plug>(incsearch-stay) doesn't move the cursor.
+  " Integration between incsearch.vim and vim-easymotion
+  Plug 'haya14busa/incsearch-easymotion.vim'
+    map z/ <Plug>(incsearch-easymotion-/)
+    map z? <Plug>(incsearch-easymotion-?)
+    map zg/ <Plug>(incsearch-easymotion-stay)
 
   Plug 'terryma/vim-expand-region'
     vmap v <Plug>(expand_region_expand)
