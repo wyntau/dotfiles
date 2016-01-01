@@ -553,7 +553,7 @@ set foldmethod=indent
 set foldlevel=99
 set foldlevelstart=99
 " 用空格键来开关折叠
-nnoremap <leader>zz @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+" use zc or zo to fold and unfold code
 " use zM or zR to foldAll or unfoldAll code
 
 "==========================================

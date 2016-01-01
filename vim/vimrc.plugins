@@ -179,7 +179,7 @@ endif
 
 if (count(g:plugins_groups, 'common') && ! count(g:plugins_groups, '-motion')) || count(g:plugins_groups, 'motion')
   " 快速到达指定位置插件
-  Plug 'Lokaltog/vim-easymotion'
+  Plug 'easymotion/vim-easymotion'
     let g:EasyMotion_do_mapping = 0 " Disable default mappings
     let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
     " With this option set, v will match both v and V, but V will match V only. Default: 0.
