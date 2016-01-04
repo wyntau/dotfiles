@@ -209,7 +209,6 @@ You can do a specific task by run
     " group 'markdown'
     Plug 'godlygeek/tabular'
     Plug 'plasticboy/vim-markdown'
-    Plug 'amiorin/vim-fenced-code-blocks'
 
     " group 'nginx'
     Plug 'evanmiller/nginx-vim-syntax'
