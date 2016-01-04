@@ -208,8 +208,8 @@ You can do a specific task by run
 
     " group 'markdown'
     Plug 'godlygeek/tabular'
-    Plug 'vim-pandoc/vim-pandoc-syntax'
-    Plug 'vim-pandoc/vim-pandoc'
+    Plug 'plasticboy/vim-markdown'
+    Plug 'amiorin/vim-fenced-code-blocks'
 
     " group 'nginx'
     Plug 'evanmiller/nginx-vim-syntax'

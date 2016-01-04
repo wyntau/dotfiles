@@ -373,27 +373,17 @@ endif
 
 if (count(g:plugins_groups, 'common') && !count(g:plugins_groups, '-markdown')) || count(g:plugins_groups, 'markdown')
   Plug 'godlygeek/tabular'
-  function! TableFormat()
-      let l:pos = getpos('.')
-      normal! {
-      " Search instead of `normal! j` because of the table at beginning of file edge case.
-      call search('|')
-      normal! j
-      " Remove everything that is not a pipe othewise well formated tables would grow
-      " because of addition of 2 spaces on the separator line by Tabularize /|.
-      s/[^|]//g
-      Tabularize /|
-      s/ /-/g
-      call setpos('.', l:pos)
-  endfunction
-  command! TableFormat call TableFormat()
+  Plug 'plasticboy/vim-markdown'
+  Plug 'amiorin/vim-fenced-code-blocks'
 
-  Plug 'vim-pandoc/vim-pandoc-syntax'
+  " plasticboy/vim-markdown has a useful function TableFormat
+  " waiting for vim-pandoc/vim-pandoc-syntax#156 for inlinecode highlight correctly
+  " Plug 'vim-pandoc/vim-pandoc-syntax'
     let g:pandoc#syntax#conceal#use = 0
     if !exists('g:pandoc#syntax#codeblocks#embeds#langs')
       let g:pandoc#syntax#codeblocks#embeds#langs = ['viml=vim', 'html', 'css', 'js=javascript', 'php', 'sh']
     endif
-  Plug 'vim-pandoc/vim-pandoc'
+  " Plug 'vim-pandoc/vim-pandoc'
     let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
 endif
 
