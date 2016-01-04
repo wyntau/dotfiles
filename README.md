@@ -1,28 +1,31 @@
 ## What are in the repo
-    dotfile
-    ├── astyle
-    │   └── astylerc
-    ├── editorconfig
-    ├── git
-    │   └── gitconfig
-    ├── sublime2
-    │   ├── Preferences.sublime-settings
-    │   └── README.md
-    ├── sublime3
-    │   ├── Preferences.sublime-settings
-    │   └── README.md
-    ├── terminfo
-    │   ├── README.md
-    │   ├── screen-256color-italic.terminfo
-    │   └── xterm-256color-italic.terminfo
-    ├── tmux
-    │   └── tmux.conf
-    ├── vim
-    │   ├── init.vim -> vimrc
-    │   ├── vimrc
-    │   └── vimrc.plugins
-    └── zsh
-        └── zshrc
+
+```sh
+dotfile
+├── astyle
+│   └── astylerc
+├── editorconfig
+├── git
+│   └── gitconfig
+├── sublime2
+│   ├── Preferences.sublime-settings
+│   └── README.md
+├── sublime3
+│   ├── Preferences.sublime-settings
+│   └── README.md
+├── terminfo
+│   ├── README.md
+│   ├── screen-256color-italic.terminfo
+│   └── xterm-256color-italic.terminfo
+├── tmux
+│   └── tmux.conf
+├── vim
+│   ├── init.vim -> vimrc
+│   ├── vimrc
+│   └── vimrc.plugins
+└── zsh
+    └── zshrc
+```
 
 ## Tasks
 All vailable tasks:
@@ -50,7 +53,9 @@ All vailable tasks:
 
 You can do a specific task by run
 
-    ./install.sh <taskname1>[ <taskname2> <tasknameN> ...]
+```sh
+./install.sh <taskname1>[ <taskname2> <tasknameN> ...]
+```
 
 - ### Task `fonts_source_code_pro`
     Requirements: `git`
@@ -77,7 +82,9 @@ You can do a specific task by run
     (OS X only. This is optional, but recommended, because system vim can't use
     system clipbord via register `+`)
 
-        brew install macvim --with-override-system-vim
+    ```sh
+    brew install macvim --with-override-system-vim
+    ```
 
     And then add the new vim __PATH__ into your `$PATH`.
 
@@ -127,6 +134,7 @@ You can do a specific task by run
     ```
 
     ##### Included plugin(s)
+
     ```viml
     " group 'themes'
     Plug 'tomasr/molokai'
@@ -200,8 +208,8 @@ You can do a specific task by run
 
     " group 'markdown'
     Plug 'godlygeek/tabular'
-    Plug 'plasticboy/vim-markdown'
-    Plug 'amiorin/vim-fenced-code-blocks'
+    Plug 'vim-pandoc/vim-pandoc-syntax'
+    Plug 'vim-pandoc/vim-pandoc'
 
     " group 'nginx'
     Plug 'evanmiller/nginx-vim-syntax'
@@ -218,6 +226,7 @@ You can do a specific task by run
     `Insert` and `Normal` mode.
 
     ##### Included plugin(s)
+
     ```viml
     " group 'fcitx'
     Plug 'CodeFalling/fcitx-vim-osx'
@@ -232,6 +241,7 @@ You can do a specific task by run
     version 'gregsexton/MatchTag'
 
     ##### Included plugin(s)
+
     ```viml
     " group 'matchtag'
     Plug 'valloric/MatchTagAlways'
@@ -244,6 +254,7 @@ You can do a specific task by run
     Install vim-snippets plugin for vim.
 
     ##### Included plugin(s)
+
     ```viml
     " group 'snippets'
     Plug 'SirVer/ultisnips'
@@ -263,6 +274,7 @@ You can do a specific task by run
     Also you can set `YCM_COMPLETER_FLAG` with different language support.
 
     e.g.
+
     ```sh
     YCM_COMPLETER_FLAG="--tern-completer" ./install.sh vim_plugins_ycm
     ```
@@ -272,6 +284,7 @@ You can do a specific task by run
     `$HOME` directory.
 
     ##### Included plugin(s)
+
     ```viml
     " group 'youcompleteme'
     Plug 'Valloric/YouCompleteMe'
@@ -312,8 +325,10 @@ You can do a specific task by run
 
     astyle
 
-        # OS X only
-        brew install astyle
+    ```sh
+    # OS X only
+    brew install astyle
+    ```
 
 - ### Task `sublime2`
     Requirement: `git`, `Sublime Text 2`
