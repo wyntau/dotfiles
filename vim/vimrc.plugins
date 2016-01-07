@@ -390,10 +390,6 @@ if (count(g:plugins_groups, 'common') && !count(g:plugins_groups, '-nginx')) || 
   Plug 'evanmiller/nginx-vim-syntax'
 endif
 
-if (count(g:plugins_groups, 'common') && !count(g:plugins_groups, '-nfo')) || count(g:plugins_groups, 'nfo')
-  Plug 'smilekzs/vim-nfo'
-endif
-
 if count(g:plugins_groups, 'fcitx')
   Plug 'CodeFalling/fcitx-vim-osx'
 endif

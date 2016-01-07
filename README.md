@@ -111,7 +111,6 @@ You can do a specific task by run
     - php
     - markdown
     - nginx
-    - nfo
 
     In above plugins_groups, only `themes` and `interface` will be loaded default.
     After this task complete, you can add your own plugins_group or load your own
@@ -129,8 +128,8 @@ You can do a specific task by run
     `g:plugins_groups` like below.
 
     ```viml
-    " include groups except nfo and git
-    let g:plugins_groups = ['common', '-nfo', '-git']
+    " include groups except git
+    let g:plugins_groups = ['common', '-git']
     ```
 
     ##### Included plugin(s)
@@ -212,9 +211,6 @@ You can do a specific task by run
 
     " group 'nginx'
     Plug 'evanmiller/nginx-vim-syntax'
-
-    " group 'nfo'
-    Plug 'smilekzs/vim-nfo'
     ```
 
 - ### Task `vim_plugins_fcitx`
