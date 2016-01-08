@@ -257,7 +257,9 @@ if (count(g:plugins_groups, 'common') && !count(g:plugins_groups, '-writing')) |
     let g:NERDCreateDefaultMappings = 0
     " !!! can not use noremap here
     nmap <leader>cl <Plug>NERDCommenterInvert
+    vmap <leader>cl <Plug>NERDCommenterInvert
     nmap <leader>cy <Plug>NERDCommenterYank
+    vmap <leader>cy <Plug>NERDCommenterYank
 
   " 鼠标多重选择
   Plug 'terryma/vim-multiple-cursors'
