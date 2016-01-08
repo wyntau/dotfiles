@@ -57,6 +57,21 @@ if !count(g:plugins_groups, '-interface')
     " else
     "   let g:indentLine_color_term = 239
     " endif
+
+  Plug 'mhinz/vim-startify'
+    " fix CtrlP or NERDTree open a split in Startify!~
+    autocmd User Startified setlocal buftype=
+    let g:startify_list_order = [
+      \ ['   LRU:'],
+      \ 'files',
+      \ ['   LRU within this dir:'],
+      \ 'dir',
+      \ ['   Sessions:'],
+      \ 'sessions',
+      \ ['   Bookmarks:'],
+      \ 'bookmarks',
+      \ ]
+    nnoremap <leader>bv :Startify<CR>
 endif
 
 if (count(g:plugins_groups, 'common') && !count(g:plugins_groups, '-explorer')) || count(g:plugins_groups, 'explorer')

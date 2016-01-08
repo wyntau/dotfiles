@@ -145,6 +145,7 @@ You can do a specific task by run
     " group 'interface'
     Plug 'bling/vim-airline'
     Plug 'Yggdroot/indentLine'
+    Plug 'mhinz/vim-startify'
 
     " group 'explorer'
     Plug 'schickling/vim-bufonly'
