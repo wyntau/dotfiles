@@ -387,7 +387,7 @@ You can do a specific task by run
 - ### Task `zsh_rc`
     Requirements: `git`, `zsh`
 
-    If you have your own aliases, put them in `~/.zshrc.alias`, zsh will load
+    If you have your own configs, put them in `~/.zshrc.local`, zsh will load
     them automatically.
 
     **What zsh plugins are used?**
