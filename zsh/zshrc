@@ -93,6 +93,7 @@ if ( is_program_exists git ); then
     gitfast
     git-extras
     git-flow
+    git-flow-completion
   )
 fi;
 

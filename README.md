@@ -410,6 +410,7 @@ You can do a specific task by run
     - gitfast       (when git is installed)
     - git-extras    (when git is installed)
     - git-flow      (when git is installed)
+    - git-flow-completion (when git is installed)
     - httpie        (when httpie is installed)
     - mosh          (when mosh is installed)
     - thefuck       (when thefuck is installed)

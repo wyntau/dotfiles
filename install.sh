@@ -589,13 +589,16 @@ function install_git_flow(){
   must_program_exists "git"
 
   step "Installing git-flow ..."
-
   sync_repo "https://github.com/nvie/gitflow.git" \
             "$APP_PATH/git/.cache/git-flow"
   cd "$APP_PATH/git/.cache/git-flow"
   sudo make install
 
-  success "Successfully installed git-flow."
+  step "Installing git-flow-completion ..."
+  sync_repo "https://github.com/bobthecow/git-flow-completion.git" \
+            "$APP_PATH/zsh/oh-my-zsh/custom/plugins/git-flow-completion"
+
+  success "Successfully installed git-flow and git-flow-completion."
 }
 
 function install_astyle_rc(){
