@@ -76,7 +76,7 @@ You can do a specific task by run
     Requirements: `git`, `vim`
 
     This task will not install any plugin, if you want to use some plugins, do
-    __[task vim_plugins](#task-vim_plugins)__.
+    **[task vim_plugins](#task-vim_plugins)**.
 
     You can override the system vim with the new one installed by `homebrew`.
     (OS X only. This is optional, but recommended, because system vim can't use
@@ -86,7 +86,7 @@ You can do a specific task by run
     brew install macvim --with-override-system-vim
     ```
 
-    And then add the new vim __PATH__ into your `$PATH`.
+    And then add the new vim **PATH** into your `$PATH`.
 
     Additionally, if you have installed `neovim`, this task will link `vim` to
     `~/.nvim`, `vim/vimrc` to `~/.nvimrc`.
@@ -317,7 +317,7 @@ You can do a specific task by run
     Requirement: `astyle`. If you have installed `astyle` and press `Q` in vim,
     astyle will be used to format the *C*, *C++*, *C#*, *Java* file.
 
-    __What others maybe you should install?__
+    **What others maybe you should install?**
 
     astyle
 
@@ -390,32 +390,31 @@ You can do a specific task by run
     If you have your own aliases, put them in `~/.zshrc.alias`, zsh will load
     them automatically.
 
-    __What zsh plugins are used default?__
+    **What zsh plugins are used?**
 
-    - colored-man-pages
-    - encode64
-    - extract
-    - fzf-zsh(fzf)
-    - sublime
-    - sudo
-    - zsh_reload
-    - zsh-syntax-highlighting
-    - zsh-autosuggestions
-    - zsh-autosuggestions-conf
-
-    __What zsh plugins are used when relational programs installed?__
-
-    - brew          (when brew is installed)
-    - fasd          (when fasd is installed, otherwise z is used)
-    - gitfast       (when git is installed)
-    - git-extras    (when git is installed)
-    - git-flow      (when git is installed)
-    - git-flow-completion (when git is installed)
-    - httpie        (when httpie is installed)
-    - mosh          (when mosh is installed)
-    - thefuck       (when thefuck is installed)
-    - tmux          (when tmux is installed)
-    - osx           (OS X only)
+    | plugin                   | require                                               | note                                           |
+    |--------------------------|-------------------------------------------------------|------------------------------------------------|
+    | colored-man-pages        |                                                       |                                                |
+    | encode64                 |                                                       |                                                |
+    | extract                  |                                                       |                                                |
+    | fzf-zsh(fzf)             | [task zsh_plugins_fzf](#task-zsh_plugins_fzf)         |                                                |
+    | sublime                  |                                                       |                                                |
+    | sudo                     |                                                       |                                                |
+    | zsh_reload               |                                                       |                                                |
+    | zsh-syntax-highlighting  |                                                       |                                                |
+    | zsh-autosuggestions      |                                                       | disabled in Emacs eshell                       |
+    | zsh-autosuggestions-conf |                                                       | disabled in Emacs eshell                       |
+    | brew                     | brew                                                  |                                                |
+    | fasd(z)                  | [task zsh_plugins_fasd](#task-zsh_plugins_fasd)       | z is used otherwise when fasd is not installed |
+    | gitfast                  | git                                                   |                                                |
+    | git-extras               | git                                                   |                                                |
+    | git-flow                 | [task git_flow](#task-git_flow)                       |                                                |
+    | git-flow-completion      | [task git_flow](#task-git_flow)                       |                                                |
+    | httpie                   | httpie                                                |                                                |
+    | mosh                     | mosh                                                  |                                                |
+    | thefuck                  | [task zsh_plugins_thefuck](#task-zsh_plugins_thefuck) |                                                |
+    | tmux                     | tmux                                                  |                                                |
+    | osx                      | OS X                                                  |                                                |
 
     So, maybe you should install some of them to make full use of zsh.
 
