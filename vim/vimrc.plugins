@@ -1,8 +1,8 @@
 
 call plug#begin('~/.vim/plugins')
 
-if !exists('g:plugins_cores')
-  let g:plugins_cores = ['themes', 'interface']
+if !exists('g:dotvim_cores')
+  let g:dotvim_cores = ['themes', 'interface']
 endif
 
 " If user have own plugins or configs, load them here
@@ -10,13 +10,13 @@ if filereadable(expand("~/.vimrc.plugins.local"))
   source ~/.vimrc.plugins.local
 endif
 
-if !exists('g:plugins_groups')
+if !exists('g:dotvim_groups')
   " more options: ['explorer', 'motion', 'writing', 'git', 'tmux', 'html', 'css', 'js', 'php', 'markdown', 'nginx', 'nfo', 'fcitx', 'matchtag', 'snippets', 'youcompleteme']
-  let g:plugins_groups = []
+  let g:dotvim_groups = []
 endif
 
 "" core themes
-if !count(g:plugins_groups, '-themes')
+if !count(g:dotvim_groups, '-themes')
   Plug 'tomasr/molokai'
     "If you prefer the scheme to match the original monokai background color
     let g:molokai_original = 1
@@ -35,7 +35,7 @@ if !count(g:plugins_groups, '-themes')
   Plug 'zeis/vim-kolor'
 endif
 
-if !count(g:plugins_groups, '-interface')
+if !count(g:dotvim_groups, '-interface')
   " ==> vim-airline
   Plug 'bling/vim-airline'
     " set airline to use powerline symbols
@@ -74,7 +74,7 @@ if !count(g:plugins_groups, '-interface')
     nnoremap <leader>bv :Startify<CR>
 endif
 
-if (count(g:plugins_groups, 'common') && !count(g:plugins_groups, '-explorer')) || count(g:plugins_groups, 'explorer')
+if (count(g:dotvim_groups, 'common') && !count(g:dotvim_groups, '-explorer')) || count(g:dotvim_groups, 'explorer')
   Plug 'schickling/vim-bufonly'
     nnoremap <Leader>bK :Bufonly<CR>
 
@@ -143,7 +143,7 @@ if (count(g:plugins_groups, 'common') && !count(g:plugins_groups, '-explorer')) 
     " I.......切换隐藏文件是否显示
     " B.......切换书签隐藏显示
 
-  if (count(g:plugins_groups, 'common') && !count(g:plugins_groups, '-git')) || count(g:plugins_groups, 'git')
+  if (count(g:dotvim_groups, 'common') && !count(g:dotvim_groups, '-git')) || count(g:dotvim_groups, 'git')
     Plug 'Xuyuanp/nerdtree-git-plugin'
   endif
 
@@ -192,7 +192,7 @@ if (count(g:plugins_groups, 'common') && !count(g:plugins_groups, '-explorer')) 
     " S swap_stay Swap windows but stay #1
 endif
 
-if (count(g:plugins_groups, 'common') && !count(g:plugins_groups, '-motion')) || count(g:plugins_groups, 'motion')
+if (count(g:dotvim_groups, 'common') && !count(g:dotvim_groups, '-motion')) || count(g:dotvim_groups, 'motion')
   Plug 'justinmk/vim-sneak'
     let g:sneak#streak = 1
     "replace 'f' with 1-char Sneak
@@ -242,7 +242,7 @@ if (count(g:plugins_groups, 'common') && !count(g:plugins_groups, '-motion')) ||
     xmap <F10> <Plug>(textmanip-toggle-mode)
 endif
 
-if (count(g:plugins_groups, 'common') && !count(g:plugins_groups, '-writing')) || count(g:plugins_groups, 'writing')
+if (count(g:dotvim_groups, 'common') && !count(g:dotvim_groups, '-writing')) || count(g:dotvim_groups, 'writing')
 
   " ==> Trailing whitespace
   Plug 'ntpeters/vim-better-whitespace'
@@ -285,7 +285,7 @@ if (count(g:plugins_groups, 'common') && !count(g:plugins_groups, '-writing')) |
     nnoremap <leader>ss :OverCommandLine<CR>
 endif
 
-if (count(g:plugins_groups, 'common') && !count(g:plugins_groups, '-git')) || count(g:plugins_groups, 'git')
+if (count(g:dotvim_groups, 'common') && !count(g:dotvim_groups, '-git')) || count(g:dotvim_groups, 'git')
   Plug 'airblade/vim-gitgutter'
   " default maps
   " nmap [c <Plug>GitGutterPrevHunk
@@ -296,7 +296,7 @@ if (count(g:plugins_groups, 'common') && !count(g:plugins_groups, '-git')) || co
   " Plug 'jreybert/vimagit'
 endif
 
-if (count(g:plugins_groups, 'common') && !count(g:plugins_groups, '-tmux')) || count(g:plugins_groups, 'tmux')
+if (count(g:dotvim_groups, 'common') && !count(g:dotvim_groups, '-tmux')) || count(g:dotvim_groups, 'tmux')
   Plug 'tmux-plugins/vim-tmux'
   " FocusGained and FocusLost autocommand events are not working in terminal vim.
   " This plugin restores them when using vim inside Tmux.
@@ -332,7 +332,7 @@ endif
 """ ==========================
 
 
-if (count(g:plugins_groups, 'common') && !count(g:plugins_groups, '-html')) || count(g:plugins_groups, 'html')
+if (count(g:dotvim_groups, 'common') && !count(g:dotvim_groups, '-html')) || count(g:dotvim_groups, 'html')
   " ==> extended % matching for HTML, LaTeX, and many other languages
   Plug 'tmhedberg/matchit'
 
@@ -341,7 +341,7 @@ if (count(g:plugins_groups, 'common') && !count(g:plugins_groups, '-html')) || c
     let g:user_emmet_mode='inv'
 endif
 
-if (count(g:plugins_groups, 'common') && !count(g:plugins_groups, '-css')) || count(g:plugins_groups, 'css')
+if (count(g:dotvim_groups, 'common') && !count(g:dotvim_groups, '-css')) || count(g:dotvim_groups, 'css')
   " Write styles faster. Much faster.
   " Plug 'rstacruz/vim-hyperstyle'
 
@@ -357,7 +357,7 @@ if (count(g:plugins_groups, 'common') && !count(g:plugins_groups, '-css')) || co
   Plug 'Marslo/vim-coloresque', {'for': ['css', 'less', 'scss']}
 endif
 
-if (count(g:plugins_groups, 'common') && !count(g:plugins_groups, '-js')) || count(g:plugins_groups, 'js')
+if (count(g:dotvim_groups, 'common') && !count(g:dotvim_groups, '-js')) || count(g:dotvim_groups, 'js')
   Plug 'leafgarland/typescript-vim'
 
   Plug 'kchmck/vim-coffee-script'
@@ -376,7 +376,7 @@ if (count(g:plugins_groups, 'common') && !count(g:plugins_groups, '-js')) || cou
   autocmd Filetype {javascript,javascript.jsx} map <leader>doc :JsDoc<CR>
 endif
 
-if (count(g:plugins_groups, 'common') && !count(g:plugins_groups, '-php')) || count(g:plugins_groups, 'php')
+if (count(g:dotvim_groups, 'common') && !count(g:dotvim_groups, '-php')) || count(g:dotvim_groups, 'php')
   Plug 'SirVer/ultisnips'
     let g:UltiSnipsUsePythonVersion = 2
   " required by tobys/pdv
@@ -388,7 +388,7 @@ if (count(g:plugins_groups, 'common') && !count(g:plugins_groups, '-php')) || co
   autocmd Filetype php map <leader>doc :call pdv#DocumentWithSnip()<CR>
 endif
 
-if (count(g:plugins_groups, 'common') && !count(g:plugins_groups, '-markdown')) || count(g:plugins_groups, 'markdown')
+if (count(g:dotvim_groups, 'common') && !count(g:dotvim_groups, '-markdown')) || count(g:dotvim_groups, 'markdown')
   Plug 'godlygeek/tabular'
   Plug 'plasticboy/vim-markdown'
 
@@ -403,19 +403,19 @@ if (count(g:plugins_groups, 'common') && !count(g:plugins_groups, '-markdown')) 
     let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
 endif
 
-if (count(g:plugins_groups, 'common') && !count(g:plugins_groups, '-nginx')) || count(g:plugins_groups, 'nginx')
+if (count(g:dotvim_groups, 'common') && !count(g:dotvim_groups, '-nginx')) || count(g:dotvim_groups, 'nginx')
   Plug 'evanmiller/nginx-vim-syntax'
 endif
 
-if count(g:plugins_groups, 'fcitx')
+if count(g:dotvim_groups, 'fcitx')
   Plug 'CodeFalling/fcitx-vim-osx'
 endif
 
-if count(g:plugins_groups, 'matchtag')
+if count(g:dotvim_groups, 'matchtag')
   Plug 'Valloric/MatchTagAlways'
 endif
 
-if count(g:plugins_groups, 'snippets')
+if count(g:dotvim_groups, 'snippets')
   Plug 'SirVer/ultisnips'
     let g:UltiSnipsUsePythonVersion = 2
   Plug 'honza/vim-snippets'
@@ -424,7 +424,7 @@ if count(g:plugins_groups, 'snippets')
     let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 endif
 
-if count(g:plugins_groups, 'youcompleteme')
+if count(g:dotvim_groups, 'youcompleteme')
   " 语法分析插件
   " Plug 'scrooloose/syntastic'
   " 更强大的补全插件

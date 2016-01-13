@@ -96,7 +96,7 @@ You can do a specific task by run
 
     Setup vim-plug, and load other plugins.
 
-    We have some plugins_group below.
+    We have some dotvim_group below.
 
     - themes
     - interface
@@ -112,24 +112,24 @@ You can do a specific task by run
     - markdown
     - nginx
 
-    In above plugins_groups, only `themes` and `interface` will be loaded default.
-    After this task complete, you can add your own plugins_group or load your own
+    In above dotvim_groups, only `themes` and `interface` will be loaded default.
+    After this task complete, you can add your own dotvim_group or load your own
     plugins in `~/.vimrc.plugin.local` like below.
 
     ```viml
     " load some plugins groups
-    let g:plugins_groups = ['explorer', 'git', 'js']
+    let g:dotvim_groups = ['explorer', 'git', 'js']
 
     " load your own plugins
     " Plug 'name/repo'
     ```
 
     If you want to include most of them but except some one, you can set
-    `g:plugins_groups` like below.
+    `g:dotvim_groups` like below.
 
     ```viml
     " include groups except git
-    let g:plugins_groups = ['common', '-git']
+    let g:dotvim_groups = ['common', '-git']
     ```
 
     ##### Included plugin(s)
