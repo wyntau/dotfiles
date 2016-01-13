@@ -254,12 +254,12 @@ function install_vim_rc(){
   success "You can add your own configs to ~/.vimrc.local, vim will source them automatically"
 }
 
-function append_plugins_group(){
+function append_dotvim_group(){
   local group=$1
   local conf="$HOME/.vimrc.plugins.local"
 
-  if ! grep -iE "^[ \t]*let[ \t]+g:plugins_groups[ \t]*=[ \t]*\[.+]" "$conf" &>/dev/null ; then
-    echo "let g:plugins_groups = ['$group']" > "$conf"
+  if ! grep -iE "^[ \t]*let[ \t]+g:dotvim_groups[ \t]*=[ \t]*\[.+]" "$conf" &>/dev/null ; then
+    echo "let g:dotvim_groups = ['$group']" > "$conf"
   elif ! grep -iE "'$group'" "$conf" &>/dev/null; then
     echo `sed -e "s/]/, '$group']/" "$conf"` > "$conf"
     if grep -iE "\[[ \t]*," "$conf" &>/dev/null; then
@@ -318,7 +318,7 @@ function install_vim_plugins_fcitx(){
          "/usr/local/bin/fcitx-remote"
   fi;
 
-  append_plugins_group "fcitx"
+  append_dotvim_group "fcitx"
 
   vim +PlugInstall +qall
 
@@ -378,7 +378,7 @@ function install_vim_plugins_matchtag(){
   # check whether have neovim. if have, make sure neovim have python feature support
   ensure_python_neovim_support
 
-  append_plugins_group "matchtag"
+  append_dotvim_group "matchtag"
 
   vim +PlugInstall +qall
 
@@ -396,7 +396,7 @@ function install_vim_plugins_snippets(){
   # check whether have neovim. if have, make sure neovim have python feature support
   ensure_python_neovim_support
 
-  append_plugins_group "snippets"
+  append_dotvim_group "snippets"
 
   vim +PlugInstall +qall
 
@@ -427,7 +427,7 @@ function install_vim_plugins_ycm(){
     "$APP_PATH/vim/plugins/YouCompleteMe/install.py" $YCM_COMPLETER_FLAG
   fi;
 
-  append_plugins_group "youcompleteme"
+  append_dotvim_group "youcompleteme"
 
   success "Successfully installed YouCompleteMe plugin."
 }
