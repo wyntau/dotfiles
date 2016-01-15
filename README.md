@@ -143,7 +143,7 @@ You can do a specific task by run
     Plug 'zeis/vim-kolor'
 
     " group 'interface'
-    Plug 'bling/vim-airline'
+    Plug 'vim-airline/vim-airline'
     Plug 'Yggdroot/indentLine'
     Plug 'mhinz/vim-startify'
 

@@ -37,7 +37,7 @@ endif
 
 if !count(g:dotvim_groups, '-interface')
   " ==> vim-airline
-  Plug 'bling/vim-airline'
+  Plug 'vim-airline/vim-airline'
     " set airline to use powerline symbols
     let g:airline_powerline_fonts = 1
     let g:airline#extensions#tabline#enabled = 1
