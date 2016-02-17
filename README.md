@@ -38,6 +38,7 @@ All vailable tasks:
 - [vim_plugins_snippets](#task-vim_plugins_snippets)
 - [vim_plugins_ycm](#task-vim_plugins_ycm)
 - [git_config](#task-git_config)
+- [git_diff_fancy](#task-git_diff_fancy)
 - [git_dmtool](#task-git_dmtool)
 - [git_extras](#task-git_extras)
 - [git_flow](#task-git_flow)
@@ -291,6 +292,11 @@ You can do a specific task by run
 
     This task will ask you what username and email you want to config global
     for git.
+
+- ### Task `git_diff_fancy`
+    Requirement: `git`
+
+    Install `diff-so-fancy` plugin for git. Please see [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 
 - ### Task `git_dmtool`
     Requirement: `MAC`, `git`, `Kaleidoscope`(`ksdiff`)

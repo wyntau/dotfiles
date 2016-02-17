@@ -162,6 +162,7 @@ function usage(){
   echo '    - vim_plugins_snippets'
   echo '    - vim_plugins_ycm'
   echo '    - git_config'
+  echo '    - git_diff_fancy'
   echo '    - git_dmtool'
   echo '    - git_extras'
   echo '    - git_flow'
@@ -542,6 +543,33 @@ function install_git_config(){
   success "Successfully installed gitconfig."
 }
 
+function install_git_diff_fancy(){
+
+  must_program_exists "git"
+
+  step "Installing git diff-so-fancy ..."
+
+  sync_repo "https://github.com/so-fancy/diff-so-fancy.git" \
+            "$APP_PATH/git/.cache/diff-so-fancy"
+  cd "$APP_PATH/git/.cache/diff-so-fancy"
+
+  lnif "$APP_PATH/git/.cache/diff-so-fancy/diff-so-fancy" \
+       "/usr/local/bin/diff-so-fancy"
+  lnif "$APP_PATH/git/.cache/diff-so-fancy/third_party/diff-highlight/diff-highlight" \
+       "/usr/local/bin/diff-highlight"
+
+  git config --global pager.diff 'diff-so-fancy | less --tabs=1,5 -RFX'
+  git config --global pager.show 'diff-so-fancy | less --tabs=1,5 -RFX'
+  git config --global alias.dff '!git diff --color $@ | diff-so-fancy'
+
+  git config --global color.diff-highlight.oldNormal "red bold"
+  git config --global color.diff-highlight.oldHighlight "red bold 52"
+  git config --global color.diff-highlight.newNormal "green bold"
+  git config --global color.diff-highlight.newHighlight "green bold 22"
+
+  success "Successfully installed git diff-so-fancy."
+}
+
 function install_git_dmtool(){
 
   if ( ! is_mac ); then
@@ -781,6 +809,9 @@ else
         ;;
       git_config)
         install_git_config
+        ;;
+      git_diff_fancy)
+        install_git_diff_fancy
         ;;
       git_dmtool)
         install_git_dmtool
