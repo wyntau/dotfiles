@@ -148,9 +148,16 @@ plugins=(
   sudo
   zsh_reload
   zsh-syntax-highlighting
-  zsh-autosuggestions
-  zsh-autosuggestions-conf
 )
+
+# only init zsh-autosuggestions when we not in emacs terms, because terms in
+# emacs will not render zsh-autosuggestions gray color correctyly
+if [[ "$INSIDE_EMACS" == "" ]]; then
+  plugins=(
+    $plugins
+    zsh-autosuggestions
+  )
+fi;
 
 source $ZSH/oh-my-zsh.sh
 
