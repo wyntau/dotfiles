@@ -257,14 +257,14 @@ function install_vim_rc(){
 
 function append_dotvim_group(){
   local group=$1
-  local conf="$HOME/.vimrc.plugins.local"
+  local conf="$HOME/.vimrc.plugins.before"
 
   if ! grep -iE "^[ \t]*let[ \t]+g:dotvim_groups[ \t]*=[ \t]*\[.+]" "$conf" &>/dev/null ; then
-    echo "let g:dotvim_groups = ['$group']" > "$conf"
+    printf "\nlet g:dotvim_groups = ['$group']" >> "$conf"
   elif ! grep -iE "'$group'" "$conf" &>/dev/null; then
-    echo `sed -e "s/]/, '$group']/" "$conf"` > "$conf"
+    sed -e "s/]/, '$group']/" "$conf" | tee "$conf" &>/dev/null
     if grep -iE "\[[ \t]*," "$conf" &>/dev/null; then
-      echo `sed -e "s/\[[ \t]*,[ \t]*/[/" "$conf"` > "$conf"
+      sed -e "s/\[[ \t]*,[ \t]*/[/" "$conf" | tee "$conf" &>/dev/null
     fi;
   fi;
 }

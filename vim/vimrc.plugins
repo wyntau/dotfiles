@@ -1,13 +1,11 @@
-
 call plug#begin('~/.vim/plugins')
+
+if filereadable(expand("~/.vimrc.plugins.before"))
+  source ~/.vimrc.plugins.before
+endif
 
 if !exists('g:dotvim_cores')
   let g:dotvim_cores = ['themes', 'interface']
-endif
-
-" If user have own plugins or configs, load them here
-if filereadable(expand("~/.vimrc.plugins.local"))
-  source ~/.vimrc.plugins.local
 endif
 
 if !exists('g:dotvim_groups')
@@ -456,6 +454,11 @@ if count(g:dotvim_groups, 'youcompleteme')
     " HACK: when popup menu shows, use enter to confirm select one complete option
     " imap <expr> <CR> pumvisible() ? "<c-y>" : "<cr>"
   endif
+endif
+
+" If user have own plugins or configs, load them here
+if filereadable(expand("~/.vimrc.plugins.local"))
+  source ~/.vimrc.plugins.local
 endif
 
 call plug#end()

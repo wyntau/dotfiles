@@ -133,6 +133,10 @@ let loaded_matchparen = 1
 " Appearance
 " =============================================================================
 
+set t_Co=256
+set background=dark
+colorscheme desert
+
 " NOTE: enable cursorline and cursorcolumn will use more than 30% CPU when `CursorMoved` and `CursorMovedI`
 " so horrible! let's disable them
 " 突出显示当前列
@@ -159,6 +163,11 @@ set t_vb=
 " " http://www.shallowsky.com/linux/noaltscreen.html
 " set t_ti=
 " set t_te=
+
+" 开启高亮语法显示
+syntax enable
+syntax sync minlines=50 maxlines=90
+set synmaxcol=300
 
 " 显示行号
 set number
@@ -635,17 +644,6 @@ if filereadable(expand("~/.vimrc.plugins"))
   source ~/.vimrc.plugins
 endif
 
-"==========================================
-" colortheme 主题,及一些展示上颜色的修改
-"==========================================
-
-set t_Co=256
-" 开启高亮语法显示
-syntax enable
-syntax sync minlines=50 maxlines=90
-set synmaxcol=300
-set background=dark
-colorscheme desert
 silent! colorscheme molokai
 " set background transparent
 " hi Normal guibg=black ctermbg=NONE

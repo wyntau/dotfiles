@@ -81,7 +81,7 @@ You can do a specific task by run
 
     You can override the system vim with the new one installed by `homebrew`.
     (OS X only. This is optional, but recommended, because system vim can't use
-    system clipbord via register `+`)
+    system clipbord via register `+`).
 
     ```sh
     brew install macvim --with-override-system-vim
@@ -91,6 +91,8 @@ You can do a specific task by run
 
     Additionally, if you have installed `neovim`, this task will link `vim` to
     `~/.nvim`, `vim/vimrc` to `~/.nvimrc`.
+
+    You can add your custom configs or override dotvim configs in `~/.vimrc.local`.
 
 - ### Task `vim_plugins`
     Requirement: `git`, `vim`, [task vim_rc](#task-vim_rc)
@@ -114,24 +116,41 @@ You can do a specific task by run
     - nginx
 
     In above dotvim_groups, only `themes` and `interface` will be loaded default.
-    After this task complete, you can add your own dotvim_group or load your own
-    plugins in `~/.vimrc.plugin.local` like below.
+
+    You can add already defined dotvim_group above in `~/.vimrc.plugins.before`
+    like below.
 
     ```viml
     " load some plugins groups
     let g:dotvim_groups = ['explorer', 'git', 'js']
-
-    " load your own plugins
-    " Plug 'name/repo'
     ```
 
-    If you want to include most of them but except some one, you can set
-    `g:dotvim_groups` like below.
+    You can also add a virtual group `common` to `g:dotvim_groups` to include
+    all groups, and then use `-*` syntax to exclude some ones like below.
 
     ```viml
     " include groups except git
     let g:dotvim_groups = ['common', '-git']
     ```
+
+    If you want to override some plugin configs or to use some other plugins, you
+    can add them in `~/.vimrc.plugins.local` like below.
+
+    ```viml
+    " load your custom plugins in ~/.vimrc.plugins.local
+    " Plug 'name/repo'
+
+    " or override plugin configs already defined in ~/.vimrc.plugins
+    " let g:some_config = 'value'
+    ```
+
+    The load order for the configuration is:
+
+    1. `.vimrc` - dotvim configs
+    2. `.vimrc.plugins.before` - user's dotvim_groups define
+    3. `.vimrc.plugins` - dotvim plugins and plugin configs
+    4. `.vimrc.plugins.local` - user's custom plugins and plugin configs
+    5. `.vimrc.local` - user's custom configs
 
     ##### Included plugin(s)
 
