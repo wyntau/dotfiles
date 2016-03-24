@@ -64,7 +64,7 @@ You can do a specific task by run
 ```
 
 - ### Task `fonts_source_code_pro`
-    Requirements: `git`
+    Requirement(s): `git`
 
     This task will install
     [Source Code Pro](https://github.com/adobe-fonts/source-code-pro) font for you.
@@ -79,7 +79,7 @@ You can do a specific task by run
     [sublime3](#task-sublime3) and [vscode](#task-vscode).
 
 - ### Task `vim_rc`
-    Requirements: `git`, `vim`
+    Requirement(s): `git`, `vim`
 
     This task will not install any plugin, if you want to use some plugins, do
     **[task vim_plugins](#task-vim_plugins)**.
@@ -100,7 +100,7 @@ You can do a specific task by run
     You can add your custom configs or override dotvim configs in `~/.vimrc.local`.
 
 - ### Task `vim_plugins`
-    Requirement: `git`, `vim`, [task vim_rc](#task-vim_rc)
+    Requirement(s): `git`, `vim`, [task vim_rc](#task-vim_rc)
 
     Setup vim-plug, and load other plugins.
 
@@ -240,7 +240,7 @@ You can do a specific task by run
     ```
 
 - ### Task `vim_plugins_fcitx`
-    Requirement: `git`, `vim`, [task vim_plugins](#task-vim_plugins)
+    Requirement(s): `git`, `vim`, [task vim_plugins](#task-vim_plugins)
 
     Install fcitx support plugin for vim. This plugin help you to switch input
     method(eg. English and Chinese keyboard) automatically when you switch vim
@@ -254,7 +254,7 @@ You can do a specific task by run
     ```
 
 - ### Task `vim_plugins_matchtag`
-    Requirement: `git`, `vim`, `curl`, `python`,
+    Requirement(s): `git`, `vim`, `curl`, `python`,
     [task vim_plugins](#task-vim_plugins)
 
     Install html matchtag plugin for vim. Here i use python version matchtag.
@@ -269,7 +269,7 @@ You can do a specific task by run
     ```
 
 - ### Task `vim_plugins_snippets`
-    Requirement: `git`, `vim`, `curl`, `python`,
+    Requirement(s): `git`, `vim`, `curl`, `python`,
     [task vim_plugins](#task-vim_plugins)
 
     Install vim-snippets plugin for vim.
@@ -283,7 +283,7 @@ You can do a specific task by run
     ```
 
 - ### Task `vim_plugins_ycm`
-    Requirement: `git`, `vim`, `curl`, `python`,
+    Requirement(s): `git`, `vim`, `curl`, `python`,
     [task vim_plugins](#task-vim_plugins)
 
     Install YouCompleteMe plugin for vim.
@@ -312,31 +312,31 @@ You can do a specific task by run
     ```
 
 - ### Task `git_config`
-    Requirement: `git`
+    Requirement(s): `git`
 
     This task will ask you what username and email you want to config global
     for git.
 
 - ### Task `git_diff_fancy`
-    Requirement: `git`
+    Requirement(s): `git`
 
     Install `diff-so-fancy` plugin for git. Please see [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 
 - ### Task `git_dmtool`
-    Requirement: `MAC`, `git`, `Kaleidoscope`(`ksdiff`)
+    Requirement(s): `MAC`, `git`, `Kaleidoscope`(`ksdiff`)
 
     Config git's difftool and mergetool to Kaleidoscope.
 
     Kaleidoscope is a sooooo excellent diff and merge tool
 
 - ### Task `git_extras`
-    Requirement: `git`
+    Requirement(s): `git`
 
     Install `git-extras` plugin for git. git-extras( _Linux, OS X_ ) has some
     useful tools for git.
 
 - ### Task `git_flow`
-    Requirement: `git`
+    Requirement(s): `git`
 
     Install `git-flow` plugin for git.
 
@@ -344,7 +344,7 @@ You can do a specific task by run
     [a-successful-git-branching-model](http://nvie.com/posts/a-successful-git-branching-model/)
 
 - ### Task `astyle_rc`
-    Requirement: `astyle`. If you have installed `astyle` and press `Q` in vim,
+    Requirement(s): `astyle`. If you have installed `astyle` and press `Q` in vim,
     astyle will be used to format the *C*, *C++*, *C#*, *Java* file.
 
     **What others maybe you should install?**
@@ -357,7 +357,7 @@ You can do a specific task by run
     ```
 
 - ### Task `sublime2`
-    Requirement: `git`, `Sublime Text 2`
+    Requirement(s): `git`, `Sublime Text 2`
 
     **bakup your preference file first!**
 
@@ -399,7 +399,7 @@ You can do a specific task by run
     > Happy coding!
 
 - ### Task `sublime3`
-    Requirement: `git`, `Sublime Text 3`
+    Requirement(s): `git`, `Sublime Text 3`
 
     **bakup your preference file first!**
 
@@ -410,7 +410,7 @@ You can do a specific task by run
     plugin which supports more files including Markdown highlight.
 
 - ### Task `vscode`
-    Requirement: `git`, [Visual Studio Code](https://code.visualstudio.com)
+    Requirement(s): `git`, [Visual Studio Code](https://code.visualstudio.com)
 
     Install custom `settings.json` and `keybindings.json` for vscode.
 
@@ -425,7 +425,7 @@ You can do a specific task by run
     [what config is used](editorconfig).
 
 - ### Task `zsh_rc`
-    Requirements: `git`, `zsh`
+    Requirement(s): `git`, `zsh`
 
     If you have your own configs, put them in `~/.zshrc.local`, zsh will load
     them automatically.
@@ -458,22 +458,22 @@ You can do a specific task by run
     So, maybe you should install some of them to make full use of zsh.
 
 - ### Task `zsh_plugins_fasd`
-    Requirements: `git`, `zsh`, [task zsh_rc](#task-zsh_rc)
+    Requirement(s): `git`, `zsh`, [task zsh_rc](#task-zsh_rc)
 
     Install oh-my-zsh plugin `fasd`, replace default `z`
 
 - ### Task `zsh_plugins_fzf`
-    Requirements: `git`, `zsh`, [task zsh_rc](#task-zsh_rc)
+    Requirement(s): `git`, `zsh`, [task zsh_rc](#task-zsh_rc)
 
     Install oh-my-zsh plugin `fzf`
 
 - ### Task `zsh_plugins_thefuck`
-    Requirements: `git`, `zsh`, [task zsh_rc](#task-zsh_rc)
+    Requirement(s): `git`, `zsh`, [task zsh_rc](#task-zsh_rc)
 
     Install oh-my-zsh plugin `thefuck`
 
 - ### Task `tmux`
-    Requirements: `git`, `tmux`
+    Requirement(s): `git`, `tmux`
 
     tmux plugins
     - tmux-plugins/tpm
