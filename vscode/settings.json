@@ -1,0 +1,16 @@
+// Place your settings in this file to overwrite the default settings
+{
+  //-------- Editor configuration --------
+
+  "editor.fontFamily": "Source Code Pro",
+  "editor.fontSize": 13,
+  "editor.rulers": [81, 100],
+  "editor.tabSize": 2,
+  "editor.wrappingColumn": 0,
+  "editor.renderWhitespace": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+
+  //-------- Window configuration --------
+
+  "window.reopenFolders": "none"
+}

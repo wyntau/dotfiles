@@ -169,6 +169,7 @@ function usage(){
   echo '    - astyle_rc'
   echo '    - sublime2'
   echo '    - sublime3'
+  echo '    - vscode'
   echo '    - editorconfig'
   echo '    - zsh_rc'
   echo '    - zsh_plugins_fasd'
@@ -497,6 +498,34 @@ function install_sublime3(){
   install_fonts_source_code_pro
 
   tip "You can change font_size and font_face in your sublime Preference"
+}
+
+function install_vscode(){
+
+  if( is_linux ); then
+    VSCODEPATH="$HOME/.config/Code"
+  elif( is_mac ); then
+    VSCODEPATH="$HOME/Library/Application Support/Code"
+  else
+    error "Can't detect your platform. This support *Linux* and *Mac* only"
+    exit
+  fi;
+
+  step "Installing vscode configs ..."
+
+  mkdir -p "$VSCODEPATH/User"
+
+  echo $VSCODEPATH
+
+  lnif "$APP_PATH/vscode/settings.json" \
+       "$VSCODEPATH/User/settings.json"
+
+  lnif "$APP_PATH/vscode/keybindings.json" \
+       "$VSCODEPATH/User/keybindings.json"
+
+  success "Successfully installed vscode configs."
+
+  install_fonts_source_code_pro
 }
 
 function install_editorconfig(){
@@ -831,6 +860,9 @@ else
         ;;
       sublime3)
         install_sublime3
+        ;;
+      vscode)
+        install_vscode
         ;;
       editorconfig)
         install_editorconfig

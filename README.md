@@ -23,6 +23,10 @@ dotfile
 │   ├── init.vim -> vimrc
 │   ├── vimrc
 │   └── vimrc.plugins
+├── vscode
+│   ├── README.md
+│   ├── keybindings.json
+│   └── settings.json
 └── zsh
     └── zshrc
 ```
@@ -45,6 +49,7 @@ All vailable tasks:
 - [astyle_rc](#task-astyle_rc)
 - [sublime2](#task-sublime2)
 - [sublime3](#task-sublime3)
+- [vscode](#task-vscode)
 - [editorconfig](#task-editorconfig)
 - [zsh_rc](#task-zsh_rc)
 - [zsh_plugins_fasd](#task-zsh_plugins_fasd)
@@ -70,8 +75,8 @@ You can do a specific task by run
     [Powerline fonts](https://github.com/powerline/fonts).
 
     This font will be installed automatically when do task
-    [vim_plugins](#task-vim_plugins), [sublime2](#task-sublime2) and
-    [sublime3](#task-sublime3).
+    [vim_plugins](#task-vim_plugins), [sublime2](#task-sublime2)
+    [sublime3](#task-sublime3) and [vscode](#task-vscode).
 
 - ### Task `vim_rc`
     Requirements: `git`, `vim`
@@ -403,6 +408,16 @@ You can do a specific task by run
     colorscheme and
     [`Markdown Extended`](https://github.com/jonschlinkert/sublime-markdown-extended)
     plugin which supports more files including Markdown highlight.
+
+- ### Task `vscode`
+    Requirement: `git`, [Visual Studio Code](https://code.visualstudio.com)
+
+    Install custom `settings.json` and `keybindings.json` for vscode.
+
+    After installing the configs, maybe you want to reset `editor.fontFamily`
+    and `editor.fontSize` to what you prefer in `settings.json`, and custom key
+    bindings in `keybindings.json`. Also you can see what sublime packages I
+    used in [Visual Studio Code Packages](vscode/README.md).
 
 - ### Task `editorconfig`
 
