@@ -1,7 +1,6 @@
 // Place your settings in this file to overwrite the default settings
 {
   //-------- Editor configuration --------
-
   "editor.fontFamily": "Source Code Pro",
   "editor.fontSize": 13,
   "editor.rulers": [81, 100],
@@ -11,10 +10,11 @@
   "diffEditor.ignoreTrimWhitespace": false,
 
   //-------- Window configuration --------
-
   "window.reopenFolders": "none",
 
   //-------- Packages configuration ------
-  "trailing-spaces.trimOnSave": true,
-  "trailing-spaces.syntaxIgnore": ["markdown"]
+
+
+  // put this line at the very bottom of settings.json.
+  "custom-package-placeholder.key": "value"
 }
