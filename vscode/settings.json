@@ -12,5 +12,9 @@
 
   //-------- Window configuration --------
 
-  "window.reopenFolders": "none"
+  "window.reopenFolders": "none",
+
+  //-------- Packages configuration ------
+  "trailing-spaces.trimOnSave": true,
+  "trailing-spaces.syntaxIgnore": ["markdown"]
 }
