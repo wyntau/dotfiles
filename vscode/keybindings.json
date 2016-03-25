@@ -1,10 +1,6 @@
 // Place your key bindings in this file to overwrite the defaults
 [
   {
-    "key": "cmd+w",
-    "command": "workbench.files.action.closeFile"
-  },
-  {
     "key": "cmd+y",
     "command": "redo"
   },
