@@ -5,6 +5,7 @@ dotfile
 ├── astyle
 │   └── astylerc
 ├── editorconfig
+│   └── editorconfig
 ├── git
 │   └── gitconfig
 ├── sublime2
@@ -422,7 +423,7 @@ You can do a specific task by run
 - ### Task `editorconfig`
 
     Install global `.editorconfig` to you home. You can see
-    [what config is used](editorconfig).
+    [what config is used](editorconfig/editorconfig).
 
 - ### Task `zsh_rc`
     Requirement(s): `git`, `zsh`

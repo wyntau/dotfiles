@@ -532,7 +532,7 @@ function install_editorconfig(){
 
   step "Installing editorconfig ..."
 
-  lnif "$APP_PATH/editorconfig" \
+  lnif "$APP_PATH/editorconfig/editorconfig" \
        "$HOME/.editorconfig"
 
   tip "Maybe you should install editorconfig plugin for vim or sublime"
