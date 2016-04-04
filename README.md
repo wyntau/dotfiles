@@ -26,7 +26,8 @@ dotfile
 │   └── vimrc.plugins
 ├── vscode
 │   ├── README.md
-│   ├── keybindings.json
+│   ├── keybindings.linux.json
+│   ├── keybindings.osx.json
 │   └── settings.json
 └── zsh
     └── zshrc

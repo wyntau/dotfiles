@@ -504,8 +504,10 @@ function install_vscode(){
 
   if( is_linux ); then
     VSCODEPATH="$HOME/.config/Code"
+    VSCODE_KEYBINDINGS="$APP_PATH/vscode/keybindings.linux.json"
   elif( is_mac ); then
     VSCODEPATH="$HOME/Library/Application Support/Code"
+    VSCODE_KEYBINDINGS="$APP_PATH/vscode/keybindings.osx.json"
   else
     error "Can't detect your platform. This support *Linux* and *Mac* only"
     exit
@@ -520,7 +522,7 @@ function install_vscode(){
   lnif "$APP_PATH/vscode/settings.json" \
        "$VSCODEPATH/User/settings.json"
 
-  lnif "$APP_PATH/vscode/keybindings.json" \
+  lnif "$VSCODE_KEYBINDINGS" \
        "$VSCODEPATH/User/keybindings.json"
 
   success "Successfully installed vscode configs."

@@ -1,0 +1,15 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+  {
+    "key": "ctrl+y",
+    "command": "redo"
+  },
+  {
+    "key": "ctrl+k ctrl+j",
+    "command": "workbench.files.action.openNextWorkingFile"
+  },
+  {
+    "key": "ctrl+k ctrl+k",
+    "command": "workbench.files.action.openPreviousWorkingFile"
+  }
+]
