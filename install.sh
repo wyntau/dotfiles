@@ -194,27 +194,28 @@ function install_fonts_source_code_pro(){
             "$APP_PATH/.cache/source-code-pro" \
             "release"
 
-  source_code_pro_ttf_dir="$APP_PATH/.cache/source-code-pro/TTF"
-
+  local source_code_pro_ttf_dir="$APP_PATH/.cache/source-code-pro/TTF"
 
   # borrowed from powerline/fonts/install.sh
-  find_command="find \"$source_code_pro_ttf_dir\" \( -name '*.[o,t]tf' -or -name '*.pcf.gz' \) -type f -print0"
+  local find_command="find \"$source_code_pro_ttf_dir\" \( -name '*.[o,t]tf' -or -name '*.pcf.gz' \) -type f -print0"
+
+  local fonts_dir
 
   if ( is_mac ); then
     # MacOS
-    font_dir="$HOME/Library/Fonts"
+    fonts_dir="$HOME/Library/Fonts"
   else
     # Linux
-    font_dir="$HOME/.fonts"
-    mkdir -p $font_dir
+    fonts_dir="$HOME/.fonts"
+    mkdir -p $fonts_dir
   fi
 
   # Copy all fonts to user fonts directory
-  eval $find_command | xargs -0 -I % cp "%" "$font_dir/"
+  eval $find_command | xargs -0 -I % cp "%" "$fonts_dir/"
 
   # Reset font cache on Linux
   if [[ -n `which fc-cache` ]]; then
-    fc-cache -f $font_dir
+    fc-cache -f $fonts_dir
   fi
 
   success "Successfully installed Source Code Pro font."
@@ -335,7 +336,7 @@ function ensure_python_pip_support(){
 
     info "Installing pip for you..."
 
-    scripts_dir="$APP_PATH/.cache"
+    local scripts_dir="$APP_PATH/.cache"
     mkdir -p "$scripts_dir"
     info "Downloading pip installation script ..."
     curl https://bootstrap.pypa.io/get-pip.py -o "$scripts_dir/get-pip.py"
@@ -423,7 +424,7 @@ function install_vim_plugins_ycm(){
   # Force recompile YouCompleteMe libs
   # or YouCompleteMe libs not exists
   # compile libs for YouCompleteMe
-  ycmd_path="$APP_PATH/vim/plugins/YouCompleteMe/third_party/ycmd"
+  local ycmd_path="$APP_PATH/vim/plugins/YouCompleteMe/third_party/ycmd"
   if [[ "$YCM_COMPILE_FORCE" = "true" ]] || ( ! is_file_exists "$ycmd_path/ycm_core.so" ) || ( ! is_file_exists "$ycmd_path/ycm_client_support.so" ); then
     info "Compiling YouCompleteMe libs ..."
     "$APP_PATH/vim/plugins/YouCompleteMe/install.py" $YCM_COMPLETER_FLAG
@@ -436,10 +437,12 @@ function install_vim_plugins_ycm(){
 
 function install_sublime2(){
 
+  local sublime_path
+
   if ( is_linux ); then
-    SUBLIMEPATH="$HOME/.config/sublime-text-2"
+    sublime_path="$HOME/.config/sublime-text-2"
   elif ( is_mac ); then
-    SUBLIMEPATH="$HOME/Library/Application Support/Sublime Text 2"
+    sublime_path="$HOME/Library/Application Support/Sublime Text 2"
   else
     error "Can't detect your platform. This support *Linux* and *Mac* only"
     exit
@@ -450,15 +453,15 @@ function install_sublime2(){
   sync_repo "https://github.com/jonschlinkert/sublime-monokai-extended.git" \
             "$APP_PATH/sublime2/.cache/monokai-extended"
   lnif "$APP_PATH/sublime2/.cache/monokai-extended" \
-       "$SUBLIMEPATH/Packages/User/monokai-extended"
+       "$sublime_path/Packages/User/monokai-extended"
 
   sync_repo "https://github.com/jonschlinkert/sublime-markdown-extended.git" \
             "$APP_PATH/sublime2/.cache/markdown-extended"
   lnif "$APP_PATH/sublime2/.cache/markdown-extended" \
-       "$SUBLIMEPATH/Packages/User/markdown-extended"
+       "$sublime_path/Packages/User/markdown-extended"
 
   lnif "$APP_PATH/sublime2/Preferences.sublime-settings" \
-       "$SUBLIMEPATH/Packages/User/Preferences.sublime-settings"
+       "$sublime_path/Packages/User/Preferences.sublime-settings"
 
   success "Successfully installed sublime2 Preference and monokai-extended theme"
 
@@ -469,10 +472,12 @@ function install_sublime2(){
 
 function install_sublime3(){
 
+  local sublime_path
+
   if ( is_linux ); then
-    SUBLIMEPATH="$HOME/.config/sublime-text-3"
+    sublime_path="$HOME/.config/sublime-text-3"
   elif ( is_mac ); then
-    SUBLIMEPATH="$HOME/Library/Application Support/Sublime Text 3"
+    sublime_path="$HOME/Library/Application Support/Sublime Text 3"
   else
     error "Can't detect your platform. This support *Linux* and *Mac* only"
     exit
@@ -483,15 +488,15 @@ function install_sublime3(){
   sync_repo "https://github.com/jonschlinkert/sublime-monokai-extended.git" \
             "$APP_PATH/sublime3/.cache/monokai-extended"
   lnif "$APP_PATH/sublime3/.cache/monokai-extended" \
-       "$SUBLIMEPATH/Packages/User/monokai-extended"
+       "$sublime_path/Packages/User/monokai-extended"
 
   sync_repo "https://github.com/jonschlinkert/sublime-markdown-extended.git" \
             "$APP_PATH/sublime3/.cache/markdown-extended"
   lnif "$APP_PATH/sublime3/.cache/markdown-extended" \
-       "$SUBLIMEPATH/Packages/User/markdown-extended"
+       "$sublime_path/Packages/User/markdown-extended"
 
   lnif "$APP_PATH/sublime3/Preferences.sublime-settings" \
-       "$SUBLIMEPATH/Packages/User/Preferences.sublime-settings"
+       "$sublime_path/Packages/User/Preferences.sublime-settings"
 
   success "Successfully installed sublime3 Preference and monokai-extended theme"
 
@@ -502,12 +507,15 @@ function install_sublime3(){
 
 function install_vscode(){
 
+  local vscode_path
+  local vscode_keybindings
+
   if( is_linux ); then
-    VSCODEPATH="$HOME/.config/Code"
-    VSCODE_KEYBINDINGS="$APP_PATH/vscode/keybindings.linux.json"
+    vscode_path="$HOME/.config/Code"
+    vscode_keybindings="$APP_PATH/vscode/keybindings.linux.json"
   elif( is_mac ); then
-    VSCODEPATH="$HOME/Library/Application Support/Code"
-    VSCODE_KEYBINDINGS="$APP_PATH/vscode/keybindings.osx.json"
+    vscode_path="$HOME/Library/Application Support/Code"
+    vscode_keybindings="$APP_PATH/vscode/keybindings.osx.json"
   else
     error "Can't detect your platform. This support *Linux* and *Mac* only"
     exit
@@ -515,15 +523,13 @@ function install_vscode(){
 
   step "Installing vscode configs ..."
 
-  mkdir -p "$VSCODEPATH/User"
-
-  echo $VSCODEPATH
+  mkdir -p "$vscode_path/User"
 
   lnif "$APP_PATH/vscode/settings.json" \
-       "$VSCODEPATH/User/settings.json"
+       "$vscode_path/User/settings.json"
 
-  lnif "$VSCODE_KEYBINDINGS" \
-       "$VSCODEPATH/User/keybindings.json"
+  lnif "$vscode_keybindings" \
+       "$vscode_path/User/keybindings.json"
 
   success "Successfully installed vscode configs."
 
@@ -552,20 +558,25 @@ function install_git_config(){
 
   info "Now config your name and email for git."
 
-  USER=`whoami`
-  prompt "What's your git username? ($USER) "
-  read USERNAME
-  if [ "$USERNAME" = "" ]; then
-    USERNAME=$USER
-  fi;
-  git config --global user.name $USERNAME
+  local user_now=`whoami`
 
-  prompt "What's your git email? ($USERNAME@example.com) "
-  read EMAIL
-  if [ "$EMAIL" = "" ]; then
-    EMAIL=$USER@example.com
+  prompt "What's your git username? ($user_now) "
+
+  local user_name
+  read user_name
+  if [ "$user_name" = "" ]; then
+    user_name=$user_now
   fi;
-  git config --global user.email $EMAIL
+  git config --global user.name $user_name
+
+  prompt "What's your git email? ($user_name@example.com) "
+
+  local user_email
+  read user_email
+  if [ "$user_email" = "" ]; then
+    user_email=$user_now@example.com
+  fi;
+  git config --global user.email $user_email
 
   if ( is_mac ); then
     git config --global credential.helper osxkeychain
