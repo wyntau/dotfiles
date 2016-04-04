@@ -33,6 +33,13 @@ dotfile
     └── zshrc
 ```
 
+## Installation
+
+```sh
+git clone --depth 1 https://github.com/Treri/dotfile.git ~/.dotfile
+cd ~/.dotfile
+```
+
 ## Tasks
 All vailable tasks:
 
