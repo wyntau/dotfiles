@@ -658,7 +658,7 @@ function install_git_flow(){
 
   must_program_exists "git"
 
-  step "Installing git-flow ..."
+  step "Installing git-flow-avh ..."
   sync_repo "https://github.com/petervanderdoes/gitflow-avh.git" \
             "$APP_PATH/git/.cache/git-flow-avh"
   cd "$APP_PATH/git/.cache/git-flow-avh"
@@ -668,7 +668,7 @@ function install_git_flow(){
   sync_repo "https://github.com/petervanderdoes/git-flow-completion.git" \
             "$APP_PATH/zsh/oh-my-zsh/custom/plugins/git-flow-completion"
 
-  success "Successfully installed git-flow and git-flow-completion."
+  success "Successfully installed git-flow-avh and git-flow-completion."
 }
 
 function install_astyle_rc(){

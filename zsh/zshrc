@@ -64,6 +64,15 @@ function is_program_exists(){
   fi;
 }
 
+function is_custom_plugin_exists(){
+  local plugin=$1
+  if [ -d $ZSH/custom/plugins/$plugin ] && [ -e $ZSH/custom/plugins/$plugin/$plugin.plugin.zsh ]; then
+    return 0
+  else
+    return 1
+  fi;
+}
+
 # if we have brew installed, add brew plugin
 if ( is_program_exists brew ); then
   plugins=(
@@ -91,10 +100,24 @@ if ( is_program_exists git ); then
   plugins=(
     $plugins
     gitfast
-    git-extras
-    git-flow
-    git-flow-completion
   )
+
+  # only enable git-extras when we have installed git-extras
+  if ( is_program_exists git-extras ); then
+    plugins=(
+      $plugins
+      git-extras
+    )
+  fi;
+
+  # only enable git-flow-completion when we have installed git-flow-avh
+  # don't use oh-my-zsh included git-flow or git-flow-avh
+  if ( is_program_exists git-flow ) && ( is_custom_plugin_exists git-flow-completion ); then
+    plugins=(
+      $plugins
+      git-flow-completion
+    )
+  fi;
 fi;
 
 # if we have httpie installed, add httpie plugin
