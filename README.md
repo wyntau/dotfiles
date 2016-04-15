@@ -55,6 +55,7 @@ All vailable tasks:
 - [git_dmtool](#task-git_dmtool)
 - [git_extras](#task-git_extras)
 - [git_flow](#task-git_flow)
+- [git_standup](#task-git_standup)
 - [astyle_rc](#task-astyle_rc)
 - [sublime2](#task-sublime2)
 - [sublime3](#task-sublime3)
@@ -351,6 +352,11 @@ You can do a specific task by run
 
     A post about git-flow:
     [a-successful-git-branching-model](http://nvie.com/posts/a-successful-git-branching-model/)
+
+- ### Task `git_standup`
+    Requirement(s): `git`
+
+    Install `git-standup` plugin for git. Please see [git-standup](https://github.com/kamranahmedse/git-standup)
 
 - ### Task `astyle_rc`
     Requirement(s): `astyle`. If you have installed `astyle` and press `Q` in vim,
