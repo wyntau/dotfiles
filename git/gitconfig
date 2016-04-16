@@ -78,6 +78,7 @@
 
 	plb = pull --rebase
 	st = status --short --branch
+	throw = reset --hard HEAD
 	unstage = reset --soft HEAD --   # fileName here
 [color]
 	diff = auto
