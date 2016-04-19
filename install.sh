@@ -601,9 +601,17 @@ function install_git_diff_fancy(){
   lnif "$APP_PATH/git/.cache/diff-so-fancy/third_party/diff-highlight/diff-highlight" \
        "/usr/local/bin/diff-highlight"
 
-  git config --global pager.diff 'diff-so-fancy | less --tabs=1,5 -RFX'
-  git config --global pager.show 'diff-so-fancy | less --tabs=1,5 -RFX'
-  git config --global alias.dff '!git diff --color $@ | diff-so-fancy'
+  # use diff-so-fancy globally
+  # git config --global pager.diff "diff-so-fancy | less --tabs=4 -RFX"
+  # git config --global pager.show "diff-so-fancy | less --tabs=4 -RFX"
+
+  # override default 'git df' and 'git dfc'
+  git config --global alias.df '!f() { [ "$GIT_PREFIX" != "" ] && cd "$GIT_PREFIX"; git diff --color $@ | diff-so-fancy | less --tabs=4 -RFX; }; f'
+  git config --global alias.dfc '!f() { [ "$GIT_PREFIX" != "" ] && cd "$GIT_PREFIX"; git diff --cached --color $@ | diff-so-fancy | less --tabs=4 -RFX; }; f'
+
+  # add 'dfr' and 'dfcr' for origin 'df' and 'dfc'
+  git config --global alias.dfr 'diff'
+  git config --global alias.dfcr 'diff --cached'
 
   git config --global color.diff-highlight.oldNormal "red bold"
   git config --global color.diff-highlight.oldHighlight "red bold 52"
