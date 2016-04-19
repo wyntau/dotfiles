@@ -598,8 +598,6 @@ function install_git_diff_fancy(){
 
   lnif "$APP_PATH/git/.cache/diff-so-fancy/diff-so-fancy" \
        "/usr/local/bin/diff-so-fancy"
-  lnif "$APP_PATH/git/.cache/diff-so-fancy/third_party/diff-highlight/diff-highlight" \
-       "/usr/local/bin/diff-highlight"
 
   # use diff-so-fancy globally
   # git config --global pager.diff "diff-so-fancy | less --tabs=4 -RFX"
