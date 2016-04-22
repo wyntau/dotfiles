@@ -32,3 +32,7 @@ The Sublime Packages I used are listed below:
 - Typescript
 - View In Browser
 - <del>Vintageous</del>
+
+Manually installed packages
+
+- [sublime-nginx](https://github.com/brandonwamboldt/sublime-nginx)
