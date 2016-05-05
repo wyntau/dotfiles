@@ -151,6 +151,7 @@ if (count(g:dotvim_groups, 'common') && !count(g:dotvim_groups, '-explorer')) ||
     " 默认不显示NERDTree窗口
     let g:nerdtree_tabs_open_on_gui_startup = 0
     nmap <leader>ft :NERDTreeTabsToggle<CR>
+    nmap <leader>ff :NERDTreeTabsFind<CR>
 
   " ==> 快速搜索插件
   " An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
