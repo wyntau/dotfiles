@@ -394,7 +394,6 @@ endif
 
 if (count(g:dotvim_groups, 'common') && !count(g:dotvim_groups, '-php')) || count(g:dotvim_groups, 'php')
   Plug 'SirVer/ultisnips'
-    let g:UltiSnipsUsePythonVersion = 2
   " required by tobys/pdv
   Plug 'tobyS/vmustache', {'for': ['php']}
   " phpdoc generator,
@@ -433,7 +432,6 @@ endif
 
 if count(g:dotvim_groups, 'snippets')
   Plug 'SirVer/ultisnips'
-    let g:UltiSnipsUsePythonVersion = 2
   Plug 'honza/vim-snippets'
     let g:UltiSnipsExpandTrigger="<Tab>"
     let g:UltiSnipsJumpForwardTrigger="<Tab>"
