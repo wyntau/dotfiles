@@ -108,6 +108,11 @@ if (count(g:dotvim_groups, 'common') && !count(g:dotvim_groups, '-explorer')) ||
     nnoremap <Leader>sj :CtrlPFunky<CR>
 
   Plug 'scrooloose/nerdtree'
+    let NERDTreeIgnore = ['\.DS_Store$', '\.git$', '\~$']
+    let NERDTreeShowHidden = 1
+    let NERDTreeShowLineNumbers = 1
+    nmap <leader>ft :NERDTreeToggle<CR>
+    nmap <leader>ff :NERDTreeFind<CR>
     " o.......打开文件目录或书签
     " t.......在新的tab页中打开文件或书签
     " i.......在split window中打开选择的文件
@@ -129,14 +134,6 @@ if (count(g:dotvim_groups, 'common') && !count(g:dotvim_groups, '-explorer')) ||
   if (count(g:dotvim_groups, 'common') && !count(g:dotvim_groups, '-git')) || count(g:dotvim_groups, 'git')
     Plug 'Xuyuanp/nerdtree-git-plugin'
   endif
-
-  Plug 'jistr/vim-nerdtree-tabs'
-    " 始终焦点位于文件窗口内
-    let g:nerdtree_tabs_smart_startup_focus = 2
-    " 默认不显示NERDTree窗口
-    let g:nerdtree_tabs_open_on_gui_startup = 0
-    nmap <leader>ft :NERDTreeTabsToggle<CR>
-    nmap <leader>ff :NERDTreeTabsFind<CR>
 
   " ==> 快速搜索插件
   " An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2

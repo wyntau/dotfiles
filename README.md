@@ -187,7 +187,6 @@ You can do a specific task by run
     Plug 'tacahiroy/ctrlp-funky'
     Plug 'scrooloose/nerdtree'
     Plug 'Xuyuanp/nerdtree-git-plugin'
-    Plug 'jistr/vim-nerdtree-tabs'
     Plug 'dyng/ctrlsf.vim'
     Plug 't9md/vim-choosewin'
 
