@@ -180,7 +180,6 @@ You can do a specific task by run
     " group 'interface'
     Plug 'vim-airline/vim-airline'
     Plug 'Yggdroot/indentLine'
-    Plug 'mhinz/vim-startify'
 
     " group 'explorer'
     Plug 'schickling/vim-bufonly'
