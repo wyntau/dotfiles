@@ -100,6 +100,13 @@ function must_program_exists(){
   done;
 }
 
+function must_python_pipx_exists(){
+  if ( ! is_program_exists pip ) && ( ! is_program_exists pip2 ) && ( ! is_program_exists pip3 ); then
+    error "You must have installed pip or pip2 or pip3 for installing python packages."
+    exit
+  fi;
+}
+
 function is_platform(){
   [[ `uname` = "$1" ]] && return 0 || return 1
 }
@@ -329,46 +336,37 @@ function install_vim_plugins_fcitx(){
   success "Successfully installed fcitx support plugin."
 }
 
-function ensure_python_pip_support(){
-  # install python package manager pip
-  if ( ! is_program_exists pip ); then
+function ensure_neovim_python_support(){
 
-    must_program_exists "curl"
-
-    info "Installing pip for you..."
-
-    local scripts_dir="$APP_PATH/.cache"
-    mkdir -p "$scripts_dir"
-    info "Downloading pip installation script ..."
-    curl https://bootstrap.pypa.io/get-pip.py -o "$scripts_dir/get-pip.py"
-    chmod +x "$scripts_dir/get-pip.py"
-    info "Installing pip ..."
-    sudo "$scripts_dir/get-pip.py"
-
-    success "Successfully installed pip."
+  if ( ! is_program_exists nvim ); then
+    return
   fi;
-}
 
-function ensure_python_neovim_support(){
-  # install pynvim module for neovim
-  if ( is_program_exists nvim ) && ( ! is_program_exists pynvim ); then
-    info "Installing pynvim for python-related plugins in neovim ..."
-    if [[ `uname -a` =~ "gentoo" ]] && ( is_file_exists /etc/gentoo-release ); then
+  if [[ `uname -a` =~ "gentoo" ]] && ( is_file_exists /etc/gentoo-release ); then
       # in gentoo, recommend enable python USE flag to automatically install pynvim
       tip "You are using Gentoo Linux."
       tip "You should enable *python* USE flag for neovim, and reinstall neovim."
-      tip "Then pynvim(dev-python/neovim-python-client) will be installed automatically."
+      tip "Then dev-python/neovim-python-client will be installed automatically."
       tip "Also you can run '[sudo] emerge -a dev-python/neovim-python-client' manually."
-    else
-
-      # make sure pip is installed
-      ensure_python_pip_support
-
-      sudo pip install neovim
-
-      success "Successfully installed pynvim."
-    fi;
+      return
   fi;
+
+  must_python_pipx_exists
+
+  if ( is_program_exists pip2 ); then
+    info "Installing python2 neovim package ..."
+    pip2 install --user --upgrade neovim
+  elif ( is_program_exists pip ); then
+    info "Installing python2 neovim package ..."
+    pip install --user --upgrade neovim
+  fi;
+
+  if ( is_program_exists pip3 ); then
+    info "Installing python3 neovim package ..."
+    pip3 install --user --upgrade neovim
+  fi;
+
+  success "Successfully installed neovim python client."
 }
 
 function install_vim_plugins_matchtag(){
@@ -380,7 +378,7 @@ function install_vim_plugins_matchtag(){
   step "Installing vim MatchTagAlways plugin ..."
 
   # check whether have neovim. if have, make sure neovim have python feature support
-  ensure_python_neovim_support
+  ensure_neovim_python_support
 
   append_dotvim_group "matchtag"
 
@@ -398,7 +396,7 @@ function install_vim_plugins_snippets(){
   step "Installing vim snippets plugin ..."
 
   # check whether have neovim. if have, make sure neovim have python feature support
-  ensure_python_neovim_support
+  ensure_neovim_python_support
 
   append_dotvim_group "snippets"
 
@@ -416,7 +414,7 @@ function install_vim_plugins_ycm(){
   step "Installing vim YouCompleteMe plugin ..."
 
   # check whether have neovim. if have, make sure neovim have python feature support
-  ensure_python_neovim_support
+  ensure_neovim_python_support
 
   # fetch or update YouCompleteMe
   sync_repo "https://github.com/Valloric/YouCompleteMe.git" \
@@ -784,18 +782,21 @@ function install_zsh_plugins_thefuck(){
   step "Installing thefuck plugin for oh-my-zsh ..."
 
   # add zsh plugin thefuck support
-  ensure_python_pip_support
-  sudo pip install thefuck --upgrade --ignore-installed six
+  must_python_pipx_exists
 
-  if [ $? -eq 0 ]; then
-    mkdir -p "$APP_PATH/zsh/oh-my-zsh/custom/plugins/thefuck"
-    echo 'eval "$(thefuck --alias)"' > "$APP_PATH/zsh/oh-my-zsh/custom/plugins/thefuck/thefuck.plugin.zsh"
-
-    success "Successfully installed thefuck plugin."
-    success "Please open a new zsh terminal to make configs go into effect."
-  else
-    error "Something error..."
+  if ( is_program_exists pip3 ); then
+    pip3 install --user --upgrade thefuck
+  elif ( is_program_exists pip2 ); then
+    pip2 install --user --upgrade thefuck
+  elif ( is_program_exists pip ); then
+    pip install --user --upgrade thefuck
   fi;
+
+  mkdir -p "$APP_PATH/zsh/oh-my-zsh/custom/plugins/thefuck"
+  echo 'eval "$(thefuck --alias)"' > "$APP_PATH/zsh/oh-my-zsh/custom/plugins/thefuck/thefuck.plugin.zsh"
+
+  success "Successfully installed thefuck plugin."
+  success "Please open a new zsh terminal to make configs go into effect."
 }
 
 function install_tmux(){
