@@ -495,6 +495,7 @@ You can do a specific task by run
     - tmux-plugins/tmux-prefix-highlight
     - tmux-plugins/tmux-copycat
     - tmux-plugins/tmux-yank
+    - nhdaly/tmux-scroll-copy-mode
 
 ## License
 
