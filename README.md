@@ -340,7 +340,7 @@ You can do a specific task by run
 - ### Task `git_extras`
     Requirement(s): `git`
 
-    Install `git-extras` plugin for git. git-extras( _Linux, OS X_ ) has some
+    Install [`git-extras`](https://github.com/tj/git-extras) plugin for git. git-extras( _Linux, OS X_ ) has some
     useful tools for git.
 
 - ### Task `git_flow`
@@ -440,6 +440,8 @@ You can do a specific task by run
 - ### Task `zsh_rc`
     Requirement(s): `git`, `zsh`
 
+    This task will install [`oh-my-zsh`](https://github.com/robbyrussell/oh-my-zsh) for you.
+
     If you have your own configs, put them in `~/.zshrc.local`, zsh will load
     them automatically.
 
@@ -473,17 +475,17 @@ You can do a specific task by run
 - ### Task `zsh_plugins_fasd`
     Requirement(s): `git`, `zsh`, [task zsh_rc](#task-zsh_rc)
 
-    Install oh-my-zsh plugin `fasd`, replace default `z`
+    Install oh-my-zsh plugin [`fasd`](https://github.com/clvv/fasd), replace default [`z`](https://github.com/rupa/z)
 
 - ### Task `zsh_plugins_fzf`
     Requirement(s): `git`, `zsh`, [task zsh_rc](#task-zsh_rc)
 
-    Install oh-my-zsh plugin `fzf`
+    Install oh-my-zsh plugin [`fzf`](https://github.com/junegunn/fzf)
 
 - ### Task `zsh_plugins_thefuck`
     Requirement(s): `git`, `zsh`, [task zsh_rc](#task-zsh_rc)
 
-    Install oh-my-zsh plugin `thefuck`
+    Install oh-my-zsh plugin [`thefuck`](https://github.com/nvbn/thefuck)
 
 - ### Task `tmux`
     Requirement(s): `git`, `tmux`
