@@ -190,17 +190,26 @@ if (count(g:dotvim_groups, 'common') && !count(g:dotvim_groups, '-motion'))
     omap t <Plug>Sneak_t
     omap T <Plug>Sneak_T
 
+  Plug 'haya14busa/incsearch.vim'
+    map /  <Plug>(incsearch-forward)
+    map ?  <Plug>(incsearch-backward)
+    map g/ <Plug>(incsearch-stay)
+    " <Plug>(incsearch-stay) doesn't move the cursor.
+
+    let g:incsearch#auto_nohlsearch = 1
+    map n  <Plug>(incsearch-nohl-n)
+    map N  <Plug>(incsearch-nohl-N)
+    map #  <Plug>(incsearch-nohl-*)
+    map *  <Plug>(incsearch-nohl-#)
+    map g# <Plug>(incsearch-nohl-g*)
+    map g* <Plug>(incsearch-nohl-g#)
+
   " 快速到达指定位置插件
   Plug 'easymotion/vim-easymotion'
     let g:EasyMotion_do_mapping = 0 " Disable default mappings
     let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
     " With this option set, v will match both v and V, but V will match V only. Default: 0.
     let g:EasyMotion_smartcase = 1
-  Plug 'haya14busa/incsearch.vim'
-    map /  <Plug>(incsearch-forward)
-    map ?  <Plug>(incsearch-backward)
-    map g/ <Plug>(incsearch-stay)
-    " <Plug>(incsearch-stay) doesn't move the cursor.
   " Integration between incsearch.vim and vim-easymotion
   Plug 'haya14busa/incsearch-easymotion.vim'
     " map z/ <Plug>(incsearch-easymotion-/)
