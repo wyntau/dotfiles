@@ -91,6 +91,8 @@ set fillchars=vert:\ ,stl:\ ,stlnc:\  "注释
 set listchars=eol:¬,tab:▸\ ,trail:•,nbsp:␣,extends:»,precedes:«
 if has('nvim')
   set listchars+=space:.
+  " enable neovim true color support
+  silent! set termguicolors
 endif
 
 set diffopt+=vertical,context:3,foldcolumn:0
