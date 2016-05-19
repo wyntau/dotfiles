@@ -300,7 +300,13 @@ function install_vim_plugins(){
 
   success "You can add your own plugins to ~/.vimrc.plugins.local , vim will source them automatically"
 
-  install_fonts_source_code_pro
+  # only install the font locally
+  if [ -z "$SSH_CONNECTION" ]; then
+    install_fonts_source_code_pro
+  else
+    tip "Maybe you should install the font *Source Code Pro* locally."
+  fi;
+
   tip "In order to use powerline symbols with airline in vim, please set your terminal to use the font *Source Code Pro*"
 }
 
