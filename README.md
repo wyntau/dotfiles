@@ -492,13 +492,13 @@ You can do a specific task by run
     Requirement(s): `git`, `tmux`
 
     tmux plugins
-    - tmux-plugins/tpm
-    - tmux-plugins/tmux-sensible
-    - tmux-plugins/tmux-pain-control
-    - tmux-plugins/tmux-prefix-highlight
-    - tmux-plugins/tmux-copycat
-    - tmux-plugins/tmux-yank
-    - nhdaly/tmux-scroll-copy-mode
+    - [tmux-plugins/tpm](https://github.com/tmux-plugins/tpm)
+    - [tmux-plugins/tmux-sensible](https://github.com/tmux-plugins/tmux-sensible)
+    - [tmux-plugins/tmux-pain-control](https://github.com/tmux-plugins/tmux-pain-control)
+    - [tmux-plugins/tmux-prefix-highlight](https://github.com/tmux-plugins/tmux-prefix-highlight)
+    - [tmux-plugins/tmux-copycat](https://github.com/tmux-plugins/tmux-copycat)
+    - [tmux-plugins/tmux-yank](https://github.com/tmux-plugins/tmux-yank)
+    - [nhdaly/tmux-scroll-copy-mode](nhdaly/tmux-scroll-copy-mode)
 
 ## License
 
