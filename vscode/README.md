@@ -2,6 +2,5 @@
 
 The Visual Studio Code Packages I used are listed below:
 
-- backspace-plusplus
 - Trailing Spaces
 - vscode-new-file

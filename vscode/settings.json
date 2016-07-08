@@ -6,11 +6,14 @@
   "editor.rulers": [81, 100],
   "editor.tabSize": 2,
   "editor.wrappingColumn": 0,
-  "editor.renderWhitespace": true,
+  "editor.renderIndentGuides": true,
   "diffEditor.ignoreTrimWhitespace": false,
 
   //-------- Window configuration --------
   "window.reopenFolders": "none",
+
+  //-------- Explorer configuration ------
+  "explorer.openEditors.visible": 0,
 
   //-------- Packages configuration ------
 
