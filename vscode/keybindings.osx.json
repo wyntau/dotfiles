@@ -3,13 +3,5 @@
   {
     "key": "cmd+y",
     "command": "redo"
-  },
-  {
-    "key": "cmd+k cmd+j",
-    "command": "workbench.files.action.openNextWorkingFile"
-  },
-  {
-    "key": "cmd+k cmd+k",
-    "command": "workbench.files.action.openPreviousWorkingFile"
   }
 ]
