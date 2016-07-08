@@ -3,7 +3,7 @@
   //-------- Editor configuration --------
   "editor.fontFamily": "Source Code Pro",
   "editor.fontSize": 13,
-  "editor.rulers": [81, 100],
+  "editor.rulers": [80, 100],
   "editor.tabSize": 2,
   "editor.wrappingColumn": 0,
   "editor.renderIndentGuides": true,
