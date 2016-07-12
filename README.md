@@ -383,7 +383,7 @@ You can do a specific task by run
 
     After installing the preference, maybe you want to reset `font_face` and
     `font_size` to what you prefer in `Preference.sublime-settings`. Also you
-    can see what sublime packages I used in [SublimePackages](sublime/README.md).
+    can see what sublime packages I used in [SublimePackages](sublime2/README.md).
 
     If you use `VIM Mode` in Sublime Text 2 on OS X 10.8+, when you hold `h`,
     `l`, `j`, `k`, the cursor will not move `left` `right` `down` `up`
@@ -422,6 +422,10 @@ You can do a specific task by run
     colorscheme and
     [`Markdown Extended`](https://github.com/jonschlinkert/sublime-markdown-extended)
     plugin which supports more files including Markdown highlight.
+
+    After installing the preference, maybe you want to reset `font_face` and
+    `font_size` to what you prefer in `Preference.sublime-settings`. Also you
+    can see what sublime packages I used in [SublimePackages](sublime3/README.md).
 
 - ### Task `vscode`
     Requirement(s): `git`, [Visual Studio Code](https://code.visualstudio.com)
