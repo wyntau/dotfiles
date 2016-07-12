@@ -47,9 +47,8 @@ ZSH_THEME="robbyrussell"
 
 # User configuration
 
-# Uncomment following line if you use homebrew
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
-# export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/man:$MANPATH"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -209,16 +208,5 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# put you own alias in ~/.zshrc.alias
-[ -f $HOME/.zshrc.alias ] && source $HOME/.zshrc.alias
-
-# put you own paths in ~/.zshrc.paths
-[ -f $HOME/.zshrc.paths ] && source $HOME/.zshrc.paths
-
-# put you own sources in ~/.zshrc.sources
-[ -f $HOME/.zshrc.sources ] && source $HOME/.zshrc.sources
-
 # put you own local configs in ~/.zshrc.local
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
-
-# history | awk '{CMD[$2]++;count++;}END { for (a in CMD) print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10

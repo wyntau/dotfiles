@@ -1,7 +1,0 @@
-# for GO ENV
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/project/go
-export PATH=$PATH:$GOPATH/bin
-
-# for PHP Composer Manager
-export PATH=$PATH:$HOME/.composer/vendor/bin

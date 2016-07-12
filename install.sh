@@ -755,12 +755,8 @@ function install_zsh_cfg(){
 
   step "Installing zsh configs ..."
 
-  lnif "$APP_PATH/zsh/zshrc.alias" \
-       "$HOME/.zshrc.alias"
-  lnif "$APP_PATH/zsh/zshrc.paths" \
-       "$HOME/.zshrc.paths"
-  lnif "$APP_PATH/zsh/zshrc.sources" \
-       "$HOME/.zshrc.sources"
+  lnif "$APP_PATH/zsh/zshrc.local" \
+       "$HOME/.zshrc.local"
 
   success "Successfully installed zsh configs"
   success "Please open a new zsh terminal to make configs go into effect."
