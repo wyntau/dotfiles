@@ -2,8 +2,6 @@
 
 ########## Params setup
 
-## where user excute the install.sh
-CUR_PATH=`pwd`
 ## get the real path of install.sh
 SOURCE="${BASH_SOURCE[0]}"
 # resolve $SOURCE until the file is no longer a symlink
@@ -730,13 +728,24 @@ function install_zsh_rc(){
   lnif "$APP_PATH/zsh/zshrc" \
        "$HOME/.zshrc"
 
-  info "Time to change your default shell to zsh!"
-  chsh -s `which zsh`
+  # borrowed from oh-my-zsh install script
+  # If this user's login shell is not already "zsh", attempt to switch.
+  local TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
+  if [ "$TEST_CURRENT_SHELL" != "zsh" ]; then
+    # If this platform provides a "chsh" command (not Cygwin), do it, man!
+    if hash chsh >/dev/null 2>&1; then
+      info "Time to change your default shell to zsh!"
+      chsh -s $(grep /zsh$ /etc/shells | tail -1)
+    # Else, suggest the user do so manually.
+    else
+      error "I can't change your shell automatically because this system does not have chsh."
+      error "Please manually change your default shell to zsh!"
+    fi
+  fi
 
   success "Successfully installed zsh and oh-my-zsh."
   tip "You can add your own configs to ~/.zshrc.local , zsh will source them automatically"
 
-  cd $CUR_PATH
   success "Please open a new zsh terminal to make configs go into effect."
 }
 
