@@ -17,6 +17,7 @@
 
   //-------- Packages configuration ------
 
+  "projectManager.openInNewWindow": false,
 
   // put this line at the very bottom of settings.json.
   "custom-package-placeholder.key": "value"

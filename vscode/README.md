@@ -2,5 +2,10 @@
 
 The Visual Studio Code Packages I used are listed below:
 
+- beautify
+- Project Manager
+- ESLint
+- Advanced New File
+- View In Browser
+- vscode-icons
 - Trailing Spaces
-- vscode-new-file
