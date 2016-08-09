@@ -9,15 +9,13 @@
   "editor.renderIndentGuides": true,
   "diffEditor.ignoreTrimWhitespace": false,
 
-  //-------- Window configuration --------
   "window.reopenFolders": "none",
 
-  //-------- Explorer configuration ------
   "explorer.openEditors.visible": 0,
 
-  //-------- Packages configuration ------
-
   "projectManager.openInNewWindow": false,
+
+  "terminal.integrated.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
 
   // put this line at the very bottom of settings.json.
   "custom-package-placeholder.key": "value"
