@@ -9,9 +9,12 @@
   "editor.renderIndentGuides": true,
   "diffEditor.ignoreTrimWhitespace": false,
 
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+
   "window.reopenFolders": "none",
 
   "explorer.openEditors.visible": 0,
+  "explorer.autoReveal": false,
 
   "projectManager.openInNewWindow": false,
 
