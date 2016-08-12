@@ -4,6 +4,7 @@
 dotfile
 ├── astyle
 │   └── astylerc
+├── bin/
 ├── editorconfig
 │   └── editorconfig
 ├── git
@@ -44,6 +45,7 @@ cd ~/.dotfile
 All vailable tasks:
 
 - [astyle_rc](#task-astyle_rc)
+- [bin](#task-bin)
 - [editorconfig](#task-editorconfig)
 - [fonts_source_code_pro](#task-fonts_source_code_pro)
 - [git_config](#task-git_config)
@@ -85,6 +87,10 @@ You can do a specific task by run
     # OS X only
     brew install astyle
     ```
+
+- ### Task `bin`
+
+    Install some useful small scripts to your `~/bin`.
 
 - ### Task `editorconfig`
 

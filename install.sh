@@ -160,6 +160,7 @@ function usage(){
   echo 'Tasks:'
   printf "$dot_color_green\n"
   echo '    - astyle_rc'
+  echo '    - bin'
   echo '    - editorconfig'
   echo '    - fonts_source_code_pro'
   echo '    - git_config'
@@ -195,6 +196,19 @@ function install_astyle_rc(){
        "$HOME/.astylerc"
 
   success "Successfully installed astylerc."
+}
+
+function install_bin(){
+
+  step "Installing useful small scripts ..."
+
+  local source_path="$APP_PATH/bin"
+
+  for bin in `ls -p $source_path | grep -v /`; do
+    lnif "$source_path/$bin" "$HOME/bin/$bin"
+  done;
+
+  success "Successfully installed useful scripts."
 }
 
 function install_editorconfig(){
@@ -864,6 +878,9 @@ else
     case $arg in
       astyle_rc)
         install_astyle_rc
+        ;;
+      bin)
+        install_bin
         ;;
       editorconfig)
         install_editorconfig
