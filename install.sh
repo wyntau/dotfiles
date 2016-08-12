@@ -98,13 +98,6 @@ function must_program_exists(){
   done;
 }
 
-function must_python_pipx_exists(){
-  if ( ! is_program_exists pip ) && ( ! is_program_exists pip2 ) && ( ! is_program_exists pip3 ); then
-    error "You must have installed pip or pip2 or pip3 for installing python packages."
-    exit
-  fi;
-}
-
 function is_platform(){
   [[ `uname` = "$1" ]] && return 0 || return 1
 }
@@ -151,6 +144,13 @@ function sync_repo(){
   fi;
 }
 
+function util_must_python_pipx_exists(){
+  if ( ! is_program_exists pip ) && ( ! is_program_exists pip2 ) && ( ! is_program_exists pip3 ); then
+    error "You must have installed pip or pip2 or pip3 for installing python packages."
+    exit
+  fi;
+}
+
 ########## Steps setup
 
 function usage(){
@@ -159,30 +159,53 @@ function usage(){
   echo
   echo 'Tasks:'
   printf "$dot_color_green\n"
+  echo '    - astyle_rc'
+  echo '    - editorconfig'
   echo '    - fonts_source_code_pro'
-  echo '    - vim_rc'
-  echo '    - vim_plugins'
-  echo '    - vim_plugins_fcitx'
-  echo '    - vim_plugins_matchtag'
-  echo '    - vim_plugins_snippets'
-  echo '    - vim_plugins_ycm'
   echo '    - git_config'
   echo '    - git_diff_fancy'
   echo '    - git_dmtool'
   echo '    - git_extras'
   echo '    - git_flow'
   echo '    - git_standup'
-  echo '    - astyle_rc'
   echo '    - sublime2'
   echo '    - sublime3'
+  echo '    - tmux'
+  echo '    - vim_rc'
+  echo '    - vim_plugins'
+  echo '    - vim_plugins_fcitx'
+  echo '    - vim_plugins_matchtag'
+  echo '    - vim_plugins_snippets'
+  echo '    - vim_plugins_ycm'
   echo '    - vscode'
-  echo '    - editorconfig'
   echo '    - zsh_rc'
   echo '    - zsh_plugins_fasd'
   echo '    - zsh_plugins_fzf'
   echo '    - zsh_plugins_thefuck'
-  echo '    - tmux'
   printf "$dot_color_none\n"
+}
+
+function install_astyle_rc(){
+
+  must_program_exists "astyle"
+
+  step "Installing astylerc ..."
+
+  lnif "$APP_PATH/astyle/astylerc" \
+       "$HOME/.astylerc"
+
+  success "Successfully installed astylerc."
+}
+
+function install_editorconfig(){
+
+  step "Installing editorconfig ..."
+
+  lnif "$APP_PATH/editorconfig/editorconfig" \
+       "$HOME/.editorconfig"
+
+  tip "Maybe you should install editorconfig plugin for vim or sublime"
+  success "Successfully installed editorconfig."
 }
 
 function install_fonts_source_code_pro(){
@@ -225,329 +248,6 @@ function install_fonts_source_code_pro(){
   fi
 
   success "Successfully installed Source Code Pro font."
-}
-
-function install_vim_rc(){
-
-  must_program_exists "vim"
-
-  step "Installing vimrc ..."
-
-  lnif "$APP_PATH/vim" \
-       "$HOME/.vim"
-  lnif "$APP_PATH/vim/vimrc" \
-       "$HOME/.vimrc"
-
-  if ( is_program_exists nvim ); then
-
-    # for newer neovim, code from `:help nvim-from-vim'
-    mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
-    lnif "$APP_PATH/vim" \
-         "$XDG_CONFIG_HOME/nvim"
-
-    # for old neovim
-    lnif "$APP_PATH/vim" \
-         "$HOME/.nvim"
-    lnif "$APP_PATH/vim/vimrc" \
-         "$HOME/.nvimrc"
-
-    if ( is_linux ); then
-      if ( ! is_program_exists 'xclip' ) && ( ! is_program_exists 'xsel' ); then
-        tip "Maybe you should install *xclip* or *xsel* for sharing data between vim registers and system clipboard"
-      fi;
-    fi;
-  fi;
-
-  success "Successfully installed vimrc."
-
-  success "You can add your own configs to ~/.vimrc.local, vim will source them automatically"
-}
-
-function append_dotvim_group(){
-  local group=$1
-  local conf="$HOME/.vimrc.plugins.before"
-
-  if ! grep -iE "^[ \t]*let[ \t]+g:dotvim_groups[ \t]*=[ \t]*\[.+]" "$conf" &>/dev/null ; then
-    printf "\nlet g:dotvim_groups = ['$group']" >> "$conf"
-  elif ! grep -iE "'$group'" "$conf" &>/dev/null; then
-    sed -e "s/]/, '$group']/" "$conf" | tee "$conf" &>/dev/null
-    if grep -iE "\[[ \t]*," "$conf" &>/dev/null; then
-      sed -e "s/\[[ \t]*,[ \t]*/[/" "$conf" | tee "$conf" &>/dev/null
-    fi;
-  fi;
-}
-
-function install_vim_plugins(){
-
-  if ( ! is_file_exists "$HOME/.vimrc" ); then
-    error "You should complete vim_rc task first"
-    exit
-  fi;
-
-  step "Initializing vim-plug"
-
-  sync_repo "https://github.com/junegunn/vim-plug.git" \
-            "$APP_PATH/vim/autoload"
-
-  lnif "$APP_PATH/vim/vimrc.plugins" \
-       "$HOME/.vimrc.plugins"
-
-  vim +PlugInstall +qall
-
-  better_program_exists_one "ag"
-
-  success "You can add your own plugins to ~/.vimrc.plugins.local , vim will source them automatically"
-
-  # only install the font locally
-  if [ -z "$SSH_CONNECTION" ]; then
-    install_fonts_source_code_pro
-  else
-    tip "Maybe you should install the font *Source Code Pro* locally."
-  fi;
-
-  tip "In order to use powerline symbols with airline in vim, please set your terminal to use the font *Source Code Pro*"
-}
-
-function must_vimrc_plugins_exists(){
-  if ( ! is_file_exists "$HOME/.vimrc.plugins" ); then
-    error "You should complete vim_plugins task first"
-    exit
-  fi;
-}
-
-function install_vim_plugins_fcitx(){
-
-  must_vimrc_plugins_exists
-
-  step "installing fcitx support plugin for vim ..."
-
-  if ( is_mac ); then
-    if [ "$FCITX_IM" = "" ]; then
-      error "You must set FCITX_IM to use fcitx-vim-osx plugin"
-      exit
-    fi;
-    sync_repo "https://github.com/CodeFalling/fcitx-remote-for-osx.git" \
-              "$APP_PATH/vim/.cache/fcitx-remote-for-osx" \
-              "binary"
-    lnif "$APP_PATH/vim/.cache/fcitx-remote-for-osx/fcitx-remote-$FCITX_IM" \
-         "/usr/local/bin/fcitx-remote"
-  fi;
-
-  append_dotvim_group "fcitx"
-
-  vim +PlugInstall +qall
-
-  success "Successfully installed fcitx support plugin."
-}
-
-function ensure_neovim_python_support(){
-
-  if ( ! is_program_exists nvim ); then
-    return
-  fi;
-
-  if [[ `uname -a` =~ "gentoo" ]] && ( is_file_exists /etc/gentoo-release ); then
-      # in gentoo, recommend enable python USE flag to automatically install pynvim
-      tip "You are using Gentoo Linux."
-      tip "You should enable *python* USE flag for neovim, and reinstall neovim."
-      tip "Then dev-python/neovim-python-client will be installed automatically."
-      tip "Also you can run '[sudo] emerge -a dev-python/neovim-python-client' manually."
-      return
-  fi;
-
-  must_python_pipx_exists
-
-  if ( is_program_exists pip2 ); then
-    info "Installing python2 neovim package ..."
-    pip2 install --user --upgrade neovim
-  elif ( is_program_exists pip ); then
-    info "Installing python2 neovim package ..."
-    pip install --user --upgrade neovim
-  fi;
-
-  if ( is_program_exists pip3 ); then
-    info "Installing python3 neovim package ..."
-    pip3 install --user --upgrade neovim
-  fi;
-
-  success "Successfully installed neovim python client."
-}
-
-function install_vim_plugins_matchtag(){
-
-  must_vimrc_plugins_exists
-
-  must_program_exists "python"
-
-  step "Installing vim MatchTagAlways plugin ..."
-
-  # check whether have neovim. if have, make sure neovim have python feature support
-  ensure_neovim_python_support
-
-  append_dotvim_group "matchtag"
-
-  vim +PlugInstall +qall
-
-  success "Successfully installed MatchTagAlways plugins."
-}
-
-function install_vim_plugins_snippets(){
-
-  must_vimrc_plugins_exists
-
-  must_program_exists "python"
-
-  step "Installing vim snippets plugin ..."
-
-  # check whether have neovim. if have, make sure neovim have python feature support
-  ensure_neovim_python_support
-
-  append_dotvim_group "snippets"
-
-  vim +PlugInstall +qall
-
-  success "Successfully installed vim-snippets plugins."
-}
-
-function install_vim_plugins_ycm(){
-
-  must_vimrc_plugins_exists
-
-  must_program_exists "python"
-
-  step "Installing vim YouCompleteMe plugin ..."
-
-  # check whether have neovim. if have, make sure neovim have python feature support
-  ensure_neovim_python_support
-
-  # fetch or update YouCompleteMe
-  sync_repo "https://github.com/Valloric/YouCompleteMe.git" \
-            "$APP_PATH/vim/plugins/YouCompleteMe"
-
-  # Force recompile YouCompleteMe libs
-  # or YouCompleteMe libs not exists
-  # compile libs for YouCompleteMe
-  local ycmd_path="$APP_PATH/vim/plugins/YouCompleteMe/third_party/ycmd"
-  if [[ "$YCM_COMPILE_FORCE" = "true" ]] || ( ! is_file_exists "$ycmd_path/ycm_core.so" ) || ( ! is_file_exists "$ycmd_path/ycm_client_support.so" ); then
-    info "Compiling YouCompleteMe libs ..."
-    "$APP_PATH/vim/plugins/YouCompleteMe/install.py" $YCM_COMPLETER_FLAG
-  fi;
-
-  append_dotvim_group "youcompleteme"
-
-  success "Successfully installed YouCompleteMe plugin."
-}
-
-function install_sublime2(){
-
-  local sublime_path
-
-  if ( is_linux ); then
-    sublime_path="$HOME/.config/sublime-text-2"
-  elif ( is_mac ); then
-    sublime_path="$HOME/Library/Application Support/Sublime Text 2"
-  else
-    error "Can't detect your platform. This support *Linux* and *Mac* only"
-    exit
-  fi;
-
-  step "Installing sublime2 configs ..."
-
-  sync_repo "https://github.com/jonschlinkert/sublime-monokai-extended.git" \
-            "$APP_PATH/sublime2/.cache/monokai-extended"
-  lnif "$APP_PATH/sublime2/.cache/monokai-extended" \
-       "$sublime_path/Packages/User/monokai-extended"
-
-  sync_repo "https://github.com/jonschlinkert/sublime-markdown-extended.git" \
-            "$APP_PATH/sublime2/.cache/markdown-extended"
-  lnif "$APP_PATH/sublime2/.cache/markdown-extended" \
-       "$sublime_path/Packages/User/markdown-extended"
-
-  lnif "$APP_PATH/sublime2/Preferences.sublime-settings" \
-       "$sublime_path/Packages/User/Preferences.sublime-settings"
-
-  success "Successfully installed sublime2 Preference and monokai-extended theme"
-
-  install_fonts_source_code_pro
-
-  tip "You can change font_size and font_face in your sublime Preference"
-}
-
-function install_sublime3(){
-
-  local sublime_path
-
-  if ( is_linux ); then
-    sublime_path="$HOME/.config/sublime-text-3"
-  elif ( is_mac ); then
-    sublime_path="$HOME/Library/Application Support/Sublime Text 3"
-  else
-    error "Can't detect your platform. This support *Linux* and *Mac* only"
-    exit
-  fi;
-
-  step "Installing sublime3 configs ..."
-
-  sync_repo "https://github.com/jonschlinkert/sublime-monokai-extended.git" \
-            "$APP_PATH/sublime3/.cache/monokai-extended"
-  lnif "$APP_PATH/sublime3/.cache/monokai-extended" \
-       "$sublime_path/Packages/User/monokai-extended"
-
-  sync_repo "https://github.com/jonschlinkert/sublime-markdown-extended.git" \
-            "$APP_PATH/sublime3/.cache/markdown-extended"
-  lnif "$APP_PATH/sublime3/.cache/markdown-extended" \
-       "$sublime_path/Packages/User/markdown-extended"
-
-  lnif "$APP_PATH/sublime3/Preferences.sublime-settings" \
-       "$sublime_path/Packages/User/Preferences.sublime-settings"
-
-  success "Successfully installed sublime3 Preference and monokai-extended theme"
-
-  install_fonts_source_code_pro
-
-  tip "You can change font_size and font_face in your sublime Preference"
-}
-
-function install_vscode(){
-
-  local vscode_path
-  local vscode_keybindings
-
-  if( is_linux ); then
-    vscode_path="$HOME/.config/Code"
-    vscode_keybindings="$APP_PATH/vscode/keybindings.linux.json"
-  elif( is_mac ); then
-    vscode_path="$HOME/Library/Application Support/Code"
-    vscode_keybindings="$APP_PATH/vscode/keybindings.osx.json"
-  else
-    error "Can't detect your platform. This support *Linux* and *Mac* only"
-    exit
-  fi;
-
-  step "Installing vscode configs ..."
-
-  mkdir -p "$vscode_path/User"
-
-  lnif "$APP_PATH/vscode/settings.json" \
-       "$vscode_path/User/settings.json"
-
-  lnif "$vscode_keybindings" \
-       "$vscode_path/User/keybindings.json"
-
-  success "Successfully installed vscode configs."
-
-  install_fonts_source_code_pro
-}
-
-function install_editorconfig(){
-
-  step "Installing editorconfig ..."
-
-  lnif "$APP_PATH/editorconfig/editorconfig" \
-       "$HOME/.editorconfig"
-
-  tip "Maybe you should install editorconfig plugin for vim or sublime"
-  success "Successfully installed editorconfig."
 }
 
 function install_git_config(){
@@ -694,16 +394,363 @@ function install_git_standup(){
   success "Successfully installed git-standup."
 }
 
-function install_astyle_rc(){
+function install_homebrew(){
 
-  must_program_exists "astyle"
+  if ( is_program_exists "brew" ); then
+    success "You have already installed homebrew"
+    exit
+  fi;
 
-  step "Installing astylerc ..."
+  must_program_exists "ruby" \
+                      "curl"
 
-  lnif "$APP_PATH/astyle/astylerc" \
-       "$HOME/.astylerc"
+  if ( is_mac ); then
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  elif ( is_linux ); then
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
+  fi;
 
-  success "Successfully installed astylerc."
+  success "Successfully installed homebrew"
+}
+
+function install_sublime2(){
+
+  local sublime_path
+
+  if ( is_linux ); then
+    sublime_path="$HOME/.config/sublime-text-2"
+  elif ( is_mac ); then
+    sublime_path="$HOME/Library/Application Support/Sublime Text 2"
+  else
+    error "Can't detect your platform. This support *Linux* and *Mac* only"
+    exit
+  fi;
+
+  step "Installing sublime2 configs ..."
+
+  sync_repo "https://github.com/jonschlinkert/sublime-monokai-extended.git" \
+            "$APP_PATH/sublime2/.cache/monokai-extended"
+  lnif "$APP_PATH/sublime2/.cache/monokai-extended" \
+       "$sublime_path/Packages/User/monokai-extended"
+
+  sync_repo "https://github.com/jonschlinkert/sublime-markdown-extended.git" \
+            "$APP_PATH/sublime2/.cache/markdown-extended"
+  lnif "$APP_PATH/sublime2/.cache/markdown-extended" \
+       "$sublime_path/Packages/User/markdown-extended"
+
+  lnif "$APP_PATH/sublime2/Preferences.sublime-settings" \
+       "$sublime_path/Packages/User/Preferences.sublime-settings"
+
+  success "Successfully installed sublime2 Preference and monokai-extended theme"
+
+  install_fonts_source_code_pro
+
+  tip "You can change font_size and font_face in your sublime Preference"
+}
+
+function install_sublime3(){
+
+  local sublime_path
+
+  if ( is_linux ); then
+    sublime_path="$HOME/.config/sublime-text-3"
+  elif ( is_mac ); then
+    sublime_path="$HOME/Library/Application Support/Sublime Text 3"
+  else
+    error "Can't detect your platform. This support *Linux* and *Mac* only"
+    exit
+  fi;
+
+  step "Installing sublime3 configs ..."
+
+  sync_repo "https://github.com/jonschlinkert/sublime-monokai-extended.git" \
+            "$APP_PATH/sublime3/.cache/monokai-extended"
+  lnif "$APP_PATH/sublime3/.cache/monokai-extended" \
+       "$sublime_path/Packages/User/monokai-extended"
+
+  sync_repo "https://github.com/jonschlinkert/sublime-markdown-extended.git" \
+            "$APP_PATH/sublime3/.cache/markdown-extended"
+  lnif "$APP_PATH/sublime3/.cache/markdown-extended" \
+       "$sublime_path/Packages/User/markdown-extended"
+
+  lnif "$APP_PATH/sublime3/Preferences.sublime-settings" \
+       "$sublime_path/Packages/User/Preferences.sublime-settings"
+
+  success "Successfully installed sublime3 Preference and monokai-extended theme"
+
+  install_fonts_source_code_pro
+
+  tip "You can change font_size and font_face in your sublime Preference"
+}
+
+function install_tmux(){
+
+  must_program_exists "tmux"
+
+  step "Installing tmux configs ..."
+
+  sync_repo "https://github.com/tmux-plugins/tpm" \
+            "$APP_PATH/tmux/plugins/tpm"
+
+  # tmux中的vim无法使用系统的粘贴板, 安装reattach-to-user-namespace修复
+  if ( is_mac ); then
+    if( ! is_program_exists reattach-to-user-namespace ); then
+      if ( is_program_exists brew ); then
+        brew install reattach-to-user-namespace
+      else
+        tip "Maybe you should install reattach-to-user-namespace for vim in tmux"
+      fi;
+    fi;
+  fi;
+
+  lnif "$APP_PATH/tmux" \
+       "$HOME/.tmux"
+  lnif "$APP_PATH/tmux/tmux.conf" \
+       "$HOME/.tmux.conf"
+
+  success "Please run tmux and use prefix-I to install tmux plugins or reload your tmux.conf"
+}
+
+function install_vim_rc(){
+
+  must_program_exists "vim"
+
+  step "Installing vimrc ..."
+
+  lnif "$APP_PATH/vim" \
+       "$HOME/.vim"
+  lnif "$APP_PATH/vim/vimrc" \
+       "$HOME/.vimrc"
+
+  if ( is_program_exists nvim ); then
+
+    # for newer neovim, code from `:help nvim-from-vim'
+    mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+    lnif "$APP_PATH/vim" \
+         "$XDG_CONFIG_HOME/nvim"
+
+    # for old neovim
+    lnif "$APP_PATH/vim" \
+         "$HOME/.nvim"
+    lnif "$APP_PATH/vim/vimrc" \
+         "$HOME/.nvimrc"
+
+    if ( is_linux ); then
+      if ( ! is_program_exists 'xclip' ) && ( ! is_program_exists 'xsel' ); then
+        tip "Maybe you should install *xclip* or *xsel* for sharing data between vim registers and system clipboard"
+      fi;
+    fi;
+  fi;
+
+  success "Successfully installed vimrc."
+
+  success "You can add your own configs to ~/.vimrc.local, vim will source them automatically"
+}
+
+function util_append_dotvim_group(){
+  local group=$1
+  local conf="$HOME/.vimrc.plugins.before"
+
+  if ! grep -iE "^[ \t]*let[ \t]+g:dotvim_groups[ \t]*=[ \t]*\[.+]" "$conf" &>/dev/null ; then
+    printf "\nlet g:dotvim_groups = ['$group']" >> "$conf"
+  elif ! grep -iE "'$group'" "$conf" &>/dev/null; then
+    sed -e "s/]/, '$group']/" "$conf" | tee "$conf" &>/dev/null
+    if grep -iE "\[[ \t]*," "$conf" &>/dev/null; then
+      sed -e "s/\[[ \t]*,[ \t]*/[/" "$conf" | tee "$conf" &>/dev/null
+    fi;
+  fi;
+}
+
+function install_vim_plugins(){
+
+  if ( ! is_file_exists "$HOME/.vimrc" ); then
+    error "You should complete vim_rc task first"
+    exit
+  fi;
+
+  step "Initializing vim-plug"
+
+  sync_repo "https://github.com/junegunn/vim-plug.git" \
+            "$APP_PATH/vim/autoload"
+
+  lnif "$APP_PATH/vim/vimrc.plugins" \
+       "$HOME/.vimrc.plugins"
+
+  vim +PlugInstall +qall
+
+  better_program_exists_one "ag"
+
+  success "You can add your own plugins to ~/.vimrc.plugins.local , vim will source them automatically"
+
+  # only install the font locally
+  if [ -z "$SSH_CONNECTION" ]; then
+    install_fonts_source_code_pro
+  else
+    tip "Maybe you should install the font *Source Code Pro* locally."
+  fi;
+
+  tip "In order to use powerline symbols with airline in vim, please set your terminal to use the font *Source Code Pro*"
+}
+
+function util_must_vimrc_plugins_exists(){
+  if ( ! is_file_exists "$HOME/.vimrc.plugins" ); then
+    error "You should complete vim_plugins task first"
+    exit
+  fi;
+}
+
+function install_vim_plugins_fcitx(){
+
+  util_must_vimrc_plugins_exists
+
+  step "installing fcitx support plugin for vim ..."
+
+  if ( is_mac ); then
+    if [ "$FCITX_IM" = "" ]; then
+      error "You must set FCITX_IM to use fcitx-vim-osx plugin"
+      exit
+    fi;
+    sync_repo "https://github.com/CodeFalling/fcitx-remote-for-osx.git" \
+              "$APP_PATH/vim/.cache/fcitx-remote-for-osx" \
+              "binary"
+    lnif "$APP_PATH/vim/.cache/fcitx-remote-for-osx/fcitx-remote-$FCITX_IM" \
+         "/usr/local/bin/fcitx-remote"
+  fi;
+
+  util_append_dotvim_group "fcitx"
+
+  vim +PlugInstall +qall
+
+  success "Successfully installed fcitx support plugin."
+}
+
+function util_ensure_neovim_python_support(){
+
+  if ( ! is_program_exists nvim ); then
+    return
+  fi;
+
+  if [[ `uname -a` =~ "gentoo" ]] && ( is_file_exists /etc/gentoo-release ); then
+      # in gentoo, recommend enable python USE flag to automatically install pynvim
+      tip "You are using Gentoo Linux."
+      tip "You should enable *python* USE flag for neovim, and reinstall neovim."
+      tip "Then dev-python/neovim-python-client will be installed automatically."
+      tip "Also you can run '[sudo] emerge -a dev-python/neovim-python-client' manually."
+      return
+  fi;
+
+  util_must_python_pipx_exists
+
+  if ( is_program_exists pip2 ); then
+    info "Installing python2 neovim package ..."
+    pip2 install --user --upgrade neovim
+  elif ( is_program_exists pip ); then
+    info "Installing python2 neovim package ..."
+    pip install --user --upgrade neovim
+  fi;
+
+  if ( is_program_exists pip3 ); then
+    info "Installing python3 neovim package ..."
+    pip3 install --user --upgrade neovim
+  fi;
+
+  success "Successfully installed neovim python client."
+}
+
+function install_vim_plugins_matchtag(){
+
+  util_must_vimrc_plugins_exists
+
+  must_program_exists "python"
+
+  step "Installing vim MatchTagAlways plugin ..."
+
+  # check whether have neovim. if have, make sure neovim have python feature support
+  util_ensure_neovim_python_support
+
+  util_append_dotvim_group "matchtag"
+
+  vim +PlugInstall +qall
+
+  success "Successfully installed MatchTagAlways plugins."
+}
+
+function install_vim_plugins_snippets(){
+
+  util_must_vimrc_plugins_exists
+
+  must_program_exists "python"
+
+  step "Installing vim snippets plugin ..."
+
+  # check whether have neovim. if have, make sure neovim have python feature support
+  util_ensure_neovim_python_support
+
+  util_append_dotvim_group "snippets"
+
+  vim +PlugInstall +qall
+
+  success "Successfully installed vim-snippets plugins."
+}
+
+function install_vim_plugins_ycm(){
+
+  util_must_vimrc_plugins_exists
+
+  must_program_exists "python"
+
+  step "Installing vim YouCompleteMe plugin ..."
+
+  # check whether have neovim. if have, make sure neovim have python feature support
+  util_ensure_neovim_python_support
+
+  # fetch or update YouCompleteMe
+  sync_repo "https://github.com/Valloric/YouCompleteMe.git" \
+            "$APP_PATH/vim/plugins/YouCompleteMe"
+
+  # Force recompile YouCompleteMe libs
+  # or YouCompleteMe libs not exists
+  # compile libs for YouCompleteMe
+  local ycmd_path="$APP_PATH/vim/plugins/YouCompleteMe/third_party/ycmd"
+  if [[ "$YCM_COMPILE_FORCE" = "true" ]] || ( ! is_file_exists "$ycmd_path/ycm_core.so" ) || ( ! is_file_exists "$ycmd_path/ycm_client_support.so" ); then
+    info "Compiling YouCompleteMe libs ..."
+    "$APP_PATH/vim/plugins/YouCompleteMe/install.py" $YCM_COMPLETER_FLAG
+  fi;
+
+  util_append_dotvim_group "youcompleteme"
+
+  success "Successfully installed YouCompleteMe plugin."
+}
+
+function install_vscode(){
+
+  local vscode_path
+  local vscode_keybindings
+
+  if( is_linux ); then
+    vscode_path="$HOME/.config/Code"
+    vscode_keybindings="$APP_PATH/vscode/keybindings.linux.json"
+  elif( is_mac ); then
+    vscode_path="$HOME/Library/Application Support/Code"
+    vscode_keybindings="$APP_PATH/vscode/keybindings.osx.json"
+  else
+    error "Can't detect your platform. This support *Linux* and *Mac* only"
+    exit
+  fi;
+
+  step "Installing vscode configs ..."
+
+  mkdir -p "$vscode_path/User"
+
+  lnif "$APP_PATH/vscode/settings.json" \
+       "$vscode_path/User/settings.json"
+
+  lnif "$vscode_keybindings" \
+       "$vscode_path/User/keybindings.json"
+
+  success "Successfully installed vscode configs."
+
+  install_fonts_source_code_pro
 }
 
 function install_zsh_rc(){
@@ -793,7 +840,7 @@ function install_zsh_plugins_thefuck(){
   step "Installing thefuck plugin for oh-my-zsh ..."
 
   # add zsh plugin thefuck support
-  must_python_pipx_exists
+  util_must_python_pipx_exists
 
   if ( is_program_exists pip3 ); then
     pip3 install --user --upgrade thefuck
@@ -810,75 +857,19 @@ function install_zsh_plugins_thefuck(){
   success "Please open a new zsh terminal to make configs go into effect."
 }
 
-function install_tmux(){
-
-  must_program_exists "tmux"
-
-  step "Installing tmux configs ..."
-
-  sync_repo "https://github.com/tmux-plugins/tpm" \
-            "$APP_PATH/tmux/plugins/tpm"
-
-  # tmux中的vim无法使用系统的粘贴板, 安装reattach-to-user-namespace修复
-  if ( is_mac ); then
-    if( ! is_program_exists reattach-to-user-namespace ); then
-      if ( is_program_exists brew ); then
-        brew install reattach-to-user-namespace
-      else
-        tip "Maybe you should install reattach-to-user-namespace for vim in tmux"
-      fi;
-    fi;
-  fi;
-
-  lnif "$APP_PATH/tmux" \
-       "$HOME/.tmux"
-  lnif "$APP_PATH/tmux/tmux.conf" \
-       "$HOME/.tmux.conf"
-
-  success "Please run tmux and use prefix-I to install tmux plugins or reload your tmux.conf"
-}
-
-function install_homebrew(){
-
-  if ( is_program_exists "brew" ); then
-    success "You have already installed homebrew"
-    exit
-  fi;
-
-  must_program_exists "ruby" \
-                      "curl"
-
-  if ( is_mac ); then
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  elif ( is_linux ); then
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
-  fi;
-
-  success "Successfully installed homebrew"
-}
-
 if [ $# = 0 ]; then
   usage
 else
   for arg in $@; do
     case $arg in
-      vim_rc)
-        install_vim_rc
+      astyle_rc)
+        install_astyle_rc
         ;;
-      vim_plugins)
-        install_vim_plugins
+      editorconfig)
+        install_editorconfig
         ;;
-      vim_plugins_fcitx)
-        install_vim_plugins_fcitx
-        ;;
-      vim_plugins_matchtag)
-        install_vim_plugins_matchtag
-        ;;
-      vim_plugins_snippets)
-        install_vim_plugins_snippets
-        ;;
-      vim_plugins_ycm)
-        install_vim_plugins_ycm
+      fonts_source_code_pro)
+        install_fonts_source_code_pro
         ;;
       git_config)
         install_git_config
@@ -898,11 +889,8 @@ else
       git_standup)
         install_git_standup
         ;;
-      fonts_source_code_pro)
-        install_fonts_source_code_pro
-        ;;
-      astyle_rc)
-        install_astyle_rc
+      homebrew)
+        install_homebrew
         ;;
       sublime2)
         install_sublime2
@@ -910,14 +898,35 @@ else
       sublime3)
         install_sublime3
         ;;
+      tmux)
+        install_tmux
+        ;;
+      vim_rc)
+        install_vim_rc
+        ;;
+      vim_plugins)
+        install_vim_plugins
+        ;;
+      vim_plugins_fcitx)
+        install_vim_plugins_fcitx
+        ;;
+      vim_plugins_matchtag)
+        install_vim_plugins_matchtag
+        ;;
+      vim_plugins_snippets)
+        install_vim_plugins_snippets
+        ;;
+      vim_plugins_ycm)
+        install_vim_plugins_ycm
+        ;;
       vscode)
         install_vscode
         ;;
-      editorconfig)
-        install_editorconfig
-        ;;
       zsh_rc)
         install_zsh_rc
+        ;;
+      zsh_cfg)
+        install_zsh_cfg
         ;;
       zsh_plugins_fasd)
         install_zsh_plugins_fasd
@@ -927,15 +936,6 @@ else
         ;;
       zsh_plugins_thefuck)
         install_zsh_plugins_thefuck
-        ;;
-      zsh_cfg)
-        install_zsh_cfg
-        ;;
-      tmux)
-        install_tmux
-        ;;
-      homebrew)
-        install_homebrew
         ;;
       *)
         echo

@@ -43,35 +43,53 @@ cd ~/.dotfile
 ## Tasks
 All vailable tasks:
 
+- [astyle_rc](#task-astyle_rc)
+- [editorconfig](#task-editorconfig)
 - [fonts_source_code_pro](#task-fonts_source_code_pro)
-- [vim_rc](#task-vim_rc)
-- [vim_plugins](#task-vim_plugins)
-- [vim_plugins_fcitx](#task-vim_plugins_fcitx)
-- [vim_plugins_matchtag](#task-vim_plugins_matchtag)
-- [vim_plugins_snippets](#task-vim_plugins_snippets)
-- [vim_plugins_ycm](#task-vim_plugins_ycm)
 - [git_config](#task-git_config)
 - [git_diff_fancy](#task-git_diff_fancy)
 - [git_dmtool](#task-git_dmtool)
 - [git_extras](#task-git_extras)
 - [git_flow](#task-git_flow)
 - [git_standup](#task-git_standup)
-- [astyle_rc](#task-astyle_rc)
 - [sublime2](#task-sublime2)
 - [sublime3](#task-sublime3)
+- [tmux](#task-tmux)
+- [vim_rc](#task-vim_rc)
+- [vim_plugins](#task-vim_plugins)
+- [vim_plugins_fcitx](#task-vim_plugins_fcitx)
+- [vim_plugins_matchtag](#task-vim_plugins_matchtag)
+- [vim_plugins_snippets](#task-vim_plugins_snippets)
+- [vim_plugins_ycm](#task-vim_plugins_ycm)
 - [vscode](#task-vscode)
-- [editorconfig](#task-editorconfig)
 - [zsh_rc](#task-zsh_rc)
 - [zsh_plugins_fasd](#task-zsh_plugins_fasd)
 - [zsh_plugins_fzf](#task-zsh_plugins_fzf)
 - [zsh_plugins_thefuck](#task-zsh_plugins_thefuck)
-- [tmux](#task-tmux)
 
 You can do a specific task by run
 
 ```sh
 ./install.sh <taskname1>[ <taskname2> <tasknameN> ...]
 ```
+
+- ### Task `astyle_rc`
+    Requirement(s): `astyle`. If you have installed `astyle` and press `Q` in vim,
+    astyle will be used to format the *C*, *C++*, *C#*, *Java* file.
+
+    **What others maybe you should install?**
+
+    astyle
+
+    ```sh
+    # OS X only
+    brew install astyle
+    ```
+
+- ### Task `editorconfig`
+
+    Install global `.editorconfig` to you home. You can see
+    [what config is used](editorconfig/editorconfig).
 
 - ### Task `fonts_source_code_pro`
     Requirement(s): `git`
@@ -87,6 +105,112 @@ You can do a specific task by run
     This font will be installed automatically when do task
     [vim_plugins](#task-vim_plugins), [sublime2](#task-sublime2)
     [sublime3](#task-sublime3) and [vscode](#task-vscode).
+
+- ### Task `git_config`
+    Requirement(s): `git`
+
+    This task will ask you what username and email you want to config global
+    for git.
+
+- ### Task `git_diff_fancy`
+    Requirement(s): `git`
+
+    Install `diff-so-fancy` plugin for git. Please see [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
+
+- ### Task `git_dmtool`
+    Requirement(s): `MAC`, `git`, `Kaleidoscope`(`ksdiff`)
+
+    Config git's difftool and mergetool to Kaleidoscope.
+
+    Kaleidoscope is a sooooo excellent diff and merge tool
+
+- ### Task `git_extras`
+    Requirement(s): `git`
+
+    Install [`git-extras`](https://github.com/tj/git-extras) plugin for git. git-extras( _Linux, OS X_ ) has some
+    useful tools for git.
+
+- ### Task `git_flow`
+    Requirement(s): `git`
+
+    Install `git-flow` plugin for git.
+
+    A post about git-flow:
+    [a-successful-git-branching-model](http://nvie.com/posts/a-successful-git-branching-model/)
+
+- ### Task `git_standup`
+    Requirement(s): `git`
+
+    Install `git-standup` plugin for git. Please see [git-standup](https://github.com/kamranahmedse/git-standup)
+
+- ### Task `sublime2`
+    Requirement(s): `git`, `Sublime Text 2`
+
+    **bakup your preference file first!**
+
+    If you use `Sublime Text 2`, this task will add user Preference,
+    [`Monokai Extended`](https://github.com/jonschlinkert/sublime-monokai-extended)
+    colorscheme and
+    [`Markdown Extended`](https://github.com/jonschlinkert/sublime-markdown-extended)
+    plugin which supports more files including Markdown highlight.
+
+    After installing the preference, maybe you want to reset `font_face` and
+    `font_size` to what you prefer in `Preference.sublime-settings`. Also you
+    can see what sublime packages I used in [SublimePackages](sublime2/README.md).
+
+    If you use `VIM Mode` in Sublime Text 2 on OS X 10.8+, when you hold `h`,
+    `l`, `j`, `k`, the cursor will not move `left` `right` `down` `up`
+    continually like real VIM, the solution is below.
+
+    > Mac OS X Lion introduced a new, iOS-like context menu when you press and hold a key
+    > that enables you to choose a character from a menu of options. If you are on Lion
+    > try it by pressing and holding down 'e' in any app that uses the default NSTextField
+    > for input.
+
+    > It's a nice feature and continues the blending of Mac OS X and iOS features. However,
+    > it's a nightmare to deal with in Sublime Text 2 if you're running Vintage (Vim) mode,
+    > as it means you cannot press and hold h/j/k/l to move through your file. You have
+    > to repeatedly press the keys to navigate.
+
+    > You can disable this feature for just Sublime Text 2 by issuing the following command
+    > in your terminal:
+
+    >       defaults write com.sublimetext.2 ApplePressAndHoldEnabled -bool false
+
+    > Alternately, if you want this feature disabled globally, you can enter this:
+
+    >       defaults write -g ApplePressAndHoldEnabled -bool false
+
+    > In either case you'll need to restart your computer for the change to take place.
+
+    > Happy coding!
+
+- ### Task `sublime3`
+    Requirement(s): `git`, `Sublime Text 3`
+
+    **bakup your preference file first!**
+
+    If you use `Sublime Text 3`, this task will add user Preference,
+    [`Monokai Extended`](https://github.com/jonschlinkert/sublime-monokai-extended)
+    colorscheme and
+    [`Markdown Extended`](https://github.com/jonschlinkert/sublime-markdown-extended)
+    plugin which supports more files including Markdown highlight.
+
+    After installing the preference, maybe you want to reset `font_face` and
+    `font_size` to what you prefer in `Preference.sublime-settings`. Also you
+    can see what sublime packages I used in [SublimePackages](sublime3/README.md).
+
+- ### Task `tmux`
+    Requirement(s): `git`, `tmux`
+
+    tmux plugins
+    - [tmux-plugins/tpm](https://github.com/tmux-plugins/tpm)
+    - [tmux-plugins/tmux-sensible](https://github.com/tmux-plugins/tmux-sensible)
+    - [tmux-plugins/tmux-pain-control](https://github.com/tmux-plugins/tmux-pain-control)
+    - [tmux-plugins/tmux-prefix-highlight](https://github.com/tmux-plugins/tmux-prefix-highlight)
+    - [tmux-plugins/tmux-copycat](https://github.com/tmux-plugins/tmux-copycat)
+    - [tmux-plugins/tmux-yank](https://github.com/tmux-plugins/tmux-yank)
+    - [nhdaly/tmux-scroll-copy-mode](nhdaly/tmux-scroll-copy-mode)
 
 - ### Task `vim_rc`
     Requirement(s): `git`, `vim`
@@ -320,113 +444,6 @@ You can do a specific task by run
     Plug 'Valloric/YouCompleteMe'
     ```
 
-- ### Task `git_config`
-    Requirement(s): `git`
-
-    This task will ask you what username and email you want to config global
-    for git.
-
-- ### Task `git_diff_fancy`
-    Requirement(s): `git`
-
-    Install `diff-so-fancy` plugin for git. Please see [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
-
-- ### Task `git_dmtool`
-    Requirement(s): `MAC`, `git`, `Kaleidoscope`(`ksdiff`)
-
-    Config git's difftool and mergetool to Kaleidoscope.
-
-    Kaleidoscope is a sooooo excellent diff and merge tool
-
-- ### Task `git_extras`
-    Requirement(s): `git`
-
-    Install [`git-extras`](https://github.com/tj/git-extras) plugin for git. git-extras( _Linux, OS X_ ) has some
-    useful tools for git.
-
-- ### Task `git_flow`
-    Requirement(s): `git`
-
-    Install `git-flow` plugin for git.
-
-    A post about git-flow:
-    [a-successful-git-branching-model](http://nvie.com/posts/a-successful-git-branching-model/)
-
-- ### Task `git_standup`
-    Requirement(s): `git`
-
-    Install `git-standup` plugin for git. Please see [git-standup](https://github.com/kamranahmedse/git-standup)
-
-- ### Task `astyle_rc`
-    Requirement(s): `astyle`. If you have installed `astyle` and press `Q` in vim,
-    astyle will be used to format the *C*, *C++*, *C#*, *Java* file.
-
-    **What others maybe you should install?**
-
-    astyle
-
-    ```sh
-    # OS X only
-    brew install astyle
-    ```
-
-- ### Task `sublime2`
-    Requirement(s): `git`, `Sublime Text 2`
-
-    **bakup your preference file first!**
-
-    If you use `Sublime Text 2`, this task will add user Preference,
-    [`Monokai Extended`](https://github.com/jonschlinkert/sublime-monokai-extended)
-    colorscheme and
-    [`Markdown Extended`](https://github.com/jonschlinkert/sublime-markdown-extended)
-    plugin which supports more files including Markdown highlight.
-
-    After installing the preference, maybe you want to reset `font_face` and
-    `font_size` to what you prefer in `Preference.sublime-settings`. Also you
-    can see what sublime packages I used in [SublimePackages](sublime2/README.md).
-
-    If you use `VIM Mode` in Sublime Text 2 on OS X 10.8+, when you hold `h`,
-    `l`, `j`, `k`, the cursor will not move `left` `right` `down` `up`
-    continually like real VIM, the solution is below.
-
-    > Mac OS X Lion introduced a new, iOS-like context menu when you press and hold a key
-    > that enables you to choose a character from a menu of options. If you are on Lion
-    > try it by pressing and holding down 'e' in any app that uses the default NSTextField
-    > for input.
-
-    > It's a nice feature and continues the blending of Mac OS X and iOS features. However,
-    > it's a nightmare to deal with in Sublime Text 2 if you're running Vintage (Vim) mode,
-    > as it means you cannot press and hold h/j/k/l to move through your file. You have
-    > to repeatedly press the keys to navigate.
-
-    > You can disable this feature for just Sublime Text 2 by issuing the following command
-    > in your terminal:
-
-    >       defaults write com.sublimetext.2 ApplePressAndHoldEnabled -bool false
-
-    > Alternately, if you want this feature disabled globally, you can enter this:
-
-    >       defaults write -g ApplePressAndHoldEnabled -bool false
-
-    > In either case you'll need to restart your computer for the change to take place.
-
-    > Happy coding!
-
-- ### Task `sublime3`
-    Requirement(s): `git`, `Sublime Text 3`
-
-    **bakup your preference file first!**
-
-    If you use `Sublime Text 3`, this task will add user Preference,
-    [`Monokai Extended`](https://github.com/jonschlinkert/sublime-monokai-extended)
-    colorscheme and
-    [`Markdown Extended`](https://github.com/jonschlinkert/sublime-markdown-extended)
-    plugin which supports more files including Markdown highlight.
-
-    After installing the preference, maybe you want to reset `font_face` and
-    `font_size` to what you prefer in `Preference.sublime-settings`. Also you
-    can see what sublime packages I used in [SublimePackages](sublime3/README.md).
-
 - ### Task `vscode`
     Requirement(s): `git`, [Visual Studio Code](https://code.visualstudio.com)
 
@@ -436,11 +453,6 @@ You can do a specific task by run
     and `editor.fontSize` to what you prefer in `settings.json`, and custom key
     bindings in `keybindings.json`. Also you can see what sublime packages I
     used in [Visual Studio Code Packages](vscode/README.md).
-
-- ### Task `editorconfig`
-
-    Install global `.editorconfig` to you home. You can see
-    [what config is used](editorconfig/editorconfig).
 
 - ### Task `zsh_rc`
     Requirement(s): `git`, `zsh`
@@ -491,18 +503,6 @@ You can do a specific task by run
     Requirement(s): `git`, `zsh`, [task zsh_rc](#task-zsh_rc)
 
     Install oh-my-zsh plugin [`thefuck`](https://github.com/nvbn/thefuck)
-
-- ### Task `tmux`
-    Requirement(s): `git`, `tmux`
-
-    tmux plugins
-    - [tmux-plugins/tpm](https://github.com/tmux-plugins/tpm)
-    - [tmux-plugins/tmux-sensible](https://github.com/tmux-plugins/tmux-sensible)
-    - [tmux-plugins/tmux-pain-control](https://github.com/tmux-plugins/tmux-pain-control)
-    - [tmux-plugins/tmux-prefix-highlight](https://github.com/tmux-plugins/tmux-prefix-highlight)
-    - [tmux-plugins/tmux-copycat](https://github.com/tmux-plugins/tmux-copycat)
-    - [tmux-plugins/tmux-yank](https://github.com/tmux-plugins/tmux-yank)
-    - [nhdaly/tmux-scroll-copy-mode](nhdaly/tmux-scroll-copy-mode)
 
 ## License
 
