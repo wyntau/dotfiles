@@ -121,8 +121,9 @@ You can do a specific task by run
     [Powerline fonts](https://github.com/powerline/fonts).
 
     This font will be installed automatically when do task
-    [vim_plugins](#task-vim_plugins), [sublime2](#task-sublime2)
-    [sublime3](#task-sublime3) and [vscode](#task-vscode).
+    [emacs_spacemacs](#task-emacs_spacemacs), [sublime2](#task-sublime2),
+    [sublime3](#task-sublime3), [vim_plugins](#task-vim_plugins),
+    and [vscode](#task-vscode).
 
 - ### Task `git_config`
     Requirement(s): `git`

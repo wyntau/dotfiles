@@ -317,6 +317,13 @@ function install_emacs_spacemacs(){
   lnif "$APP_PATH/bin/emacs/es" "$HOME/bin/es"
 
   success "Successfully installed spacemacs and config."
+
+  # only install the font locally
+  if [ -z "$SSH_CONNECTION" ]; then
+    install_fonts_source_code_pro
+  else
+    tip "Maybe you should install the font *Source Code Pro* locally."
+  fi;
 }
 
 function install_fonts_source_code_pro(){
