@@ -47,6 +47,8 @@ All vailable tasks:
 - [astyle_rc](#task-astyle_rc)
 - [bin](#task-bin)
 - [editorconfig](#task-editorconfig)
+- [emacs](#task-emacs)
+- [emacs_spacemacs](#task-emacs_spacemacs)
 - [fonts_source_code_pro](#task-fonts_source_code_pro)
 - [git_config](#task-git_config)
 - [git_diff_fancy](#task-git_diff_fancy)
@@ -96,6 +98,16 @@ You can do a specific task by run
 
     Install global `.editorconfig` to you home. You can see
     [what config is used](editorconfig/editorconfig).
+
+- ### Task `emacs`
+    Requirement(s): `git`, `emacs`
+
+    Install emacs config to your `~/.emacs.d`.
+
+- ### Task `emacs_spacemacs`
+    Requirement(s): `git`, `emacs`
+
+    Install popular [spacemacs](https://github.com/syl20bnr/spacemacs) for your emacs.
 
 - ### Task `fonts_source_code_pro`
     Requirement(s): `git`

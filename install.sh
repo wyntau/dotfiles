@@ -111,6 +111,9 @@ function is_mac(){
 function lnif(){
   if [ -e "$1" ]; then
     info "Linking $1 to $2"
+    if ( ! is_dir_exists `dirname $2` ); then
+      mkdir -p `dirname $2`
+    fi;
     rm -rf "$2"
     ln -s "$1" "$2"
   fi;
@@ -162,6 +165,8 @@ function usage(){
   echo '    - astyle_rc'
   echo '    - bin'
   echo '    - editorconfig'
+  echo '    - emacs'
+  echo '    - emacs_spacemacs'
   echo '    - fonts_source_code_pro'
   echo '    - git_config'
   echo '    - git_diff_fancy'
@@ -220,6 +225,98 @@ function install_editorconfig(){
 
   tip "Maybe you should install editorconfig plugin for vim or sublime"
   success "Successfully installed editorconfig."
+}
+
+function install_emacs(){
+
+  must_program_exists "emacs"
+
+  step "Installing emacs config ..."
+
+  local prompt=false
+  local repo_uri="https://github.com/Treri/emacs.d.git"
+
+  if ( is_dir_exists "$HOME/.emacs.d" ); then
+    if [[ $repo_uri != `cd $HOME/.emacs.d && git remote get-url origin 2> /dev/null` ]]; then
+      tip "Your old .emacs.d is not the .emacs.d to be installed."
+      prompt=true
+    fi;
+  fi;
+
+  if [[ $prompt == true ]]; then
+    prompt "Do you want to override your old .emacs.d? (y/n) "
+    read override
+    case $override in
+      y|Y|'')
+        info "Remove old .emacs.d"
+        rm -rf $HOME/.emacs.d
+        ;;
+      n|N)
+        info "Do not override your old .emacs.d. Please remove or backup yourself."
+        return
+        ;;
+      *)
+        error "invalid option"
+        exit
+    esac;
+  fi;
+
+  sync_repo "$repo_uri" "$HOME/.emacs.d"
+
+  lnif "$APP_PATH/bin/emacs/ec" "$HOME/bin/ec"
+  lnif "$APP_PATH/bin/emacs/et" "$HOME/bin/et"
+  lnif "$APP_PATH/bin/emacs/es" "$HOME/bin/es"
+
+  success "Successfully installed emacs config."
+}
+
+function install_emacs_spacemacs(){
+
+  must_program_exists "emacs"
+
+  step "Installing spacemacs config ..."
+
+  local prompt=false
+  local repo_spacemacs_uri="https://github.com/syl20bnr/spacemacs.git"
+  local repo_config_uri="https://github.com/Treri/spacemacs.d.git"
+
+  if ( is_dir_exists "$HOME/.emacs.d" ); then
+    if [[ $repo_spacemacs_uri != `cd $HOME/.emacs.d && git remote get-url origin 2> /dev/null` ]]; then
+      tip "Your old .emacs.d is not spacemacs repo."
+      prompt=true
+    fi;
+  fi;
+
+  if [[ $prompt == true ]]; then
+    prompt "Do you want to override your old .emacs.d? (y/n) "
+    read override
+    case $override in
+      y|Y|'')
+        info "Remove old .emacs.d"
+        rm -rf $HOME/.emacs.d
+        ;;
+      n|N)
+        info "Do not override your old .emacs.d. Please remove or backup yourself."
+        return
+        ;;
+      *)
+        error "invalid option"
+        exit
+    esac;
+  fi;
+
+  sync_repo "$repo_spacemacs_uri" \
+            "$HOME/.emacs.d" \
+            "develop"
+
+  sync_repo "$repo_config_uri" \
+            "$HOME/.spacemacs.d"
+
+  lnif "$APP_PATH/bin/emacs/ec" "$HOME/bin/ec"
+  lnif "$APP_PATH/bin/emacs/et" "$HOME/bin/et"
+  lnif "$APP_PATH/bin/emacs/es" "$HOME/bin/es"
+
+  success "Successfully installed spacemacs and config."
 }
 
 function install_fonts_source_code_pro(){
@@ -884,6 +981,12 @@ else
         ;;
       editorconfig)
         install_editorconfig
+        ;;
+      emacs)
+        install_emacs
+        ;;
+      emacs_spacemacs)
+        install_emacs_spacemacs
         ;;
       fonts_source_code_pro)
         install_fonts_source_code_pro
