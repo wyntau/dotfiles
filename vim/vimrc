@@ -142,7 +142,7 @@ colorscheme desert
 " 突出显示当前行
 " set cursorline
 " 高亮显示某一列,对代码宽度起到提示作用
-set colorcolumn=80
+set colorcolumn=80,100
 " 光标移动到buffer的顶部和底部时保持3行距离
 set scrolloff=1
 set sidescrolloff=1
