@@ -164,6 +164,8 @@ set t_vb=
 
 " 开启高亮语法显示
 syntax enable
+" 允许用指定语法高亮配色方案替换默认方案
+syntax on
 syntax sync minlines=50 maxlines=90
 set synmaxcol=300
 
