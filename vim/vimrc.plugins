@@ -311,6 +311,39 @@ if (count(g:dotvim_groups, 'common') && !count(g:dotvim_groups, '-git'))
   " Plug 'jreybert/vimagit'
 endif
 
+if (count(g:dotvim_groups, 'common') && !count(g:dotvim_groups, '-syntastic'))
+    \ || count(g:dotvim_groups, 'syntastic')
+  " 语法分析插件
+  Plug 'scrooloose/syntastic'
+  set statusline+=%#warningmsg#
+  set statusline+=%{SyntasticStatuslineFlag()}
+  set statusline+=%*
+
+  let g:syntastic_error_symbol='>>'
+  let g:syntastic_warning_symbol='>'
+
+  let g:syntastic_always_populate_loc_list = 0
+  let g:syntastic_auto_loc_list = 1
+  let g:syntastic_loc_list_height = 5
+  let g:syntastic_check_on_open = 0
+  let g:syntastic_check_on_wq = 0
+  let g:syntastic_enable_highlighting=1
+
+  function! ToggleErrors()
+      let old_last_winnr = winnr('$')
+      lclose
+      if old_last_winnr == winnr('$')
+          " Nothing was closed, open syntastic error location panel
+          Errors
+      endif
+  endfunction
+  nnoremap <Leader>ss :call ToggleErrors()<cr>
+  nnoremap <Leader>sn :lnext<cr>
+  nnoremap <Leader>sp :lprevious<cr>
+
+  " let g:syntastic_debug=3
+endif
+
 if (count(g:dotvim_groups, 'common') && !count(g:dotvim_groups, '-tmux'))
     \ || count(g:dotvim_groups, 'tmux')
   Plug 'tmux-plugins/vim-tmux'
@@ -393,6 +426,12 @@ if (count(g:dotvim_groups, 'common') && !count(g:dotvim_groups, '-js'))
   let g:jsdoc_access_descriptions = 2
   let g:jsdoc_enable_es6 = 1
   autocmd Filetype {javascript,javascript.jsx} map <leader>doc :JsDoc<CR>
+
+  if (count(g:dotvim_groups, 'common') && !count(g:dotvim_groups, '-syntastic'))
+      \ || count(g:dotvim_groups, 'syntastic')
+    let g:syntastic_javascript_checkers = ['eslint']
+    Plug 'mtscout6/syntastic-local-eslint.vim'
+  endif
 endif
 
 if (count(g:dotvim_groups, 'common') && !count(g:dotvim_groups, '-php'))
@@ -428,6 +467,10 @@ if (count(g:dotvim_groups, 'common') && !count(g:dotvim_groups, '-nginx'))
   Plug 'evanmiller/nginx-vim-syntax'
 endif
 
+""" ==========================
+""" separate installed plugin groups
+""" ==========================
+
 if count(g:dotvim_groups, 'fcitx')
   Plug 'CodeFalling/fcitx-vim-osx'
 endif
@@ -445,8 +488,6 @@ if count(g:dotvim_groups, 'snippets')
 endif
 
 if count(g:dotvim_groups, 'youcompleteme')
-  " 语法分析插件
-  " Plug 'scrooloose/syntastic'
   " 更强大的补全插件
   if has('nvim') || has('patch584')
     Plug 'Valloric/YouCompleteMe'

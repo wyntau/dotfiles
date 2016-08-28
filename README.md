@@ -265,6 +265,7 @@ You can do a specific task by run
     - motion
     - writing
     - git
+    - syntastic
     - tmux
     - html
     - css
@@ -356,6 +357,9 @@ You can do a specific task by run
     " group 'git'
     Plug 'airblade/vim-gitgutter'
 
+    " group 'syntastic'
+    Plug 'scrooloose/syntastic'
+
     " group 'tmux'
     Plug 'tmux-plugins/vim-tmux'
     Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -377,6 +381,7 @@ You can do a specific task by run
     Plug 'mxw/vim-jsx'
     Plug 'othree/yajs.vim'
     Plug 'heavenshell/vim-jsdoc'
+    Plug 'mtscout6/syntastic-local-eslint.vim'
 
     " group 'php'
     Plug 'SirVer/ultisnips'
