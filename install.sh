@@ -111,8 +111,8 @@ function is_mac(){
 function lnif(){
   if [ -e "$1" ]; then
     info "Linking $1 to $2"
-    if ( ! is_dir_exists `dirname $2` ); then
-      mkdir -p `dirname $2`
+    if ( ! is_dir_exists `dirname "$2"` ); then
+      mkdir -p `dirname "$2"`
     fi;
     rm -rf "$2"
     ln -s "$1" "$2"
