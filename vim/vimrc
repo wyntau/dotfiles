@@ -412,9 +412,6 @@ nnoremap <leader>bl :ls<CR>
 nnoremap <leader>bd :Bclose<CR>
 nnoremap <leader>bk :Bclose<CR>
 
-nnoremap <leader>wc :q<CR>
-
-
 " =============================================================================
 " Windows
 " =============================================================================
@@ -472,9 +469,6 @@ nnoremap <silent> p p`]
 
 " Repeat the last macro in the `q` register
 nnoremap <leader>2 @q
-
-" 关闭无聊的窗口提示
-noremap q: :q
 
 " =============================================================================
 " Backup

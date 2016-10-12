@@ -194,8 +194,8 @@ if (count(g:dotvim_groups, 'common') && !count(g:dotvim_groups, '-motion'))
   let g:qs_enable = 0
   " Map the leader key + q to toggle quick-scope's highlighting in normal/visual mode.
   " Note that you must use nmap/vmap instead of their non-recursive versions (nnoremap/vnoremap).
-  nmap <leader>q <plug>(QuickScopeToggle)
-  vmap <leader>q <plug>(QuickScopeToggle)
+  nmap <leader>tq <plug>(QuickScopeToggle)
+  vmap <leader>tq <plug>(QuickScopeToggle)
 
   Plug 'haya14busa/incsearch.vim'
     map /  <Plug>(incsearch-forward)
