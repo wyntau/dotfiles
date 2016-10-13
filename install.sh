@@ -281,7 +281,9 @@ function install_emacs_spacemacs(){
   local repo_config_uri="https://github.com/Treri/spacemacs.d.git"
 
   if ( is_dir_exists "$HOME/.emacs.d" ); then
-    if [[ $repo_spacemacs_uri != `cd $HOME/.emacs.d && git remote get-url origin 2> /dev/null` ]]; then
+    local exist_repo_uri=`cd $HOME/.emacs.d && git remote get-url origin 2> /dev/null`
+    if [[ $repo_spacemacs_uri != "$exist_repo_uri" ]] &&
+       [[ $repo_spacemacs_uri != "$exist_repo_uri.git" ]]; then
       tip "Your old .emacs.d is not spacemacs repo."
       prompt=true
     fi;
