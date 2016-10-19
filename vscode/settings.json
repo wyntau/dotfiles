@@ -13,7 +13,6 @@
 
   "window.reopenFolders": "none",
 
-  "explorer.openEditors.visible": 0,
   "explorer.autoReveal": false,
 
   "projectManager.openInNewWindow": false,
