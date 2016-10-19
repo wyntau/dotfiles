@@ -2,10 +2,12 @@
 
 The Visual Studio Code Packages I used are listed below:
 
-- beautify
-- Project Manager
-- ESLint
 - Advanced New File
-- View In Browser
-- vscode-icons
+- beautify
+- ESLint
+- Paste and Indent
+- Project Manager
 - Trailing Spaces
+- TSLint
+- vscode-icons
+- View In Browser
