@@ -14,7 +14,8 @@
 	],
 	"rulers":
 	[
-		80
+		80,
+		100
 	],
 	"scroll_past_end": true,
 	"show_definitions": false,
