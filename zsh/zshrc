@@ -74,14 +74,6 @@ function is_custom_plugin_exists(){
   fi;
 }
 
-# if we have brew installed, add brew plugin
-if ( is_program_exists brew ); then
-  plugins=(
-    $plugins
-    brew
-  )
-fi;
-
 # if we have fasd installed, add fasd plugin
 # otherwise use z plugin
 if ( is_program_exists fasd ); then

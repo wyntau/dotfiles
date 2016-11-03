@@ -500,7 +500,6 @@ You can do a specific task by run
     | zsh_reload               |                                                       |                                                |
     | zsh-syntax-highlighting  |                                                       |                                                |
     | zsh-autosuggestions      |                                                       | disabled in Emacs eshell. **TIP**: If your auto suggestion's color is same with your normal command's color, please make sure you `$TERM` support 256 color! |
-    | brew                     | brew                                                  |                                                |
     | fasd(z)                  | [task zsh_plugins_fasd](#task-zsh_plugins_fasd)       | z is used otherwise when fasd is not installed |
     | gitfast                  | git                                                   |                                                |
     | git-extras               | git                                                   |                                                |
