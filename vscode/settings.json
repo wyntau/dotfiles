@@ -13,11 +13,16 @@
 
   "window.reopenFolders": "none",
 
+  "files.insertFinalNewline": true,
+
   "explorer.autoReveal": false,
 
   "projectManager.openInNewWindow": false,
 
   "terminal.integrated.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+
+  "newFile.showFullPath": false,
+  "newFile.relativeTo": "project",
 
   // put this line at the very bottom of settings.json.
   "custom-package-placeholder.key": "value"
