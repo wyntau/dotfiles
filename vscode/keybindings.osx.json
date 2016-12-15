@@ -1,7 +1,8 @@
 // Place your key bindings in this file to overwrite the defaults
-[
-  {
-    "key": "cmd+y",
-    "command": "redo"
-  }
-]
+[{
+  "key": "cmd+y",
+  "command": "redo"
+}, {
+  "key": "cmd+j",
+  "command": "editor.action.joinLines"
+}]
