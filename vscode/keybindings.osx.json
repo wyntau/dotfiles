@@ -2,7 +2,4 @@
 [{
   "key": "cmd+y",
   "command": "redo"
-}, {
-  "key": "cmd+j",
-  "command": "editor.action.joinLines"
 }]
