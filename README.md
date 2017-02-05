@@ -1,7 +1,7 @@
 ## What are in the repo
 
 ```sh
-dotfile
+dotfiles
 ├── astyle
 │   └── astylerc
 ├── bin/
@@ -37,8 +37,8 @@ dotfile
 ## Installation
 
 ```sh
-git clone --depth 1 https://github.com/Treri/dotfile.git ~/.dotfile
-cd ~/.dotfile
+git clone --depth 1 https://github.com/Treri/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
 ```
 
 ## Tasks
