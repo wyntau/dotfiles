@@ -6,6 +6,7 @@
   "editor.rulers": [80, 100],
   "editor.tabSize": 2,
   "editor.wrappingColumn": 0,
+  "editor.formatOnPaste": true,
   "editor.renderIndentGuides": true,
   "diffEditor.ignoreTrimWhitespace": false,
 
@@ -18,11 +19,12 @@
 
   "explorer.autoReveal": false,
 
+  "terminal.integrated.fontSize": 13,
+
   "projectManager.openInNewWindow": false,
 
   "newFile.showFullPath": false,
   "newFile.relativeTo": "project",
 
-  // put this line at the very bottom of settings.json.
-  "custom-package-placeholder.key": "value"
+  "vsicons.projectDetection.disableDetect": true
 }
