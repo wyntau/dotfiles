@@ -5,13 +5,16 @@
   "editor.fontSize": 13,
   "editor.rulers": [80, 100],
   "editor.tabSize": 2,
-  "editor.wrappingColumn": 0,
+  "editor.minimap.enabled": true,
+  "editor.wordWrap": "on",
   "editor.formatOnPaste": true,
   "editor.renderIndentGuides": true,
   "diffEditor.ignoreTrimWhitespace": false,
 
   "workbench.welcome.enabled": true,
   "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.colorTheme": "Monokai",
+  "workbench.iconTheme": "vscode-icons",
 
   "window.reopenFolders": "none",
 
