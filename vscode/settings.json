@@ -7,7 +7,6 @@
   "editor.tabSize": 2,
   "editor.minimap.enabled": true,
   "editor.wordWrap": "on",
-  "editor.formatOnPaste": true,
   "editor.renderIndentGuides": true,
   "diffEditor.ignoreTrimWhitespace": false,
 
