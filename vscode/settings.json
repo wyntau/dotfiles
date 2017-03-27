@@ -10,6 +10,11 @@
   "editor.renderIndentGuides": true,
   "diffEditor.ignoreTrimWhitespace": false,
 
+  "emmet.syntaxProfiles": {
+    "vue-html": "html",
+    "vue": "html"
+  },
+
   "workbench.welcome.enabled": true,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.colorTheme": "Monokai",
