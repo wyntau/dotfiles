@@ -514,7 +514,7 @@ endif
 
 if count(g:dotvim_groups, 'youcompleteme')
   " 更强大的补全插件
-  if has('nvim') || has('patch584')
+  if has('nvim') || has('patch584') || has("gui_macvim")
     Plug 'Valloric/YouCompleteMe'
     let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
     let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
