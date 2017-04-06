@@ -832,7 +832,7 @@ function install_vim_plugins_ycm(){
   # or YouCompleteMe libs not exists
   # compile libs for YouCompleteMe
   local ycmd_path="$APP_PATH/vim/plugins/YouCompleteMe/third_party/ycmd"
-  if [[ "$YCM_COMPILE_FORCE" = "true" ]] || ( ! is_file_exists "$ycmd_path/ycm_core.so" ) || ( ! is_file_exists "$ycmd_path/ycm_client_support.so" ); then
+  if [[ "$YCM_COMPILE_FORCE" = "true" ]] || ( ! is_file_exists "$ycmd_path/ycm_core.so" ); then
     info "Compiling YouCompleteMe libs ..."
     "$APP_PATH/vim/plugins/YouCompleteMe/install.py" $YCM_COMPLETER_FLAG
   fi;
