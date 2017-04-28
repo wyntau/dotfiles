@@ -6,13 +6,14 @@ The Visual Studio Code Packages I used are listed below:
 - beautify
 - EditorConfig for VS Code
 - ESLint
+- GitLens
 - pasteandformat
 - Paste and Indent
 - PHP Intellisense - Crane
 - PHP Symbols
 - Project Manager
-- Sublime Text Keymap
 - Trailing Spaces
 - TSLint
+- vetur
 - vscode-icons
 - View In Browser

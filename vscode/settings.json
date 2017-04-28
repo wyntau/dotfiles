@@ -30,6 +30,8 @@
 
   "projectManager.openInNewWindow": false,
 
+  "gitlens.codeLens.visibility": "ondemand",
+
   "newFile.showFullPath": false,
   "newFile.relativeTo": "project",
 
