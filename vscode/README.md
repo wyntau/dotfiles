@@ -6,6 +6,7 @@ The Visual Studio Code Packages I used are listed below:
 - beautify
 - EditorConfig for VS Code
 - ESLint
+- Git Project Manager
 - GitLens
 - pasteandformat
 - Paste and Indent

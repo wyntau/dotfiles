@@ -35,5 +35,13 @@
   "newFile.showFullPath": false,
   "newFile.relativeTo": "project",
 
-  "vsicons.projectDetection.disableDetect": true
+  "vsicons.projectDetection.disableDetect": true,
+
+  "gitProjectManager.baseProjectsFolders": [
+    "~/projects"
+  ],
+  "gitProjectManager.storeRepositoriesBetweenSessions": true,
+  "gitProjectManager.ignoredFolders": [
+    "node_modules"
+  ]
 }
