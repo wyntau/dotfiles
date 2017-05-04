@@ -24,8 +24,6 @@
 
   "files.insertFinalNewline": true,
 
-  "explorer.autoReveal": false,
-
   "terminal.integrated.fontSize": 13,
 
   "projectManager.openInNewWindow": false,
