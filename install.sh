@@ -527,7 +527,10 @@ function install_homebrew(){
   if ( is_mac ); then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   elif ( is_linux ); then
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
+    mkdir -p /home/linuxbrew
+    sync_repo "https://github.com/Linuxbrew/brew.git" \
+              "/home/linuxbrew/.linuxbrew"
+    tip "Please add /home/linuxbrew/.linuxbrew/bin to you PATH"
   fi;
 
   success "Successfully installed homebrew"
