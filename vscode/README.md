@@ -15,5 +15,6 @@ The Visual Studio Code Packages I used are listed below:
 - Trailing Spaces
 - TSLint
 - vetur
+- Vim
 - vscode-icons
 - View In Browser

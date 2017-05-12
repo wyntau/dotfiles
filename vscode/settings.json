@@ -31,6 +31,8 @@
   "newFile.showFullPath": false,
   "newFile.relativeTo": "project",
 
+  "vim.startInInsertMode": true,
+
   "vsicons.projectDetection.disableDetect": true,
 
   "gitProjectManager.baseProjectsFolders": [
