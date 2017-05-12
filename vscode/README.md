@@ -12,7 +12,6 @@ The Visual Studio Code Packages I used are listed below:
 - Paste and Indent
 - PHP Intellisense - Crane
 - PHP Symbols
-- Project Manager
 - Trailing Spaces
 - TSLint
 - vetur

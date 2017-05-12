@@ -26,8 +26,6 @@
 
   "terminal.integrated.fontSize": 13,
 
-  "projectManager.openInNewWindow": false,
-
   "gitlens.codeLens.visibility": "ondemand",
 
   "newFile.showFullPath": false,
