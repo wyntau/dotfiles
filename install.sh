@@ -615,6 +615,24 @@ function install_tmux(){
   sync_repo "https://github.com/tmux-plugins/tpm" \
             "$APP_PATH/tmux/plugins/tpm"
 
+  sync_repo "https://github.com/tmux-plugins/tmux-sensible" \
+            "$APP_PATH/tmux/plugins/tmux-sensible"
+
+  sync_repo "https://github.com/tmux-plugins/tmux-pain-control" \
+            "$APP_PATH/tmux/plugins/tmux-pain-control"
+
+  sync_repo "https://github.com/tmux-plugins/tmux-prefix-highlight" \
+            "$APP_PATH/tmux/plugins/tmux-prefix-highlight"
+
+  sync_repo "https://github.com/tmux-plugins/tmux-copycat" \
+            "$APP_PATH/tmux/plugins/tmux-copycat"
+
+  sync_repo "https://github.com/tmux-plugins/tmux-yank" \
+            "$APP_PATH/tmux/plugins/tmux-yank"
+
+  sync_repo "https://github.com/NHDaly/tmux-better-mouse-mode" \
+            "$APP_PATH/tmux/plugins/tmux-better-mouse-mode"
+
   # tmux中的vim无法使用系统的粘贴板, 安装reattach-to-user-namespace修复
   if ( is_mac ); then
     if( ! is_program_exists reattach-to-user-namespace ); then
