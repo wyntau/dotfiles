@@ -229,7 +229,7 @@ You can do a specific task by run
     - [tmux-plugins/tmux-prefix-highlight](https://github.com/tmux-plugins/tmux-prefix-highlight)
     - [tmux-plugins/tmux-copycat](https://github.com/tmux-plugins/tmux-copycat)
     - [tmux-plugins/tmux-yank](https://github.com/tmux-plugins/tmux-yank)
-    - [nhdaly/tmux-scroll-copy-mode](nhdaly/tmux-scroll-copy-mode)
+    - [NHDaly/tmux-better-mouse-mode](https://github.com/NHDaly/tmux-better-mouse-mode)
 
 - ### Task `vim_rc`
     Requirement(s): `git`, `vim`
