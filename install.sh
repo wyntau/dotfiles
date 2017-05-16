@@ -633,6 +633,9 @@ function install_tmux(){
   sync_repo "https://github.com/NHDaly/tmux-better-mouse-mode" \
             "$APP_PATH/tmux/plugins/tmux-better-mouse-mode"
 
+  sync_repo "https://github.com/Treri/tmux-custom-config" \
+            "$APP_PATH/tmux/plugins/tmux-custom-config"
+
   # tmux中的vim无法使用系统的粘贴板, 安装reattach-to-user-namespace修复
   if ( is_mac ); then
     if( ! is_program_exists reattach-to-user-namespace ); then
