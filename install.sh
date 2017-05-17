@@ -618,6 +618,9 @@ function install_tmux(){
   sync_repo "https://github.com/tmux-plugins/tmux-sensible" \
             "$APP_PATH/tmux/plugins/tmux-sensible"
 
+  sync_repo "https://github.com/Treri/tmux-custom-config" \
+            "$APP_PATH/tmux/plugins/tmux-custom-config"
+
   sync_repo "https://github.com/tmux-plugins/tmux-pain-control" \
             "$APP_PATH/tmux/plugins/tmux-pain-control"
 
@@ -632,9 +635,6 @@ function install_tmux(){
 
   sync_repo "https://github.com/NHDaly/tmux-better-mouse-mode" \
             "$APP_PATH/tmux/plugins/tmux-better-mouse-mode"
-
-  sync_repo "https://github.com/Treri/tmux-custom-config" \
-            "$APP_PATH/tmux/plugins/tmux-custom-config"
 
   # tmux中的vim无法使用系统的粘贴板, 安装reattach-to-user-namespace修复
   if ( is_mac ); then
@@ -652,7 +652,7 @@ function install_tmux(){
   lnif "$APP_PATH/tmux/tmux.conf" \
        "$HOME/.tmux.conf"
 
-  success "Please run tmux and use prefix-I to install tmux plugins or reload your tmux.conf"
+  success "Please run tmux and use prefix-U to update tmux plugins or reload your tmux.conf"
 }
 
 function install_vim_rc(){
