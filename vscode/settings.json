@@ -28,7 +28,7 @@
 
   "gitlens.codeLens.visibility": "ondemand",
 
-  "newFile.showFullPath": false,
+  "newFile.showPathRelativeTo": "project",
   "newFile.relativeTo": "project",
 
   "vim.startInInsertMode": true,
