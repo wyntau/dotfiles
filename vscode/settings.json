@@ -32,6 +32,8 @@
   "newFile.relativeTo": "project",
 
   "vim.startInInsertMode": true,
+  "vim.enableNeovim": true,
+  "vim.disableAnnoyingNeovimMessage": true,
 
   "vsicons.projectDetection.disableDetect": true,
 
