@@ -35,8 +35,6 @@
   "vim.enableNeovim": true,
   "vim.disableAnnoyingNeovimMessage": true,
 
-  "vsicons.projectDetection.disableDetect": true,
-
   "gitProjectManager.baseProjectsFolders": [
     "~/projects"
   ],
