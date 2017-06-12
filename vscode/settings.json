@@ -26,7 +26,7 @@
 
   "terminal.integrated.fontSize": 13,
 
-  "gitlens.codeLens.visibility": "ondemand",
+  "gitlens.codeLens.enabled": false,
 
   "newFile.showPathRelativeTo": "project",
   "newFile.relativeTo": "project",
