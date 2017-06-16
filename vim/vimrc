@@ -305,7 +305,9 @@ set nowrapscan
 
 " Fast remove highlight search
 " 去掉搜索高亮 search/symbol highlight persist remove
-nnoremap <leader>sc :set hlsearch! hlsearch?<CR>
+" nnoremap <leader>sc :set hlsearch! hlsearch?<CR>
+" temporarily disable search highlighting until the next search
+nnoremap <leader>sc :nohlsearch<CR>
 
 " =============================================================================
 " Buffers
