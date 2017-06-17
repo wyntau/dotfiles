@@ -24,6 +24,8 @@
 
   "files.insertFinalNewline": true,
 
+  "extensions.autoUpdate": false,
+
   "terminal.integrated.fontSize": 13,
 
   "gitlens.codeLens.enabled": false,
