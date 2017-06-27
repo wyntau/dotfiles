@@ -5,6 +5,7 @@
   "editor.fontSize": 13,
   "editor.rulers": [80, 100],
   "editor.tabSize": 2,
+  "editor.minimap.enabled": false,
   "editor.find.seedSearchStringFromSelection": false,
   "editor.find.autoFindInSelection": true,
   "editor.wordWrap": "on",
