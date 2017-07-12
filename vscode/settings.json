@@ -16,12 +16,11 @@
     "vue": "html"
   },
 
-  "workbench.welcome.enabled": true,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.colorTheme": "Monokai",
   "workbench.iconTheme": "vscode-icons",
 
-  "window.reopenFolders": "none",
+  "window.restoreWindows": "none",
 
   "files.insertFinalNewline": true,
 
