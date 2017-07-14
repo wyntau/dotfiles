@@ -1,6 +1,6 @@
-## Visual Studio Code Packages
+## Visual Studio Code Extensions
 
-The Visual Studio Code Packages I used are listed below:
+The Visual Studio Code Extensions I used are listed below:
 
 - Advanced New File
 - Beautify

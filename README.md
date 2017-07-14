@@ -476,8 +476,8 @@ You can do a specific task by run
 
     After installing the configs, maybe you want to reset `editor.fontFamily`
     and `editor.fontSize` to what you prefer in `settings.json`, and custom key
-    bindings in `keybindings.json`. Also you can see what sublime packages I
-    used in [Visual Studio Code Packages](vscode/README.md).
+    bindings in `keybindings.json`. Also you can see what vscode extensions I
+    used in [Visual Studio Code Extensions](vscode/README.md).
 
 - ### Task `zsh_rc`
     Requirement(s): `git`, `zsh`
