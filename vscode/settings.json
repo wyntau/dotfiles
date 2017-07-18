@@ -29,6 +29,7 @@
   "terminal.integrated.fontSize": 13,
 
   "gitlens.codeLens.enabled": false,
+  "gitlens.blame.line.enabled": false,
 
   "newFile.showPathRelativeTo": "project",
   "newFile.relativeTo": "project",
