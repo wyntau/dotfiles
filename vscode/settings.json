@@ -11,7 +11,7 @@
   "editor.wordWrap": "on",
   "diffEditor.ignoreTrimWhitespace": false,
 
-  "emmet.syntaxProfiles": {
+  "emmet.includeLanguages": {
     "vue-html": "html",
     "vue": "html"
   },
@@ -21,8 +21,6 @@
   "workbench.iconTheme": "vscode-icons",
 
   "window.restoreWindows": "none",
-
-  "files.insertFinalNewline": true,
 
   "extensions.autoUpdate": false,
 
