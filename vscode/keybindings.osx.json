@@ -14,4 +14,8 @@
   "key": "ctrl+shift+u",
   "command": "workbench.action.terminal.kill",
   "when": "terminalFocus"
+}, {
+  "key": "ctrl+`",
+  "command": "workbench.action.terminal.focus",
+  "when": "!terminalFocus"
 }]
