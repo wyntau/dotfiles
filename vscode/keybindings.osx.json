@@ -2,4 +2,16 @@
 [{
   "key": "cmd+y",
   "command": "redo"
+}, {
+  "key": "ctrl+shift+right",
+  "command": "workbench.action.terminal.focusNext",
+  "when": "terminalFocus"
+}, {
+  "key": "ctrl+shift+left",
+  "command": "workbench.action.terminal.focusPrevious",
+   "when": "terminalFocus"
+}, {
+  "key": "ctrl+shift+k",
+  "command": "workbench.action.terminal.kill",
+  "when": "terminalFocus"
 }]
