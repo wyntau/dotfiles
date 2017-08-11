@@ -25,6 +25,8 @@
   "extensions.autoUpdate": false,
 
   "terminal.integrated.fontSize": 13,
+  "terminal.integrated.enableBold": false,
+  "terminal.integrated.confirmOnExit": true,
 
   "gitlens.codeLens.enabled": false,
   "gitlens.blame.line.enabled": false,
