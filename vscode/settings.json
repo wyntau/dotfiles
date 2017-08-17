@@ -15,6 +15,7 @@
     "vue-html": "html",
     "vue": "html"
   },
+  "emmet.triggerExpansionOnTab": true,
 
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.colorTheme": "Monokai",
