@@ -8,6 +8,7 @@ The Visual Studio Code Extensions I used are listed below:
 - ESLint
 - Git Project Manager
 - GitLens
+- JavaScript (ES6) code snippets
 - pasteandformat
 - Paste and Indent
 - PHP Intellisense - Crane
