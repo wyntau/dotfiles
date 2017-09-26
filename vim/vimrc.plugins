@@ -489,7 +489,7 @@ endif
 
 if (count(g:dotvim_groups, 'common') && !count(g:dotvim_groups, '-nginx'))
     \ || count(g:dotvim_groups, 'nginx')
-  Plug 'evanmiller/nginx-vim-syntax'
+  Plug 'chr4/nginx.vim'
 endif
 
 """ ==========================
