@@ -55,7 +55,6 @@ All vailable tasks:
 - [git_dmtool](#task-git_dmtool)
 - [git_extras](#task-git_extras)
 - [git_flow](#task-git_flow)
-- [git_standup](#task-git_standup)
 - [sublime2](#task-sublime2)
 - [sublime3](#task-sublime3)
 - [tmux](#task-tmux)
@@ -156,11 +155,6 @@ You can do a specific task by run
 
     A post about git-flow:
     [a-successful-git-branching-model](http://nvie.com/posts/a-successful-git-branching-model/)
-
-- ### Task `git_standup`
-    Requirement(s): `git`
-
-    Install `git-standup` plugin for git. Please see [git-standup](https://github.com/kamranahmedse/git-standup)
 
 - ### Task `sublime2`
     Requirement(s): `git`, `Sublime Text 2`

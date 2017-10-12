@@ -173,7 +173,6 @@ function usage(){
   echo '    - git_dmtool'
   echo '    - git_extras'
   echo '    - git_flow'
-  echo '    - git_standup'
   echo '    - sublime2'
   echo '    - sublime3'
   echo '    - tmux'
@@ -498,20 +497,6 @@ function install_git_flow(){
             "$APP_PATH/zsh/oh-my-zsh/custom/plugins/git-flow-completion"
 
   success "Successfully installed git-flow-avh and git-flow-completion."
-}
-
-function install_git_standup(){
-
-  must_program_exists "git"
-
-  step "Installing git-standup ..."
-
-  sync_repo "https://github.com/kamranahmedse/git-standup.git" \
-            "$APP_PATH/git/.cache/git-standup"
-  cd "$APP_PATH/git/.cache/git-standup"
-  sudo make install
-
-  success "Successfully installed git-standup."
 }
 
 function install_homebrew(){
@@ -1038,9 +1023,6 @@ else
         ;;
       git_flow)
         install_git_flow
-        ;;
-      git_standup)
-        install_git_standup
         ;;
       homebrew)
         install_homebrew
