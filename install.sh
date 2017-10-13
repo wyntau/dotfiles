@@ -858,10 +858,8 @@ function install_vscode(){
 
   if( is_linux ); then
     vscode_path="$HOME/.config/Code"
-    vscode_keybindings="$APP_PATH/vscode/keybindings.linux.json"
   elif( is_mac ); then
     vscode_path="$HOME/Library/Application Support/Code"
-    vscode_keybindings="$APP_PATH/vscode/keybindings.osx.json"
   else
     error "Can't detect your platform. This support *Linux* and *Mac* only"
     exit
@@ -874,7 +872,7 @@ function install_vscode(){
   lnif "$APP_PATH/vscode/settings.json" \
        "$vscode_path/User/settings.json"
 
-  lnif "$vscode_keybindings" \
+  lnif "$APP_PATH/vscode/keybindings.json" \
        "$vscode_path/User/keybindings.json"
 
   success "Successfully installed vscode configs."
@@ -889,10 +887,8 @@ function install_vscode_insiders(){
 
   if( is_linux ); then
     vscode_path="$HOME/.config/Code - Insiders"
-    vscode_keybindings="$APP_PATH/vscode/keybindings.linux.json"
   elif( is_mac ); then
     vscode_path="$HOME/Library/Application Support/Code - Insiders"
-    vscode_keybindings="$APP_PATH/vscode/keybindings.osx.json"
   else
     error "Can't detect your platform. This support *Linux* and *Mac* only"
     exit
@@ -905,7 +901,7 @@ function install_vscode_insiders(){
   lnif "$APP_PATH/vscode/settings.json" \
        "$vscode_path/User/settings.json"
 
-  lnif "$vscode_keybindings" \
+  lnif "$APP_PATH/vscode/keybindings.json" \
        "$vscode_path/User/keybindings.json"
 
   success "Successfully installed vscode configs."
