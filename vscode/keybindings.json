@@ -3,6 +3,9 @@
   "key": "cmd+y",
   "command": "redo"
 }, {
+  "key": "ctrl+y",
+  "command": "redo"
+}, {
   "key": "ctrl+shift+j",
   "command": "workbench.action.terminal.focusPrevious",
   "when": "terminalFocus"
@@ -13,6 +16,10 @@
 }, {
   "key": "ctrl+shift+u",
   "command": "workbench.action.terminal.kill",
+  "when": "terminalFocus"
+}, {
+  "key": "ctrl+shift+n",
+  "command": "workbench.action.terminal.new",
   "when": "terminalFocus"
 }, {
   "key": "ctrl+`",
