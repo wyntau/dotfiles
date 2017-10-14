@@ -22,6 +22,7 @@
   "window.restoreWindows": "none",
 
   "terminal.integrated.fontSize": 13,
+  "terminal.integrated.enableBold": false,
 
   "gitlens.codeLens.enabled": false,
 
