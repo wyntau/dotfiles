@@ -15,6 +15,7 @@
   },
   "emmet.triggerExpansionOnTab": true,
 
+  "workbench.startupEditor": "none",
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.colorTheme": "Monokai",
   "workbench.iconTheme": "vscode-icons",
