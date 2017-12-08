@@ -25,7 +25,6 @@
   "terminal.integrated.fontSize": 13,
   "terminal.integrated.enableBold": false,
   "terminal.integrated.shell.windows": "C:\\Windows\\Sysnative\\bash.exe",
-  "terminal.integrated.shellArgs.windows": ["-c", "zsh -i"],
 
   "gitlens.codeLens.enabled": false,
 
