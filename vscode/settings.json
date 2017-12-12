@@ -33,7 +33,7 @@
   "newFile.relativeTo": "project",
 
   "gitProjectManager.baseProjectsFolders": [
-    "~/projects"
+    "~/Projects"
   ],
   "gitProjectManager.storeRepositoriesBetweenSessions": true,
   "gitProjectManager.ignoredFolders": [
