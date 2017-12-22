@@ -233,7 +233,7 @@ function install_emacs(){
   step "Installing emacs config ..."
 
   local prompt=false
-  local repo_uri="https://github.com/Treri/emacs.d.git"
+  local repo_uri="https://github.com/Wyntau/emacs.d.git"
 
   if ( is_dir_exists "$HOME/.emacs.d" ); then
     if [[ $repo_uri != `cd $HOME/.emacs.d && git remote get-url origin 2> /dev/null` ]]; then
@@ -277,7 +277,7 @@ function install_emacs_spacemacs(){
 
   local prompt=false
   local repo_spacemacs_uri="https://github.com/syl20bnr/spacemacs.git"
-  local repo_config_uri="https://github.com/Treri/spacemacs.d.git"
+  local repo_config_uri="https://github.com/Wyntau/spacemacs.d.git"
 
   if ( is_dir_exists "$HOME/.emacs.d" ); then
     local exist_repo_uri=`cd $HOME/.emacs.d && git remote get-url origin 2> /dev/null`
@@ -609,7 +609,7 @@ function install_tmux(){
   sync_repo "https://github.com/tmux-plugins/tmux-sensible" \
             "$APP_PATH/tmux/plugins/tmux-sensible"
 
-  sync_repo "https://github.com/Treri/tmux-custom-config" \
+  sync_repo "https://github.com/Wyntau/tmux-custom-config" \
             "$APP_PATH/tmux/plugins/tmux-custom-config"
 
   sync_repo "https://github.com/tmux-plugins/tmux-pain-control" \
@@ -991,7 +991,7 @@ function install_zsh_plugins_fzf(){
   sync_repo "https://github.com/junegunn/fzf.git" \
             "$APP_PATH/zsh/oh-my-zsh/custom/plugins/fzf"
   "$APP_PATH/zsh/oh-my-zsh/custom/plugins/fzf/install" --bin
-  sync_repo "https://github.com/Treri/fzf-zsh.git" \
+  sync_repo "https://github.com/Wyntau/fzf-zsh.git" \
             "$APP_PATH/zsh/oh-my-zsh/custom/plugins/fzf-zsh"
 
   success "Successfully installed fzf plugin."
