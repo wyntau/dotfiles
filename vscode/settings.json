@@ -23,7 +23,7 @@
   "window.restoreWindows": "none",
 
   "terminal.integrated.fontSize": 13,
-  "terminal.integrated.enableBold": false,
+  "terminal.integrated.fontWeightBold": "normal",
   "terminal.integrated.shell.windows": "C:\\Windows\\Sysnative\\bash.exe",
   "terminal.integrated.shellArgs.windows": ["-i"],
 
