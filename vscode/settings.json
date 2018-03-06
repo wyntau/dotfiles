@@ -26,6 +26,7 @@
   "terminal.integrated.fontWeightBold": "normal",
   "terminal.integrated.shell.windows": "C:\\Windows\\Sysnative\\bash.exe",
   "terminal.integrated.shellArgs.windows": ["-i"],
+  "terminal.integrated.shellArgs.osx": ["-l"],
 
   "gitlens.codeLens.enabled": false,
 
