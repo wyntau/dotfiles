@@ -94,3 +94,5 @@
 	whitespace = red reverse
 [push]
 	default = simple
+[http]
+	postBuffer = 524288000
