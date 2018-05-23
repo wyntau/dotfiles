@@ -43,5 +43,8 @@
 
   "vim.overrideCopy": false,
   "vim.useSystemClipboard": true,
-  "vim.leader": "<space>"
+  "vim.leader": "<space>",
+  "vim.easymotion": true,
+  "vim.surround": true,
+  "vim.sneak": true
 }
