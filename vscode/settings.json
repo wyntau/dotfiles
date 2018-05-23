@@ -39,5 +39,9 @@
   "gitProjectManager.storeRepositoriesBetweenSessions": true,
   "gitProjectManager.ignoredFolders": [
     "node_modules"
-  ]
+  ],
+
+  "vim.overrideCopy": false,
+  "vim.useSystemClipboard": true,
+  "vim.leader": "<space>"
 }
