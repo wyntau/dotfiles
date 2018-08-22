@@ -4,13 +4,12 @@ The Visual Studio Code Extensions I used are listed below:
 
 - Advanced New File
 - Beautify
+- Bracket Pair Colorizer
 - EditorConfig for VS Code
 - ESLint
 - Git Project Manager
 - GitLens
 - JavaScript (ES6) code snippets
-- pasteandformat
-- Paste and Indent
 - PHP Intellisense - Crane
 - PHP Symbols
 - TODO Highlight
