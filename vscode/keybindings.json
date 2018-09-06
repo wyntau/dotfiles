@@ -1,10 +1,12 @@
 // Place your key bindings in this file to overwrite the defaults
 [{
   "key": "cmd+y",
-  "command": "redo"
+  "command": "redo",
+  "when": "isMac"
 }, {
   "key": "ctrl+y",
-  "command": "redo"
+  "command": "redo",
+  "when": "isWindows"
 }, {
   "key": "ctrl+shift+j",
   "command": "workbench.action.terminal.focusPrevious",
