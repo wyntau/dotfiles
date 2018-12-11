@@ -30,9 +30,6 @@
 
   "gitlens.codeLens.enabled": false,
 
-  "newFile.showPathRelativeTo": "project",
-  "newFile.relativeTo": "project",
-
   "gitProjectManager.baseProjectsFolders": [
     "~/Projects"
   ],
@@ -46,5 +43,7 @@
   "vim.leader": "<space>",
   "vim.easymotion": true,
   "vim.surround": true,
-  "vim.sneak": true
+  "vim.sneak": true,
+
+  "vsicons.projectDetection.disableDetect": true,
 }
