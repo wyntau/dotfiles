@@ -30,6 +30,8 @@
   "terminal.integrated.shellArgs.windows": ["-i"],
   "terminal.integrated.shellArgs.osx": ["-l"],
 
+  "breadcrumbs.enabled": true,
+
   "gitlens.codeLens.enabled": false,
 
   "gitProjectManager.baseProjectsFolders": [
