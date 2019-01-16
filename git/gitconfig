@@ -3,15 +3,16 @@
 [alias]
 
 	# branch
-	br = branch
-	bra = branch --all
+	br = branch -vv
+	bra = branch --all -vv
 	brd = branch --delete
-	brdd = branch -D
+	brdd = branch --delete --force
 
 	# commit
 	ci = commit
 	cia = commit --all
 	cim = commit --amend
+	cif = commit --fixup
 
 	# checkout
 	co = checkout
@@ -29,41 +30,40 @@
 	dfct = difftool --cached
 	dftc = difftool --cached
 
+	fc = fetch
+	fct = fetch --tags
+	fcp = fetch --prune
+	fcpt = fetch --prune --tags
+
+	git = !exec git
+
+	# log
 	# %h => commit hash => like `--abbrev-commit'
 	# %H => full commit hash
-
 	# %d => ref names, like --decorate option
-
 	# %s => subject
-
 	# %cn => committer name
 	# %cd => committer date. e.g.(Fri May 15 22:57:50 2015 +0800)
 	# %cD => committer date, RFC2822 style. e.g.(Fri, 15 May 2015 22:57:50 +0800)
 	# %cr => committer date, relative => like `--date=relative'. e.g.(4 days ago)
 	# %ct => committer date, UNIX timestamp
 	# %ci => committer date, ISO 8601 format. e.g.(2015-05-15 22:57:50 +0800)
-
 	# %an => author name
 	# %ar => author date, relative
 	# %ad => author date, (format respects --date= option) e.g.(Tue May 19 10:15:48 2015 +0800)
 	# %aD => author date, RFC2822 style. e.g.(Fri, 15 May 2015 22:57:50 +0800)
 	# %at => author date, UNIX timestamp
 	# %ai => author date, ISO 8601 format. e.g.(2015-05-15 22:57:50 +0800)
-
 	# %n => new line
-
 	# --stat => diff状态
 	# --patch => 生成diff预览
 	# --date=local 去除时区信息
-
 	lg = log --color --graph --date-order --pretty=format:'%C(magenta)%h %C(reset)-%C(red)%d %C(reset)%s %C(bold blue)<%an> %C(reset)%C(green)%ar%C(cyan)(%ad)' --date=local
-
 	ll = log --color --graph --date-order --pretty=format:'%C(red)%d%C(yellow)%B\
 %n%C(ul)Hash:%C(reset) %C(magenta)%H\
 %n%C(ul)Author:%C(reset) %C(bold blue)%an<%ae> %C(reset)%C(green)%ar%C(cyan)(%ad)\
 %n%C(ul)Committer:%C(reset) %C(bold blue)%cn<%ce> %C(reset)%C(green)%cr%C(cyan)(%cd)\
 %n'  --stat --date=local
-
 	lp = log --color --graph --date-order --pretty=format:'%C(red)%d%C(yellow)%B\
 %n%C(ul)Hash:%C(reset) %C(magenta)%H\
 %n%C(ul)Author:%C(reset) %C(bold blue)%an<%ae> %C(reset)%C(green)%ar%C(cyan)(%ad)\
@@ -76,8 +76,15 @@
 	mgs = merge --squash
 	mgt = mergetool
 
-	plb = pull --rebase
+	pl = pull
+	plr = pull --rebase
+
+	rb = rebase
+	rbc = rebase --continue
+	rbs = rebase --skip
+
 	st = status --short --branch
+
 	throw = reset --hard HEAD
 	unstage = reset --soft HEAD --   # fileName here
 [color]
