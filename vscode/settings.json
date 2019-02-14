@@ -19,6 +19,7 @@
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.colorTheme": "Monokai",
   "workbench.iconTheme": "vscode-icons",
+  "workbench.settings.useSplitJSON": true,
 
   "window.restoreWindows": "none",
 
