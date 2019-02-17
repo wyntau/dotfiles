@@ -27,7 +27,7 @@
 
   "terminal.integrated.fontSize": 13,
   "terminal.integrated.fontWeightBold": "normal",
-  "terminal.integrated.shell.windows": "C:\\Windows\\Sysnative\\bash.exe",
+  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\bash.exe",
   "terminal.integrated.shellArgs.windows": ["-i"],
   "terminal.integrated.shellArgs.osx": ["-l"],
 
