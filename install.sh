@@ -173,6 +173,7 @@ function usage(){
   echo '    - git_dmtool'
   echo '    - git_extras'
   echo '    - git_flow'
+  echo '    - homebrew'
   echo '    - sublime2'
   echo '    - sublime3'
   echo '    - tmux'
