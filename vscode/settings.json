@@ -36,7 +36,7 @@
   "gitlens.codeLens.enabled": false,
 
   "gitProjectManager.baseProjectsFolders": [
-    "/Workspaces"
+    "~/Projects"
   ],
   "gitProjectManager.storeRepositoriesBetweenSessions": true,
   "gitProjectManager.ignoredFolders": [
