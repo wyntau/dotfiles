@@ -159,7 +159,7 @@ You can do a specific task by run
 - ### Task `homebrew`
     Requirement(s): `curl`
 
-    Install homebrew for OS X for Linux(aka. linuxbrew on Linux).
+    Install homebrew for OS X and Linux(aka. linuxbrew on Linux).
 
 - ### Task `sublime2`
     Requirement(s): `git`, `Sublime Text 2`
