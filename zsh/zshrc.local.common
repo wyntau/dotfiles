@@ -1,0 +1,31 @@
+# load brew
+if [ -x /usr/local/bin/brew ]; then
+  # Homebrew for OS X
+  eval $(/usr/local/bin/brew shellenv)
+elif [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
+  # Linuxbrew for Linux
+  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+fi;
+
+# add mirror config for homebrew bottoles
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+
+# add mirror config for electron
+export ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/
+
+# add mirror config for sass binary
+export SASS_BINARY_SITE=http://npm.taobao.org/mirrors/node-sass
+
+# add mirror config for node-sqlite3
+export SQLITE3_BINARY_SITE=http://npm.taobao.org/mirrors/sqlite3
+
+# add mirror config for nvm
+export NVM_NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node
+# load nvm
+export NVM_DIR="$HOME/.nvm"
+if [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ]; then
+  source "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"  # This loads nvm
+fi;
+
+# add PATH config for cargo for rust
+export PATH="$HOME/.cargo/bin:$PATH"
