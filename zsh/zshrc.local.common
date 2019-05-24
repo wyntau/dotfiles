@@ -16,6 +16,9 @@ export ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/
 # add mirror config for sass binary
 export SASS_BINARY_SITE=http://npm.taobao.org/mirrors/node-sass
 
+# add mirror config for puppeteer
+export PUPPETEER_DOWNLOAD_HOST=https://npm.taobao.org/mirrors
+
 # add mirror config for node-sqlite3
 export SQLITE3_BINARY_SITE=http://npm.taobao.org/mirrors/sqlite3
 
