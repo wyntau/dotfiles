@@ -36,20 +36,12 @@
   "gitlens.codeLens.enabled": false,
 
   "gitProjectManager.baseProjectsFolders": [
-    "~/Projects"
+    "/Workspaces"
   ],
   "gitProjectManager.storeRepositoriesBetweenSessions": true,
   "gitProjectManager.ignoredFolders": [
     "node_modules"
   ],
-
-  "vim.useSystemClipboard": true,
-  "vim.leader": "<space>",
-  "vim.easymotion": true,
-  "vim.surround": true,
-  "vim.sneak": true,
-  "vim.easymotionMarkerFontFamily": "Source Code Pro",
-  "vim.sneakUseIgnorecaseAndSmartcase": true,
 
   "vsicons.projectDetection.disableDetect": true,
 }
