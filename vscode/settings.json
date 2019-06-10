@@ -1,21 +1,12 @@
-// Place your settings in this file to overwrite the default settings
 {
-  //-------- Editor configuration --------
+  "diffEditor.ignoreTrimWhitespace": false,
   "editor.fontFamily": "'Source Code Pro', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontSize": 13,
-  "editor.rulers": [80, 100],
+  "editor.rulers": [80, 120],
   "editor.tabSize": 2,
   "editor.find.seedSearchStringFromSelection": false,
   "editor.wordWrap": "on",
-  "diffEditor.ignoreTrimWhitespace": false,
 
-  "emmet.includeLanguages": {
-    "vue-html": "html",
-    "vue": "html"
-  },
-  "emmet.triggerExpansionOnTab": true,
-
-  "workbench.startupEditor": "none",
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.colorTheme": "Monokai",
   "workbench.iconTheme": "vscode-icons",
@@ -26,10 +17,15 @@
   "files.eol": "\n",
 
   "terminal.integrated.fontSize": 13,
-  "terminal.integrated.fontWeightBold": "normal",
   "terminal.integrated.shell.windows": "C:\\Windows\\System32\\bash.exe",
   "terminal.integrated.shellArgs.windows": ["-i"],
   "terminal.integrated.shellArgs.osx": ["-l"],
+
+  "emmet.includeLanguages": {
+    "vue-html": "html",
+    "vue": "html"
+  },
+  "emmet.triggerExpansionOnTab": true,
 
   "gitlens.codeLens.enabled": false,
 
@@ -41,5 +37,8 @@
     "node_modules"
   ],
 
-  "vsicons.projectDetection.disableDetect": true,
+  "prettier.eslintIntegration": true,
+  "prettier.tslintIntegration": false,
+  "prettier.stylelintIntegration": true,
+  "prettier.singleQuote": true
 }
