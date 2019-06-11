@@ -1032,7 +1032,7 @@ function install_zsh_zim(){
     cp "${ZDOTDIR:-${HOME}}/.zim/templates/${template_file}" "${ZDOTDIR:-${HOME}}/.${template_file}"
   done
 
-  echo '[ -f ${ZDOTDIR:-${HOME}}/.zimrc.local ] && source ${ZDOTDIR:-${HOME}}/.zimrc.local' >> ${ZDOTDIR:-${HOME}}/.zimrc
+  echo 'zmodules=($zmodules autosuggestions)' >> ${ZDOTDIR:-${HOME}}/.zimrc
 
   # borrowed from oh-my-zsh install script
   # If this user's login shell is not already "zsh", attempt to switch.
@@ -1050,20 +1050,8 @@ function install_zsh_zim(){
   fi
 
   success "Successfully installed zim."
-  tip "You can add your own configs to ${ZDOTDIR:-${HOME}}/.zimrc.local , zsh will source them automatically"
+  tip "You can append your own configs to ${ZDOTDIR:-${HOME}}/.zimrc"
 
-  success "Please open a new zsh terminal to make configs go into effect."
-}
-
-function install_zsh_zim_cfg(){
-  must_program_exists "zsh"
-
-  step "Installing zim configs ..."
-
-  lnif "$APP_PATH/zsh/zim/zimrc.local" \
-       "${ZDOTDIR:-${HOME}}/.zimrc.local"
-
-  success "Successfully installed omz configs"
   success "Please open a new zsh terminal to make configs go into effect."
 }
 
@@ -1158,9 +1146,6 @@ else
         ;;
       zsh_zim)
         install_zsh_zim
-        ;;
-      zsh_zim_cfg)
-        install_zsh_zim_cfg
         ;;
       *)
         echo
