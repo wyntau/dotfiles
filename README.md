@@ -26,11 +26,15 @@ dotfiles
 │   ├── vimrc
 │   └── vimrc.plugins
 ├── vscode
-│   ├── README.md
-│   ├── keybindings.json
-│   └── settings.json
+│   ├── keybindings.json
+│   └── settings.json
 └── zsh
-    └── zshrc
+    ├── omz
+    │   ├── zshrc
+    │   └── zshrc.local
+    ├── zim
+    │   └── zimrc.local
+    └── zshrc.common
 ```
 
 ## Installation
@@ -65,10 +69,10 @@ All vailable tasks:
 - [vim_plugins_snippets](#task-vim_plugins_snippets)
 - [vim_plugins_ycm](#task-vim_plugins_ycm)
 - [vscode](#task-vscode)
-- [zsh_rc](#task-zsh_rc)
+- [zsh_omz](#task-zsh_omz)
+- [zsh_omz_plugins_fzf](#task-zsh_omz_plugins_fzf)
+- [zsh_omz_plugins_thefuck](#task-zsh_omz_plugins_thefuck)
 - [zsh_plugins_fasd](#task-zsh_plugins_fasd)
-- [zsh_plugins_fzf](#task-zsh_plugins_fzf)
-- [zsh_plugins_thefuck](#task-zsh_plugins_thefuck)
 
 You can do a specific task by run
 
@@ -477,7 +481,7 @@ You can do a specific task by run
     and `editor.fontSize` to what you prefer in `settings.json`, and custom key
     bindings in `keybindings.json`.
 
-- ### Task `zsh_rc`
+- ### Task `zsh_omz`
     Requirement(s): `git`, `zsh`
 
     This task will install [`oh-my-zsh`](https://github.com/robbyrussell/oh-my-zsh) for you.
@@ -492,7 +496,7 @@ You can do a specific task by run
     | colored-man-pages        |                                                       |                                                |
     | encode64                 |                                                       |                                                |
     | extract                  |                                                       |                                                |
-    | fzf-zsh(fzf)             | [task zsh_plugins_fzf](#task-zsh_plugins_fzf)         |                                                |
+    | fzf-zsh(fzf)             | [task zsh_omz_plugins_fzf](#task-zsh_omz_plugins_fzf)         |                                                |
     | sublime                  |                                                       |                                                |
     | sudo                     |                                                       |                                                |
     | zsh_reload               |                                                       |                                                |
@@ -505,26 +509,26 @@ You can do a specific task by run
     | git-flow-completion      | [task git_flow](#task-git_flow)                       |                                                |
     | httpie                   | httpie                                                |                                                |
     | mosh                     | mosh                                                  |                                                |
-    | thefuck                  | [task zsh_plugins_thefuck](#task-zsh_plugins_thefuck) |                                                |
+    | thefuck                  | [task zsh_omz_plugins_thefuck](#task-zsh_omz_plugins_thefuck) |                                                |
     | tmux                     | tmux                                                  |                                                |
     | osx                      | OS X                                                  |                                                |
 
     So, maybe you should install some of them to make full use of zsh.
 
-- ### Task `zsh_plugins_fasd`
-    Requirement(s): `git`, `zsh`, [task zsh_rc](#task-zsh_rc)
-
-    Install oh-my-zsh plugin [`fasd`](https://github.com/clvv/fasd), replace default [`z`](https://github.com/rupa/z)
-
-- ### Task `zsh_plugins_fzf`
-    Requirement(s): `git`, `zsh`, [task zsh_rc](#task-zsh_rc)
+- ### Task `zsh_omz_plugins_fzf`
+    Requirement(s): `git`, `zsh`, [task zsh_omz](#task-zsh_omz)
 
     Install oh-my-zsh plugin [`fzf`](https://github.com/junegunn/fzf)
 
-- ### Task `zsh_plugins_thefuck`
-    Requirement(s): `git`, `zsh`, [task zsh_rc](#task-zsh_rc)
+- ### Task `zsh_omz_plugins_thefuck`
+    Requirement(s): `git`, `zsh`, [task zsh_omz](#task-zsh_omz)
 
     Install oh-my-zsh plugin [`thefuck`](https://github.com/nvbn/thefuck)
+
+- ### Task `zsh_plugins_fasd`
+    Requirement(s): `git`, `zsh`
+
+    Install zsh plugin [`fasd`](https://github.com/clvv/fasd)
 
 ## License
 

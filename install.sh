@@ -1028,6 +1028,7 @@ function install_zsh_zim(){
        "${ZDOTDIR:-${HOME}}/.zim"
 
   for template_file in `ls ${ZDOTDIR:-${HOME}}/.zim/templates/`; do
+    rm -rf "${ZDOTDIR:-${HOME}}/.${template_file}"
     cp "${ZDOTDIR:-${HOME}}/.zim/templates/${template_file}" "${ZDOTDIR:-${HOME}}/.${template_file}"
   done
 
