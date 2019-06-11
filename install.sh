@@ -184,10 +184,10 @@ function usage(){
   echo '    - vim_plugins_snippets'
   echo '    - vim_plugins_ycm'
   echo '    - vscode'
-  echo '    - zsh_rc'
+  echo '    - zsh_omz'
+  echo '    - zsh_omz_plugins_fzf'
+  echo '    - zsh_omz_plugins_thefuck'
   echo '    - zsh_plugins_fasd'
-  echo '    - zsh_plugins_fzf'
-  echo '    - zsh_plugins_thefuck'
   echo '    - zsh_zim'
   printf "$dot_color_none\n"
 }
@@ -502,7 +502,7 @@ function install_git_flow(){
 
   step "Installing git-flow-completion ..."
   sync_repo "https://github.com/petervanderdoes/git-flow-completion.git" \
-            "$APP_PATH/zsh/oh-my-zsh/custom/plugins/git-flow-completion"
+            "$APP_PATH/zsh/omz/oh-my-zsh/custom/plugins/git-flow-completion"
 
   success "Successfully installed git-flow-avh and git-flow-completion."
 }
@@ -913,26 +913,26 @@ function install_vscode_insiders(){
   install_fonts_source_code_pro
 }
 
-function install_zsh_rc(){
+function install_zsh_omz(){
 
   must_program_exists "zsh"
 
-  step "Installing zshrc ..."
+  step "Installing oh-my-zsh for zsh ..."
 
   sync_repo "https://github.com/robbyrussell/oh-my-zsh.git" \
-            "$APP_PATH/zsh/oh-my-zsh"
+            "$APP_PATH/zsh/omz/oh-my-zsh"
 
   # add zsh plugin zsh-syntax-highlighting support
   sync_repo "https://github.com/zsh-users/zsh-syntax-highlighting.git" \
-            "$APP_PATH/zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+            "$APP_PATH/zsh/omz/oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
 
   # add zsh plugin zsh-autosuggestions support
   sync_repo "https://github.com/tarruda/zsh-autosuggestions.git" \
-            "$APP_PATH/zsh/oh-my-zsh/custom/plugins/zsh-autosuggestions"
+            "$APP_PATH/zsh/omz/oh-my-zsh/custom/plugins/zsh-autosuggestions"
 
-  lnif "$APP_PATH/zsh/oh-my-zsh" \
+  lnif "$APP_PATH/zsh/omz/oh-my-zsh" \
        "$HOME/.oh-my-zsh"
-  lnif "$APP_PATH/zsh/zshrc" \
+  lnif "$APP_PATH/zsh/omz/zshrc" \
        "$HOME/.zshrc"
 
   # borrowed from oh-my-zsh install script
@@ -956,21 +956,21 @@ function install_zsh_rc(){
   success "Please open a new zsh terminal to make configs go into effect."
 }
 
-function install_zsh_cfg(){
+function install_zsh_omz_cfg(){
 
   must_program_exists "zsh"
 
-  step "Installing zsh configs ..."
+  step "Installing omz configs ..."
 
-  lnif "$APP_PATH/zsh/zshrc.local" \
+  lnif "$APP_PATH/zsh/omz/zshrc.local" \
        "$HOME/.zshrc.local"
 
-  success "Successfully installed zsh configs"
+  success "Successfully installed omz configs"
   success "Please open a new zsh terminal to make configs go into effect."
 }
 
 function install_zsh_plugins_fasd(){
-  step "Installing fasd plugin for oh-my-zsh ..."
+  step "Installing fasd plugin for zsh ..."
 
   # add zsh plugin fasd support
   sync_repo "https://github.com/clvv/fasd.git" \
@@ -982,21 +982,21 @@ function install_zsh_plugins_fasd(){
   success "Please open a new zsh terminal to make configs go into effect."
 }
 
-function install_zsh_plugins_fzf(){
+function install_zsh_omz_plugins_fzf(){
   step "Installing fzf plugin for oh-my-zsh ..."
 
   # add zsh plugin fzf support
   sync_repo "https://github.com/junegunn/fzf.git" \
-            "$APP_PATH/zsh/oh-my-zsh/custom/plugins/fzf"
-  "$APP_PATH/zsh/oh-my-zsh/custom/plugins/fzf/install" --bin
+            "$APP_PATH/zsh/omz/oh-my-zsh/custom/plugins/fzf"
+  "$APP_PATH/zsh/omz/oh-my-zsh/custom/plugins/fzf/install" --bin
   sync_repo "https://github.com/Wyntau/fzf-zsh.git" \
-            "$APP_PATH/zsh/oh-my-zsh/custom/plugins/fzf-zsh"
+            "$APP_PATH/zsh/omz/oh-my-zsh/custom/plugins/fzf-zsh"
 
   success "Successfully installed fzf plugin."
   success "Please open a new zsh terminal to make configs go into effect."
 }
 
-function install_zsh_plugins_thefuck(){
+function install_zsh_omz_plugins_thefuck(){
   step "Installing thefuck plugin for oh-my-zsh ..."
 
   # add zsh plugin thefuck support
@@ -1010,8 +1010,8 @@ function install_zsh_plugins_thefuck(){
     pip install --user --upgrade thefuck
   fi;
 
-  mkdir -p "$APP_PATH/zsh/oh-my-zsh/custom/plugins/thefuck"
-  echo 'eval "$(thefuck --alias)"' > "$APP_PATH/zsh/oh-my-zsh/custom/plugins/thefuck/thefuck.plugin.zsh"
+  mkdir -p "$APP_PATH/zsh/omz/oh-my-zsh/custom/plugins/thefuck"
+  echo 'eval "$(thefuck --alias)"' > "$APP_PATH/zsh/omz/oh-my-zsh/custom/plugins/thefuck/thefuck.plugin.zsh"
 
   success "Successfully installed thefuck plugin."
   success "Please open a new zsh terminal to make configs go into effect."
@@ -1032,11 +1032,37 @@ function install_zsh_zim(){
   done
 
   echo '[ -f ${ZDOTDIR:-${HOME}}/.zimrc.local ] && source ${ZDOTDIR:-${HOME}}/.zimrc.local' >> ${ZDOTDIR:-${HOME}}/.zimrc
-  cp "$APP_PATH/zsh/zim/zimrc.local" "${ZDOTDIR:-${HOME}}/.zimrc.local"
+
+  # borrowed from oh-my-zsh install script
+  # If this user's login shell is not already "zsh", attempt to switch.
+  local TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
+  if [ "$TEST_CURRENT_SHELL" != "zsh" ]; then
+    # If this platform provides a "chsh" command (not Cygwin), do it, man!
+    if hash chsh >/dev/null 2>&1; then
+      info "Time to change your default shell to zsh!"
+      chsh -s $(grep /zsh$ /etc/shells | tail -1)
+    # Else, suggest the user do so manually.
+    else
+      error "I can't change your shell automatically because this system does not have chsh."
+      error "Please manually change your default shell to zsh!"
+    fi
+  fi
 
   success "Successfully installed zim."
   tip "You can add your own configs to ${ZDOTDIR:-${HOME}}/.zimrc.local , zsh will source them automatically"
 
+  success "Please open a new zsh terminal to make configs go into effect."
+}
+
+function install_zsh_zim_cfg(){
+  must_program_exists "zsh"
+
+  step "Installing zim configs ..."
+
+  lnif "$APP_PATH/zsh/zim/zimrc.local" \
+       "${ZDOTDIR:-${HOME}}/.zimrc.local"
+
+  success "Successfully installed omz configs"
   success "Please open a new zsh terminal to make configs go into effect."
 }
 
@@ -1114,23 +1140,26 @@ else
       vscode_insiders)
         install_vscode_insiders
         ;;
-      zsh_rc)
-        install_zsh_rc
+      zsh_omz)
+        install_zsh_omz
         ;;
-      zsh_cfg)
-        install_zsh_cfg
+      zsh_omz_cfg)
+        install_zsh_omz_cfg
+        ;;
+      zsh_omz_plugins_fzf)
+        install_zsh_omz_plugins_fzf
+        ;;
+      zsh_omz_plugins_thefuck)
+        install_zsh_omz_plugins_thefuck
         ;;
       zsh_plugins_fasd)
         install_zsh_plugins_fasd
         ;;
-      zsh_plugins_fzf)
-        install_zsh_plugins_fzf
-        ;;
-      zsh_plugins_thefuck)
-        install_zsh_plugins_thefuck
-        ;;
       zsh_zim)
         install_zsh_zim
+        ;;
+      zsh_zim_cfg)
+        install_zsh_zim_cfg
         ;;
       *)
         echo

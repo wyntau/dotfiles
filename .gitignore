@@ -6,7 +6,7 @@ vim/plugins
 vim/autoload
 vim/shada
 
-zsh/oh-my-zsh
-zsh/zim
+zsh/omz/oh-my-zsh
+zsh/zim/zimfw
 
 tmux/plugins
