@@ -73,6 +73,7 @@ All vailable tasks:
 - [zsh_omz_plugins_fzf](#task-zsh_omz_plugins_fzf)
 - [zsh_omz_plugins_thefuck](#task-zsh_omz_plugins_thefuck)
 - [zsh_plugins_fasd](#task-zsh_plugins_fasd)
+- [zsh_zim](#task-zsh_zim)
 
 You can do a specific task by run
 
@@ -529,6 +530,14 @@ You can do a specific task by run
     Requirement(s): `git`, `zsh`
 
     Install zsh plugin [`fasd`](https://github.com/clvv/fasd)
+
+- ### Task `zsh_zim`
+    Requirement(s): `git`, `zsh`
+
+    This task will install [`zimfw`](https://github.com/zimfw/zimfw) for you.
+
+    If you have your own configs, put them in `~/.zimrc.local`, zsh will load
+    them automatically.
 
 ## License
 
