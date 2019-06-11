@@ -188,6 +188,7 @@ function usage(){
   echo '    - zsh_plugins_fasd'
   echo '    - zsh_plugins_fzf'
   echo '    - zsh_plugins_thefuck'
+  echo '    - zsh_zim'
   printf "$dot_color_none\n"
 }
 
@@ -1016,6 +1017,29 @@ function install_zsh_plugins_thefuck(){
   success "Please open a new zsh terminal to make configs go into effect."
 }
 
+function install_zsh_zim(){
+  must_program_exists "zsh"
+  step "Installing zim for zsh ..."
+
+  sync_repo "https://github.com/zimfw/zimfw.git" \
+            "$APP_PATH/zsh/zim/zimfw"
+
+  lnif "$APP_PATH/zsh/zim/zimfw" \
+       "${ZDOTDIR:-${HOME}}/.zim"
+
+  for template_file in `ls ${ZDOTDIR:-${HOME}}/.zim/templates/`; do
+    cp "${ZDOTDIR:-${HOME}}/.zim/templates/${template_file}" "${ZDOTDIR:-${HOME}}/.${template_file}"
+  done
+
+  echo '[ -f ${ZDOTDIR:-${HOME}}/.zimrc.local ] && source ${ZDOTDIR:-${HOME}}/.zimrc.local' >> ${ZDOTDIR:-${HOME}}/.zimrc
+  cp "$APP_PATH/zsh/zim/zimrc.local" "${ZDOTDIR:-${HOME}}/.zimrc.local"
+
+  success "Successfully installed zim."
+  tip "You can add your own configs to ${ZDOTDIR:-${HOME}}/.zimrc.local , zsh will source them automatically"
+
+  success "Please open a new zsh terminal to make configs go into effect."
+}
+
 if [ $# = 0 ]; then
   usage
 else
@@ -1104,6 +1128,9 @@ else
         ;;
       zsh_plugins_thefuck)
         install_zsh_plugins_thefuck
+        ;;
+      zsh_zim)
+        install_zsh_zim
         ;;
       *)
         echo
