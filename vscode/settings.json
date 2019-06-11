@@ -34,7 +34,8 @@
   ],
   "gitProjectManager.storeRepositoriesBetweenSessions": true,
   "gitProjectManager.ignoredFolders": [
-    "node_modules"
+    "node_modules",
+    "tmp"
   ],
 
   "prettier.eslintIntegration": true,
