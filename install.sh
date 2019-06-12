@@ -1032,7 +1032,8 @@ function install_zsh_zim(){
     cp "${ZDOTDIR:-${HOME}}/.zim/templates/${template_file}" "${ZDOTDIR:-${HOME}}/.${template_file}"
   done
 
-  echo 'zmodules=($zmodules autosuggestions)' >> ${ZDOTDIR:-${HOME}}/.zimrc
+  lnif "$APP_PATH/zsh/zim/zimrc" \
+       "${ZDOTDIR:-${HOME}}/.zimrc"
 
   # borrowed from oh-my-zsh install script
   # If this user's login shell is not already "zsh", attempt to switch.
