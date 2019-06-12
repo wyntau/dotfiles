@@ -485,7 +485,12 @@ function install_git_extras(){
   sync_repo "https://github.com/tj/git-extras.git" \
             "$APP_PATH/git/.cache/git-extras"
   cd "$APP_PATH/git/.cache/git-extras"
-  sudo make install
+
+  if [ `id -u` -eq 0 ]; then
+    make install
+  else
+    sudo make install
+  fi;
 
   success "Successfully installed git-extras."
 }
@@ -498,7 +503,12 @@ function install_git_flow(){
   sync_repo "https://github.com/petervanderdoes/gitflow-avh.git" \
             "$APP_PATH/git/.cache/git-flow-avh"
   cd "$APP_PATH/git/.cache/git-flow-avh"
-  sudo make install
+
+  if [ `id -u` -eq 0 ]; then
+    make install
+  else
+    sudo make install
+  fi;
 
   step "Installing git-flow-completion ..."
   sync_repo "https://github.com/petervanderdoes/git-flow-completion.git" \
@@ -976,7 +986,12 @@ function install_zsh_plugins_fasd(){
   sync_repo "https://github.com/clvv/fasd.git" \
             "$APP_PATH/zsh/.cache/fasd"
   cd "$APP_PATH/zsh/.cache/fasd"
-  sudo make install
+
+  if [ `id -u` -eq 0 ]; then
+    make install
+  else
+    sudo make install
+  fi;
 
   success "Successfully installed fasd plugin."
   success "Please open a new zsh terminal to make configs go into effect."
