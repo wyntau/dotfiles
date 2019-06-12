@@ -402,10 +402,6 @@ function install_git_config(){
   fi;
   git config --global user.email $user_email
 
-  if ( is_mac ); then
-    git config --global credential.helper osxkeychain
-  fi;
-
   success "Successfully installed gitconfig."
 }
 
