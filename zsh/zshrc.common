@@ -7,8 +7,10 @@ elif [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
   eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 fi;
 
-# add mirror config for homebrew bottoles
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+# add mirror config for homebrew bottoles in mac
+if [ `uname` = "Darwin" ]; then
+  export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+fi;
 
 # add mirror config for electron
 export ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/
