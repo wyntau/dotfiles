@@ -103,3 +103,5 @@
 	default = simple
 [http]
 	postBuffer = 524288000
+[oh-my-zsh]
+	hide-dirty = 1
