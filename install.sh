@@ -466,7 +466,7 @@ function install_git_dmtool(){
 
   info "Config git's mergetool to Kaleidoscope"
   git config --global merge.tool Kaleidoscope
-  git config --global mergetool.Kaleidoscope.cmd 'ksdiff --merge --output "$MERGED" --base "$BASE" -- "$LOCAL" --snapshot "$REMOTE" --snapshot'
+  git config --global mergetool.Kaleidoscope.cmd 'ksdiff --merge --output "$MERGED" --base "$BASE" -- "$LOCAL" "$REMOTE"'
   git config --global mergetool.Kaleidoscope.trustExitCode true
   git config --global mergetool.prompt false
 
