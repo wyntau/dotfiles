@@ -36,10 +36,5 @@
   "gitProjectManager.ignoredFolders": [
     "node_modules",
     "tmp"
-  ],
-
-  "prettier.eslintIntegration": true,
-  "prettier.tslintIntegration": false,
-  "prettier.stylelintIntegration": true,
-  "prettier.singleQuote": true
+  ]
 }
