@@ -26,11 +26,16 @@ export SQLITE3_BINARY_SITE=http://npm.taobao.org/mirrors/sqlite3
 
 # add mirror config for nvm
 export NVM_NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node
+# Set NVM_DIR if it isn't already defined
+[[ -z "$NVM_DIR" ]] && export NVM_DIR="$HOME/.nvm"
 # load nvm
-export NVM_DIR="$HOME/.nvm"
-if [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ]; then
+if [ -n "$HOMEBREW_PREFIX" ] && [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ]; then
   source "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"  # This loads nvm
+elif [ -s "$NVM_DIR/nvm.sh" ]; then
+  source "$NVM_DIR/nvm.sh"
 fi;
 
-# add PATH config for cargo for rust
-export PATH="$HOME/.cargo/bin:$PATH"
+if [ -d "$HOME/.cargo/bin" ]; then
+  # add PATH config for cargo for rust
+  export PATH="$HOME/.cargo/bin:$PATH"
+fi;

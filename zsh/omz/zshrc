@@ -86,6 +86,26 @@ function is_custom_plugin_exists(){
   fi;
 }
 
+### set default zsh plugins
+plugins=(
+  $plugins
+  colored-man-pages
+  encode64
+  extract
+  sublime
+  sudo
+  zsh_reload
+  zsh-syntax-highlighting
+)
+# only init zsh-autosuggestions when we not in emacs terms, because terms in
+# emacs will not render zsh-autosuggestions gray color correctyly
+if [[ "$INSIDE_EMACS" == "" ]]; then
+  plugins=(
+    $plugins
+    zsh-autosuggestions
+  )
+fi;
+
 # if we have fasd installed, add fasd plugin
 # otherwise use z plugin
 if ( is_program_exists fasd ); then
@@ -99,6 +119,13 @@ else
     z
   )
 fi
+
+if ( is_custom_plugin_exists fzf-zsh ); then
+  plugins=(
+    $plugins
+    fzf-zsh
+  )
+fi;
 
 # if we have git installed, add git plugin
 if ( is_program_exists git ); then
@@ -163,34 +190,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   plugins=(
     $plugins
     osx
-  )
-fi;
-
-if ( is_custom_plugin_exists fzf-zsh ); then
-  plugins=(
-    $plugins
-    fzf-zsh
-  )
-fi;
-
-# set default zsh plugins
-plugins=(
-  $plugins
-  colored-man-pages
-  encode64
-  extract
-  sublime
-  sudo
-  zsh_reload
-  zsh-syntax-highlighting
-)
-
-# only init zsh-autosuggestions when we not in emacs terms, because terms in
-# emacs will not render zsh-autosuggestions gray color correctyly
-if [[ "$INSIDE_EMACS" == "" ]]; then
-  plugins=(
-    $plugins
-    zsh-autosuggestions
   )
 fi;
 
