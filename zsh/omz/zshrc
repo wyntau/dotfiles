@@ -109,6 +109,7 @@ fi
 if ( is_program_exists git ); then
   plugins=(
     $plugins
+    git
     gitfast
   )
 
