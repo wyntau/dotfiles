@@ -499,15 +499,17 @@ You can do a specific task by run
     | colored-man-pages        |                                                       |                                                |
     | encode64                 |                                                       |                                                |
     | extract                  |                                                       |                                                |
-    | fzf-zsh(fzf)             | [task zsh_omz_plugins_fzf](#task-zsh_omz_plugins_fzf)         |                                                |
+    | fzf-zsh(fzf)             | [task zsh_omz_plugins_fzf](#task-zsh_omz_plugins_fzf) |                                                |
     | sublime                  |                                                       |                                                |
     | sudo                     |                                                       |                                                |
     | zsh_reload               |                                                       |                                                |
     | zsh-syntax-highlighting  |                                                       |                                                |
     | zsh-autosuggestions      |                                                       | disabled in Emacs eshell. **TIP**: If your auto suggestion's color is same with your normal command's color, please make sure you `$TERM` support 256 color! |
     | fasd(z)                  | [task zsh_plugins_fasd](#task-zsh_plugins_fasd)       | z is used otherwise when fasd is not installed |
+    | git                      | git                                                   |                                                |
     | gitfast                  | git                                                   |                                                |
-    | git-extras               | git                                                   |                                                |
+    | diff-so-fancy            | [task zsh_omz_plugins_git_diff_so_fancy](#task-zsh_omz_plugins_git_diff_so_fancy)|                     |
+    | git-extras               | [task git_extras](#task-git_extras)                   |                                                |
     | git-flow                 | [task git_flow](#task-git_flow)                       |                                                |
     | git-flow-completion      | [task git_flow](#task-git_flow)                       |                                                |
     | httpie                   | httpie                                                |                                                |
