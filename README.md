@@ -71,6 +71,7 @@ All vailable tasks:
 - [vscode](#task-vscode)
 - [zsh_omz](#task-zsh_omz)
 - [zsh_omz_plugins_fzf](#task-zsh_omz_plugins_fzf)
+- [zsh_omz_plugins_git_diff_so_fancy](#task-zsh_omz_plugins_git_diff_so_fancy)
 - [zsh_omz_plugins_thefuck](#task-zsh_omz_plugins_thefuck)
 - [zsh_plugins_fasd](#task-zsh_plugins_fasd)
 - [zsh_plugins_zlua](#task-zsh_plugins_zlua)
@@ -521,6 +522,11 @@ You can do a specific task by run
     Requirement(s): `git`, `zsh`, [task zsh_omz](#task-zsh_omz)
 
     Install oh-my-zsh plugin [`fzf`](https://github.com/junegunn/fzf)
+
+- ### Task `zsh_omz_plugins_git_diff_so_fancy`
+    Requirement(s): `git`, `zsh`, [task zsh_omz](#task-zsh_omz)
+
+    Install oh-my-zsh plugin [zsh-diff-so-fancy](https://github.com/zdharma/zsh-diff-so-fancy) for git [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 
 - ### Task `zsh_omz_plugins_thefuck`
     Requirement(s): `git`, `zsh`, [task zsh_omz](#task-zsh_omz)
