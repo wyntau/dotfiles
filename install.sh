@@ -322,15 +322,22 @@ function install_emacs_spacemacs(){
 
   success "Successfully installed spacemacs and config."
 
-  # only install the font locally
-  if [ -z "$SSH_CONNECTION" ]; then
-    install_fonts_source_code_pro
-  else
-    tip "Maybe you should install the font *Source Code Pro* locally."
-  fi;
+  install_fonts_source_code_pro
 }
 
 function install_fonts_source_code_pro(){
+  # only install fonts locally
+  if [ -z "$DOT_FORCE_FONTS_INSTALL" ]; then
+    if [ -n "$DOT_IGNORE_FONTS_INSTALL" ]; then
+      info "Pass installing fonts according to DOT_IGNORE_FONTS"
+      return
+    fi;
+    if [ -n "$SSH_CONNECTION" ]; then
+      info "Pass installing fonts according to SSH_CONNECTION"
+      tip "Maybe you should install the font *Source Code Pro* locally."
+      return
+    fi;
+  fi;
 
   if ( ! is_mac ) && ( ! is_linux ); then
     error "This support *Linux* and *Mac* only"
@@ -721,12 +728,7 @@ function install_vim_plugins(){
 
   success "You can add your own plugins to ~/.vimrc.plugins.local , vim will source them automatically"
 
-  # only install the font locally
-  if [ -z "$SSH_CONNECTION" ]; then
-    install_fonts_source_code_pro
-  else
-    tip "Maybe you should install the font *Source Code Pro* locally."
-  fi;
+  install_fonts_source_code_pro
 
   tip "In order to use powerline symbols with airline in vim, please set your terminal to use the font *Source Code Pro*"
 }
