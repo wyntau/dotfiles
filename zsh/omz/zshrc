@@ -135,6 +135,14 @@ if ( is_program_exists git ); then
     gitfast
   )
 
+  # only enable git diff-so-fancy when we have install zsh-diff-so-fancy
+  if ( is_custom_plugin_exists zsh-diff-so-fancy ); then
+    plugins=(
+      $plugins
+      zsh-diff-so-fancy
+    )
+  fi;
+
   # only enable git-extras when we have installed git-extras
   if ( is_program_exists git-extras ); then
     plugins=(

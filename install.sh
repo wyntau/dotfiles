@@ -185,6 +185,7 @@ function usage(){
   echo '    - vim_plugins_ycm'
   echo '    - vscode'
   echo '    - zsh_omz'
+  echo '    - zsh_omz_plugins_git_diff_so_fancy'
   echo '    - zsh_omz_plugins_fzf'
   echo '    - zsh_omz_plugins_thefuck'
   echo '    - zsh_plugins_fasd'
@@ -430,12 +431,7 @@ function install_git_diff_fancy(){
   # git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 
   # override default 'git df' and 'git dfc'
-  git config --global alias.df '!f() { [ -z "$GIT_PREFIX" ] || cd "$GIT_PREFIX" ; git diff --color "$@" | diff-so-fancy  | less --tabs=4 -RFX; }; f'
-  git config --global alias.dfc '!f() { [ -z "$GIT_PREFIX" ] || cd "$GIT_PREFIX" ; git diff --cached --color "$@" | diff-so-fancy  | less --tabs=4 -RFX; }; f'
-
-  # add 'dfr' and 'dfcr' for origin 'df' and 'dfc'
-  git config --global alias.dfr 'diff'
-  git config --global alias.dfcr 'diff --cached'
+  git config --global alias.dsf '!f() { [ -z "$GIT_PREFIX" ] || cd "$GIT_PREFIX" ; git diff --color "$@" | diff-so-fancy  | less --tabs=4 -RFX; }; f'
 
   git config --global color.diff-highlight.oldNormal "red bold"
   git config --global color.diff-highlight.oldHighlight "red bold 52"
@@ -1016,6 +1012,16 @@ function install_zsh_plugins_zlua(){
   success "Please open a new zsh terminal to make configs go into effect."
 }
 
+function install_zsh_omz_plugins_git_diff_so_fancy(){
+  step "Install git diff-so-fancy plugin for oh-my-zsh ..."
+
+  # add zsh plugin for git diff-so-fancy
+  sync_repo "https://github.com/zdharma/zsh-diff-so-fancy.git" \
+            "$APP_PATH/zsh/omz/oh-my-zsh/custom/plugins/zsh-diff-so-fancy"
+
+  success "Successfully installed git diff-so-fancy for zsh."
+}
+
 function install_zsh_omz_plugins_fzf(){
   step "Installing fzf plugin for oh-my-zsh ..."
 
@@ -1169,6 +1175,9 @@ else
         ;;
       zsh_omz_cfg)
         install_zsh_omz_cfg
+        ;;
+      zsh_omz_plugins_git_diff_so_fancy)
+        install_zsh_omz_plugins_git_diff_so_fancy
         ;;
       zsh_omz_plugins_fzf)
         install_zsh_omz_plugins_fzf
