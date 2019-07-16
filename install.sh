@@ -380,6 +380,50 @@ function install_fonts_source_code_pro(){
   success "Successfully installed Source Code Pro font."
 }
 
+function install_git_alias(){
+
+  must_program_exists "git"
+
+  step "Install git alias ..."
+
+  sync_repo "https://github.com/GitAlias/gitalias.git" \
+            "$APP_PATH/git/.cache/gitalias"
+
+  printf "$dot_color_purple\n"
+  echo 'Install gitalias to'
+  echo '  1) system'
+  echo '  2) global'
+  echo '  3) local'
+  echo '  4) worktree'
+  printf "$dot_color_none\n"
+
+  local pos
+  read -p "where do you select to install? (1)" pos
+
+  local flags=('--local' '--worktree')
+
+  case ${pos:-"1"} in
+    1)
+      sudo git config --system include.path "$APP_PATH/git/.cache/gitalias/gitalias.txt"
+      ;;
+    2)
+      git config --global include.path "$APP_PATH/git/.cache/gitalias/gitalias.txt"
+      ;;
+    3|4)
+      info "run below commands in you git repo"
+      echo
+      echo git config ${flags[$((pos - 3))]} include.path "$APP_PATH/git/.cache/gitalias/gitalias.txt"
+      echo
+      ;;
+    *)
+      echo
+      error "Invalid option"
+      ;;
+  esac
+
+  success "Successfully installed git alias."
+}
+
 function install_git_config(){
 
   must_program_exists "git"
@@ -393,16 +437,13 @@ function install_git_config(){
 
   local user_now=`whoami`
 
-  prompt "What's your git username? ($user_now) "
   local user_name
-  read user_name
-
-  prompt "What's your git email? ($user_name@example.com) "
-  local user_email
-  read user_email
-
+  read -p "What's your git username? ($user_now) " user_name
   : ${user_name:=${user_now}}
-  : ${user_email:="${user_now}@example.com"}
+
+  local user_email
+  read -p "What's your git email? ($user_name@example.com) " user_email
+  : ${user_email:="${user_name}@example.com"}
 
   git config --global user.name $user_name
   git config --global user.email $user_email
@@ -1110,6 +1151,9 @@ else
         ;;
       fonts_source_code_pro)
         install_fonts_source_code_pro
+        ;;
+      git_alias)
+        install_git_alias
         ;;
       git_config)
         install_git_config
