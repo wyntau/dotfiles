@@ -394,21 +394,17 @@ function install_git_config(){
   local user_now=`whoami`
 
   prompt "What's your git username? ($user_now) "
-
   local user_name
   read user_name
-  if [ "$user_name" = "" ]; then
-    user_name=$user_now
-  fi;
-  git config --global user.name $user_name
 
   prompt "What's your git email? ($user_name@example.com) "
-
   local user_email
   read user_email
-  if [ "$user_email" = "" ]; then
-    user_email=$user_now@example.com
-  fi;
+
+  : ${user_name:=${user_now}}
+  : ${user_email:="${user_now}@example.com"}
+
+  git config --global user.name $user_name
   git config --global user.email $user_email
 
   success "Successfully installed gitconfig."
@@ -860,9 +856,7 @@ function install_vim_plugins_ycm(){
 }
 
 function install_vscode(){
-
   local vscode_path
-  local vscode_keybindings
 
   if( is_linux ); then
     vscode_path="$HOME/.config/Code"
@@ -889,9 +883,7 @@ function install_vscode(){
 }
 
 function install_vscode_insiders(){
-
   local vscode_path
-  local vscode_keybindings
 
   if( is_linux ); then
     vscode_path="$HOME/.config/Code - Insiders"
