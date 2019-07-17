@@ -247,8 +247,8 @@ function install_emacs(){
   fi;
 
   if [[ $prompt == true ]]; then
-    prompt "Do you want to override your old .emacs.d? (y/n) "
-    read override
+    local override
+    read -p "$(prompt "Do you want to override your old .emacs.d? (y/n) ")" override
     case $override in
       y|Y|'')
         info "Remove old .emacs.d"
@@ -293,8 +293,8 @@ function install_emacs_spacemacs(){
   fi;
 
   if [[ $prompt == true ]]; then
-    prompt "Do you want to override your old .emacs.d? (y/n) "
-    read override
+    local override
+    read -p "$(prompt "Do you want to override your old .emacs.d? (y/n) ")" override
     case $override in
       y|Y|'')
         info "Remove old .emacs.d"
@@ -398,13 +398,17 @@ function install_git_alias(){
   printf "$dot_color_none\n"
 
   local pos
-  read -p "where do you select to install? (1)" pos
+  read -p "$(prompt "where do you select to install? (1)")" pos
 
   local flags=('--local' '--worktree')
 
   case ${pos:-"1"} in
     1)
-      sudo git config --system include.path "$APP_PATH/git/.cache/gitalias/gitalias.txt"
+      if [ `id -u` -eq 0 ]; then
+        git config --system include.path "$APP_PATH/git/.cache/gitalias/gitalias.txt"
+      else
+        sudo git config --system include.path "$APP_PATH/git/.cache/gitalias/gitalias.txt"
+      fi;
       ;;
     2)
       git config --global include.path "$APP_PATH/git/.cache/gitalias/gitalias.txt"
@@ -438,11 +442,11 @@ function install_git_config(){
   local user_now=`whoami`
 
   local user_name
-  read -p "What's your git username? ($user_now) " user_name
+  read -p "$(prompt "What's your git username? (${user_now}) ")" user_name
   : ${user_name:=${user_now}}
 
   local user_email
-  read -p "What's your git email? ($user_name@example.com) " user_email
+  read -p "$(prompt "What's your git email? (${user_name}@example.com) ")" user_email
   : ${user_email:="${user_name}@example.com"}
 
   git config --global user.name $user_name
