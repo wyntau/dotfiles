@@ -53,6 +53,7 @@ All vailable tasks:
 - [emacs](#task-emacs)
 - [emacs_spacemacs](#task-emacs_spacemacs)
 - [fonts_source_code_pro](#task-fonts_source_code_pro)
+- [git_alias](#task-git_alias)
 - [git_config](#task-git_config)
 - [git_diff_fancy](#task-git_diff_fancy)
 - [git_dmtool](#task-git_dmtool)
@@ -131,6 +132,11 @@ You can do a specific task by run
     [sublime3](#task-sublime3), [vim_plugins](#task-vim_plugins),
     and [vscode](#task-vscode).
 
+- ### Task `git_alias`
+    Requirement(s): `git`
+
+    Install [`gitalias`](https://github.com/GitAlias/gitalias) for git. gitalias has many useful alias.
+
 - ### Task `git_config`
     Requirement(s): `git`
 
@@ -141,6 +147,8 @@ You can do a specific task by run
     Requirement(s): `git`
 
     Install `diff-so-fancy` plugin for git. Please see [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
+
+    If you use zsh, you can try the zsh plugin version [task zsh_omz_plugins_git_diff_so_fancy](#task-zsh_omz_plugins_git_diff_so_fancy)
 
 - ### Task `git_dmtool`
     Requirement(s): `MAC`, `git`, `Kaleidoscope`(`ksdiff`)
