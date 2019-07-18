@@ -96,6 +96,7 @@ plugins=(
   sudo
   zsh_reload
   zsh-syntax-highlighting
+  history-substring-search # put after zsh-syntax-highlighting
 )
 # only init zsh-autosuggestions when we not in emacs terms, because terms in
 # emacs will not render zsh-autosuggestions gray color correctyly
