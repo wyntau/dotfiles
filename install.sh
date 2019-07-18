@@ -1057,6 +1057,10 @@ function install_zsh_omz_plugins_git_diff_so_fancy(){
   sync_repo "https://github.com/zdharma/zsh-diff-so-fancy.git" \
             "$APP_PATH/zsh/.cache/zsh-diff-so-fancy"
 
+  echo '#!/bin/sh' > "$APP_PATH/zsh/.cache/zsh-diff-so-fancy/bin/git-dsfc"
+  echo 'f(){ git dsf --cached "$@"; }; f "$@"' >> "$APP_PATH/zsh/.cache/zsh-diff-so-fancy/bin/git-dsfc"
+  chmod +x "$APP_PATH/zsh/.cache/zsh-diff-so-fancy/bin/git-dsfc"
+
   lnif "$APP_PATH/zsh/.cache/zsh-diff-so-fancy" \
        "$APP_PATH/zsh/omz/oh-my-zsh/custom/plugins/zsh-diff-so-fancy"
 
@@ -1143,6 +1147,10 @@ function install_zsh_zim_plugins_git_diff_so_fancy(){
   # add zsh plugin for git diff-so-fancy
   sync_repo "https://github.com/zdharma/zsh-diff-so-fancy.git" \
             "$APP_PATH/zsh/.cache/zsh-diff-so-fancy"
+
+  echo '#!/bin/sh' > "$APP_PATH/zsh/.cache/zsh-diff-so-fancy/bin/git-dsfc"
+  echo 'f(){ git dsf --cached "$@"; }; f "$@"' >> "$APP_PATH/zsh/.cache/zsh-diff-so-fancy/bin/git-dsfc"
+  chmod +x "$APP_PATH/zsh/.cache/zsh-diff-so-fancy/bin/git-dsfc"
 
   lnif "$APP_PATH/zsh/.cache/zsh-diff-so-fancy" \
        "$APP_PATH/zsh/zim/zimfw/modules/zsh-diff-so-fancy"
