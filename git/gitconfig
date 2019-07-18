@@ -35,9 +35,9 @@
 
 	git = !exec git
 
-	lg = log --color --graph --date-order --pretty=format:'%C(magenta)%h %C(reset)-%C(red)%d %C(reset)%s %C(bold blue)<%an> %C(reset)%C(green)%ar%C(cyan)(%ad)' --date=iso8601-strict
+	lg = log --color --graph --date-order --pretty=format:'%C(magenta)%h %C(reset)-%C(auto)%d %C(reset)%s %C(bold blue)<%an> %C(reset)%C(green)%ar%C(cyan)(%ad)' --date=iso8601-strict
 	ll = log --color --graph --date-order --pretty=format:'\
-%C(red)%d%C(yellow)%B%n\
+%C(auto)%d%C(yellow)%B%n\
 %C(ul)Hash:%C(reset) %C(magenta)%H%n\
 %C(ul)Author:%C(reset) %C(bold blue)%an<%ae> %C(reset)%C(green)%ar%C(cyan)(%ad)%n\
 %C(ul)Committer:%C(reset) %C(bold blue)%cn<%ce> %C(reset)%C(green)%cr%C(cyan)(%cd)%n\
