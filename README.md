@@ -149,7 +149,7 @@ You can do a specific task by run
 
     Install `diff-so-fancy` plugin for git. Please see [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 
-    If you use zsh, you can try the zsh plugin version [task zsh_omz_plugins_git_diff_so_fancy](#task-zsh_omz_plugins_git_diff_so_fancy)
+    If you use zsh, you can try the zsh plugin version [task zsh_omz_plugins_git_diff_so_fancy](#task-zsh_omz_plugins_git_diff_so_fancy) or [task zsh_zim_plugins_git_diff_so_fancy](#task-zsh_zim_plugins_git_diff_so_fancy)
 
 - ### Task `git_dmtool`
     Requirement(s): `MAC`, `git`, `Kaleidoscope`(`ksdiff`)
