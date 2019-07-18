@@ -2,6 +2,10 @@
 # CORE SETTINGS #
 #################
 
+function is_custom_module_exists(){
+  [ -d "$ZIM_HOME/modules/$1" ] && return 0 || return 1;
+}
+
 #
 # Zim settings
 #
@@ -10,21 +14,26 @@
 # The second line of modules may depend on options set by modules in the first
 # line. These dependencies are noted on the respective module's README.md.
 zmodules=(
-  directory \
-  environment \
-  git \
-  # git-info \
-  history \
-  input \
-  utility \
-  custom \
-  prompt \
-  completion \
-  syntax-highlighting \
-  history-substring-search \
-  ##// user defined modules
-  autosuggestions \
+  directory
+  environment
+  git
+  history
+  input
+  utility
+  custom
+  prompt
+  completion
+  syntax-highlighting
+  history-substring-search
+  autosuggestions
 )
+
+if ( is_custom_module_exists zsh-diff-so-fancy ) ; then
+  zmodules=(
+    $zmodules
+    zsh-diff-so-fancy
+  )
+fi;
 
 
 ###################

@@ -191,6 +191,7 @@ function usage(){
   echo '    - zsh_plugins_fasd'
   echo '    - zsh_plugins_zlua'
   echo '    - zsh_zim'
+  echo '    - zsh_zim_plugins_git_diff_so_fancy'
   printf "$dot_color_none\n"
 }
 
@@ -1054,9 +1055,12 @@ function install_zsh_omz_plugins_git_diff_so_fancy(){
 
   # add zsh plugin for git diff-so-fancy
   sync_repo "https://github.com/zdharma/zsh-diff-so-fancy.git" \
-            "$APP_PATH/zsh/omz/oh-my-zsh/custom/plugins/zsh-diff-so-fancy"
+            "$APP_PATH/zsh/.cache/zsh-diff-so-fancy"
 
-  success "Successfully installed git diff-so-fancy for zsh."
+  lnif "$APP_PATH/zsh/.cache/zsh-diff-so-fancy" \
+       "$APP_PATH/zsh/omz/oh-my-zsh/custom/plugins/zsh-diff-so-fancy"
+
+  success "Successfully installed git diff-so-fancy for oh-my-zsh."
 }
 
 function install_zsh_omz_plugins_fzf(){
@@ -1131,6 +1135,19 @@ function install_zsh_zim(){
   tip "You can append your own configs to ${ZDOTDIR:-${HOME}}/.zimrc"
 
   success "Please open a new zsh terminal to make configs go into effect."
+}
+
+function install_zsh_zim_plugins_git_diff_so_fancy(){
+  step "Install git diff-so-fancy plugin for zim ..."
+
+  # add zsh plugin for git diff-so-fancy
+  sync_repo "https://github.com/zdharma/zsh-diff-so-fancy.git" \
+            "$APP_PATH/zsh/.cache/zsh-diff-so-fancy"
+
+  lnif "$APP_PATH/zsh/.cache/zsh-diff-so-fancy" \
+       "$APP_PATH/zsh/zim/zimfw/modules/zsh-diff-so-fancy"
+
+  success "Successfully installed git diff-so-fancy for zim."
 }
 
 if [ $# = 0 ]; then
@@ -1233,6 +1250,9 @@ else
         ;;
       zsh_zim)
         install_zsh_zim
+        ;;
+      zsh_zim_plugins_git_diff_so_fancy)
+        install_zsh_zim_plugins_git_diff_so_fancy
         ;;
       *)
         echo

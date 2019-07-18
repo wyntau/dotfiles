@@ -77,6 +77,7 @@ All vailable tasks:
 - [zsh_plugins_fasd](#task-zsh_plugins_fasd)
 - [zsh_plugins_zlua](#task-zsh_plugins_zlua)
 - [zsh_zim](#task-zsh_zim)
+- [zsh_zim_plugins_git_diff_so_fancy](#task-zsh_zim_plugins_git_diff_so_fancy)
 
 You can do a specific task by run
 
@@ -560,6 +561,11 @@ You can do a specific task by run
 
     If you have your own configs, put them in `~/.zimrc.local`, zsh will load
     them automatically.
+
+- ### Task `zsh_zim_plugins_git_diff_so_fancy`
+    Requirement(s): `git`, `zsh`, [task zsh_zim](#task-zsh_zim)
+
+    Install zimfw plugin [zsh-diff-so-fancy](https://github.com/zdharma/zsh-diff-so-fancy) for git [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 
 ## License
 
