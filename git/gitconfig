@@ -68,8 +68,8 @@
 	ui = auto
 [color "diff"]
 	meta = yellow bold
-	commit = green bold
-	frag = magenta bold
+	commit = magenta bold
+	frag = cyan bold
 	old = red bold
 	new = green bold
 	whitespace = red reverse
