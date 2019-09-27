@@ -30,6 +30,7 @@ elif [ -s "$NVM_DIR/nvm.sh" ]; then
   source "$NVM_DIR/nvm.sh"
 fi;
 
+export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup
 if [ -d "$HOME/.cargo/bin" ]; then
   # add PATH config for cargo for rust
   export PATH="$HOME/.cargo/bin:$PATH"
