@@ -192,6 +192,7 @@ function usage(){
   echo '    - zsh_plugins_zlua'
   echo '    - zsh_zim'
   echo '    - zsh_zim_plugins_git_diff_so_fancy'
+  echo '    - zsh_zim_plugins_omz_tmux'
   printf "$dot_color_none\n"
 }
 
@@ -954,18 +955,18 @@ function install_zsh_omz(){
 
   step "Installing oh-my-zsh for zsh ..."
 
-  sync_repo "https://github.com/robbyrussell/oh-my-zsh.git" \
-            "$APP_PATH/zsh/omz/oh-my-zsh"
+  sync_repo "https://github.com/ohmyzsh/ohmyzsh.git" \
+            "$APP_PATH/zsh/.cache/oh-my-zsh"
 
   # add zsh plugin zsh-syntax-highlighting support
   sync_repo "https://github.com/zsh-users/zsh-syntax-highlighting.git" \
-            "$APP_PATH/zsh/omz/oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+            "$APP_PATH/zsh/.cache/oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
 
   # add zsh plugin zsh-autosuggestions support
   sync_repo "https://github.com/tarruda/zsh-autosuggestions.git" \
-            "$APP_PATH/zsh/omz/oh-my-zsh/custom/plugins/zsh-autosuggestions"
+            "$APP_PATH/zsh/.cache/oh-my-zsh/custom/plugins/zsh-autosuggestions"
 
-  lnif "$APP_PATH/zsh/omz/oh-my-zsh" \
+  lnif "$APP_PATH/zsh/.cache/oh-my-zsh" \
        "$HOME/.oh-my-zsh"
   lnif "$APP_PATH/zsh/omz/zshrc" \
        "$HOME/.zshrc"
@@ -1126,6 +1127,23 @@ function install_zsh_zim_plugins_git_diff_so_fancy(){
   success "Successfully installed git diff-so-fancy for zim."
 }
 
+function install_zsh_zim_plugins_omz_tmux(){
+  step "Install tmux plugin for zim ..."
+
+  must_program_exists "zsh" \
+                      "tmux"
+
+  sync_repo "https://github.com/ohmyzsh/ohmyzsh.git" \
+            "$APP_PATH/zsh/.cache/oh-my-zsh"
+
+  ln -s "$APP_PATH/zsh/.cache/oh-my-zsh/plugins/tmux" \
+        "$APP_PATH/zsh/zim/zimfw/modules/tmux"
+
+  echo 'zmodule ohmyzsh/tmux' >> $HOME/.zimrc
+
+  success "Successfully installed tmux for zim."
+}
+
 if [ $# = 0 ]; then
   usage
 else
@@ -1229,6 +1247,9 @@ else
         ;;
       zsh_zim_plugins_git_diff_so_fancy)
         install_zsh_zim_plugins_git_diff_so_fancy
+        ;;
+      zsh_zim_plugins_tmux)
+      install_zsh_zim_plugins_omz_tmux
         ;;
       *)
         echo
