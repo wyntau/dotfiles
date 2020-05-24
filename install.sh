@@ -1096,42 +1096,15 @@ function install_zsh_omz_plugins_thefuck(){
 }
 
 function install_zsh_zim(){
-  must_program_exists "zsh"
+  must_program_exists "zsh" \
+                      "curl"
+
   step "Installing zim for zsh ..."
 
-  sync_repo "https://github.com/zimfw/zimfw.git" \
-            "$APP_PATH/zsh/zim/zimfw"
-
-  lnif "$APP_PATH/zsh/zim/zimfw" \
-       "${ZDOTDIR:-${HOME}}/.zim"
-
-  for template_file in `ls ${ZDOTDIR:-${HOME}}/.zim/templates/`; do
-    rm -rf "${ZDOTDIR:-${HOME}}/.${template_file}"
-    cp "${ZDOTDIR:-${HOME}}/.zim/templates/${template_file}" "${ZDOTDIR:-${HOME}}/.${template_file}"
-  done
-
-  lnif "$APP_PATH/zsh/zim/zimrc" \
-       "${ZDOTDIR:-${HOME}}/.zimrc"
-
-  # borrowed from oh-my-zsh install script
-  # If this user's login shell is not already "zsh", attempt to switch.
-  local TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
-  if [ "$TEST_CURRENT_SHELL" != "zsh" ]; then
-    # If this platform provides a "chsh" command (not Cygwin), do it, man!
-    if hash chsh >/dev/null 2>&1; then
-      info "Time to change your default shell to zsh!"
-      chsh -s $(grep /zsh$ /etc/shells | tail -1)
-    # Else, suggest the user do so manually.
-    else
-      error "I can't change your shell automatically because this system does not have chsh."
-      error "Please manually change your default shell to zsh!"
-    fi
-  fi
+  export ZIM_HOME="$APP_PATH/zsh/zim/zimfw"
+  curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
 
   success "Successfully installed zim."
-  tip "You can append your own configs to ${ZDOTDIR:-${HOME}}/.zimrc"
-
-  success "Please open a new zsh terminal to make configs go into effect."
 }
 
 function install_zsh_zim_plugins_git_diff_so_fancy(){
@@ -1147,6 +1120,8 @@ function install_zsh_zim_plugins_git_diff_so_fancy(){
 
   lnif "$APP_PATH/zsh/.cache/zsh-diff-so-fancy" \
        "$APP_PATH/zsh/zim/zimfw/modules/zsh-diff-so-fancy"
+
+  echo 'zmodule zdharma/zsh-diff-so-fancy' >> $HOME/.zimrc
 
   success "Successfully installed git diff-so-fancy for zim."
 }
