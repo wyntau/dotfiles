@@ -76,6 +76,9 @@ All vailable tasks:
 - [zsh_plugins_fasd](#task-zsh_plugins_fasd)
 - [zsh_zim](#task-zsh_zim)
 - [zsh_zim_plugins_git_diff_so_fancy](#task-zsh_zim_plugins_git_diff_so_fancy)
+- [zsh_zim_plugins_omz_tmux](#task-zsh_zim_plugins_omz_tmux)
+- [zsh_zim_plugins_pure](#task-zsh_zim_plugins_pure)
+- [zsh_zim_plugins_zlua](#task-zsh_zim_plugins_zlua)
 
 You can do a specific task by run
 
@@ -566,6 +569,21 @@ You can do a specific task by run
     Requirement(s): `git`, `zsh`, [task zsh_zim](#task-zsh_zim)
 
     Install zimfw plugin [zsh-diff-so-fancy](https://github.com/zdharma/zsh-diff-so-fancy) for git [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
+
+- ### Task `zsh_zim_plugins_omz_tmux`
+    Requirement(s): `git`, `zsh`, `tmux`
+
+    Iinstall the tmux plugin(`oh-my-zsh/plugins/tmux`) included in oh-my-zsh for zimfw.
+
+- ### Task `zsh_zim_plugins_pure`
+    Requirement(s): `git`, `zsh`
+
+    Install zsh prompt theme [pure](https://github.com/sindresorhus/pure.git) for zimfw
+
+- ### Task `zsh_zim_plugins_zlua`
+    Requirement(s): `git`, `zsh`, `lua`
+
+    Install zsh plugin [`z.lua`](https://github.com/skywind3000/z.lua) for zimfw
 
 ## License
 
