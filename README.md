@@ -32,8 +32,6 @@ dotfiles
     ├── omz
     │   ├── zshrc
     │   └── zshrc.local
-    ├── zim
-    │   └── zimrc
     └── zshrc.common
 ```
 
