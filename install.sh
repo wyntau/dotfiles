@@ -1123,7 +1123,9 @@ function install_zsh_zim_plugins_git_diff_so_fancy(){
   lnif "$APP_PATH/zsh/.cache/zsh-diff-so-fancy" \
        "$APP_PATH/zsh/zim/zimfw/modules/zsh-diff-so-fancy"
 
-  echo 'zmodule zdharma/zsh-diff-so-fancy' >> $HOME/.zimrc
+  if ! grep -iE "^[ \t]*zmodule[ \t]+zdharma/zsh-diff-so-fancy[ \t]*$" "$HOME/.zimrc" &>/dev/null ; then
+    echo 'zmodule zdharma/zsh-diff-so-fancy' >> $HOME/.zimrc
+  fi;
 
   success "Successfully installed git diff-so-fancy for zim."
 }
@@ -1140,7 +1142,9 @@ function install_zsh_zim_plugins_omz_tmux(){
   ln -s "$APP_PATH/zsh/.cache/oh-my-zsh/plugins/tmux" \
         "$APP_PATH/zsh/zim/zimfw/modules/tmux"
 
-  echo 'zmodule ohmyzsh/tmux' >> $HOME/.zimrc
+  if ! grep -iE "^[ \t]*zmodule[ \t]+ohmyzsh/tmux[ \t]*$" "$HOME/.zimrc" &>/dev/null ; then
+    echo 'zmodule ohmyzsh/tmux' >> $HOME/.zimrc
+  fi;
 
   success "Successfully installed tmux for zim."
 }
@@ -1154,7 +1158,9 @@ function install_zsh_zim_plugins_pure(){
   lnif "$APP_PATH/zsh/.cache/pure" \
        "$APP_PATH/zsh/zim/zimfw/modules/pure"
 
-  echo 'zmodule sindresorhus/pure --source async.zsh --source pure.zsh' >> $HOME/.zimrc
+  if ! grep -iE "^[ \t]*zmodule[ \t]+sindresorhus/pure[ \t]+--source[ \t]+async.zsh[ \t]+--source[ \t]+pure.zsh[ \t]*$" "$HOME/.zimrc" &>/dev/null ; then
+    echo 'zmodule sindresorhus/pure --source async.zsh --source pure.zsh' >> $HOME/.zimrc
+  fi;
 
   success "Successfully install pure theme for zim."
 }
@@ -1263,7 +1269,7 @@ else
       zsh_zim_plugins_git_diff_so_fancy)
         install_zsh_zim_plugins_git_diff_so_fancy
         ;;
-      zsh_zim_plugins_tmux)
+      zsh_zim_plugins_omz_tmux)
         install_zsh_zim_plugins_omz_tmux
         ;;
       zsh_zim_plugins_pure)
