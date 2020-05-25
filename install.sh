@@ -240,7 +240,7 @@ function install_emacs(){
   step "Installing emacs config ..."
 
   local prompt=false
-  local repo_uri="https://github.com/Wyntau/emacs.d.git"
+  local repo_uri="https://github.com/wyntau/emacs.d.git"
 
   if ( is_dir_exists "$HOME/.emacs.d" ); then
     if [[ $repo_uri != `cd $HOME/.emacs.d && git remote get-url origin 2> /dev/null` ]]; then
@@ -284,7 +284,7 @@ function install_emacs_spacemacs(){
 
   local prompt=false
   local repo_spacemacs_uri="https://github.com/syl20bnr/spacemacs.git"
-  local repo_config_uri="https://github.com/Wyntau/spacemacs.d.git"
+  local repo_config_uri="https://github.com/wyntau/spacemacs.d.git"
 
   if ( is_dir_exists "$HOME/.emacs.d" ); then
     local exist_repo_uri=`cd $HOME/.emacs.d && git remote get-url origin 2> /dev/null`
@@ -549,7 +549,7 @@ function install_git_flow(){
 
   step "Installing git-flow-completion ..."
   sync_repo "https://github.com/petervanderdoes/git-flow-completion.git" \
-            "$APP_PATH/zsh/omz/oh-my-zsh/custom/plugins/git-flow-completion"
+            "$APP_PATH/zsh/.cache/ohmyzsh/custom/plugins/git-flow-completion"
 
   success "Successfully installed git-flow-avh and git-flow-completion."
 }
@@ -654,7 +654,7 @@ function install_tmux(){
   sync_repo "https://github.com/tmux-plugins/tmux-sensible" \
             "$APP_PATH/tmux/plugins/tmux-sensible"
 
-  sync_repo "https://github.com/Wyntau/tmux-custom-config" \
+  sync_repo "https://github.com/wyntau/tmux-custom-config" \
             "$APP_PATH/tmux/plugins/tmux-custom-config"
 
   sync_repo "https://github.com/tmux-plugins/tmux-pain-control" \
@@ -1057,7 +1057,7 @@ function install_zsh_omz_plugins_git_diff_so_fancy(){
   chmod +x "$APP_PATH/zsh/.cache/zsh-diff-so-fancy/bin/git-dsfc"
 
   lnif "$APP_PATH/zsh/.cache/zsh-diff-so-fancy" \
-       "$APP_PATH/zsh/omz/oh-my-zsh/custom/plugins/zsh-diff-so-fancy"
+       "$APP_PATH/zsh/.cache/ohmyzsh/custom/plugins/zsh-diff-so-fancy"
 
   success "Successfully installed git diff-so-fancy for oh-my-zsh."
 }
@@ -1067,10 +1067,10 @@ function install_zsh_omz_plugins_fzf(){
 
   # add zsh plugin fzf support
   sync_repo "https://github.com/junegunn/fzf.git" \
-            "$APP_PATH/zsh/omz/oh-my-zsh/custom/plugins/fzf"
-  "$APP_PATH/zsh/omz/oh-my-zsh/custom/plugins/fzf/install" --bin
-  sync_repo "https://github.com/Wyntau/fzf-zsh.git" \
-            "$APP_PATH/zsh/omz/oh-my-zsh/custom/plugins/fzf-zsh"
+            "$APP_PATH/zsh/.cache/ohmyzsh/custom/plugins/fzf"
+  "$APP_PATH/zsh/.cache/ohmyzsh/custom/plugins/fzf/install" --bin
+  sync_repo "https://github.com/wyntau/fzf-zsh.git" \
+            "$APP_PATH/zsh/.cache/ohmyzsh/custom/plugins/fzf-zsh"
 
   success "Successfully installed fzf plugin."
   success "Please open a new zsh terminal to make configs go into effect."
@@ -1090,8 +1090,8 @@ function install_zsh_omz_plugins_thefuck(){
     pip install --user --upgrade thefuck
   fi;
 
-  mkdir -p "$APP_PATH/zsh/omz/oh-my-zsh/custom/plugins/thefuck"
-  echo 'eval "$(thefuck --alias)"' > "$APP_PATH/zsh/omz/oh-my-zsh/custom/plugins/thefuck/thefuck.plugin.zsh"
+  mkdir -p "$APP_PATH/zsh/.cache/ohmyzsh/custom/plugins/thefuck"
+  echo 'eval "$(thefuck --alias)"' > "$APP_PATH/zsh/.cache/ohmyzsh/custom/plugins/thefuck/thefuck.plugin.zsh"
 
   success "Successfully installed thefuck plugin."
   success "Please open a new zsh terminal to make configs go into effect."
