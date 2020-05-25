@@ -194,6 +194,14 @@ if ( is_program_exists tmux ); then
   )
 fi;
 
+# if we have z.lua installed, add z.lua plugin
+if ( is_custom_plugin_exists z.lua ); then
+  plugins=(
+    $plugins
+    z.lua
+  )
+fi;
+
 # if we are in osx, add osx only plugins
 if [[ "$OSTYPE" == "darwin"* ]]; then
   plugins=(

@@ -188,8 +188,8 @@ function usage(){
   echo '    - zsh_omz_plugins_git_diff_so_fancy'
   echo '    - zsh_omz_plugins_fzf'
   echo '    - zsh_omz_plugins_thefuck'
+  echo '    - zsh_omz_plugins_zlua'
   echo '    - zsh_plugins_fasd'
-  echo '    - zsh_plugins_zlua'
   echo '    - zsh_zim'
   echo '    - zsh_zim_plugins_git_diff_so_fancy'
   echo '    - zsh_zim_plugins_omz_tmux'
@@ -1025,27 +1025,6 @@ function install_zsh_plugins_fasd(){
   success "Please open a new zsh terminal to make configs go into effect."
 }
 
-function install_zsh_plugins_zlua(){
-  must_program_exists "zsh" \
-                      "lua"
-
-  step "Installing z.lua for zsh"
-
-  sync_repo "https://github.com/skywind3000/z.lua.git" \
-            "$APP_PATH/zsh/.cache/z.lua"
-
-  local zlua_init="eval \"\$(lua $APP_PATH/zsh/.cache/z.lua/z.lua --init zsh enhanced once)\""
-  if ( ! grep  "$zlua_init" "$HOME/.zshrc" &> /dev/null ); then
-    info "Adding z.lua init to $HOME/.zshrc"
-    echo -e "\n$zlua_init" >> $HOME/.zshrc
-  else
-    info "z.lua had already been added to $HOME/.zshrc before"
-  fi;
-
-  success "Successfully installed z.lua for zsh."
-  success "Please open a new zsh terminal to make configs go into effect."
-}
-
 function install_zsh_omz_plugins_git_diff_so_fancy(){
   step "Install git diff-so-fancy plugin for oh-my-zsh ..."
 
@@ -1096,6 +1075,21 @@ function install_zsh_omz_plugins_thefuck(){
 
   success "Successfully installed thefuck plugin."
   success "Please open a new zsh terminal to make configs go into effect."
+}
+
+function install_zsh_omz_plugins_zlua(){
+  must_program_exists "zsh" \
+                      "lua"
+
+  step "Installing z.lua for oh-my-zsh"
+
+  sync_repo "https://github.com/skywind3000/z.lua.git" \
+            "$APP_PATH/zsh/.cache/z.lua"
+
+  lnif "$APP_PATH/zsh/.cache/z.lua" \
+       "$APP_PATH/zsh/.cache/ohmyzsh/custom/plugins/z.lua"
+
+  success "Successfully installed z.lua for oh-my-zsh."
 }
 
 function install_zsh_zim(){
@@ -1274,11 +1268,11 @@ else
       zsh_omz_plugins_thefuck)
         install_zsh_omz_plugins_thefuck
         ;;
+      zsh_omz_plugins_zlua)
+        install_zsh_omz_plugins_zlua
+        ;;
       zsh_plugins_fasd)
         install_zsh_plugins_fasd
-        ;;
-      zsh_plugins_zlua)
-        install_zsh_plugins_zlua
         ;;
       zsh_zim)
         install_zsh_zim

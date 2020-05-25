@@ -74,8 +74,8 @@ All vailable tasks:
 - [zsh_omz_plugins_fzf](#task-zsh_omz_plugins_fzf)
 - [zsh_omz_plugins_git_diff_so_fancy](#task-zsh_omz_plugins_git_diff_so_fancy)
 - [zsh_omz_plugins_thefuck](#task-zsh_omz_plugins_thefuck)
+- [zsh_omz_plugins_zlua](#task-zsh_omz_plugins_zlua)
 - [zsh_plugins_fasd](#task-zsh_plugins_fasd)
-- [zsh_plugins_zlua](#task-zsh_plugins_zlua)
 - [zsh_zim](#task-zsh_zim)
 - [zsh_zim_plugins_git_diff_so_fancy](#task-zsh_zim_plugins_git_diff_so_fancy)
 
@@ -526,6 +526,7 @@ You can do a specific task by run
     | mosh                     | mosh                                                  |                                                |
     | thefuck                  | [task zsh_omz_plugins_thefuck](#task-zsh_omz_plugins_thefuck) |                                                |
     | tmux                     | tmux                                                  |                                                |
+    | z.lua                    | [task zsh_omz_plugins_zlua](#task-zsh_omz_plugins_zlua)|                                                |
     | osx                      | OS X                                                  |                                                |
 
     So, maybe you should install some of them to make full use of zsh.
@@ -545,15 +546,15 @@ You can do a specific task by run
 
     Install oh-my-zsh plugin [`thefuck`](https://github.com/nvbn/thefuck)
 
+- ### Task `zsh_omz_plugins_zlua`
+    Requirement(s): `git`, `zsh`, `lua`
+
+    Install zsh plugin [`z.lua`](https://github.com/skywind3000/z.lua)
+
 - ### Task `zsh_plugins_fasd`
     Requirement(s): `git`, `zsh`
 
     Install zsh plugin [`fasd`](https://github.com/clvv/fasd)
-
-- ### Task `zsh_plugins_zlua`
-    Requirement(s): `git`, `zsh`, `lua`
-
-    Install zsh plugin [`z.lua`](https://github.com/skywind3000/z.lua)
 
 - ### Task `zsh_zim`
     Requirement(s): `git`, `zsh`
