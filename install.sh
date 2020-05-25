@@ -193,6 +193,7 @@ function usage(){
   echo '    - zsh_zim'
   echo '    - zsh_zim_plugins_git_diff_so_fancy'
   echo '    - zsh_zim_plugins_omz_tmux'
+  echo '    - zsh_zim_plugins_pure'
   printf "$dot_color_none\n"
 }
 
@@ -1144,6 +1145,20 @@ function install_zsh_zim_plugins_omz_tmux(){
   success "Successfully installed tmux for zim."
 }
 
+function install_zsh_zim_plugins_pure(){
+  step "Install pure theme for zim ..."
+
+  sync_repo "https://github.com/sindresorhus/pure.git" \
+            "$APP_PATH/zsh/.cache/pure"
+
+  lnif "$APP_PATH/zsh/.cache/pure" \
+       "$APP_PATH/zsh/zim/zimfw/modules/pure"
+
+  echo 'zmodule sindresorhus/pure --source async.zsh --source pure.zsh' >> $HOME/.zimrc
+
+  success "Successfully install pure theme for zim."
+}
+
 if [ $# = 0 ]; then
   usage
 else
@@ -1249,7 +1264,10 @@ else
         install_zsh_zim_plugins_git_diff_so_fancy
         ;;
       zsh_zim_plugins_tmux)
-      install_zsh_zim_plugins_omz_tmux
+        install_zsh_zim_plugins_omz_tmux
+        ;;
+      zsh_zim_plugins_pure)
+        install_zsh_zim_plugins_pure
         ;;
       *)
         echo
