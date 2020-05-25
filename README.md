@@ -53,7 +53,7 @@ All vailable tasks:
 - [fonts_source_code_pro](#task-fonts_source_code_pro)
 - [git_alias](#task-git_alias)
 - [git_config](#task-git_config)
-- [git_diff_fancy](#task-git_diff_fancy)
+- [git_diff_so_fancy](#task-git_diff_so_fancy)
 - [git_dmtool](#task-git_dmtool)
 - [git_extras](#task-git_extras)
 - [git_flow](#task-git_flow)
@@ -145,7 +145,7 @@ You can do a specific task by run
     This task will ask you what username and email you want to config global
     for git.
 
-- ### Task `git_diff_fancy`
+- ### Task `git_diff_so_fancy`
     Requirement(s): `git`
 
     Install `diff-so-fancy` plugin for git. Please see [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)

@@ -169,7 +169,7 @@ function usage(){
   echo '    - emacs_spacemacs'
   echo '    - fonts_source_code_pro'
   echo '    - git_config'
-  echo '    - git_diff_fancy'
+  echo '    - git_diff_so_fancy'
   echo '    - git_dmtool'
   echo '    - git_extras'
   echo '    - git_flow'
@@ -459,7 +459,7 @@ function install_git_config(){
   success "Successfully installed gitconfig."
 }
 
-function install_git_diff_fancy(){
+function install_git_diff_so_fancy(){
 
   must_program_exists "git"
 
@@ -1205,8 +1205,8 @@ else
       git_config)
         install_git_config
         ;;
-      git_diff_fancy)
-        install_git_diff_fancy
+      git_diff_so_fancy)
+        install_git_diff_so_fancy
         ;;
       git_dmtool)
         install_git_dmtool
