@@ -1103,7 +1103,7 @@ function install_zsh_zim(){
 
   step "Installing zim for zsh ..."
 
-  export ZIM_HOME="$APP_PATH/zsh/zim/zimfw"
+  export ZIM_HOME="$APP_PATH/zsh/.cache/zimfw"
   curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
 
   success "Successfully installed zim."
@@ -1121,7 +1121,7 @@ function install_zsh_zim_plugins_git_diff_so_fancy(){
   chmod +x "$APP_PATH/zsh/.cache/zsh-diff-so-fancy/bin/git-dsfc"
 
   lnif "$APP_PATH/zsh/.cache/zsh-diff-so-fancy" \
-       "$APP_PATH/zsh/zim/zimfw/modules/zsh-diff-so-fancy"
+       "$APP_PATH/zsh/.cache/zimfw/modules/zsh-diff-so-fancy"
 
   if ! grep -iE "^[ \t]*zmodule[ \t]+zdharma/zsh-diff-so-fancy[ \t]*$" "$HOME/.zimrc" &>/dev/null ; then
     echo 'zmodule zdharma/zsh-diff-so-fancy' >> $HOME/.zimrc
@@ -1139,8 +1139,8 @@ function install_zsh_zim_plugins_omz_tmux(){
   sync_repo "https://github.com/ohmyzsh/ohmyzsh.git" \
             "$APP_PATH/zsh/.cache/oh-my-zsh"
 
-  ln -s "$APP_PATH/zsh/.cache/oh-my-zsh/plugins/tmux" \
-        "$APP_PATH/zsh/zim/zimfw/modules/tmux"
+  lnif "$APP_PATH/zsh/.cache/oh-my-zsh/plugins/tmux" \
+        "$APP_PATH/zsh/.cache/zimfw/modules/tmux"
 
   if ! grep -iE "^[ \t]*zmodule[ \t]+ohmyzsh/tmux[ \t]*$" "$HOME/.zimrc" &>/dev/null ; then
     echo 'zmodule ohmyzsh/tmux' >> $HOME/.zimrc
@@ -1156,7 +1156,7 @@ function install_zsh_zim_plugins_pure(){
             "$APP_PATH/zsh/.cache/pure"
 
   lnif "$APP_PATH/zsh/.cache/pure" \
-       "$APP_PATH/zsh/zim/zimfw/modules/pure"
+       "$APP_PATH/zsh/.cache/zimfw/modules/pure"
 
   if ! grep -iE "^[ \t]*zmodule[ \t]+sindresorhus/pure[ \t]+--source[ \t]+async.zsh[ \t]+--source[ \t]+pure.zsh[ \t]*$" "$HOME/.zimrc" &>/dev/null ; then
     echo 'zmodule sindresorhus/pure --source async.zsh --source pure.zsh' >> $HOME/.zimrc
