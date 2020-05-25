@@ -957,17 +957,17 @@ function install_zsh_omz(){
   step "Installing oh-my-zsh for zsh ..."
 
   sync_repo "https://github.com/ohmyzsh/ohmyzsh.git" \
-            "$APP_PATH/zsh/.cache/oh-my-zsh"
+            "$APP_PATH/zsh/.cache/ohmyzsh"
 
   # add zsh plugin zsh-syntax-highlighting support
   sync_repo "https://github.com/zsh-users/zsh-syntax-highlighting.git" \
-            "$APP_PATH/zsh/.cache/oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+            "$APP_PATH/zsh/.cache/ohmyzsh/custom/plugins/zsh-syntax-highlighting"
 
   # add zsh plugin zsh-autosuggestions support
   sync_repo "https://github.com/tarruda/zsh-autosuggestions.git" \
-            "$APP_PATH/zsh/.cache/oh-my-zsh/custom/plugins/zsh-autosuggestions"
+            "$APP_PATH/zsh/.cache/ohmyzsh/custom/plugins/zsh-autosuggestions"
 
-  lnif "$APP_PATH/zsh/.cache/oh-my-zsh" \
+  lnif "$APP_PATH/zsh/.cache/ohmyzsh" \
        "$HOME/.oh-my-zsh"
   lnif "$APP_PATH/zsh/omz/zshrc" \
        "$HOME/.zshrc"
@@ -1137,13 +1137,13 @@ function install_zsh_zim_plugins_omz_tmux(){
                       "tmux"
 
   sync_repo "https://github.com/ohmyzsh/ohmyzsh.git" \
-            "$APP_PATH/zsh/.cache/oh-my-zsh"
+            "$APP_PATH/zsh/.cache/ohmyzsh"
 
-  lnif "$APP_PATH/zsh/.cache/oh-my-zsh/plugins/tmux" \
-        "$APP_PATH/zsh/.cache/zimfw/modules/tmux"
+  lnif "$APP_PATH/zsh/.cache/ohmyzsh" \
+        "$APP_PATH/zsh/.cache/zimfw/modules/ohmyzsh"
 
-  if ! grep -iE "^[ \t]*zmodule[ \t]+ohmyzsh/tmux[ \t]*$" "$HOME/.zimrc" &>/dev/null ; then
-    echo 'zmodule ohmyzsh/tmux' >> $HOME/.zimrc
+  if ! grep -iE "^[ \t]*zmodule[ \t]+ohmyzsh/ohmyzsh[ \t]+--source[ \t]+plugins/tmux/tmux.plugin.zsh*$" "$HOME/.zimrc" &>/dev/null ; then
+    echo 'zmodule ohmyzsh/ohmyzsh --source plugins/tmux/tmux.plugin.zsh' >> $HOME/.zimrc
   fi;
 
   success "Successfully installed tmux for zim."
