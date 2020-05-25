@@ -194,6 +194,7 @@ function usage(){
   echo '    - zsh_zim_plugins_git_diff_so_fancy'
   echo '    - zsh_zim_plugins_omz_tmux'
   echo '    - zsh_zim_plugins_pure'
+  echo '    - zsh_zim_plugins_zlua'
   printf "$dot_color_none\n"
 }
 
@@ -1165,6 +1166,22 @@ function install_zsh_zim_plugins_pure(){
   success "Successfully install pure theme for zim."
 }
 
+function install_zsh_zim_plugins_zlua(){
+  step "Install z.lua for zim ..."
+
+  sync_repo "https://github.com/skywind3000/z.lua.git" \
+            "$APP_PATH/zsh/.cache/z.lua"
+
+  lnif "$APP_PATH/zsh/.cache/z.lua" \
+       "$APP_PATH/zsh/.cache/zimfw/modules/z.lua"
+
+  if ! grep -iE "^[ \t]*zmodule[ \t]+skywind3000/z.lua[ \t]*$" "$HOME/.zimrc" &>/dev/null ; then
+    echo 'zmodule skywind3000/z.lua' >> $HOME/.zimrc
+  fi;
+
+  success "Successfully install z.lua for zim."
+}
+
 if [ $# = 0 ]; then
   usage
 else
@@ -1274,6 +1291,9 @@ else
         ;;
       zsh_zim_plugins_pure)
         install_zsh_zim_plugins_pure
+        ;;
+      zsh_zim_plugins_zlua)
+        install_zsh_zim_plugins_zlua
         ;;
       *)
         echo
