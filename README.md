@@ -75,6 +75,7 @@ All vailable tasks:
 - [zsh_omz_plugins_zlua](#task-zsh_omz_plugins_zlua)
 - [zsh_plugins_fasd](#task-zsh_plugins_fasd)
 - [zsh_zim](#task-zsh_zim)
+- [zsh_zim_plugins_fzf](#task-zsh_zim_plugins_fzf)
 - [zsh_zim_plugins_git_diff_so_fancy](#task-zsh_zim_plugins_git_diff_so_fancy)
 - [zsh_zim_plugins_omz_tmux](#task-zsh_zim_plugins_omz_tmux)
 - [zsh_zim_plugins_pure](#task-zsh_zim_plugins_pure)
@@ -564,6 +565,11 @@ You can do a specific task by run
 
     If you have your own configs, put them in `~/.zimrc.local`, zsh will load
     them automatically.
+
+- ### Task `zsh_zim_plugins_fzf`
+    Requirement(s): `git`, `zsh`, `curl`
+
+    Install oh-my-zsh plugin [`fzf`](https://github.com/junegunn/fzf) for zim.
 
 - ### Task `zsh_zim_plugins_git_diff_so_fancy`
     Requirement(s): `git`, `zsh`, [task zsh_zim](#task-zsh_zim)
