@@ -1048,13 +1048,15 @@ function install_zsh_omz_plugins_fzf(){
 
   # add zsh plugin fzf support
   sync_repo "https://github.com/junegunn/fzf.git" \
-            "$APP_PATH/zsh/.cache/ohmyzsh/custom/plugins/fzf"
-  "$APP_PATH/zsh/.cache/ohmyzsh/custom/plugins/fzf/install" --bin
-  sync_repo "https://github.com/wyntau/fzf-zsh.git" \
-            "$APP_PATH/zsh/.cache/ohmyzsh/custom/plugins/fzf-zsh"
+            "$APP_PATH/zsh/.cache/fzf"
+
+  "$APP_PATH/zsh/.cache/fzf/install" --bin
+
+  if ! grep -iE "^[ \t]*export[ \t]*FZF_BASE=\"$APP_PATH/zsh/.cache/fzf\"[ \t]*$" "$HOME/.zshenv" &>/dev/null ; then
+    echo "export FZF_BASE=\"$APP_PATH/zsh/.cache/fzf\"" >> "$HOME/.zshenv"
+  fi;
 
   success "Successfully installed fzf plugin."
-  success "Please open a new zsh terminal to make configs go into effect."
 }
 
 function install_zsh_omz_plugins_thefuck(){

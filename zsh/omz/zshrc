@@ -121,10 +121,10 @@ else
   )
 fi
 
-if ( is_custom_plugin_exists fzf-zsh ); then
+if [ -d "$FZF_BASE" ]; then
   plugins=(
     $plugins
-    fzf-zsh
+    fzf
   )
 fi;
 
