@@ -510,7 +510,7 @@ You can do a specific task by run
     | colored-man-pages        |                                                       |                                                |
     | encode64                 |                                                       |                                                |
     | extract                  |                                                       |                                                |
-    | fzf-zsh(fzf)             | [task zsh_omz_plugins_fzf](#task-zsh_omz_plugins_fzf) |                                                |
+    | fzf                      | [task zsh_omz_plugins_fzf](#task-zsh_omz_plugins_fzf) |                                                |
     | sublime                  |                                                       |                                                |
     | sudo                     |                                                       |                                                |
     | zsh_reload               |                                                       |                                                |
