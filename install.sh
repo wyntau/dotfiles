@@ -191,6 +191,7 @@ function usage(){
   echo '    - zsh_omz_plugins_zlua'
   echo '    - zsh_plugins_fasd'
   echo '    - zsh_zim'
+  echo '    - zsh_zim_plugins_fzf'
   echo '    - zsh_zim_plugins_git_diff_so_fancy'
   echo '    - zsh_zim_plugins_omz_tmux'
   echo '    - zsh_zim_plugins_pure'
@@ -1104,6 +1105,28 @@ function install_zsh_zim(){
   success "Successfully installed zim."
 }
 
+function install_zsh_zim_plugins_fzf(){
+  must_program_exists "zsh" \
+                      "curl"
+
+  step "Install fzf plugin for zim ..."
+
+  sync_repo "https://github.com/junegunn/fzf.git" \
+            "$APP_PATH/zsh/.cache/fzf"
+
+  "$APP_PATH/zsh/.cache/fzf/install" --bin
+
+  if ! grep -iE "^[ \t]*export[ \t]*FZF_BASE=\"$APP_PATH/zsh/.cache/fzf\"[ \t]*$" "$HOME/.zshenv" &>/dev/null ; then
+    echo "export FZF_BASE=\"$APP_PATH/zsh/.cache/fzf\"" >> "$HOME/.zshenv"
+  fi;
+
+  if ! grep -iE "^[ \t]*zmodule[ \t]+ohmyzsh/ohmyzsh[ \t]+--source[ \t]+plugins/fzf/fzf.plugin.zsh*$" "$HOME/.zimrc" &>/dev/null ; then
+    echo 'zmodule ohmyzsh/ohmyzsh --source plugins/fzf/fzf.plugin.zsh' >> "$HOME/.zimrc"
+  fi;
+
+  success "Successfully installed fzf for zim."
+}
+
 function install_zsh_zim_plugins_git_diff_so_fancy(){
   step "Install git diff-so-fancy plugin for zim ..."
 
@@ -1119,7 +1142,7 @@ function install_zsh_zim_plugins_git_diff_so_fancy(){
        "$APP_PATH/zsh/.cache/zimfw/modules/zsh-diff-so-fancy"
 
   if ! grep -iE "^[ \t]*zmodule[ \t]+zdharma/zsh-diff-so-fancy[ \t]*$" "$HOME/.zimrc" &>/dev/null ; then
-    echo 'zmodule zdharma/zsh-diff-so-fancy' >> $HOME/.zimrc
+    echo 'zmodule zdharma/zsh-diff-so-fancy' >> "$HOME/.zimrc"
   fi;
 
   success "Successfully installed git diff-so-fancy for zim."
@@ -1138,7 +1161,7 @@ function install_zsh_zim_plugins_omz_tmux(){
         "$APP_PATH/zsh/.cache/zimfw/modules/ohmyzsh"
 
   if ! grep -iE "^[ \t]*zmodule[ \t]+ohmyzsh/ohmyzsh[ \t]+--source[ \t]+plugins/tmux/tmux.plugin.zsh*$" "$HOME/.zimrc" &>/dev/null ; then
-    echo 'zmodule ohmyzsh/ohmyzsh --source plugins/tmux/tmux.plugin.zsh' >> $HOME/.zimrc
+    echo 'zmodule ohmyzsh/ohmyzsh --source plugins/tmux/tmux.plugin.zsh' >> "$HOME/.zimrc"
   fi;
 
   success "Successfully installed tmux for zim."
@@ -1154,7 +1177,7 @@ function install_zsh_zim_plugins_pure(){
        "$APP_PATH/zsh/.cache/zimfw/modules/pure"
 
   if ! grep -iE "^[ \t]*zmodule[ \t]+sindresorhus/pure[ \t]+--source[ \t]+async.zsh[ \t]+--source[ \t]+pure.zsh[ \t]*$" "$HOME/.zimrc" &>/dev/null ; then
-    echo 'zmodule sindresorhus/pure --source async.zsh --source pure.zsh' >> $HOME/.zimrc
+    echo 'zmodule sindresorhus/pure --source async.zsh --source pure.zsh' >> "$HOME/.zimrc"
   fi;
 
   success "Successfully install pure theme for zim."
@@ -1170,7 +1193,7 @@ function install_zsh_zim_plugins_zlua(){
        "$APP_PATH/zsh/.cache/zimfw/modules/z.lua"
 
   if ! grep -iE "^[ \t]*zmodule[ \t]+skywind3000/z.lua[ \t]*$" "$HOME/.zimrc" &>/dev/null ; then
-    echo 'zmodule skywind3000/z.lua' >> $HOME/.zimrc
+    echo 'zmodule skywind3000/z.lua' >> "$HOME/.zimrc"
   fi;
 
   success "Successfully install z.lua for zim."
@@ -1276,6 +1299,9 @@ else
         ;;
       zsh_zim)
         install_zsh_zim
+        ;;
+      zsh_zim_plugins_fzf)
+        install_zsh_zim_plugins_fzf
         ;;
       zsh_zim_plugins_git_diff_so_fancy)
         install_zsh_zim_plugins_git_diff_so_fancy
