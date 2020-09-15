@@ -95,6 +95,8 @@ if has('nvim')
   silent! set termguicolors
 endif
 
+" fix E474: Invalid argument: diffopt+=vertical,context:3,foldcolumn:0 on osx 10.15
+set diffopt-=internal
 set diffopt+=vertical,context:3,foldcolumn:0
 
 set iskeyword-=.                    " '.' is an end of word designator
