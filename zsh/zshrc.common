@@ -6,9 +6,12 @@ elif [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
   # Linuxbrew for Linux
   eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 fi;
-# add mirror config for homebrew bottoles in mac
+
+# add mirror config for homebrew bottoles
 if [ `uname` = "Darwin" ]; then
   export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+elif [ `uname` = "Linux" ]; then
+  export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/linuxbrew-bottles
 fi;
 
 # add mirror config for electron
