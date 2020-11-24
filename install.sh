@@ -565,11 +565,7 @@ function install_homebrew(){
 
   must_program_exists "curl"
 
-  if ( is_mac ); then
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  elif ( is_linux ); then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-  fi;
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
   success "Successfully installed homebrew"
 }
