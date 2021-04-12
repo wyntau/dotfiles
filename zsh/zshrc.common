@@ -32,7 +32,7 @@ elif [ -s "$NVM_DIR/nvm.sh" ]; then
 fi;
 
 export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup
-if [ -d "$HOME/.cargo/bin" ]; then
-  # add PATH config for cargo for rust
-  export PATH="$HOME/.cargo/bin:$PATH"
+if [ -d "$HOME/.cargo" ] && [ -s "$HOME/.cargo/env" ]; then
+  # load cargo env
+  source "$HOME/.cargo/env"
 fi;
