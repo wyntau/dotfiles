@@ -1183,6 +1183,9 @@ function install_zsh_zim_plugins_pure(){
 }
 
 function install_zsh_zim_plugins_zlua(){
+  must_program_exists "zsh" \
+                      "lua"
+
   step "Install z.lua for zim ..."
 
   sync_repo "https://github.com/skywind3000/z.lua.git" \
