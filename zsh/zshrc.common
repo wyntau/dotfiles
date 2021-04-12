@@ -1,17 +1,14 @@
+if [[ "$(uname -s)" == "Linux" ]];then BREW_TYPE="linuxbrew";else BREW_TYPE="homebrew";fi;
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/${BREW_TYPE}-core.git"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/${BREW_TYPE}-bottles"
 # load brew
-if [ -x /usr/local/bin/brew ]; then
+if [[ "$BREW_TYPE" == "homebrew" ]] && [ -x /usr/local/bin/brew ]; then
   # Homebrew for OS X
   eval $(/usr/local/bin/brew shellenv)
-elif [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
+elif [[ "$BREW_TYPE" == "linuxbrew" ]] && [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
   # Linuxbrew for Linux
   eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-fi;
-
-# add mirror config for homebrew bottoles
-if [ `uname` = "Darwin" ]; then
-  export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
-elif [ `uname` = "Linux" ]; then
-  export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/linuxbrew-bottles
 fi;
 
 # add mirror config for electron
@@ -22,6 +19,7 @@ export SASS_BINARY_SITE=http://npm.taobao.org/mirrors/node-sass
 export PUPPETEER_DOWNLOAD_HOST=https://npm.taobao.org/mirrors
 # add mirror config for node-sqlite3
 export SQLITE3_BINARY_SITE=http://npm.taobao.org/mirrors/sqlite3
+
 # add mirror config for nvm
 export NVM_NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node
 # Set NVM_DIR if it isn't already defined
