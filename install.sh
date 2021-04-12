@@ -1169,7 +1169,8 @@ function install_zsh_zim_plugins_pure(){
   step "Install pure theme for zim ..."
 
   sync_repo "https://github.com/sindresorhus/pure.git" \
-            "$APP_PATH/zsh/.cache/pure"
+            "$APP_PATH/zsh/.cache/pure" \
+            "main"
 
   lnif "$APP_PATH/zsh/.cache/pure" \
        "$APP_PATH/zsh/.cache/zimfw/modules/pure"
