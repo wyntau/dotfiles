@@ -10,7 +10,6 @@ cd ~/.dotfiles
 ## Tasks
 All vailable tasks:
 
-- [astyle_rc](#task-astyle_rc)
 - [bin](#task-bin)
 - [editorconfig](#task-editorconfig)
 - [emacs](#task-emacs)
@@ -51,19 +50,6 @@ You can do a specific task by run
 ```sh
 ./install.sh <taskname1>[ <taskname2> <tasknameN> ...]
 ```
-
-- ### Task `astyle_rc`
-    Requirement(s): `astyle`. If you have installed `astyle` and press `Q` in vim,
-    astyle will be used to format the *C*, *C++*, *C#*, *Java* file.
-
-    **What others maybe you should install?**
-
-    astyle
-
-    ```sh
-    # OS X only
-    brew install astyle
-    ```
 
 - ### Task `bin`
 
