@@ -30,9 +30,9 @@ dotfiles
 │   └── settings.json
 └── zsh
     ├── omz
-    │   ├── zshrc
-    │   └── zshrc.local
-    └── zshrc.common
+    │   ├── .zshrc
+    │   └── .zshrc.local
+    └── .zshrc.common
 ```
 
 ## Installation

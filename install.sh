@@ -967,7 +967,7 @@ function install_zsh_omz(){
 
   lnif "$APP_PATH/zsh/.cache/ohmyzsh" \
        "$HOME/.oh-my-zsh"
-  lnif "$APP_PATH/zsh/omz/zshrc" \
+  lnif "$APP_PATH/zsh/omz/.zshrc" \
        "$HOME/.zshrc"
 
   # borrowed from oh-my-zsh install script
@@ -997,7 +997,7 @@ function install_zsh_omz_cfg(){
 
   step "Installing omz configs ..."
 
-  lnif "$APP_PATH/zsh/omz/zshrc.local" \
+  lnif "$APP_PATH/zsh/omz/.zshrc.local" \
        "$HOME/.zshrc.local"
 
   success "Successfully installed omz configs"
