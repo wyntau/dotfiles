@@ -10,7 +10,6 @@ cd ~/.dotfiles
 ## Tasks
 All vailable tasks:
 
-- [bin](#task-bin)
 - [editorconfig](#task-editorconfig)
 - [emacs](#task-emacs)
 - [emacs_spacemacs](#task-emacs_spacemacs)
@@ -50,10 +49,6 @@ You can do a specific task by run
 ```sh
 ./install.sh <taskname1>[ <taskname2> <tasknameN> ...]
 ```
-
-- ### Task `bin`
-
-    Install some useful small scripts to your `~/bin`.
 
 - ### Task `editorconfig`
 
