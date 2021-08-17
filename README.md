@@ -1,39 +1,4 @@
-## What are in the repo
-
-```sh
-dotfiles
-├── astyle
-│   └── astylerc
-├── bin/
-├── editorconfig
-│   └── editorconfig
-├── git
-│   └── gitconfig
-├── sublime2
-│   ├── Preferences.sublime-settings
-│   └── README.md
-├── sublime3
-│   ├── Preferences.sublime-settings
-│   └── README.md
-├── terminfo
-│   ├── README.md
-│   ├── screen-256color-italic.terminfo
-│   └── xterm-256color-italic.terminfo
-├── tmux
-│   └── tmux.conf
-├── vim
-│   ├── init.vim -> vimrc
-│   ├── vimrc
-│   └── vimrc.plugins
-├── vscode
-│   ├── keybindings.json
-│   └── settings.json
-└── zsh
-    ├── omz
-    │   ├── .zshrc
-    │   └── .zshrc.local
-    └── .zshrc.common
-```
+## Dotfiles
 
 ## Installation
 
