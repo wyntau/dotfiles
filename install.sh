@@ -162,7 +162,6 @@ function usage(){
   echo
   echo 'Tasks:'
   printf "$dot_color_green\n"
-  echo '    - bin'
   echo '    - editorconfig'
   echo '    - emacs'
   echo '    - emacs_spacemacs'
@@ -198,18 +197,6 @@ function usage(){
   printf "$dot_color_none\n"
 }
 
-function install_bin(){
-
-  step "Installing useful small scripts ..."
-
-  local source_path="$APP_PATH/bin"
-
-  for bin in `ls -p $source_path | grep -v /`; do
-    lnif "$source_path/$bin" "$HOME/bin/$bin"
-  done;
-
-  success "Successfully installed useful scripts."
-}
 
 function install_editorconfig(){
 
@@ -258,10 +245,6 @@ function install_emacs(){
 
   sync_repo "$repo_uri" "$HOME/.emacs.d"
 
-  lnif "$APP_PATH/bin/emacs/ec" "$HOME/bin/ec"
-  lnif "$APP_PATH/bin/emacs/et" "$HOME/bin/et"
-  lnif "$APP_PATH/bin/emacs/es" "$HOME/bin/es"
-
   success "Successfully installed emacs config."
 }
 
@@ -308,10 +291,6 @@ function install_emacs_spacemacs(){
 
   sync_repo "$repo_config_uri" \
             "$HOME/.spacemacs.d"
-
-  lnif "$APP_PATH/bin/emacs/ec" "$HOME/bin/ec"
-  lnif "$APP_PATH/bin/emacs/et" "$HOME/bin/et"
-  lnif "$APP_PATH/bin/emacs/es" "$HOME/bin/es"
 
   success "Successfully installed spacemacs and config."
 
@@ -1193,9 +1172,6 @@ if [ $# = 0 ]; then
 else
   for arg in $@; do
     case $arg in
-      bin)
-        install_bin
-        ;;
       editorconfig)
         install_editorconfig
         ;;
