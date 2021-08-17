@@ -162,7 +162,6 @@ function usage(){
   echo
   echo 'Tasks:'
   printf "$dot_color_green\n"
-  echo '    - astyle_rc'
   echo '    - bin'
   echo '    - editorconfig'
   echo '    - emacs'
@@ -197,18 +196,6 @@ function usage(){
   echo '    - zsh_zim_plugins_pure'
   echo '    - zsh_zim_plugins_zlua'
   printf "$dot_color_none\n"
-}
-
-function install_astyle_rc(){
-
-  must_program_exists "astyle"
-
-  step "Installing astylerc ..."
-
-  lnif "$APP_PATH/astyle/astylerc" \
-       "$HOME/.astylerc"
-
-  success "Successfully installed astylerc."
 }
 
 function install_bin(){
@@ -1206,9 +1193,6 @@ if [ $# = 0 ]; then
 else
   for arg in $@; do
     case $arg in
-      astyle_rc)
-        install_astyle_rc
-        ;;
       bin)
         install_bin
         ;;
