@@ -4,10 +4,9 @@
   "editor.fontSize": 13,
   "editor.rulers": [80, 120],
   "editor.tabSize": 2,
-  "editor.find.seedSearchStringFromSelection": false,
+  "editor.find.seedSearchStringFromSelection": "selection",
   "editor.wordWrap": "on",
 
-  "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.colorTheme": "Monokai",
   "workbench.iconTheme": "vscode-icons",
   "workbench.settings.useSplitJSON": true,
@@ -17,9 +16,6 @@
   "files.eol": "\n",
 
   "terminal.integrated.fontSize": 13,
-  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\bash.exe",
-  "terminal.integrated.shellArgs.windows": ["-i"],
-  "terminal.integrated.shellArgs.osx": ["-l"],
 
   "emmet.includeLanguages": {
     "vue-html": "html",
@@ -27,21 +23,34 @@
   },
   "emmet.triggerExpansionOnTab": true,
 
+  "git.allowNoVerifyCommit": true,
+
   "gitlens.codeLens.enabled": false,
   "gitlens.hovers.avatars": false,
   "gitlens.views.repositories.avatars": false,
   "gitlens.views.fileHistory.avatars": false,
   "gitlens.views.lineHistory.avatars": false,
-  "gitlens.views.search.avatars": false,
-  "gitlens.views.compare.avatars": false,
   "gitlens.blame.avatars": false,
 
   "gitProjectManager.baseProjectsFolders": [
-    "/Workspaces"
+    "~/Projects"
   ],
   "gitProjectManager.storeRepositoriesBetweenSessions": true,
   "gitProjectManager.ignoredFolders": [
     "node_modules",
     "tmp"
-  ]
+  ],
+
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "editor.bracketPairColorization.enabled": true,
+
+"vscode-edge-devtools.mirrorEdits": true,
+"terminal.integrated.defaultProfile.windows": "WLinux (WSL)"
 }
