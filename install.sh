@@ -487,14 +487,18 @@ function install_git_extras(){
 
   step "Installing git-extras ..."
 
-  sync_repo "https://github.com/tj/git-extras.git" \
-            "$APP_PATH/git/.cache/git-extras"
-  cd "$APP_PATH/git/.cache/git-extras"
-
-  if [ `id -u` -eq 0 ]; then
-    make install
+  if ( is_program_exists "brew"  && ! is_dir_exists "$APP_PATH/git/.cache/git-extras" ); then
+    brew install git-extras
   else
-    sudo make install
+    sync_repo "https://github.com/tj/git-extras.git" \
+              "$APP_PATH/git/.cache/git-extras"
+    cd "$APP_PATH/git/.cache/git-extras"
+
+    if [ `id -u` -eq 0 ]; then
+      make install
+    else
+      sudo make install
+    fi;
   fi;
 
   success "Successfully installed git-extras."
