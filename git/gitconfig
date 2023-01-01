@@ -1,5 +1,6 @@
 [core]
 	editor = vim
+	quotepath = false # 设为 false 的话，就不会对 0x80 以上的字符进行 quote , 故中文可以正常显示
 [alias]
 
 	# branch
