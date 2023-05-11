@@ -181,6 +181,7 @@ function usage(){
   echo '    - vim_plugins_matchtag'
   echo '    - vim_plugins_snippets'
   echo '    - vim_plugins_ycm'
+  echo '    - nvim'
   echo '    - vscode'
   echo '    - zsh_omz'
   echo '    - zsh_omz_plugins_git_diff_so_fancy'
@@ -864,6 +865,20 @@ function install_vim_plugins_ycm(){
   success "Successfully installed YouCompleteMe plugin."
 }
 
+function install_nvim(){
+  must_program_exists "nvim"
+
+  step "Installing nvim ..."
+
+  lnif "$APP_PATH/nvim" \
+       "$HOME/.config/nvim"
+
+  sync_repo "https://github.com/wbthomason/packer.nvim" \
+            "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
+
+  success "Successfully installed nvim"
+}
+
 function install_vscode(){
   local vscode_path
 
@@ -1237,6 +1252,9 @@ else
         ;;
       vim_plugins_ycm)
         install_vim_plugins_ycm
+        ;;
+      nvim)
+        install_nvim
         ;;
       vscode)
         install_vscode

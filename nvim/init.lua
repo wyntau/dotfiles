@@ -60,8 +60,8 @@ vim.cmd('autocmd! BufWritePost init.lua source %')
 vim.cmd([[packadd packer.nvim]])
 require('packer').startup(function()
   use { 'wbthomason/packer.nvim' }
-  -- use { "ellisonleao/gruvbox.nvim" }
+  use { "ellisonleao/gruvbox.nvim" }
 end)
 
 -- 设置配色方案
--- vim.cmd('colorscheme gruvbox')
+vim.cmd('colorscheme gruvbox')
