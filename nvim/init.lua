@@ -48,9 +48,6 @@ vim.opt.foldmethod = 'indent'
 -- 设置状态栏
 vim.opt.statusline = '%<%f %h%m%r%=%-14.(%l,%c%V%)%P'
 
--- -- 设置配色方案
--- vim.cmd('colorscheme gruvbox')
-
 -- 定义快捷键映射
 vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>q', ':q<CR>', { noremap = true, silent = true })
@@ -59,12 +56,12 @@ vim.api.nvim_set_keymap('n', '<leader>r', ':w<CR>:source %<CR>', { noremap = tru
 -- 自动重新加载 init.lua 文件
 vim.cmd('autocmd! BufWritePost init.lua source %')
 
--- -- 插件管理器配置（使用 Packer）
--- vim.cmd([[packadd packer.nvim]])
--- require('packer').startup(function()
---     -- 插件列表
---     use 'tpope/vim-surround'
---     use 'tpope/vim-commentary'
---     use 'neovim/nvim-lspconfig'
---     -- ...
--- end)
+-- 插件管理器配置（使用 Packer）
+vim.cmd([[packadd packer.nvim]])
+require('packer').startup(function()
+  use { 'wbthomason/packer.nvim' }
+  -- use { "ellisonleao/gruvbox.nvim" }
+end)
+
+-- 设置配色方案
+-- vim.cmd('colorscheme gruvbox')
