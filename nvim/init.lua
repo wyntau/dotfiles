@@ -1,5 +1,3 @@
-require('utils');
-
 -- 设置leader键为逗号
 vim.g.mapleader = ','
 
@@ -48,12 +46,5 @@ vim.opt.foldmethod = 'indent'
 -- 设置状态栏
 vim.opt.statusline = '%<%f %h%m%r%=%-14.(%l,%c%V%)%P'
 
--- 定义快捷键映射
-vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>q', ':q<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>r', ':w<CR>:source %<CR>', { noremap = true, silent = true })
-
--- 自动重新加载 init.lua 文件
-vim.cmd('autocmd! BufWritePost init.lua source %')
-
+require('keybindings')
 require('plugins')
