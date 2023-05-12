@@ -56,7 +56,4 @@ vim.api.nvim_set_keymap('n', '<leader>r', ':w<CR>:source %<CR>', { noremap = tru
 -- 自动重新加载 init.lua 文件
 vim.cmd('autocmd! BufWritePost init.lua source %')
 
--- 静默设置配色方案
-vim.cmd('silent! colorscheme gruvbox')
-
 require('plugins')
