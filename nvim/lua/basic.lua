@@ -2,11 +2,20 @@
 vim.g.mapleader = ','
 
 vim.opt.fileencodings = 'utf-8,gb2312,gbk,gb18030,ucs-bom,cp936,big5,euc-jp,euc-kr,latin1'
+vim.opt.fileformats = 'unix,dos,mac'
 
 -- 显示行号
 vim.opt.number = true
 -- 启用相对行号
 vim.opt.relativenumber = true
+--  插入模式下用绝对行号, 普通模式下用相对
+vim.cmd([[
+  autocmd FocusLost * :set norelativenumber number
+  autocmd FocusGained * :set relativenumber
+  autocmd InsertEnter * :set norelativenumber number
+  autocmd InsertLeave * :set relativenumber
+]])
+vim.opt.colorcolumn = '80,100'
 
 -- 使用空格代替制表符
 vim.opt.expandtab = true
@@ -50,3 +59,18 @@ vim.opt.foldmethod = 'indent'
 
 -- 设置状态栏
 vim.opt.statusline = '%<%f %h%m%r%=%-14.(%l,%c%V%)%P'
+
+-- 在处理未保存或只读文件的时候，弹出确认
+vim.opt.confirm = true
+vim.opt.swapfile = false
+
+-- 竖直split时,在右边开启
+vim.opt.splitright = true
+-- 水平split时,在下边开启
+vim.opt.splitbelow = true
+
+-- Open help in a vertical split instead of the default horizontal split
+vim.cmd([[
+  cabbrev h <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'vert h' : 'h')<cr>
+  cabbrev help <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'vert h' : 'help')<cr>
+]])
