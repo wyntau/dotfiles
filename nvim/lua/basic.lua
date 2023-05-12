@@ -1,5 +1,3 @@
-local keymap = require('utils').keymap
-
 -- 设置leader键为逗号
 vim.g.mapleader = ','
 
@@ -43,7 +41,7 @@ vim.opt.inccommand = 'nosplit'
 -- 显示当前匹配项的搜索结果数量
 vim.opt.showmatch = true
 -- 去掉搜索高亮
-keymap('n', '<leader>sc', ':nohlsearch<CR>')
+vim.keymap.set('n', '<leader>sc', ':nohlsearch<CR>')
 
 -- 启用折叠
 vim.opt.foldenable = true
