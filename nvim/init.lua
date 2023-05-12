@@ -56,12 +56,7 @@ vim.api.nvim_set_keymap('n', '<leader>r', ':w<CR>:source %<CR>', { noremap = tru
 -- 自动重新加载 init.lua 文件
 vim.cmd('autocmd! BufWritePost init.lua source %')
 
--- 插件管理器配置（使用 Packer）
-vim.cmd([[packadd packer.nvim]])
-require('packer').startup(function()
-  use { 'wbthomason/packer.nvim' }
-  use { "ellisonleao/gruvbox.nvim" }
-end)
+-- 静默设置配色方案
+vim.cmd('silent! colorscheme gruvbox')
 
--- 设置配色方案
-vim.cmd('colorscheme gruvbox')
+require('plugins')
