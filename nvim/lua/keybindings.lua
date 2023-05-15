@@ -8,8 +8,10 @@ vim.keymap.set('n', '<leader>r', ':w<CR>:source %<CR>')
 vim.keymap.set('i', 'jk', '<Esc>')
 vim.keymap.set('i', 'kj', '<Esc>')
 
-vim.keymap.set('n', 'k', 'gk', { desc = 'set wrap之后，将自动换行的长行当做多行处理, 方便在长行之间跳转' })
-vim.keymap.set('n', 'j', 'gj', { desc = 'set wrap之后，将自动换行的长行当做多行处理, 方便在长行之间跳转' })
+vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, desc = 'set wrap之后，将自动换行的长行当做多行处理, 方便在长行之间跳转' })
+vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, desc = 'set wrap之后，将自动换行的长行当做多行处理, 方便在长行之间跳转' })
+vim.keymap.set("n", "^", "g^")
+vim.keymap.set("n", "0", "g0")
 
 vim.keymap.set('n', 'U', '<C-r>', { desc = 'remap U to <C-r> for easier redo' })
 
@@ -20,9 +22,6 @@ vim.keymap.set('i', '<C-j>', '<Down>')
 vim.keymap.set('i', '<C-k>', '<Up>')
 vim.keymap.set('i', '<C-a>', '<Esc>_i')
 vim.keymap.set('i', '<C-e>', '<Esc>g_a')
-
-vim.keymap.set('n', '0', '^', { desc = 'Go to the first non-blank character of a line' })
-vim.keymap.set('n', '^', '0', { desc = 'Just in case you need to go to the very beginning of a line' })
 
 vim.keymap.set('n', 'Y', 'y$', { desc = '使用Y, 类似于D删除到行尾' })
 
