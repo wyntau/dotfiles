@@ -536,7 +536,7 @@ function install_homebrew(){
 
   must_program_exists "curl"
 
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://github.com/Homebrew/install/raw/master/install.sh)"
 
   success "Successfully installed homebrew"
 }

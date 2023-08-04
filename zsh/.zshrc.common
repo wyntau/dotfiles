@@ -1,8 +1,10 @@
-if [[ "$(uname -s)" == "Linux" ]];then BREW_TYPE="linuxbrew";else BREW_TYPE="homebrew";fi;
+export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
-export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/${BREW_TYPE}-core.git"
-export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/${BREW_TYPE}-bottles"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+export HOMEBREW_PIP_INDEX_URL="https://pypi.tuna.tsinghua.edu.cn/simple"
 # load brew
+if [[ "$(uname -s)" == "Linux" ]];then BREW_TYPE="linuxbrew";else BREW_TYPE="homebrew";fi;
 if [[ "$BREW_TYPE" == "homebrew" ]] && [ -x /usr/local/bin/brew ]; then
   # Homebrew for OS X
   eval $(/usr/local/bin/brew shellenv)
