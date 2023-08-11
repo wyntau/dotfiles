@@ -386,7 +386,6 @@ You can do a specific task by run
     | encode64                 |                                                       |                                                |
     | extract                  |                                                       |                                                |
     | fzf                      | [task zsh_omz_plugins_fzf](#task-zsh_omz_plugins_fzf) |                                                |
-    | sublime                  |                                                       |                                                |
     | sudo                     |                                                       |                                                |
     | zsh_reload               |                                                       |                                                |
     | zsh-syntax-highlighting  |                                                       |                                                |

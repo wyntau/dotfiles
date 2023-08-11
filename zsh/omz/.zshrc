@@ -92,7 +92,6 @@ plugins=(
   colored-man-pages
   encode64
   extract
-  sublime
   sudo
   zsh_reload
   zsh-syntax-highlighting
