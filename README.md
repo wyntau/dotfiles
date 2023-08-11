@@ -30,7 +30,6 @@ All vailable tasks:
 - [vim_plugins_matchtag](#task-vim_plugins_matchtag)
 - [vim_plugins_snippets](#task-vim_plugins_snippets)
 - [vim_plugins_ycm](#task-vim_plugins_ycm)
-- [vscode](#task-vscode)
 - [zsh_omz](#task-zsh_omz)
 - [zsh_omz_plugins_fzf](#task-zsh_omz_plugins_fzf)
 - [zsh_omz_plugins_git_diff_so_fancy](#task-zsh_omz_plugins_git_diff_so_fancy)
@@ -78,8 +77,7 @@ You can do a specific task by run
 
     This font will be installed automatically when do task
     [emacs_spacemacs](#task-emacs_spacemacs), [sublime2](#task-sublime2),
-    [sublime3](#task-sublime3), [vim_plugins](#task-vim_plugins),
-    and [vscode](#task-vscode).
+    [sublime3](#task-sublime3), [vim_plugins](#task-vim_plugins).
 
 - ### Task `git_alias`
     Requirement(s): `git`
@@ -431,15 +429,6 @@ You can do a specific task by run
     " group 'youcompleteme'
     Plug 'Valloric/YouCompleteMe'
     ```
-
-- ### Task `vscode`
-    Requirement(s): `git`, [Visual Studio Code](https://code.visualstudio.com)
-
-    Install custom `settings.json` and `keybindings.json` for vscode.
-
-    After installing the configs, maybe you want to reset `editor.fontFamily`
-    and `editor.fontSize` to what you prefer in `settings.json`, and custom key
-    bindings in `keybindings.json`.
 
 - ### Task `zsh_omz`
     Requirement(s): `git`, `zsh`

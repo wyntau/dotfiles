@@ -182,7 +182,6 @@ function usage(){
   echo '    - vim_plugins_snippets'
   echo '    - vim_plugins_ycm'
   echo '    - nvim'
-  echo '    - vscode'
   echo '    - zsh_omz'
   echo '    - zsh_omz_plugins_git_diff_so_fancy'
   echo '    - zsh_omz_plugins_fzf'
@@ -876,60 +875,6 @@ function install_nvim(){
   success "Successfully installed nvim"
 }
 
-function install_vscode(){
-  local vscode_path
-
-  if( is_linux ); then
-    vscode_path="$HOME/.config/Code"
-  elif( is_mac ); then
-    vscode_path="$HOME/Library/Application Support/Code"
-  else
-    error "Can't detect your platform. This support *Linux* and *Mac* only"
-    exit
-  fi;
-
-  step "Installing vscode configs ..."
-
-  mkdir -p "$vscode_path/User"
-
-  lnif "$APP_PATH/vscode/settings.json" \
-       "$vscode_path/User/settings.json"
-
-  lnif "$APP_PATH/vscode/keybindings.json" \
-       "$vscode_path/User/keybindings.json"
-
-  success "Successfully installed vscode configs."
-
-  install_fonts_source_code_pro
-}
-
-function install_vscode_insiders(){
-  local vscode_path
-
-  if( is_linux ); then
-    vscode_path="$HOME/.config/Code - Insiders"
-  elif( is_mac ); then
-    vscode_path="$HOME/Library/Application Support/Code - Insiders"
-  else
-    error "Can't detect your platform. This support *Linux* and *Mac* only"
-    exit
-  fi;
-
-  step "Installing vscode configs ..."
-
-  mkdir -p "$vscode_path/User"
-
-  lnif "$APP_PATH/vscode/settings.json" \
-       "$vscode_path/User/settings.json"
-
-  lnif "$APP_PATH/vscode/keybindings.json" \
-       "$vscode_path/User/keybindings.json"
-
-  success "Successfully installed vscode configs."
-
-  install_fonts_source_code_pro
-}
-
 function install_zsh_omz(){
 
   must_program_exists "zsh"
@@ -1252,12 +1197,6 @@ else
         ;;
       nvim)
         install_nvim
-        ;;
-      vscode)
-        install_vscode
-        ;;
-      vscode_insiders)
-        install_vscode_insiders
         ;;
       zsh_omz)
         install_zsh_omz
