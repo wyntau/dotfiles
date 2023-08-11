@@ -623,9 +623,6 @@ function install_tmux(){
   sync_repo "https://github.com/tmux-plugins/tmux-sensible" \
             "$APP_PATH/tmux/plugins/tmux-sensible"
 
-  sync_repo "https://github.com/wyntau/tmux-custom-config" \
-            "$APP_PATH/tmux/plugins/tmux-custom-config"
-
   sync_repo "https://github.com/tmux-plugins/tmux-pain-control" \
             "$APP_PATH/tmux/plugins/tmux-pain-control"
 
