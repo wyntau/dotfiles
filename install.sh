@@ -172,7 +172,6 @@ function usage(){
   echo '    - git_extras'
   echo '    - git_flow'
   echo '    - homebrew'
-  echo '    - sublime2'
   echo '    - sublime3'
   echo '    - tmux'
   echo '    - vim_rc'
@@ -205,7 +204,7 @@ function install_editorconfig(){
   lnif "$APP_PATH/editorconfig/editorconfig" \
        "$HOME/.editorconfig"
 
-  tip "Maybe you should install editorconfig plugin for vim or sublime"
+  tip "Maybe you should install editorconfig plugin for vim"
   success "Successfully installed editorconfig."
 }
 
@@ -538,41 +537,6 @@ function install_homebrew(){
   /bin/bash -c "$(curl -fsSL https://github.com/Homebrew/install/raw/master/install.sh)"
 
   success "Successfully installed homebrew"
-}
-
-function install_sublime2(){
-
-  local sublime_path
-
-  if ( is_linux ); then
-    sublime_path="$HOME/.config/sublime-text-2"
-  elif ( is_mac ); then
-    sublime_path="$HOME/Library/Application Support/Sublime Text 2"
-  else
-    error "Can't detect your platform. This support *Linux* and *Mac* only"
-    exit
-  fi;
-
-  step "Installing sublime2 configs ..."
-
-  sync_repo "https://github.com/jonschlinkert/sublime-monokai-extended.git" \
-            "$APP_PATH/sublime2/.cache/monokai-extended"
-  lnif "$APP_PATH/sublime2/.cache/monokai-extended" \
-       "$sublime_path/Packages/User/monokai-extended"
-
-  sync_repo "https://github.com/jonschlinkert/sublime-markdown-extended.git" \
-            "$APP_PATH/sublime2/.cache/markdown-extended"
-  lnif "$APP_PATH/sublime2/.cache/markdown-extended" \
-       "$sublime_path/Packages/User/markdown-extended"
-
-  lnif "$APP_PATH/sublime2/Preferences.sublime-settings" \
-       "$sublime_path/Packages/User/Preferences.sublime-settings"
-
-  success "Successfully installed sublime2 Preference and monokai-extended theme"
-
-  install_fonts_source_code_pro
-
-  tip "You can change font_size and font_face in your sublime Preference"
 }
 
 function install_sublime3(){
@@ -1167,9 +1131,6 @@ else
         ;;
       homebrew)
         install_homebrew
-        ;;
-      sublime2)
-        install_sublime2
         ;;
       sublime3)
         install_sublime3

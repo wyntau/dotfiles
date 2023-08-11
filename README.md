@@ -21,7 +21,6 @@ All vailable tasks:
 - [git_extras](#task-git_extras)
 - [git_flow](#task-git_flow)
 - [homebrew](#task-homebrew)
-- [sublime2](#task-sublime2)
 - [sublime3](#task-sublime3)
 - [tmux](#task-tmux)
 - [vim_rc](#task-vim_rc)
@@ -76,7 +75,7 @@ You can do a specific task by run
     [Powerline fonts](https://github.com/powerline/fonts).
 
     This font will be installed automatically when do task
-    [emacs_spacemacs](#task-emacs_spacemacs), [sublime2](#task-sublime2),
+    [emacs_spacemacs](#task-emacs_spacemacs),
     [sublime3](#task-sublime3), [vim_plugins](#task-vim_plugins).
 
 - ### Task `git_alias`
@@ -122,48 +121,6 @@ You can do a specific task by run
     Requirement(s): `curl`
 
     Install homebrew for OS X and Linux(aka. linuxbrew on Linux).
-
-- ### Task `sublime2`
-    Requirement(s): `git`, `Sublime Text 2`
-
-    **bakup your preference file first!**
-
-    If you use `Sublime Text 2`, this task will add user Preference,
-    [`Monokai Extended`](https://github.com/jonschlinkert/sublime-monokai-extended)
-    colorscheme and
-    [`Markdown Extended`](https://github.com/jonschlinkert/sublime-markdown-extended)
-    plugin which supports more files including Markdown highlight.
-
-    After installing the preference, maybe you want to reset `font_face` and
-    `font_size` to what you prefer in `Preference.sublime-settings`. Also you
-    can see what sublime packages I used in [SublimePackages](sublime2/README.md).
-
-    If you use `VIM Mode` in Sublime Text 2 on OS X 10.8+, when you hold `h`,
-    `l`, `j`, `k`, the cursor will not move `left` `right` `down` `up`
-    continually like real VIM, the solution is below.
-
-    > Mac OS X Lion introduced a new, iOS-like context menu when you press and hold a key
-    > that enables you to choose a character from a menu of options. If you are on Lion
-    > try it by pressing and holding down 'e' in any app that uses the default NSTextField
-    > for input.
-
-    > It's a nice feature and continues the blending of Mac OS X and iOS features. However,
-    > it's a nightmare to deal with in Sublime Text 2 if you're running Vintage (Vim) mode,
-    > as it means you cannot press and hold h/j/k/l to move through your file. You have
-    > to repeatedly press the keys to navigate.
-
-    > You can disable this feature for just Sublime Text 2 by issuing the following command
-    > in your terminal:
-
-    >       defaults write com.sublimetext.2 ApplePressAndHoldEnabled -bool false
-
-    > Alternately, if you want this feature disabled globally, you can enter this:
-
-    >       defaults write -g ApplePressAndHoldEnabled -bool false
-
-    > In either case you'll need to restart your computer for the change to take place.
-
-    > Happy coding!
 
 - ### Task `sublime3`
     Requirement(s): `git`, `Sublime Text 3`
