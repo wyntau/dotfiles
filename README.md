@@ -21,7 +21,6 @@ All vailable tasks:
 - [git_extras](#task-git_extras)
 - [git_flow](#task-git_flow)
 - [homebrew](#task-homebrew)
-- [sublime3](#task-sublime3)
 - [tmux](#task-tmux)
 - [vim_rc](#task-vim_rc)
 - [vim_plugins](#task-vim_plugins)
@@ -75,8 +74,7 @@ You can do a specific task by run
     [Powerline fonts](https://github.com/powerline/fonts).
 
     This font will be installed automatically when do task
-    [emacs_spacemacs](#task-emacs_spacemacs),
-    [sublime3](#task-sublime3), [vim_plugins](#task-vim_plugins).
+    [emacs_spacemacs](#task-emacs_spacemacs) and [vim_plugins](#task-vim_plugins).
 
 - ### Task `git_alias`
     Requirement(s): `git`
@@ -121,21 +119,6 @@ You can do a specific task by run
     Requirement(s): `curl`
 
     Install homebrew for OS X and Linux(aka. linuxbrew on Linux).
-
-- ### Task `sublime3`
-    Requirement(s): `git`, `Sublime Text 3`
-
-    **bakup your preference file first!**
-
-    If you use `Sublime Text 3`, this task will add user Preference,
-    [`Monokai Extended`](https://github.com/jonschlinkert/sublime-monokai-extended)
-    colorscheme and
-    [`Markdown Extended`](https://github.com/jonschlinkert/sublime-markdown-extended)
-    plugin which supports more files including Markdown highlight.
-
-    After installing the preference, maybe you want to reset `font_face` and
-    `font_size` to what you prefer in `Preference.sublime-settings`. Also you
-    can see what sublime packages I used in [SublimePackages](sublime3/README.md).
 
 - ### Task `tmux`
     Requirement(s): `git`, `tmux`
