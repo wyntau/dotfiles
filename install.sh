@@ -595,26 +595,6 @@ function install_vim_rc(){
   lnif "$APP_PATH/vim/vimrc" \
        "$HOME/.vimrc"
 
-  if ( is_program_exists nvim ); then
-
-    # for newer neovim, code from `:help nvim-from-vim'
-    mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
-    lnif "$APP_PATH/vim" \
-         "$XDG_CONFIG_HOME/nvim"
-
-    # for old neovim
-    lnif "$APP_PATH/vim" \
-         "$HOME/.nvim"
-    lnif "$APP_PATH/vim/vimrc" \
-         "$HOME/.nvimrc"
-
-    if ( is_linux ); then
-      if ( ! is_program_exists 'xclip' ) && ( ! is_program_exists 'xsel' ); then
-        tip "Maybe you should install *xclip* or *xsel* for sharing data between vim registers and system clipboard"
-      fi;
-    fi;
-  fi;
-
   success "Successfully installed vimrc."
   success "You can add your own configs to ~/.vimrc.local, vim will source them automatically"
 }
