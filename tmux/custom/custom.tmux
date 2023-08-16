@@ -68,39 +68,6 @@ function panel_style(){
   tmux set-option -g pane-active-border-fg red
 }
 
-function vim_tmux_navigation(){
-  # work with vim plugin 'christoomey/vim-tmux-navigator'
-  # Smart pane switching with awareness of Vim splits.
-  # See: https://github.com/christoomey/vim-tmux-navigator
-  local is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
-    | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
-  tmux bind-key -n C-h if-shell "$is_vim" "send-keys C-h" "select-pane -L"
-  tmux bind-key -n C-j if-shell "$is_vim" "send-keys C-j" "select-pane -D"
-  tmux bind-key -n C-k if-shell "$is_vim" "send-keys C-k" "select-pane -U"
-  tmux bind-key -n C-l if-shell "$is_vim" "send-keys C-l" "select-pane -R"
-  tmux bind-key -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
-  tmux bind-key C-l send-keys 'C-l'
-
-  # # If you want to navigate between vim, fzf buffer and tmux, please use below config
-  # # See https://blog.bugsnag.com/tmux-and-vim/
-  # is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
-  #   | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
-  # is_fzf="ps -o state= -o comm= -t '#{pane_tty}' \
-  #   | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?fzf$'"
-  # tmux bind-key -n C-h run "($is_vim && tmux send-keys C-h) || \
-  #                  tmux select-pane -L"
-  # tmux bind-key -n C-j run "($is_vim && tmux send-keys C-j)  || \
-  #                  ($is_fzf && tmux send-keys C-j) || \
-  #                  tmux select-pane -D"
-  # tmux bind-key -n C-k run "($is_vim && tmux send-keys C-k) || \
-  #                  ($is_fzf && tmux send-keys C-k)  || \
-  #                  tmux select-pane -U"
-  # tmux bind-key -n C-l run "($is_vim && tmux send-keys C-l) || \
-  #                  tmux select-pane -R"
-  # tmux bind-key -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
-  # tmux bind-key C-l send-keys 'C-l'
-}
-
 function misc_config(){
   # 执行命令，比如看 Manpage
   tmux bind-key m command-prompt "splitw -h 'exec man %%'"
@@ -130,7 +97,6 @@ function main(){
   swap_panel
   status_style
   panel_style
-  vim_tmux_navigation
   misc_config
   load_user_config
 }
