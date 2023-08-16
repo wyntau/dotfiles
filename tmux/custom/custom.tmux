@@ -1,20 +1,5 @@
 #!/usr/bin/env bash
 
-function mouse_scroll(){
-  # If you want use mosh on server, and enable mouse report(scroll or select),
-  # you should use mosh version >=1.2.5
-
-  # these four options is only available brefore tmux 2.1
-  # was deleted in tmux 2.2
-  tmux set-window-option -g mode-mouse on 2>/dev/null
-  tmux set-window-option -g mouse-resize-pane on 2>/dev/null
-  tmux set-window-option -g mouse-select-pane on 2>/dev/null
-  tmux set-window-option -g mouse-select-window on 2>/dev/null
-
-  # `mouse` option was added in tmux 2.1
-  tmux set-window-option -g mouse on 2>/dev/null
-}
-
 function vi_style_copy_paste(){
   tmux set-window-option -g mode-keys vi
   # VI-style copy/paste (http://jasonwryan.com/blog/2011/06/07/copy-and-paste-in-tmux/)
@@ -92,7 +77,6 @@ function load_user_config(){
 }
 
 function main(){
-  mouse_scroll
   vi_style_copy_paste
   swap_panel
   status_style
