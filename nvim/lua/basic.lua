@@ -9,12 +9,8 @@ vim.opt.number = true
 -- 启用相对行号
 vim.opt.relativenumber = true
 --  插入模式下用绝对行号, 普通模式下用相对
-vim.cmd([[
-  autocmd FocusLost * :set norelativenumber number
-  autocmd FocusGained * :set relativenumber
-  autocmd InsertEnter * :set norelativenumber number
-  autocmd InsertLeave * :set relativenumber
-]])
+vim.api.nvim_create_autocmd({'FocusGained', 'InsertLeave'}, { command = ':set relativenumber' })
+vim.api.nvim_create_autocmd({'FocusLost', 'InsertEnter'}, { command = ':set norelativenumber number' })
 vim.opt.colorcolumn = '80,100'
 
 -- 使用空格代替制表符
