@@ -35,6 +35,9 @@ vim.opt.mouse = 'a'
 -- 允许使用鼠标选择文本
 vim.opt.selection = 'inclusive'
 
+-- 高亮当前行
+vim.opt.cursorline = true;
+
 -- 高亮搜索结果
 vim.opt.hlsearch = true
 -- 忽略大小写进行搜索
