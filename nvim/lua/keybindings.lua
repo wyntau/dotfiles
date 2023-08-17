@@ -15,6 +15,9 @@ vim.keymap.set("n", "0", "g0")
 
 vim.keymap.set('n', 'U', '<C-r>', { desc = 'remap U to <C-r> for easier redo' })
 
+vim.keymap.set('n', '<leader>x16', '<ESC>:%!xxd<CR>', { desc = '十六进制格式查看'})
+vim.keymap.set('n', '<leader>xx16', '<ESC>:%!xxd -r<CR>', { desc = '返回普通格式'})
+
 -- 插入模式, 使用ctrl-l跳出右括号
 vim.keymap.set('i', '<C-l>', '<Right>')
 vim.keymap.set('i', '<C-h>', '<Left>')
