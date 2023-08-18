@@ -553,6 +553,9 @@ function install_tmux(){
   sync_repo "https://github.com/tmux-plugins/tmux-pain-control" \
             "$APP_PATH/tmux/plugins/tmux-pain-control"
 
+  sync_repo "https://github.com/christoomey/vim-tmux-navigator" \
+            "$APP_PATH/tmux/plugins/vim-tmux-navigator"
+
   sync_repo "https://github.com/tmux-plugins/tmux-prefix-highlight" \
             "$APP_PATH/tmux/plugins/tmux-prefix-highlight"
 
