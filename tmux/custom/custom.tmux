@@ -19,12 +19,6 @@ function vi_style_copy_paste(){
   fi;
 }
 
-function swap_panel(){
-  # 交换两个窗格
-  tmux bind-key C-u swapp -U # 与上窗格交换 Ctrl-u
-  tmux bind-key C-d swapp -D # 与下窗格交换 Ctrl-d
-}
-
 function status_style(){
   ## status bar
   tmux set-option -g status-left "#[fg=green]S:#S #[fg=yellow]W:#I #[fg=cyan]P:#P"
@@ -78,7 +72,6 @@ function load_user_config(){
 
 function main(){
   vi_style_copy_paste
-  swap_panel
   status_style
   panel_style
   misc_config
