@@ -2,6 +2,8 @@
 
 # Git will search $PATH for this file, when invoked by "git dsf ...".
 
+# borrowed from https://github.com/zdharma-continuum/zsh-diff-so-fancy/blob/main/bin/git-dsf
+
 f() {
   [ -z "$GIT_PREFIX" ] \
     || cd "$GIT_PREFIX" \
