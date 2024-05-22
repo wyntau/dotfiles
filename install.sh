@@ -125,17 +125,22 @@ function sync_repo(){
 
   local repo_uri=$1
   local repo_path=$2
-  local repo_branch=${3:-master}
+  local repo_branch=$3
   local repo_name=${1:19} # length of (https://github.com/)
 
-  if ( ! is_dir_exists "$repo_path" ); then
+  local branch_option
+  if [[ ! -z repo_branch ]]; then
+    branch_option="--branch $repo_branch"
+  fi;
+
+  if ( ! is_dir_exists "$repo_path/.git" ); then
     info "Cloning $repo_name ..."
     mkdir -p "$repo_path"
-    git clone --depth 1 --branch "$repo_branch" "$repo_uri" "$repo_path"
+    git clone --depth 1 $branch_option "$repo_uri" "$repo_path"
     success "Successfully cloned $repo_name."
   else
     info "Updating $repo_name ..."
-    cd "$repo_path" && git pull origin "$repo_branch"
+    cd "$repo_path" && git pull origin `git branch --show-current`
     success "Successfully updated $repo_name."
   fi;
 
@@ -434,8 +439,7 @@ function install_git_diff_so_fancy(){
   step "Installing git diff-so-fancy ..."
 
   sync_repo "https://github.com/so-fancy/diff-so-fancy.git" \
-            "$APP_PATH/.cache/diff-so-fancy" \
-            "next"
+            "$APP_PATH/.cache/diff-so-fancy"
 
   lnif "$APP_PATH/.cache/diff-so-fancy/diff-so-fancy" \
        "/usr/local/bin/diff-so-fancy"
@@ -907,8 +911,7 @@ function install_zsh_omz_plugins_git_diff_so_fancy(){
 
   # add zsh plugin for git diff-so-fancy
   sync_repo "https://github.com/so-fancy/diff-so-fancy.git" \
-            "$APP_PATH/.cache/diff-so-fancy" \
-            "next"
+            "$APP_PATH/.cache/diff-so-fancy"
 
   lnif "$APP_PATH/git/bin/git-dsf" \
        "$APP_PATH/.cache/diff-so-fancy/git-dsf"
@@ -1014,8 +1017,7 @@ function install_zsh_zim_plugins_git_diff_so_fancy(){
 
   # add zsh plugin for git diff-so-fancy
   sync_repo "https://github.com/so-fancy/diff-so-fancy.git" \
-            "$APP_PATH/.cache/diff-so-fancy" \
-            "next"
+            "$APP_PATH/.cache/diff-so-fancy"
 
   lnif "$APP_PATH/git/bin/git-dsf" \
        "$APP_PATH/.cache/diff-so-fancy/git-dsf"
