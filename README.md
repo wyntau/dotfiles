@@ -17,7 +17,10 @@ All vailable tasks:
 - [git_alias](#task-git_alias)
 - [git_config](#task-git_config)
 - [git_diff_so_fancy](#task-git_diff_so_fancy)
-- [git_dmtool](#task-git_dmtool)
+- [git_difftool_kaleidoscope](#task-git_difftool_kaleidoscope)
+- [git_mergetool_kaleidoscope](#task-git_mergetool_kaleidoscope)
+- [git_difftool_vscode](#task-git_difftool_vscode)
+- [git_mergetool_vscode](#task-git_mergetool_vscode)
 - [git_extras](#task-git_extras)
 - [git_flow](#task-git_flow)
 - [homebrew](#task-homebrew)
@@ -94,12 +97,29 @@ You can do a specific task by run
 
     If you use zsh, you can try the zsh plugin version [task zsh_omz_plugins_git_diff_so_fancy](#task-zsh_omz_plugins_git_diff_so_fancy) or [task zsh_zim_plugins_git_diff_so_fancy](#task-zsh_zim_plugins_git_diff_so_fancy)
 
-- ### Task `git_dmtool`
+- ### Task `git_difftool_kaleidoscope`
     Requirement(s): `MAC`, `git`, `Kaleidoscope`(`ksdiff`)
 
-    Config git's difftool and mergetool to Kaleidoscope.
+    Config git's difftool to Kaleidoscope.
 
     Kaleidoscope is a sooooo excellent diff and merge tool
+
+- ### Task `git_mergetool_kaleidoscope`
+    Requirement(s): `MAC`, `git`, `Kaleidoscope`(`ksdiff`)
+
+    Config git's mergetool to Kaleidoscope.
+
+    Kaleidoscope is a sooooo excellent diff and merge tool
+
+- ### Task `git_difftool_vscode`
+    Requirement(s): `git`, `VSCode`
+
+    Config git's difftool to VSCode.
+
+- ### Task `git_mergetool_vscode`
+    Requirement(s): `git`, `VSCode`
+
+    Config git's mergetool to VSCode.
 
 - ### Task `git_extras`
     Requirement(s): `git`
@@ -415,7 +435,7 @@ You can do a specific task by run
 - ### Task `zsh_omz_plugins_git_diff_so_fancy`
     Requirement(s): `git`, `zsh`, [task zsh_omz](#task-zsh_omz)
 
-    Install oh-my-zsh plugin [zsh-diff-so-fancy](https://github.com/zdharma/zsh-diff-so-fancy) for git [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
+    Install oh-my-zsh plugin support for git [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 
 - ### Task `zsh_omz_plugins_thefuck`
     Requirement(s): `git`, `zsh`, [task zsh_omz](#task-zsh_omz)
@@ -448,7 +468,7 @@ You can do a specific task by run
 - ### Task `zsh_zim_plugins_git_diff_so_fancy`
     Requirement(s): `git`, `zsh`, [task zsh_zim](#task-zsh_zim)
 
-    Install zimfw plugin [zsh-diff-so-fancy](https://github.com/zdharma/zsh-diff-so-fancy) for git [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
+    Install zimfw plugin support for git [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 
 - ### Task `zsh_zim_plugins_omz_tmux`
     Requirement(s): `git`, `zsh`, `tmux`
