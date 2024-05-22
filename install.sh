@@ -168,6 +168,8 @@ function usage(){
   echo '    - fonts_source_code_pro'
   echo '    - git_config'
   echo '    - git_diff_so_fancy'
+  echo '    - git_difftool_vscode'
+  echo '    - git_mergetool_vscode'
   echo '    - git_dmtool'
   echo '    - git_extras'
   echo '    - git_flow'
@@ -477,6 +479,34 @@ function install_git_dmtool(){
   git config --global mergetool.prompt false
 
   success "Successfully config git's difftool and mergetool"
+}
+
+function install_git_difftool_vscode(){
+  must_program_exists "git" \
+                      "code"
+
+  step "Config git's difftool to VSCode ..."
+
+  info "Config git's difftool to VSCode"
+  git config --global diff.tool vscode
+  git config --global difftool.vscode.cmd 'code --wait --diff "$LOCAL" "$REMOTE"'
+  git config --global difftool.prompt false
+
+  success "Successfully config git's difftool"
+}
+
+function install_git_mergetool_vscode(){
+  must_program_exists "git" \
+                      "code"
+
+  step "Config git's mergetool to VSCode ..."
+
+  info "Config git's mergetool to VSCode"
+  git config --global merge.tool vscode
+  git config --global mergetool.vscode.cmd 'code --wait --merge "$REMOTE" "$LOCAL" "$BASE" "$MERGED"'
+  git config --global mergetool.prompt false
+
+  success "Successfully config git's mergetool"
 }
 
 function install_git_extras(){
@@ -1069,6 +1099,12 @@ else
         ;;
       git_dmtool)
         install_git_dmtool
+        ;;
+      git_difftool_vscode)
+        install_git_difftool_vscode
+        ;;
+      git_mergetool_vscode)
+        install_git_mergetool_vscode
         ;;
       git_extras)
         install_git_extras
