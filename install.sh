@@ -434,8 +434,8 @@ function install_git_diff_so_fancy(){
   step "Installing git diff-so-fancy ..."
 
   sync_repo "https://github.com/so-fancy/diff-so-fancy.git" \
-            "$APP_PATH/.cache/diff-so-fancy"
-  cd "$APP_PATH/.cache/diff-so-fancy"
+            "$APP_PATH/.cache/diff-so-fancy" \
+            "next"
 
   lnif "$APP_PATH/.cache/diff-so-fancy/diff-so-fancy" \
        "/usr/local/bin/diff-so-fancy"
@@ -919,11 +919,15 @@ function install_zsh_omz_plugins_git_diff_so_fancy(){
   # add zsh plugin for git diff-so-fancy
   sync_repo "https://github.com/so-fancy/diff-so-fancy.git" \
             "$APP_PATH/.cache/diff-so-fancy" \
-            "main"
+            "next"
 
-  echo '#!/bin/sh' > "$APP_PATH/.cache/diff-so-fancy/bin/git-dsfc"
-  echo 'f(){ git dsf --cached "$@"; }; f "$@"' >> "$APP_PATH/.cache/diff-so-fancy/bin/git-dsfc"
-  chmod +x "$APP_PATH/.cache/diff-so-fancy/bin/git-dsfc"
+  echo '#!/bin/sh' > "$APP_PATH/.cache/diff-so-fancy/git-dsf"
+  echo 'f(){ [ -z "$GIT_PREFIX" ] || cd "$GIT_PREFIX" && git diff --color "$@" | diff-so-fancy | less --tabs=4 -RFXS; }; f "$@"' >> "$APP_PATH/.cache/diff-so-fancy/git-dsf"
+  chmod +x "$APP_PATH/.cache/diff-so-fancy/git-dsf"
+
+  echo '#!/bin/sh' > "$APP_PATH/.cache/diff-so-fancy/git-dsfc"
+  echo 'f(){ git dsf --cached "$@"; }; f "$@"' >> "$APP_PATH/.cache/diff-so-fancy/git-dsfc"
+  chmod +x "$APP_PATH/.cache/diff-so-fancy/git-dsfc"
 
   lnif "$APP_PATH/.cache/diff-so-fancy" \
        "$APP_PATH/zsh/.cache/ohmyzsh/custom/plugins/zsh-diff-so-fancy"
@@ -1023,14 +1027,18 @@ function install_zsh_zim_plugins_git_diff_so_fancy(){
   # add zsh plugin for git diff-so-fancy
   sync_repo "https://github.com/so-fancy/diff-so-fancy.git" \
             "$APP_PATH/.cache/diff-so-fancy" \
-            "main"
+            "next"
 
-  echo '#!/bin/sh' > "$APP_PATH/.cache/diff-so-fancy/bin/git-dsfc"
-  echo 'f(){ git dsf --cached "$@"; }; f "$@"' >> "$APP_PATH/.cache/diff-so-fancy/bin/git-dsfc"
-  chmod +x "$APP_PATH/.cache/diff-so-fancy/bin/git-dsfc"
+  echo '#!/bin/sh' > "$APP_PATH/.cache/diff-so-fancy/git-dsf"
+  echo 'f(){ [ -z "$GIT_PREFIX" ] || cd "$GIT_PREFIX" && git diff --color "$@" | diff-so-fancy | less --tabs=4 -RFXS; }; f "$@"' >> "$APP_PATH/.cache/diff-so-fancy/git-dsf"
+  chmod +x "$APP_PATH/.cache/diff-so-fancy/git-dsf"
+
+  echo '#!/bin/sh' > "$APP_PATH/.cache/diff-so-fancy/git-dsfc"
+  echo 'f(){ git dsf --cached "$@"; }; f "$@"' >> "$APP_PATH/.cache/diff-so-fancy/git-dsfc"
+  chmod +x "$APP_PATH/.cache/diff-so-fancy/git-dsfc"
 
   lnif "$APP_PATH/.cache/diff-so-fancy" \
-       "$APP_PATH/zsh/.cache/zimfw/modules/zsh-diff-so-fancy"
+       "$APP_PATH/zsh/.cache/zimfw/modules/diff-so-fancy"
 
   if ! grep -iE "^[ \t]*zmodule[ \t]+so-fancy/diff-so-fancy[ \t]*$" "$HOME/.zimrc" &>/dev/null ; then
     echo 'zmodule so-fancy/diff-so-fancy' >> "$HOME/.zimrc"
