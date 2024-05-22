@@ -444,6 +444,8 @@ function install_git_diff_so_fancy(){
        "$APP_PATH/.cache/diff-so-fancy/git-dsf"
   lnif "$APP_PATH/git/bin/git-dsfc" \
        "$APP_PATH/.cache/diff-so-fancy/git-dsfc"
+  lnif "$APP_PATH/git/bin/git-lsp" \
+       "$APP_PATH/.cache/diff-so-fancy/git-lsp"
 
   success "Successfully installed git diff-so-fancy."
 }
@@ -912,6 +914,8 @@ function install_zsh_omz_plugins_git_diff_so_fancy(){
        "$APP_PATH/.cache/diff-so-fancy/git-dsf"
   lnif "$APP_PATH/git/bin/git-dsfc" \
        "$APP_PATH/.cache/diff-so-fancy/git-dsfc"
+  lnif "$APP_PATH/git/bin/git-lsp" \
+       "$APP_PATH/.cache/diff-so-fancy/git-lsp"
 
   lnif "$APP_PATH/.cache/diff-so-fancy" \
        "$APP_PATH/zsh/.cache/ohmyzsh/custom/plugins/zsh-diff-so-fancy"
@@ -1017,6 +1021,8 @@ function install_zsh_zim_plugins_git_diff_so_fancy(){
        "$APP_PATH/.cache/diff-so-fancy/git-dsf"
   lnif "$APP_PATH/git/bin/git-dsfc" \
        "$APP_PATH/.cache/diff-so-fancy/git-dsfc"
+  lnif "$APP_PATH/git/bin/git-lsp" \
+       "$APP_PATH/.cache/diff-so-fancy/git-lsp"
 
   lnif "$APP_PATH/.cache/diff-so-fancy" \
        "$APP_PATH/zsh/.cache/zimfw/modules/diff-so-fancy"
