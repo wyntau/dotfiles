@@ -434,10 +434,10 @@ function install_git_diff_so_fancy(){
   step "Installing git diff-so-fancy ..."
 
   sync_repo "https://github.com/so-fancy/diff-so-fancy.git" \
-            "$APP_PATH/git/.cache/diff-so-fancy"
-  cd "$APP_PATH/git/.cache/diff-so-fancy"
+            "$APP_PATH/.cache/diff-so-fancy"
+  cd "$APP_PATH/.cache/diff-so-fancy"
 
-  lnif "$APP_PATH/git/.cache/diff-so-fancy/diff-so-fancy" \
+  lnif "$APP_PATH/.cache/diff-so-fancy/diff-so-fancy" \
        "/usr/local/bin/diff-so-fancy"
 
   git config --global alias.dsf "diff --color"
@@ -917,15 +917,15 @@ function install_zsh_omz_plugins_git_diff_so_fancy(){
   step "Install git diff-so-fancy plugin for oh-my-zsh ..."
 
   # add zsh plugin for git diff-so-fancy
-  sync_repo "https://github.com/zdharma-continuum/zsh-diff-so-fancy.git" \
-            "$APP_PATH/zsh/.cache/zsh-diff-so-fancy" \
+  sync_repo "https://github.com/so-fancy/diff-so-fancy.git" \
+            "$APP_PATH/.cache/diff-so-fancy" \
             "main"
 
-  echo '#!/bin/sh' > "$APP_PATH/zsh/.cache/zsh-diff-so-fancy/bin/git-dsfc"
-  echo 'f(){ git dsf --cached "$@"; }; f "$@"' >> "$APP_PATH/zsh/.cache/zsh-diff-so-fancy/bin/git-dsfc"
-  chmod +x "$APP_PATH/zsh/.cache/zsh-diff-so-fancy/bin/git-dsfc"
+  echo '#!/bin/sh' > "$APP_PATH/.cache/diff-so-fancy/bin/git-dsfc"
+  echo 'f(){ git dsf --cached "$@"; }; f "$@"' >> "$APP_PATH/.cache/diff-so-fancy/bin/git-dsfc"
+  chmod +x "$APP_PATH/.cache/diff-so-fancy/bin/git-dsfc"
 
-  lnif "$APP_PATH/zsh/.cache/zsh-diff-so-fancy" \
+  lnif "$APP_PATH/.cache/diff-so-fancy" \
        "$APP_PATH/zsh/.cache/ohmyzsh/custom/plugins/zsh-diff-so-fancy"
 
   success "Successfully installed git diff-so-fancy for oh-my-zsh."
@@ -1021,19 +1021,19 @@ function install_zsh_zim_plugins_git_diff_so_fancy(){
   step "Install git diff-so-fancy plugin for zim ..."
 
   # add zsh plugin for git diff-so-fancy
-  sync_repo "https://github.com/zdharma-continuum/zsh-diff-so-fancy.git" \
-            "$APP_PATH/zsh/.cache/zsh-diff-so-fancy" \
+  sync_repo "https://github.com/so-fancy/diff-so-fancy.git" \
+            "$APP_PATH/.cache/diff-so-fancy" \
             "main"
 
-  echo '#!/bin/sh' > "$APP_PATH/zsh/.cache/zsh-diff-so-fancy/bin/git-dsfc"
-  echo 'f(){ git dsf --cached "$@"; }; f "$@"' >> "$APP_PATH/zsh/.cache/zsh-diff-so-fancy/bin/git-dsfc"
-  chmod +x "$APP_PATH/zsh/.cache/zsh-diff-so-fancy/bin/git-dsfc"
+  echo '#!/bin/sh' > "$APP_PATH/.cache/diff-so-fancy/bin/git-dsfc"
+  echo 'f(){ git dsf --cached "$@"; }; f "$@"' >> "$APP_PATH/.cache/diff-so-fancy/bin/git-dsfc"
+  chmod +x "$APP_PATH/.cache/diff-so-fancy/bin/git-dsfc"
 
-  lnif "$APP_PATH/zsh/.cache/zsh-diff-so-fancy" \
+  lnif "$APP_PATH/.cache/diff-so-fancy" \
        "$APP_PATH/zsh/.cache/zimfw/modules/zsh-diff-so-fancy"
 
-  if ! grep -iE "^[ \t]*zmodule[ \t]+zdharma-continuum/zsh-diff-so-fancy[ \t]*$" "$HOME/.zimrc" &>/dev/null ; then
-    echo 'zmodule zdharma-continuum/zsh-diff-so-fancy' >> "$HOME/.zimrc"
+  if ! grep -iE "^[ \t]*zmodule[ \t]+so-fancy/diff-so-fancy[ \t]*$" "$HOME/.zimrc" &>/dev/null ; then
+    echo 'zmodule so-fancy/diff-so-fancy' >> "$HOME/.zimrc"
   fi;
 
   success "Successfully installed git diff-so-fancy for zim."
