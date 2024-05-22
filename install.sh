@@ -170,7 +170,8 @@ function usage(){
   echo '    - git_diff_so_fancy'
   echo '    - git_difftool_vscode'
   echo '    - git_mergetool_vscode'
-  echo '    - git_dmtool'
+  echo '    - git_difftool_kaleidoscope'
+  echo '    - git_mergetool_kaleidoscope'
   echo '    - git_extras'
   echo '    - git_flow'
   echo '    - homebrew'
@@ -453,8 +454,7 @@ function install_git_diff_so_fancy(){
   success "Successfully installed git diff-so-fancy."
 }
 
-function install_git_dmtool(){
-
+function install_git_difftool_kaleidoscope(){
   if ( ! is_mac ); then
     error "Only MAC is supported"
     exit
@@ -465,12 +465,28 @@ function install_git_dmtool(){
 
   must_file_exists "/Applications/Kaleidoscope.app/Contents/MacOS/Kaleidoscope"
 
-  step "Config git's difftool and mergetool to Kaleidoscope ..."
+  step "Config git's difftool to Kaleidoscope ..."
 
   info "Config git's difftool to Kaleidoscope"
   git config --global diff.tool Kaleidoscope
   git config --global difftool.Kaleidoscope.cmd 'ksdiff --partial-changeset --relative-path "$MERGED" -- "$LOCAL" "$REMOTE"'
   git config --global difftool.prompt false
+
+  success "Successfully config git's difftool"
+}
+
+function install_git_mergetool_kaleidoscope(){
+  if ( ! is_mac ); then
+    error "Only MAC is supported"
+    exit
+  fi;
+
+  must_program_exists "git" \
+                      "ksdiff"
+
+  must_file_exists "/Applications/Kaleidoscope.app/Contents/MacOS/Kaleidoscope"
+
+  step "Config git's mergetool to Kaleidoscope ..."
 
   info "Config git's mergetool to Kaleidoscope"
   git config --global merge.tool Kaleidoscope
@@ -478,7 +494,7 @@ function install_git_dmtool(){
   git config --global mergetool.Kaleidoscope.trustExitCode true
   git config --global mergetool.prompt false
 
-  success "Successfully config git's difftool and mergetool"
+  success "Successfully config git's mergetool"
 }
 
 function install_git_difftool_vscode(){
@@ -1097,14 +1113,17 @@ else
       git_diff_so_fancy)
         install_git_diff_so_fancy
         ;;
-      git_dmtool)
-        install_git_dmtool
-        ;;
       git_difftool_vscode)
         install_git_difftool_vscode
         ;;
       git_mergetool_vscode)
         install_git_mergetool_vscode
+        ;;
+      git_difftool_kaleidoscope)
+        install_git_difftool_kaleidoscope
+        ;;
+      git_mergetool_kaleidoscope)
+        install_git_mergetool_kaleidoscope
         ;;
       git_extras)
         install_git_extras
