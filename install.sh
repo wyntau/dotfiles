@@ -440,16 +440,23 @@ function install_git_diff_so_fancy(){
   lnif "$APP_PATH/git/.cache/diff-so-fancy/diff-so-fancy" \
        "/usr/local/bin/diff-so-fancy"
 
-  # use diff-so-fancy globally
-  # git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+  git config --global alias.dsf "diff --color"
+  git config --global alias.dsfc "diff --color --cached"
+  git config --global pager.dsf "diff-so-fancy | less --tabs=4 -RFXS"
+  git config --global pager.dsfc "diff-so-fancy | less --tabs=4 -RFXS"
 
-  # override default 'git df' and 'git dfc'
-  git config --global alias.dsf '!f() { [ -z "$GIT_PREFIX" ] || cd "$GIT_PREFIX" ; git diff --color "$@" | diff-so-fancy  | less --tabs=4 -RFX; }; f'
-
-  git config --global color.diff-highlight.oldNormal "red bold"
+  git config --global color.diff-highlight.oldNormal    "red bold"
   git config --global color.diff-highlight.oldHighlight "red bold 52"
-  git config --global color.diff-highlight.newNormal "green bold"
+  git config --global color.diff-highlight.newNormal    "green bold"
   git config --global color.diff-highlight.newHighlight "green bold 22"
+
+  git config --global color.diff.meta       "11"
+  git config --global color.diff.frag       "magenta bold"
+  git config --global color.diff.func       "146 bold"
+  git config --global color.diff.commit     "yellow bold"
+  git config --global color.diff.old        "red bold"
+  git config --global color.diff.new        "green bold"
+  git config --global color.diff.whitespace "red reverse"
 
   success "Successfully installed git diff-so-fancy."
 }
