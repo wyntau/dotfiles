@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Git will search $PATH for this file, when invoked by "git dsfc ...".
+
+f() {
+  git dsf --cached "$@";
+};
+
+f "$@"

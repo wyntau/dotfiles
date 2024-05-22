@@ -440,23 +440,10 @@ function install_git_diff_so_fancy(){
   lnif "$APP_PATH/.cache/diff-so-fancy/diff-so-fancy" \
        "/usr/local/bin/diff-so-fancy"
 
-  git config --global alias.dsf "diff --color"
-  git config --global alias.dsfc "diff --color --cached"
-  git config --global pager.dsf "diff-so-fancy | less --tabs=4 -RFXS"
-  git config --global pager.dsfc "diff-so-fancy | less --tabs=4 -RFXS"
-
-  git config --global color.diff-highlight.oldNormal    "red bold"
-  git config --global color.diff-highlight.oldHighlight "red bold 52"
-  git config --global color.diff-highlight.newNormal    "green bold"
-  git config --global color.diff-highlight.newHighlight "green bold 22"
-
-  git config --global color.diff.meta       "11"
-  git config --global color.diff.frag       "magenta bold"
-  git config --global color.diff.func       "146 bold"
-  git config --global color.diff.commit     "yellow bold"
-  git config --global color.diff.old        "red bold"
-  git config --global color.diff.new        "green bold"
-  git config --global color.diff.whitespace "red reverse"
+  lnif "$APP_PATH/git/bin/git-dsf" \
+       "$APP_PATH/.cache/diff-so-fancy/git-dsf"
+  lnif "$APP_PATH/git/bin/git-dsfc" \
+       "$APP_PATH/.cache/diff-so-fancy/git-dsfc"
 
   success "Successfully installed git diff-so-fancy."
 }
@@ -921,13 +908,10 @@ function install_zsh_omz_plugins_git_diff_so_fancy(){
             "$APP_PATH/.cache/diff-so-fancy" \
             "next"
 
-  echo '#!/bin/sh' > "$APP_PATH/.cache/diff-so-fancy/git-dsf"
-  echo 'f(){ [ -z "$GIT_PREFIX" ] || cd "$GIT_PREFIX" && git diff --color "$@" | diff-so-fancy | less --tabs=4 -RFXS; }; f "$@"' >> "$APP_PATH/.cache/diff-so-fancy/git-dsf"
-  chmod +x "$APP_PATH/.cache/diff-so-fancy/git-dsf"
-
-  echo '#!/bin/sh' > "$APP_PATH/.cache/diff-so-fancy/git-dsfc"
-  echo 'f(){ git dsf --cached "$@"; }; f "$@"' >> "$APP_PATH/.cache/diff-so-fancy/git-dsfc"
-  chmod +x "$APP_PATH/.cache/diff-so-fancy/git-dsfc"
+  lnif "$APP_PATH/git/bin/git-dsf" \
+       "$APP_PATH/.cache/diff-so-fancy/git-dsf"
+  lnif "$APP_PATH/git/bin/git-dsfc" \
+       "$APP_PATH/.cache/diff-so-fancy/git-dsfc"
 
   lnif "$APP_PATH/.cache/diff-so-fancy" \
        "$APP_PATH/zsh/.cache/ohmyzsh/custom/plugins/zsh-diff-so-fancy"
@@ -1029,13 +1013,10 @@ function install_zsh_zim_plugins_git_diff_so_fancy(){
             "$APP_PATH/.cache/diff-so-fancy" \
             "next"
 
-  echo '#!/bin/sh' > "$APP_PATH/.cache/diff-so-fancy/git-dsf"
-  echo 'f(){ [ -z "$GIT_PREFIX" ] || cd "$GIT_PREFIX" && git diff --color "$@" | diff-so-fancy | less --tabs=4 -RFXS; }; f "$@"' >> "$APP_PATH/.cache/diff-so-fancy/git-dsf"
-  chmod +x "$APP_PATH/.cache/diff-so-fancy/git-dsf"
-
-  echo '#!/bin/sh' > "$APP_PATH/.cache/diff-so-fancy/git-dsfc"
-  echo 'f(){ git dsf --cached "$@"; }; f "$@"' >> "$APP_PATH/.cache/diff-so-fancy/git-dsfc"
-  chmod +x "$APP_PATH/.cache/diff-so-fancy/git-dsfc"
+  lnif "$APP_PATH/git/bin/git-dsf" \
+       "$APP_PATH/.cache/diff-so-fancy/git-dsf"
+  lnif "$APP_PATH/git/bin/git-dsfc" \
+       "$APP_PATH/.cache/diff-so-fancy/git-dsfc"
 
   lnif "$APP_PATH/.cache/diff-so-fancy" \
        "$APP_PATH/zsh/.cache/zimfw/modules/diff-so-fancy"
