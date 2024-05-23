@@ -150,15 +150,6 @@ if ( is_program_exists git ); then
       git-extras
     )
   fi;
-
-  # only enable git-flow-completion when we have installed git-flow-avh
-  # don't use oh-my-zsh included git-flow or git-flow-avh
-  if ( is_program_exists git-flow ) && ( is_custom_plugin_exists git-flow-completion ); then
-    plugins=(
-      $plugins
-      git-flow-completion
-    )
-  fi;
 fi;
 
 # if we have httpie installed, add httpie plugin

@@ -178,7 +178,6 @@ function usage(){
   echo '    - git_difftool_kaleidoscope'
   echo '    - git_mergetool_kaleidoscope'
   echo '    - git_extras'
-  echo '    - git_flow'
   echo '    - homebrew'
   echo '    - tmux'
   echo '    - vim_rc'
@@ -546,28 +545,6 @@ function install_git_extras(){
   fi;
 
   success "Successfully installed git-extras."
-}
-
-function install_git_flow(){
-
-  must_program_exists "git"
-
-  step "Installing git-flow-avh ..."
-  sync_repo "https://github.com/petervanderdoes/gitflow-avh.git" \
-            "$APP_PATH/git/.cache/git-flow-avh"
-  cd "$APP_PATH/git/.cache/git-flow-avh"
-
-  if [ `id -u` -eq 0 ]; then
-    make install
-  else
-    sudo make install
-  fi;
-
-  step "Installing git-flow-completion ..."
-  sync_repo "https://github.com/petervanderdoes/git-flow-completion.git" \
-            "$APP_PATH/zsh/.cache/ohmyzsh/custom/plugins/git-flow-completion"
-
-  success "Successfully installed git-flow-avh and git-flow-completion."
 }
 
 function install_homebrew(){
@@ -1128,9 +1105,6 @@ else
         ;;
       git_extras)
         install_git_extras
-        ;;
-      git_flow)
-        install_git_flow
         ;;
       homebrew)
         install_homebrew

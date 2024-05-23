@@ -22,7 +22,6 @@ All vailable tasks:
 - [git_difftool_vscode](#task-git_difftool_vscode)
 - [git_mergetool_vscode](#task-git_mergetool_vscode)
 - [git_extras](#task-git_extras)
-- [git_flow](#task-git_flow)
 - [homebrew](#task-homebrew)
 - [tmux](#task-tmux)
 - [vim_rc](#task-vim_rc)
@@ -126,14 +125,6 @@ You can do a specific task by run
 
     Install [`git-extras`](https://github.com/tj/git-extras) plugin for git. git-extras( _Linux, OS X_ ) has some
     useful tools for git.
-
-- ### Task `git_flow`
-    Requirement(s): `git`
-
-    Install `git-flow` plugin for git.
-
-    A post about git-flow:
-    [a-successful-git-branching-model](http://nvie.com/posts/a-successful-git-branching-model/)
 
 - ### Task `homebrew`
     Requirement(s): `curl`
@@ -413,8 +404,6 @@ You can do a specific task by run
     | gitfast                  | git                                                   |                                                |
     | diff-so-fancy            | [task zsh_omz_plugins_git_diff_so_fancy](#task-zsh_omz_plugins_git_diff_so_fancy)|                     |
     | git-extras               | [task git_extras](#task-git_extras)                   |                                                |
-    | git-flow                 | [task git_flow](#task-git_flow)                       |                                                |
-    | git-flow-completion      | [task git_flow](#task-git_flow)                       |                                                |
     | httpie                   | httpie                                                |                                                |
     | mosh                     | mosh                                                  |                                                |
     | thefuck                  | [task zsh_omz_plugins_thefuck](#task-zsh_omz_plugins_thefuck) |                                                |
