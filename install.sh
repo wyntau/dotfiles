@@ -826,9 +826,6 @@ function install_nvim(){
   lnif "$APP_PATH/nvim" \
        "$HOME/.config/nvim"
 
-  sync_repo "https://github.com/wbthomason/packer.nvim" \
-            "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
-
   success "Successfully installed nvim"
 }
 

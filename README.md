@@ -168,9 +168,6 @@ You can do a specific task by run
 
     And then add the new vim **PATH** into your `$PATH`.
 
-    Additionally, if you have installed `neovim`, this task will link `vim` to
-    `~/.nvim`, `vim/vimrc` to `~/.nvimrc`.
-
     You can add your custom configs or override dotvim configs in `~/.vimrc.local`.
 
 - ### Task `vim_plugins`
