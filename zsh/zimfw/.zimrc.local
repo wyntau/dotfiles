@@ -1,4 +1,4 @@
 zmodule skywind3000/z.lua
-zmodule zdharma-continuum/zsh-diff-so-fancy
+zmodule so-fancy/diff-so-fancy
 zmodule zdharma-continuum/fast-syntax-highlighting
 zmodule le0me55i/zsh-extract

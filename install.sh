@@ -895,7 +895,7 @@ function install_zsh_omz_plugins_git_diff_so_fancy(){
        "$APP_PATH/.cache/diff-so-fancy/git-lsp"
 
   lnif "$APP_PATH/.cache/diff-so-fancy" \
-       "$APP_PATH/zsh/.cache/ohmyzsh/custom/plugins/zsh-diff-so-fancy"
+       "$APP_PATH/zsh/.cache/ohmyzsh/custom/plugins/diff-so-fancy"
 
   success "Successfully installed git diff-so-fancy for oh-my-zsh."
 }
