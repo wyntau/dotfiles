@@ -16,16 +16,18 @@ for brew_path in "${brew_paths[@]}"; do
 done;
 
 # add mirror config for electron
-export ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/
+export ELECTRON_MIRROR=https://npmmirror.com/mirrors/electron/
 # add mirror config for sass binary
-export SASS_BINARY_SITE=http://npm.taobao.org/mirrors/node-sass
+export SASS_BINARY_SITE=https://npmmirror.com/mirrors/node-sass
 # add mirror config for puppeteer
-export PUPPETEER_DOWNLOAD_HOST=https://npm.taobao.org/mirrors
+export PUPPETEER_DOWNLOAD_HOST=https://npmmirror.com/mirrors
 # add mirror config for node-sqlite3
-export SQLITE3_BINARY_SITE=http://npm.taobao.org/mirrors/sqlite3
+export SQLITE3_BINARY_SITE=https://npmmirror.com/mirrors/sqlite3
+# other mirror configs
+# @see https://github.com/cnpm/binary-mirror-config
 
 # add mirror config for nvm
-export NVM_NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node
+export NVM_NODEJS_ORG_MIRROR=https://npmmirror.com/mirrors/node
 # Set NVM_DIR if it isn't already defined
 [[ -z "$NVM_DIR" ]] && export NVM_DIR="$HOME/.nvm"
 # load nvm
