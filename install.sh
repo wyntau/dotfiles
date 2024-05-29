@@ -440,9 +440,6 @@ function install_git_diff_so_fancy(){
   sync_repo "https://github.com/so-fancy/diff-so-fancy.git" \
             "$APP_PATH/.cache/diff-so-fancy"
 
-  lnif "$APP_PATH/.cache/diff-so-fancy/diff-so-fancy" \
-       "/usr/local/bin/diff-so-fancy"
-
   lnif "$APP_PATH/git/bin/git-dsf" \
        "$APP_PATH/.cache/diff-so-fancy/git-dsf"
   lnif "$APP_PATH/git/bin/git-dsfc" \
@@ -451,6 +448,7 @@ function install_git_diff_so_fancy(){
        "$APP_PATH/.cache/diff-so-fancy/git-lsp"
 
   success "Successfully installed git diff-so-fancy."
+  info "Please add '$APP_PATH/.cache/diff-so-fancy' to your PATH."
 }
 
 function install_git_difftool_kaleidoscope(){
