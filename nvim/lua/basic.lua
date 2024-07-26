@@ -52,7 +52,7 @@ vim.opt.showmatch = true
 vim.keymap.set('n', '<leader>sc', ':nohlsearch<CR>')
 
 -- 启用折叠
-vim.opt.foldenable = true
+vim.opt.foldenable = false
 -- 设置折叠方法为基于缩进的折叠
 vim.opt.foldmethod = 'indent'
 
