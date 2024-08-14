@@ -807,6 +807,8 @@ function install_nvim(){
   lnif "$APP_PATH/nvim" \
        "$HOME/.config/nvim"
 
+  nvim --headless "+Lazy! sync" +qa
+
   success "Successfully installed nvim"
 }
 
